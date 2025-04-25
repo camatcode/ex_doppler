@@ -27,7 +27,7 @@ defmodule ExDoppler.ConfigsTest do
 
     assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
 
-    assert {:ok, %{page: 1, configs: [_config]}} =
+    assert {:ok, %{page: 1, configs: [config]}} =
              Configs.list_configs(project: project.name, per_page: 1)
   end
 end
