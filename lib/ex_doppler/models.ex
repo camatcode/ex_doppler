@@ -62,3 +62,22 @@ defmodule ExDoppler.Environment do
   @moduledoc false
   defstruct [:created_at, :id, :initial_fetch_at, :name, :project, :slug]
 end
+
+defmodule ExDoppler.Config do
+  @moduledoc false
+
+  defstruct [
+    :created_at,
+    :environment,
+    :inheritable,
+    :inheriting,
+    :inherits,
+    :initial_fetch_at,
+    :last_fetch_at,
+    :locked,
+    :name,
+    :project,
+    :root,
+    :slug
+  ]
+end
