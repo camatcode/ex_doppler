@@ -15,6 +15,8 @@ defmodule ExDoppler.ProjectsTest do
       assert project.id
       assert project.name
       assert project.slug
+
+      assert {:ok, project} == Projects.get_project(project.id)
     end)
 
     assert {:ok, %{page: 1, projects: [project]}} = Projects.list_projects(per_page: 1)

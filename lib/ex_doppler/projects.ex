@@ -25,6 +25,19 @@ defmodule ExDoppler.Projects do
     end
   end
 
+  def get_project(identifier) do
+    projects_api_path()
+    |> Path.join("/project")
+    |> Requester.get(qparams: [project: identifier])
+    |> case do
+      {:ok, %{body: body}} ->
+        {:ok, build_project(body["project"])}
+
+      err ->
+        err
+    end
+  end
+
   defp build_project(project) do
     fields =
       project
