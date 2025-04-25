@@ -47,3 +47,13 @@ defmodule ExDoppler.Project do
   @moduledoc false
   defstruct [:created_at, :description, :id, :name, :slug]
 end
+
+defmodule ExDoppler.ProjectMember do
+  @moduledoc false
+  defstruct [:access_all_environments, :environments, :role, :slug, :type]
+end
+
+defmodule ExDoppler.ProjectMemberRole do
+  @moduledoc false
+  defstruct [:identifier]
+end
