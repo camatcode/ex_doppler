@@ -81,3 +81,8 @@ defmodule ExDoppler.Config do
     :slug
   ]
 end
+
+defmodule ExDoppler.ConfigLog do
+  @moduledoc false
+  defstruct [:config, :created_at, :environment, :html, :id, :project, :rollback, :text, :user]
+end
