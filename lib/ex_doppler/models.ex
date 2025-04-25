@@ -37,3 +37,8 @@ defmodule ExDoppler.ActivityDiff do
   @moduledoc false
   defstruct [:added, :removed, :updated]
 end
+
+defmodule ExDoppler.Project do
+  @moduledoc false
+  defstruct [:created_at, :description, :id, :name, :slug]
+end
