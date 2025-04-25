@@ -57,3 +57,8 @@ defmodule ExDoppler.ProjectMemberRole do
   @moduledoc false
   defstruct [:identifier]
 end
+
+defmodule ExDoppler.Environment do
+  @moduledoc false
+  defstruct [:created_at, :id, :initial_fetch_at, :name, :project, :slug]
+end
