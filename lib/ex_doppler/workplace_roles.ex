@@ -41,12 +41,12 @@ defmodule ExDoppler.WorkplaceRoles do
     Path.join(Workplaces.workplace_api_path(), "/permissions")
     |> Requester.get()
     |> case do
-         {:ok, %{body: body}} ->
-           {:ok, body["permissions"]}
+      {:ok, %{body: body}} ->
+        {:ok, body["permissions"]}
 
-         err ->
-           err
-       end
+      err ->
+        err
+    end
   end
 
   defp build_workplace_role(wp_role) do
