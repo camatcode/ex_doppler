@@ -12,3 +12,8 @@ defmodule ExDoppler.User do
   @moduledoc false
   defstruct [:email, :name, :profile_image_url, :username]
 end
+
+defmodule ExDoppler.WorkplaceRole do
+  @moduledoc false
+  defstruct [:created_at, :identifier, :is_custom_role, :is_inline_role, :name, :permissions]
+end

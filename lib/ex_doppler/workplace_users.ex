@@ -4,8 +4,6 @@ defmodule ExDoppler.WorkplaceUsers do
   alias ExDoppler.Util.Requester
   alias ExDoppler.Workplaces
 
-  defstruct [:access, :created_at, :id, :user]
-
   def workplace_users_api_path, do: Path.join(Workplaces.workplace_api_path(), "/users")
 
   def list_workplace_users(opts \\ []) do

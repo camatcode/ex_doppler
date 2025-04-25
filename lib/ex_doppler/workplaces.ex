@@ -4,7 +4,6 @@ defmodule ExDoppler.Workplaces do
   alias ExDoppler.Util.Requester
 
   def workplace_api_path, do: "/v3/workplace"
-  def workplace_users_api_path, do: Path.join(workplace_api_path(), "/users")
 
   def get_workplace(opts \\ []) do
     Requester.get(workplace_api_path(), opts)
