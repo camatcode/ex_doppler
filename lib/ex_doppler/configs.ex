@@ -38,6 +38,19 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  def list_trusted_ips(project_name, config_name) do
+    configs_api_path()
+    |> Path.join("/config/trusted_ips")
+    |> Requester.get(qparams: [project: project_name, config: config_name])
+    |> case do
+      {:ok, %{body: body}} ->
+        {:ok, body["ips"]}
+
+      err ->
+        err
+    end
+  end
+
   defp build_config(config) do
     fields =
       config
