@@ -23,4 +23,6 @@ defmodule ExDoppler.ActivityLogsTest do
       end
     end)
   end
+
+  ActivityLogs.list_activity_logs(page: 2) |> IO.inspect()
 end
