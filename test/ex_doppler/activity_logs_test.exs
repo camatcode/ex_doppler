@@ -21,8 +21,11 @@ defmodule ExDoppler.ActivityLogsTest do
         assert log.diff.removed
         assert log.diff.updated
       end
+
+      assert {:ok, log} == ActivityLogs.get_activity_log(log.id)
     end)
   end
 
-  ActivityLogs.list_activity_logs(page: 2) |> IO.inspect()
+  assert {:ok, %{page: 2, logs: [log]}} = ActivityLogs.list_activity_logs(page: 2, per_page: 1)
+  assert log.id
 end

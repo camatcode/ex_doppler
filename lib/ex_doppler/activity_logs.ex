@@ -21,6 +21,21 @@ defmodule ExDoppler.ActivityLogs do
     end
   end
 
+  def get_activity_log(nil), do: nil
+
+  def get_activity_log(id) do
+    activity_logs_api_path()
+    |> Path.join("/log")
+    |> Requester.get(qparams: [log: id])
+    |> case do
+      {:ok, %{body: body}} ->
+        {:ok, build_activity_log(body["log"])}
+
+      err ->
+        err
+    end
+  end
+
   defp build_activity_log(activity_log) do
     fields =
       activity_log
