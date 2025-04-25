@@ -17,18 +17,7 @@ defmodule ExDoppler.WorkplaceUsers do
       {:ok, %{body: body}} ->
         page = body["page"]
 
-        workplace_users =
-          body["workplace_users"]
-          |> Enum.map(fn wp_user ->
-            fields =
-              wp_user
-              |> Enum.map(fn {key, val} ->
-                key = String.to_atom(key)
-                {key, serialize(key, val)}
-              end)
-
-            struct(ExDoppler.WorkplaceUser, fields)
-          end)
+        workplace_users = build_wp_users(body)
 
         resp = %{page: page, workplace_users: workplace_users}
         {:ok, resp}
@@ -36,6 +25,20 @@ defmodule ExDoppler.WorkplaceUsers do
       err ->
         err
     end
+  end
+
+  defp build_wp_users(body) do
+    body["workplace_users"]
+    |> Enum.map(fn wp_user ->
+      fields =
+        wp_user
+        |> Enum.map(fn {key, val} ->
+          key = String.to_atom(key)
+          {key, serialize(key, val)}
+        end)
+
+      struct(ExDoppler.WorkplaceUser, fields)
+    end)
   end
 
   defp serialize(:user, val) do
