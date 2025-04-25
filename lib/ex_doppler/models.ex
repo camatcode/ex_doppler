@@ -18,6 +18,11 @@ defmodule ExDoppler.WorkplaceRole do
   defstruct [:created_at, :identifier, :is_custom_role, :is_inline_role, :name, :permissions]
 end
 
+defmodule ExDoppler.ProjectRole do
+  @moduledoc false
+  defstruct [:created_at, :identifier, :is_custom_role, :name, :permissions]
+end
+
 defmodule ExDoppler.ActivityLog do
   @moduledoc false
   defstruct [
