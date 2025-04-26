@@ -25,7 +25,7 @@ defmodule ExDoppler.Environments do
       |> Path.join("/environment")
 
     with {:ok, %{body: body}} <-
-           Requester.get(qparams: [project: project_name, environment: environment_slug]) do
+           Requester.get(path, qparams: [project: project_name, environment: environment_slug]) do
       {:ok, build_environment(body["environment"])}
     end
   end

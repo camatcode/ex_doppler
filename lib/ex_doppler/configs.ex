@@ -36,7 +36,7 @@ defmodule ExDoppler.Configs do
       |> Path.join("/config/trusted_ips")
 
     with {:ok, %{body: body}} <-
-           Requester.get(qparams: [project: project_name, config: config_name]) do
+           Requester.get(path, qparams: [project: project_name, config: config_name]) do
       {:ok, body["ips"]}
     end
   end

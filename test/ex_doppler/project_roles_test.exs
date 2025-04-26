@@ -18,8 +18,5 @@ defmodule ExDoppler.ProjectRolesTest do
 
       assert {:ok, role} == ProjectRoles.get_project_role(role.identifier)
     end)
-
-    {:ok, permissions} = ProjectRoles.list_project_permissions()
-    refute Enum.empty?(permissions)
   end
 end

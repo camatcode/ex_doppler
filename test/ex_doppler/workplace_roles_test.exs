@@ -22,8 +22,5 @@ defmodule ExDoppler.WorkplaceRolesTest do
 
       assert {:err, _} = WorkplaceRoles.get_workplace_role("does-not-exist")
     end)
-
-    assert {:ok, permissions} = WorkplaceRoles.list_permissions()
-    refute Enum.empty?(permissions)
   end
 end
