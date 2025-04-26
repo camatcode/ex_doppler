@@ -3,40 +3,30 @@ defmodule ExDoppler.Environments do
 
   alias ExDoppler.Util.Requester
 
-  def environments_api_path, do: "/v3/environments"
+  @environments_api_path "/v3/environments"
 
   def list_environments(project_name, opts \\ []) do
-    opts = Keyword.merge([page: 1, per_page: 20], opts)
+    opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
 
-    environments_api_path()
-    |> Requester.get(
-      qparams: [project: project_name, per_page: opts[:per_page], page: opts[:page]]
-    )
-    |> case do
-      {:ok, %{body: body}} ->
-        page = body["page"]
+    with {:ok, %{body: body}} <- Requester.get(@environments_api_path, qparams: opts) do
+      page = body["page"]
 
-        environments =
-          body["environments"]
-          |> Enum.map(&build_environment/1)
+      environments =
+        body["environments"]
+        |> Enum.map(&build_environment/1)
 
-        {:ok, %{page: page, environments: environments}}
-
-      err ->
-        err
+      {:ok, %{page: page, environments: environments}}
     end
   end
 
   def get_environment(project_name, environment_slug) do
-    environments_api_path()
-    |> Path.join("/environment")
-    |> Requester.get(qparams: [project: project_name, environment: environment_slug])
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, build_environment(body["environment"])}
+    path =
+      @environments_api_path
+      |> Path.join("/environment")
 
-      err ->
-        err
+    with {:ok, %{body: body}} <-
+           Requester.get(path, qparams: [project: project_name, environment: environment_slug]) do
+      {:ok, build_environment(body["environment"])}
     end
   end
 

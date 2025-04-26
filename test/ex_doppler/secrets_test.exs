@@ -43,7 +43,7 @@ defmodule ExDoppler.SecretsTest do
       refute Enum.empty?(sec)
 
       # json
-      assert ({:ok, json} = Secrets.download(config.project, config.name))
+      assert {:ok, json} = Secrets.download(config.project, config.name)
       assert {:ok, _decoded} = Jason.decode(json)
 
       # env

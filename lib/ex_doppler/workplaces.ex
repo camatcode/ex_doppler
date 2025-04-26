@@ -3,17 +3,24 @@ defmodule ExDoppler.Workplaces do
 
   alias ExDoppler.Util.Requester
 
-  def workplace_api_path, do: "/v3/workplace"
+  @workplace_api_path "/v3/workplace"
 
   def get_workplace(opts \\ []) do
-    Requester.get(workplace_api_path(), opts)
+    with {:ok, %{body: body}} <- Requester.get(@workplace_api_path, opts) do
+      workplace =
+        body["workplace"]
+        |> Enum.map(fn {key, val} -> {String.to_existing_atom(key), val} end)
+
+      {:ok, struct(ExDoppler.Workplace, workplace)}
+    end
+  end
+
+  def list_permissions() do
+    Path.join(@workplace_api_path, "/permissions")
+    |> Requester.get()
     |> case do
       {:ok, %{body: body}} ->
-        workplace =
-          body["workplace"]
-          |> Enum.map(fn {key, val} -> {String.to_existing_atom(key), val} end)
-
-        {:ok, struct(ExDoppler.Workplace, workplace)}
+        {:ok, body["permissions"]}
 
       err ->
         err

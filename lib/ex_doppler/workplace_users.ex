@@ -2,49 +2,31 @@ defmodule ExDoppler.WorkplaceUsers do
   @moduledoc false
 
   alias ExDoppler.Util.Requester
-  alias ExDoppler.Workplaces
 
-  def workplace_users_api_path, do: Path.join(Workplaces.workplace_api_path(), "/users")
+  @workplace_users_api_path "v3/workplace/users"
 
   def list_workplace_users(opts \\ []) do
     opts = Keyword.merge([page: 1, email: nil], opts)
 
-    workplace_users_api_path()
-    |> Requester.get(qparams: [page: opts[:page], email: opts[:email]])
-    |> case do
-      {:ok, %{body: body}} ->
-        page = body["page"]
+    with {:ok, %{body: body}} <- Requester.get(@workplace_users_api_path, qparams: opts) do
+      page = body["page"]
 
-        workplace_users = build_wp_users(body)
+      workplace_users =
+        body["workplace_users"]
+        |> Enum.map(&build_wp_user/1)
 
-        resp = %{page: page, workplace_users: workplace_users}
-        {:ok, resp}
-
-      err ->
-        err
+      {:ok, %{page: page, workplace_users: workplace_users}}
     end
   end
-
-  def get_workplace_user(nil), do: nil
 
   def get_workplace_user(id) do
-    workplace_users_api_path()
-    |> Path.join("/#{id}")
-    |> Requester.get()
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, build_wp_user(body["workplace_user"])}
+    path =
+      @workplace_users_api_path
+      |> Path.join("/#{id}")
 
-      err ->
-        err
+    with {:ok, %{body: body}} <- Requester.get(path) do
+      {:ok, build_wp_user(body["workplace_user"])}
     end
-  end
-
-  defp build_wp_users(body) do
-    body["workplace_users"]
-    |> Enum.map(fn wp_user ->
-      build_wp_user(wp_user)
-    end)
   end
 
   defp build_wp_user(wp_user) do

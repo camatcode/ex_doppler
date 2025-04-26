@@ -3,45 +3,31 @@ defmodule ExDoppler.ConfigLogs do
 
   alias ExDoppler.Util.Requester
 
-  def config_logs_api_path, do: "/v3/configs/config/logs"
+  @config_logs_api_path "/v3/configs/config/logs"
 
   def list_config_logs(project_name, config_name, opts \\ []) do
-    opts = Keyword.merge([page: 1, per_page: 20], opts)
+    opts =
+      Keyword.merge([page: 1, per_page: 20, project: project_name, config: config_name], opts)
 
-    config_logs_api_path()
-    |> Requester.get(
-      qparams: [
-        page: opts[:page],
-        per_page: opts[:per_page],
-        project: project_name,
-        config: config_name
-      ]
-    )
-    |> case do
-      {:ok, %{body: body}} ->
-        page = body["page"]
+    with {:ok, %{body: body}} <- Requester.get(@config_logs_api_path, qparams: opts) do
+      page = body["page"]
 
-        logs =
-          body["logs"]
-          |> Enum.map(&build_config_log/1)
+      logs =
+        body["logs"]
+        |> Enum.map(&build_config_log/1)
 
-        {:ok, %{page: page, logs: logs}}
-
-      err ->
-        err
+      {:ok, %{page: page, logs: logs}}
     end
   end
 
   def get_config_log(project_name, config_name, log_id) do
-    config_logs_api_path()
-    |> Path.join("/log")
-    |> Requester.get(qparams: [project: project_name, config: config_name, log: log_id])
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, build_config_log(body["log"])}
+    path =
+      @config_logs_api_path
+      |> Path.join("/log")
 
-      err ->
-        err
+    with {:ok, %{body: body}} <-
+           Requester.get(path, qparams: [project: project_name, config: config_name, log: log_id]) do
+      {:ok, build_config_log(body["log"])}
     end
   end
 

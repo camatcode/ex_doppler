@@ -3,36 +3,27 @@ defmodule ExDoppler.ProjectMembers do
 
   alias ExDoppler.Util.Requester
 
-  def project_members_api_path, do: "/v3/projects/project/members"
+  @project_members_api_path "/v3/projects/project/members"
 
   def list_project_members(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
-    project_members_api_path()
-    |> Requester.get(qparams: [page: opts[:page], per_page: opts[:per_page]])
-    |> case do
-      {:ok, %{body: body}} ->
-        members =
-          body["members"]
-          |> Enum.map(&build_project_member/1)
+    with {:ok, %{body: body}} <- Requester.get(@project_members_api_path, qparams: opts) do
+      members =
+        body["members"]
+        |> Enum.map(&build_project_member/1)
 
-        {:ok, members}
-
-      err ->
-        err
+      {:ok, members}
     end
   end
 
   def get_project_member(member_type, member_slug) do
-    project_members_api_path()
-    |> Path.join("/member/#{member_type}/#{member_slug}")
-    |> Requester.get()
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, build_project_member(body["member"])}
+    path =
+      @project_members_api_path
+      |> Path.join("/member/#{member_type}/#{member_slug}")
 
-      err ->
-        err
+    with {:ok, %{body: body}} <- Requester.get(path) do
+      {:ok, build_project_member(body["member"])}
     end
   end
 

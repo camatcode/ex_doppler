@@ -3,38 +3,39 @@ defmodule ExDoppler.Projects do
 
   alias ExDoppler.Util.Requester
 
-  def projects_api_path, do: "/v3/projects"
+  @projects_api_path "/v3/projects"
 
   def list_projects(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
-    projects_api_path()
-    |> Requester.get(qparams: [page: opts[:page], per_page: opts[:per_page]])
-    |> case do
-      {:ok, %{body: body}} ->
-        page = body["page"]
+    with {:ok, %{body: body}} <- Requester.get(@projects_api_path, qparams: opts) do
+      page = body["page"]
 
-        projects =
-          body["projects"]
-          |> Enum.map(&build_project/1)
+      projects =
+        body["projects"]
+        |> Enum.map(&build_project/1)
 
-        {:ok, %{page: page, projects: projects}}
-
-      err ->
-        err
+      {:ok, %{page: page, projects: projects}}
     end
   end
 
   def get_project(identifier) do
-    projects_api_path()
-    |> Path.join("/project")
-    |> Requester.get(qparams: [project: identifier])
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, build_project(body["project"])}
+    path =
+      @projects_api_path
+      |> Path.join("/project")
 
-      err ->
-        err
+    with {:ok, %{body: body}} <- Requester.get(path, qparams: [project: identifier]) do
+      {:ok, build_project(body["project"])}
+    end
+  end
+
+  def list_project_permissions() do
+    path =
+      @projects_api_path
+      |> Path.join("/permissions")
+
+    with {:ok, %{body: body}} <- Requester.get(path) do
+      {:ok, body["permissions"]}
     end
   end
 
