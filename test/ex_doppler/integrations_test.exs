@@ -2,6 +2,7 @@ defmodule ExDoppler.IntegrationsTest do
   use ExUnit.Case
   doctest ExDoppler.Integrations
 
+  alias ExDoppler.Integration
   alias ExDoppler.Integrations
 
   test "Integrations" do
@@ -14,6 +15,11 @@ defmodule ExDoppler.IntegrationsTest do
       assert integration.type
       assert integration.kind
       assert integration.enabled != nil
+
+      assert {:ok, %Integration{slug: integration.slug}} ==
+               Integrations.get_integration(integration.slug)
+
+      assert {:ok, _options} = Integrations.get_integration_options(integration.slug)
     end)
   end
 end

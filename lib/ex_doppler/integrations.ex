@@ -15,6 +15,26 @@ defmodule ExDoppler.Integrations do
     end
   end
 
+  def get_integration(integration_slug) when is_bitstring(integration_slug) do
+    path =
+      @integrations_api_path
+      |> Path.join("/integration")
+
+    with {:ok, %{body: body}} <- Requester.get(path, qparams: [integration: integration_slug]) do
+      {:ok, build_integration(body["integration"])}
+    end
+  end
+
+  def get_integration_options(integration_slug) when is_bitstring(integration_slug) do
+    path =
+      @integrations_api_path
+      |> Path.join("/integration/options")
+
+    with {:ok, %{body: body}} <- Requester.get(path, qparams: [integration: integration_slug]) do
+      {:ok, body}
+    end
+  end
+
   defp build_integration(integration) do
     fields =
       integration
