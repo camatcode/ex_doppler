@@ -66,7 +66,6 @@
 | [Secrets : Update](https://docs.doppler.com/reference/secrets-update)                                 | ❌           |       |
 | [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                       | ❌           |       |
 | [Integrations : Create](https://docs.doppler.com/reference/integrations-create)                       | ❌           |       |
-| [Integrations : Get Options](https://docs.doppler.com/reference/get-options)                          | ❌           |       |
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
 | [Integrations : Delete](https://docs.doppler.com/reference/integrations-delete)                       | ❌           |       |
 | [Secrets Sync : Create](https://docs.doppler.com/reference/syncs-create)                              | ❌           |       |
@@ -122,9 +121,11 @@
 |--------------------------------------------------------------------------------------|-------------|----------------------------------------------------------|
 | [Integrations : List](https://docs.doppler.com/reference/integrations-list)          | ⁉️          | Technically implemented - will have to come back to test |
 | [Integrations : Retrieve](https://docs.doppler.com/reference/integrations-get)       | ⁉️          | Technically implemented - will have to come back to test |
+| [Integrations : Get Options](https://docs.doppler.com/reference/get-options)         | ⁉️          | Technically implemented - will have to come back to test |
 | [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)    | ⁉️          | Account doesn't have access to it                        |
 | [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)       | ⁉️          | Account doesn't have access to it                        |
 | [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip) | ⁉️          | Account doesn't have access to it                        |
+
 
 
 ## Installation

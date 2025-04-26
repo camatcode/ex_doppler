@@ -18,6 +18,8 @@ defmodule ExDoppler.IntegrationsTest do
 
       assert {:ok, %Integration{slug: integration.slug}} ==
                Integrations.get_integration(integration.slug)
+
+      assert {:ok, _options} = Integrations.get_integration_options(integration.slug)
     end)
   end
 end
