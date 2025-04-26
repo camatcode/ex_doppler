@@ -2,9 +2,10 @@ defmodule ExDoppler.Secrets do
   @moduledoc false
 
   alias ExDoppler.Util.Requester
+  alias ExDoppler.Secret
 
-  def list_secrets_api_path, do: "/v3/configs/config/secrets"
-  def get_secrets_api_path, do: "/v3/configs/config/secret"
+  @list_secrets_api_path "/v3/configs/config/secrets"
+  @get_secrets_api_path "/v3/configs/config/secret"
 
   def list_secrets(project_name, config_name, opts \\ []) do
     opts =
@@ -19,32 +20,20 @@ defmodule ExDoppler.Secrets do
         opts
       )
 
-    list_secrets_api_path()
-    |> Requester.get(qparams: opts)
-    |> case do
-      {:ok, %{body: body}} ->
-        secrets =
-          body["secrets"]
-          |> Enum.map(&build_secret/1)
+    with {:ok, %{body: body}} <- Requester.get(@list_secrets_api_path, qparams: opts) do
+      secrets =
+        body["secrets"]
+        |> Enum.map(&build_secret/1)
 
-        {:ok, secrets}
-
-      err ->
-        err
+      {:ok, secrets}
     end
   end
 
   def get_secret(project_name, config_name, secret_name) do
     opts = [project: project_name, config: config_name, name: secret_name]
 
-    get_secrets_api_path()
-    |> Requester.get(qparams: opts)
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, build_secret({body["name"], body["value"]})}
-
-      err ->
-        err
+    with {:ok, %{body: body}} <- Requester.get(@get_secrets_api_path, qparams: opts) do
+      {:ok, build_secret({body["name"], body["value"]})}
     end
   end
 
@@ -63,15 +52,12 @@ defmodule ExDoppler.Secrets do
         opts
       )
 
-    list_secrets_api_path()
-    |> Path.join("/download")
-    |> Requester.get(qparams: opts, decode_body: false)
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, body}
+    path =
+      @list_secrets_api_path
+      |> Path.join("/download")
 
-      err ->
-        err
+    with {:ok, %{body: body}} <- Requester.get(path, qparams: opts, decode_body: false) do
+      {:ok, body}
     end
   end
 
@@ -87,15 +73,12 @@ defmodule ExDoppler.Secrets do
         opts
       )
 
-    list_secrets_api_path()
-    |> Path.join("/names")
-    |> Requester.get(qparams: opts)
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, body["names"]}
+    path =
+      @list_secrets_api_path
+      |> Path.join("/names")
 
-      err ->
-        err
+    with {:ok, %{body: body}} <- Requester.get(path, qparams: opts) do
+      {:ok, body["names"]}
     end
   end
 
@@ -109,6 +92,6 @@ defmodule ExDoppler.Secrets do
         {key, val}
       end)
 
-    struct(ExDoppler.Secret, fields)
+    struct(Secret, fields)
   end
 end

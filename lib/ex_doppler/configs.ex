@@ -3,51 +3,41 @@ defmodule ExDoppler.Configs do
 
   alias ExDoppler.Util.Requester
 
-  def configs_api_path, do: "/v3/configs"
+  @configs_api_path "/v3/configs"
 
   def list_configs(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: nil], opts)
 
-    configs_api_path()
-    |> Requester.get(qparams: opts)
-    |> case do
-      {:ok, %{body: body}} ->
-        page = body["page"]
+    with {:ok, %{body: body}} <- Requester.get(@configs_api_path, qparams: opts) do
+      page = body["page"]
 
-        configs =
-          body["configs"]
-          |> Enum.map(&build_config/1)
+      configs =
+        body["configs"]
+        |> Enum.map(&build_config/1)
 
-        {:ok, %{page: page, configs: configs}}
-
-      err ->
-        err
+      {:ok, %{page: page, configs: configs}}
     end
   end
 
   def get_config(project_name, config_name) do
-    configs_api_path()
-    |> Path.join("/config")
-    |> Requester.get(qparams: [project: project_name, config: config_name])
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, build_config(body["config"])}
+    path =
+      @configs_api_path
+      |> Path.join("/config")
 
-      err ->
-        err
+    with {:ok, %{body: body}} <-
+           Requester.get(path, qparams: [project: project_name, config: config_name]) do
+      {:ok, build_config(body["config"])}
     end
   end
 
   def list_trusted_ips(project_name, config_name) do
-    configs_api_path()
-    |> Path.join("/config/trusted_ips")
-    |> Requester.get(qparams: [project: project_name, config: config_name])
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, body["ips"]}
+    path =
+      @configs_api_path
+      |> Path.join("/config/trusted_ips")
 
-      err ->
-        err
+    with {:ok, %{body: body}} <-
+           Requester.get(qparams: [project: project_name, config: config_name]) do
+      {:ok, body["ips"]}
     end
   end
 
