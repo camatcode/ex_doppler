@@ -1,0 +1,42 @@
+defmodule ExDoppler.Integrations do
+  @moduledoc false
+
+  alias ExDoppler.Util.Requester
+
+  @integrations_api_path "/v3/integrations"
+
+  def list_integrations() do
+    with {:ok, %{body: body}} <- Requester.get(@integrations_api_path) do
+      integrations =
+        body["integrations"]
+        |> Enum.map(&build_integration/1)
+
+      {:ok, integrations}
+    end
+  end
+
+  defp build_integration(integration) do
+    fields =
+      integration
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, serialize(key, val)}
+      end)
+
+    struct(ExDoppler.Integration, fields)
+  end
+
+  defp serialize(:syncs, val) do
+    val =
+      val
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        key = if key == :lastSyncedAt, do: :last_synced_at, else: key
+        {key, val}
+      end)
+
+    struct(ExDoppler.IntegrationSync, val)
+  end
+
+  defp serialize(_, val), do: val
+end

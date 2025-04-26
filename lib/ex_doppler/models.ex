@@ -91,3 +91,13 @@ defmodule ExDoppler.Secret do
   @moduledoc false
   defstruct [:name, :raw, :computed, :note, :raw_visibility, :computed_visibility]
 end
+
+defmodule ExDoppler.Integration do
+  @moduledoc false
+  defstruct [:slug, :name, :type, :kind, :enabled, :syncs]
+end
+
+defmodule ExDoppler.IntegrationSync do
+  @moduledoc false
+  defstruct [:slug, :enabled, :last_synced_at, :project, :config, :integration]
+end
