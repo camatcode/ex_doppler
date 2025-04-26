@@ -7,7 +7,8 @@ defmodule ExDoppler.Secrets do
   @list_secrets_api_path "/v3/configs/config/secrets"
   @get_secrets_api_path "/v3/configs/config/secret"
 
-  def list_secrets(project_name, config_name, opts \\ []) do
+  def list_secrets(project_name, config_name, opts \\ [])
+      when not is_nil(project_name) and not is_nil(config_name) do
     opts =
       Keyword.merge(
         [
@@ -29,7 +30,8 @@ defmodule ExDoppler.Secrets do
     end
   end
 
-  def get_secret(project_name, config_name, secret_name) do
+  def get_secret(project_name, config_name, secret_name)
+      when not is_nil(project_name) and not is_nil(config_name) and not is_nil(secret_name) do
     opts = [project: project_name, config: config_name, name: secret_name]
 
     with {:ok, %{body: body}} <- Requester.get(@get_secrets_api_path, qparams: opts) do
@@ -37,7 +39,8 @@ defmodule ExDoppler.Secrets do
     end
   end
 
-  def download(project_name, config_name, opts \\ []) do
+  def download(project_name, config_name, opts \\ [])
+      when not is_nil(project_name) and not is_nil(config_name) do
     opts =
       Keyword.merge(
         [
@@ -61,7 +64,8 @@ defmodule ExDoppler.Secrets do
     end
   end
 
-  def list_secret_names(project_name, config_name, opts \\ []) do
+  def list_secret_names(project_name, config_name, opts \\ [])
+      when not is_nil(project_name) and not is_nil(config_name) do
     opts =
       Keyword.merge(
         [
