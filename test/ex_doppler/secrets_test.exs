@@ -41,6 +41,22 @@ defmodule ExDoppler.SecretsTest do
                )
 
       refute Enum.empty?(sec)
+
+      # json
+      assert ({:ok, json} = Secrets.download(config.project, config.name))
+      assert {:ok, _decoded} = Jason.decode(json)
+
+      # env
+      assert {:ok, env} =
+               Secrets.download(config.project, config.name,
+                 format: "env",
+                 name_transformer: "lower-snake"
+               )
+
+      assert byte_size(env) != 0
+
+      assert {:ok, names} = Secrets.list_secret_names(config.project, config.name)
+      refute Enum.empty?(names)
     end)
   end
 end

@@ -48,6 +48,57 @@ defmodule ExDoppler.Secrets do
     end
   end
 
+  def download(project_name, config_name, opts \\ []) do
+    opts =
+      Keyword.merge(
+        [
+          project: project_name,
+          config: config_name,
+          format: "json",
+          name_transformer: nil,
+          include_dynamic_secrets: false,
+          dynamic_secrets_ttl_sec: nil,
+          secrets: nil
+        ],
+        opts
+      )
+
+    list_secrets_api_path()
+    |> Path.join("/download")
+    |> Requester.get(qparams: opts, decode_body: false)
+    |> case do
+      {:ok, %{body: body}} ->
+        {:ok, body}
+
+      err ->
+        err
+    end
+  end
+
+  def list_secret_names(project_name, config_name, opts \\ []) do
+    opts =
+      Keyword.merge(
+        [
+          project: project_name,
+          config: config_name,
+          include_dynamic_secrets: false,
+          include_managed_secrets: true
+        ],
+        opts
+      )
+
+    list_secrets_api_path()
+    |> Path.join("/names")
+    |> Requester.get(qparams: opts)
+    |> case do
+      {:ok, %{body: body}} ->
+        {:ok, body["names"]}
+
+      err ->
+        err
+    end
+  end
+
   defp build_secret({name, map}) do
     fields =
       Map.put(map, "name", name)
