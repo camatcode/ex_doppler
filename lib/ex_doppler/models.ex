@@ -86,3 +86,8 @@ defmodule ExDoppler.ConfigLog do
   @moduledoc false
   defstruct [:config, :created_at, :environment, :html, :id, :project, :rollback, :text, :user]
 end
+
+defmodule ExDoppler.Secret do
+  @moduledoc false
+  defstruct [:name, :raw, :computed, :note, :raw_visibility, :computed_visibility]
+end

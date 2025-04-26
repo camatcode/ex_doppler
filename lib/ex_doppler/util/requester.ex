@@ -13,14 +13,14 @@ defmodule ExDoppler.Util.Requester do
   def get(path, opts \\ []) do
     qparams = opts[:qparams]
 
+    opts =
+      Keyword.delete(opts, :qparams)
+      |> Keyword.put(:headers, [auth_header()])
+
     base_url()
     |> Path.join(path)
     |> handle_qparams(qparams)
-    |> Req.get(
-      headers: [
-        auth_header()
-      ]
-    )
+    |> Req.get(opts)
     |> case do
       {:ok, %Req.Response{status: 200, body: _body, headers: _headers}} = resp ->
         resp
