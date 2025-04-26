@@ -3,13 +3,6 @@ defmodule ExDoppler.Util.Requester do
 
   require Logger
 
-  def auth_header() do
-    auth_token = Application.get_env(:ex_doppler, :token)
-    {"authorization", "Bearer #{auth_token}"}
-  end
-
-  def base_url, do: "https://api.doppler.com/"
-
   def get(path, opts \\ []) do
     qparams = opts[:qparams]
 
@@ -29,7 +22,7 @@ defmodule ExDoppler.Util.Requester do
         if opts[:is_retry] do
           {:err, "Rate limit exceeded"}
         else
-          seconds = seconds_str |> String.to_integer()
+          seconds = String.to_integer(seconds_str)
           milliseconds = (seconds + 1) * 1000
           Logger.debug("Hit a rate limit, waiting #{milliseconds} milliseconds and retrying")
           :timer.sleep(milliseconds)
@@ -41,6 +34,13 @@ defmodule ExDoppler.Util.Requester do
         {:err, other}
     end
   end
+
+  defp auth_header() do
+    auth_token = Application.get_env(:ex_doppler, :token)
+    {"authorization", "Bearer #{auth_token}"}
+  end
+
+  defp base_url, do: "https://api.doppler.com/"
 
   defp handle_qparams(url, nil), do: url
 

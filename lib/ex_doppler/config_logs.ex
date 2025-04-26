@@ -44,8 +44,6 @@ defmodule ExDoppler.ConfigLogs do
     struct(ExDoppler.ConfigLog, fields)
   end
 
-  defp serialize(_, nil), do: nil
-
   defp serialize(:user, val) do
     val =
       val

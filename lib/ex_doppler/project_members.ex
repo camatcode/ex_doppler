@@ -39,8 +39,6 @@ defmodule ExDoppler.ProjectMembers do
     struct(ExDoppler.ProjectMember, fields)
   end
 
-  defp serialize(_, nil), do: nil
-
   defp serialize(:role, val) do
     val =
       val
