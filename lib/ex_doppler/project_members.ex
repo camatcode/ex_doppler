@@ -17,7 +17,8 @@ defmodule ExDoppler.ProjectMembers do
     end
   end
 
-  def get_project_member(member_type, member_slug) do
+  def get_project_member(member_type, member_slug)
+      when not is_nil(member_type) and not is_nil(member_slug) do
     path =
       @project_members_api_path
       |> Path.join("/member/#{member_type}/#{member_slug}")

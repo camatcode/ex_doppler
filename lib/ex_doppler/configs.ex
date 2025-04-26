@@ -19,7 +19,8 @@ defmodule ExDoppler.Configs do
     end
   end
 
-  def get_config(project_name, config_name) do
+  def get_config(project_name, config_name)
+      when not is_nil(project_name) and not is_nil(config_name) do
     path =
       @configs_api_path
       |> Path.join("/config")
@@ -30,7 +31,8 @@ defmodule ExDoppler.Configs do
     end
   end
 
-  def list_trusted_ips(project_name, config_name) do
+  def list_trusted_ips(project_name, config_name)
+      when not is_nil(project_name) and not is_nil(config_name) do
     path =
       @configs_api_path
       |> Path.join("/config/trusted_ips")

@@ -19,7 +19,7 @@ defmodule ExDoppler.WorkplaceUsers do
     end
   end
 
-  def get_workplace_user(id) do
+  def get_workplace_user(id) when not is_nil(id) do
     path =
       @workplace_users_api_path
       |> Path.join("/#{id}")

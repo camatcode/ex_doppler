@@ -19,7 +19,7 @@ defmodule ExDoppler.Projects do
     end
   end
 
-  def get_project(identifier) do
+  def get_project(identifier) when not is_nil(identifier) do
     path =
       @projects_api_path
       |> Path.join("/project")

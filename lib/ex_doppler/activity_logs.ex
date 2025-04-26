@@ -15,7 +15,7 @@ defmodule ExDoppler.ActivityLogs do
     end
   end
 
-  def get_activity_log(id) do
+  def get_activity_log(id) when not is_nil(id) do
     path =
       @activity_logs_api_path
       |> Path.join("/log")

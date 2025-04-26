@@ -15,7 +15,7 @@ defmodule ExDoppler.ProjectRoles do
     end
   end
 
-  def get_project_role(identifier) do
+  def get_project_role(identifier) when not is_nil(identifier) do
     path =
       @project_roles_api_path
       |> Path.join("/role/#{identifier}")
@@ -25,7 +25,7 @@ defmodule ExDoppler.ProjectRoles do
     end
   end
 
-  def build_project_role(role) do
+  defp build_project_role(role) do
     fields =
       role
       |> Enum.map(fn {key, val} ->

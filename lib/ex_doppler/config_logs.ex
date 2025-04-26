@@ -5,7 +5,8 @@ defmodule ExDoppler.ConfigLogs do
 
   @config_logs_api_path "/v3/configs/config/logs"
 
-  def list_config_logs(project_name, config_name, opts \\ []) do
+  def list_config_logs(project_name, config_name, opts \\ [])
+      when not is_nil(project_name) and not is_nil(config_name) do
     opts =
       Keyword.merge([page: 1, per_page: 20, project: project_name, config: config_name], opts)
 
@@ -20,7 +21,8 @@ defmodule ExDoppler.ConfigLogs do
     end
   end
 
-  def get_config_log(project_name, config_name, log_id) do
+  def get_config_log(project_name, config_name, log_id)
+      when not is_nil(project_name) and not is_nil(config_name) do
     path =
       @config_logs_api_path
       |> Path.join("/log")
