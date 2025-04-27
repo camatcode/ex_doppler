@@ -106,3 +106,8 @@ defmodule ExDoppler.ServiceToken do
   @moduledoc false
   defstruct [:name, :slug, :created_at, :config, :environment, :project, :expires_at]
 end
+
+defmodule ExDoppler.Invite do
+  @moduledoc false
+  defstruct [:slug, :email, :created_at, :workplace_role]
+end

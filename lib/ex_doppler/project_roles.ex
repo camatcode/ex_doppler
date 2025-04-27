@@ -15,7 +15,7 @@ defmodule ExDoppler.ProjectRoles do
     end
   end
 
-  def get_project_role(identifier) when not is_nil(identifier) do
+  def get_project_role(identifier) when is_bitstring(identifier) do
     path =
       @project_roles_api_path
       |> Path.join("/role/#{identifier}")

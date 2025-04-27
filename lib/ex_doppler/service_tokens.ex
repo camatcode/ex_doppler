@@ -5,7 +5,8 @@ defmodule ExDoppler.ServiceTokens do
 
   @service_tokens_api_path "/v3/configs/config/tokens"
 
-  def list_service_tokens(project_name, config_name) do
+  def list_service_tokens(project_name, config_name)
+      when is_bitstring(project_name) and is_bitstring(config_name) do
     with {:ok, %{body: body}} <-
            Requester.get(@service_tokens_api_path,
              qparams: [project: project_name, config: config_name]
