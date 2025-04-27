@@ -69,7 +69,6 @@
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
 | [Integrations : Delete](https://docs.doppler.com/reference/integrations-delete)                       | ❌           |       |
 | [Secrets Sync : Create](https://docs.doppler.com/reference/syncs-create)                              | ❌           |       |
-| [Secrets Sync : Retrieve](https://docs.doppler.com/reference/syncs-get)                               | ❌           |       |
 | [Secrets Sync : Delete](https://docs.doppler.com/reference/syncs-delete)                              | ❌           |       |
 | [Dynamic Secrets : Issue Lease](https://docs.doppler.com/reference/dynamic_secrets-issue_lease)       | ❌           |       |
 | [Dynamic Secrets : Revoke](https://docs.doppler.com/reference/dynamic_secrets-revoke_lease)           | ❌           |       |
@@ -125,6 +124,7 @@
 | [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)    | ⁉️          | Account doesn't have access to it                        |
 | [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)       | ⁉️          | Account doesn't have access to it                        |
 | [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip) | ⁉️          | Account doesn't have access to it                        |
+| [Secrets Sync : Retrieve](https://docs.doppler.com/reference/syncs-get)              | ⁉️          | Technically implemented - will have to come back to test |
 
 
 
