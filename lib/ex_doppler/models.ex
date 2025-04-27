@@ -247,6 +247,32 @@ end
 defmodule ExDoppler.Invite do
   @moduledoc false
   defstruct [:slug, :email, :created_at, :workplace_role]
+
+  def build_invite(invite) do
+    fields =
+      invite
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, serialize(key, val)}
+      end)
+
+    struct(ExDoppler.Invite, fields)
+  end
+
+  defp serialize(_, nil), do: nil
+
+  defp serialize(:workplace_role, val) do
+    val =
+      val
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, val}
+      end)
+
+    struct(ExDoppler.WorkplaceRole, val)
+  end
+
+  defp serialize(_, val), do: val
 end
 
 defmodule ExDoppler.ServiceAccount do
