@@ -33,6 +33,7 @@
 | [Secrets : List Names](https://docs.doppler.com/reference/secrets-names)                                  | ✅           |       |
 | [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅           |       |
 | [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |       |
+|  [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                  | ✅           |       |
 
 ### To Implement
 
@@ -77,7 +78,6 @@
 | [Service Tokens : Create](https://docs.doppler.com/reference/service_tokens-create)                   | ❌           |       |
 | [Service Tokens : Delete](https://docs.doppler.com/reference/service_tokens-delete)                   | ❌           |       |
 | [Invites : List](https://docs.doppler.com/reference/invites-list)                                     | ❌           |       |
-|  [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                  | ❌           |       |
 | [Webhooks : Retrieve](https://docs.doppler.com/reference/webhooks-get)                                | ❌           |       |
 | [Webhooks : Add](https://docs.doppler.com/reference/webhooks-add)                                     | ❌           |       |
 | [Webhooks : Update](https://docs.doppler.com/reference/webhooks-update)                               | ❌           |       |
@@ -126,6 +126,13 @@
 | [Service Account Tokens : Create](https://docs.doppler.com/reference/service_account_tokens-create) | ⁉️          | Account doesn't have access to it                        |
 | [Service Account Tokens : Retrieve](https://docs.doppler.com/reference/service_account_tokens-get)  | ⁉️          | Account doesn't have access to it                        |
 | [Service Account Tokens : Delete](https://docs.doppler.com/reference/service_account_tokens-delete) | ⁉️          | Account doesn't have access to it                        |
+| [Webhooks : Retrieve](https://docs.doppler.com/reference/webhooks-get)                              | ⁉️          | Poor documentation                                       |
+| [Webhooks : Add](https://docs.doppler.com/reference/webhooks-add)                                   | ⁉️          | Poor documentation                                       |
+| [Webhooks : Update](https://docs.doppler.com/reference/webhooks-update)                             | ⁉️          | Poor documentation                                       |
+| [Webhooks : Delete](https://docs.doppler.com/reference/webhooks-delete)                             | ⁉️          | Poor documentation                                       |
+| [Webhooks : Enable](https://docs.doppler.com/reference/webhooks-enable)                             | ⁉️          | Poor documentation                                       |
+| [Webhooks : Disable](https://docs.doppler.com/reference/webhooks-disable)                           | ⁉️          | Poor documentation                                       |
+
 
 ## Installation
 
