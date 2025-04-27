@@ -7,7 +7,7 @@ defmodule ExDoppler.ProjectMembersTest do
 
   test "Project Members" do
     {:ok, %{page: 1, projects: [project | _]}} = Projects.list_projects()
-    assert {:ok, members} = ProjectMembers.list_project_members(project.slug, page: 1)
+    assert {:ok, members} = ProjectMembers.list_project_members(project, page: 1)
     refute Enum.empty?(members)
 
     members
@@ -18,9 +18,9 @@ defmodule ExDoppler.ProjectMembersTest do
       assert member.type
 
       assert {:ok, member} ==
-               ProjectMembers.get_project_member(project.slug, member.type, member.slug)
+               ProjectMembers.get_project_member(project, member.type, member.slug)
     end)
 
-    assert {:ok, []} = ProjectMembers.list_project_members(project.slug, page: 200)
+    assert {:ok, []} = ProjectMembers.list_project_members(project, page: 200)
   end
 end
