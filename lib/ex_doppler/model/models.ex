@@ -1,94 +1,10 @@
-defmodule ExDoppler.Workplace do
-  @moduledoc false
-  defstruct [:billing_email, :name, :security_email, :id]
-
-  def build_workplace(wp) do
-    fields =
-      wp
-      |> Enum.map(fn {key, val} ->
-        key = String.to_atom(key)
-        {key, val}
-      end)
-
-    struct(ExDoppler.Workplace, fields)
-  end
-end
-
-defmodule ExDoppler.WorkplaceUser do
-  @moduledoc false
-  defstruct [:access, :created_at, :id, :user]
-
-  def build_wp_user(wp_user) do
-    fields =
-      wp_user
-      |> Enum.map(fn {key, val} ->
-        key = String.to_atom(key)
-        {key, serialize(key, val)}
-      end)
-
-    struct(ExDoppler.WorkplaceUser, fields)
-  end
-
-  defp serialize(_, nil), do: nil
-
-  defp serialize(:user, val) do
-    val =
-      val
-      |> Enum.map(fn {key, val} -> {String.to_atom(key), val} end)
-
-    struct(ExDoppler.User, val)
-  end
-
-  defp serialize(_, val), do: val
-end
-
-defmodule ExDoppler.User do
-  @moduledoc false
-  defstruct [:email, :name, :profile_image_url, :username]
-end
-
-defmodule ExDoppler.WorkplaceRole do
-  @moduledoc false
-  defstruct [:created_at, :identifier, :is_custom_role, :is_inline_role, :name, :permissions]
-
-  def all_permissions,
-    do: [
-      :all_enclave_projects_admin,
-      :all_enclave_projects,
-      :billing_manage,
-      :billing,
-      :create_enclave_project,
-      :custom_roles_manage,
-      :ekm,
-      :enclave_secrets_referencing,
-      :logs_audit,
-      :logs,
-      :service_account_api_tokens_manage,
-      :service_account_api_tokens,
-      :service_accounts_manage,
-      :service_accounts,
-      :settings_manage,
-      :settings,
-      :team_manage,
-      :team,
-      :verified_domains_manage,
-      :verified_domains,
-      :workplace_default_environments_manage,
-      :workplace_default_environments_read,
-      :workplace_integrations_list,
-      :workplace_integrations_manage,
-      :workplace_integrations_read
-    ]
-
-  def build_workplace_role(wp_role) do
-    fields =
-      wp_role
-      |> Enum.map(fn {key, val} ->
-        key = String.to_atom(key)
-        {key, val}
-      end)
-
-    struct(ExDoppler.WorkplaceRole, fields)
+defmodule ExDoppler.Model do
+  def atomize_keys(m) do
+    m
+    |> Enum.map(fn {key, val} ->
+      key = String.to_atom(key)
+      {key, val}
+    end)
   end
 end
 
