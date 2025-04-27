@@ -8,7 +8,7 @@ defmodule ExDoppler.ConfigsTest do
 
   test "Configs" do
     assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
-    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project.name)
+    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project)
     refute Enum.empty?(configs)
 
     configs
@@ -28,7 +28,7 @@ defmodule ExDoppler.ConfigsTest do
     end)
 
     assert {:ok, %{page: 1, environments: [environment | _]}} =
-             Environments.list_environments(project.name)
+             Environments.list_environments(project)
 
     new_config_name = environment.slug <> "_two-three-four"
     Configs.delete_config(project.name, new_config_name)
@@ -63,6 +63,6 @@ defmodule ExDoppler.ConfigsTest do
     assert {:ok, _} = Configs.delete_config(project.name, new_config.name)
 
     assert {:ok, %{page: 1, configs: [_config]}} =
-             Configs.list_configs(project.name, per_page: 1)
+             Configs.list_configs(project, per_page: 1)
   end
 end

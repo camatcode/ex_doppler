@@ -10,7 +10,7 @@ defmodule ExDoppler.SecretsTest do
 
   test "Secrets" do
     assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
-    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project.name)
+    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project)
     refute Enum.empty?(configs)
 
     configs
