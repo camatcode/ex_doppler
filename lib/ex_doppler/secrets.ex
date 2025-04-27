@@ -24,7 +24,7 @@ defmodule ExDoppler.Secrets do
     with {:ok, %{body: body}} <- Requester.get(@list_secrets_api_path, qparams: opts) do
       secrets =
         body["secrets"]
-        |> Enum.map(&Secret.build_secret/1)
+        |> Enum.map(&Secret.build/1)
 
       {:ok, secrets}
     end
@@ -35,7 +35,7 @@ defmodule ExDoppler.Secrets do
     opts = [project: project_name, config: config_name, name: secret_name]
 
     with {:ok, %{body: body}} <- Requester.get(@get_secrets_api_path, qparams: opts) do
-      {:ok, Secret.build_secret({body["name"], body["value"]})}
+      {:ok, Secret.build({body["name"], body["value"]})}
     end
   end
 
@@ -132,7 +132,7 @@ defmodule ExDoppler.Secrets do
     with {:ok, %{body: body}} <- Requester.post(@list_secrets_api_path, json: body) do
       secret =
         body["secrets"]
-        |> Enum.map(&Secret.build_secret/1)
+        |> Enum.map(&Secret.build/1)
         |> Enum.filter(fn %{name: name} ->
           name == secret_name
         end)

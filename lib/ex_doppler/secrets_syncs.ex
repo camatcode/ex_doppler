@@ -16,7 +16,7 @@ defmodule ExDoppler.SecretsSyncs do
            Requester.get(path,
              qparams: [project: project_slug, config: config_slug, sync: sync_slug]
            ) do
-      {:ok, Sync.build_secrets_sync(body["sync"])}
+      {:ok, Sync.build(body["sync"])}
     end
   end
 end
