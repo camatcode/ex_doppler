@@ -77,16 +77,7 @@
 | [Service Tokens : Create](https://docs.doppler.com/reference/service_tokens-create)                   | ❌           |       |
 | [Service Tokens : Delete](https://docs.doppler.com/reference/service_tokens-delete)                   | ❌           |       |
 | [Invites : List](https://docs.doppler.com/reference/invites-list)                                     | ❌           |       |
-| [Service Accounts : List](https://docs.doppler.com/reference/service_accounts-list)                   | ❌           |       |
-| [Service Accounts : Create](https://docs.doppler.com/reference/service_accounts-create)               | ❌           |       |
-| [Service Accounts : Retrieve](https://docs.doppler.com/reference/service_accounts-get)                | ❌           |       |
-| [Service Accounts : Update](https://docs.doppler.com/reference/service_accounts-update)               | ❌           |       |
-| [Service Accounts : Delete](https://docs.doppler.com/reference/service_accounts-delete)               | ❌           |       |
-| [Service Account Tokens : List](https://docs.doppler.com/reference/service_account_tokens-list)       | ❌           |       |
-| [Service Account Tokens : Create](https://docs.doppler.com/reference/service_account_tokens-create)   | ❌           |       |
-| [Service Account Tokens : Retrieve](https://docs.doppler.com/reference/service_account_tokens-get)    | ❌           |       |
-| [Service Account Tokens : Delete](https://docs.doppler.com/reference/service_account_tokens-delete)   | ❌           |       |
-| [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                   | ❌           |       |
+|  [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                  | ❌           |       |
 | [Webhooks : Retrieve](https://docs.doppler.com/reference/webhooks-get)                                | ❌           |       |
 | [Webhooks : Add](https://docs.doppler.com/reference/webhooks-add)                                     | ❌           |       |
 | [Webhooks : Update](https://docs.doppler.com/reference/webhooks-update)                               | ❌           |       |
@@ -109,24 +100,32 @@
 
 ### Requires Investigation
 
-| Realm : Action                                                                       | Implemented | Notes                                                    |
-|--------------------------------------------------------------------------------------|-------------|----------------------------------------------------------|
-| [Integrations : List](https://docs.doppler.com/reference/integrations-list)          | ⁉️          | Technically implemented - will have to come back to test |
-| [Integrations : Retrieve](https://docs.doppler.com/reference/integrations-get)       | ⁉️          | Technically implemented - will have to come back to test |
-| [Integrations : Get Options](https://docs.doppler.com/reference/get-options)         | ⁉️          | Technically implemented - will have to come back to test |
-| [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)    | ⁉️          | Account doesn't have access to it                        |
-| [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)       | ⁉️          | Account doesn't have access to it                        |
-| [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip) | ⁉️          | Account doesn't have access to it                        |
-| [Secrets Sync : Retrieve](https://docs.doppler.com/reference/syncs-get)              | ⁉️          | Technically implemented - will have to come back to test |
-| [Groups : List](https://docs.doppler.com/reference/groups-list)                      | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Create](https://docs.doppler.com/reference/groups-create)                  | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Retrieve](https://docs.doppler.com/reference/groups-get)                   | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Update](https://docs.doppler.com/reference/groups-update)                  | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Delete](https://docs.doppler.com/reference/groups-delete)                  | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Add Member](https://docs.doppler.com/reference/groups-add_member)          | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Delete Memeber](https://docs.doppler.com/reference/groups-delete_member)   | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Retrieve Memeber](https://docs.doppler.com/reference/retrieve-member)      | ⁉️          | Account doesn't have access to it                        |
-
+| Realm : Action                                                                                      | Implemented | Notes                                                    |
+|-----------------------------------------------------------------------------------------------------|-------------|----------------------------------------------------------|
+| [Integrations : List](https://docs.doppler.com/reference/integrations-list)                         | ⁉️          | Technically implemented - will have to come back to test |
+| [Integrations : Retrieve](https://docs.doppler.com/reference/integrations-get)                      | ⁉️          | Technically implemented - will have to come back to test |
+| [Integrations : Get Options](https://docs.doppler.com/reference/get-options)                        | ⁉️          | Technically implemented - will have to come back to test |
+| [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)                   | ⁉️          | Account doesn't have access to it                        |
+| [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)                      | ⁉️          | Account doesn't have access to it                        |
+| [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip)                | ⁉️          | Account doesn't have access to it                        |
+| [Secrets Sync : Retrieve](https://docs.doppler.com/reference/syncs-get)                             | ⁉️          | Technically implemented - will have to come back to test |
+| [Groups : List](https://docs.doppler.com/reference/groups-list)                                     | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Create](https://docs.doppler.com/reference/groups-create)                                 | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Retrieve](https://docs.doppler.com/reference/groups-get)                                  | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Update](https://docs.doppler.com/reference/groups-update)                                 | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Delete](https://docs.doppler.com/reference/groups-delete)                                 | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Add Member](https://docs.doppler.com/reference/groups-add_member)                         | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Delete Memeber](https://docs.doppler.com/reference/groups-delete_member)                  | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Retrieve Memeber](https://docs.doppler.com/reference/retrieve-member)                     | ⁉️          | Account doesn't have access to it                        |
+| [Service Accounts : List](https://docs.doppler.com/reference/service_accounts-list)                 | ⁉️          | Account doesn't have access to it                        |
+| [Service Accounts : Create](https://docs.doppler.com/reference/service_accounts-create)             | ⁉️          | Account doesn't have access to it                        |
+| [Service Accounts : Retrieve](https://docs.doppler.com/reference/service_accounts-get)              | ⁉️          | Account doesn't have access to it                        |
+| [Service Accounts : Update](https://docs.doppler.com/reference/service_accounts-update)             | ⁉️          | Account doesn't have access to it                        |
+| [Service Accounts : Delete](https://docs.doppler.com/reference/service_accounts-delete)             | ⁉️          | Account doesn't have access to it                        |
+| [Service Account Tokens : List](https://docs.doppler.com/reference/service_account_tokens-list)     | ⁉️          | Account doesn't have access to it                        |
+| [Service Account Tokens : Create](https://docs.doppler.com/reference/service_account_tokens-create) | ⁉️          | Account doesn't have access to it                        |
+| [Service Account Tokens : Retrieve](https://docs.doppler.com/reference/service_account_tokens-get)  | ⁉️          | Account doesn't have access to it                        |
+| [Service Account Tokens : Delete](https://docs.doppler.com/reference/service_account_tokens-delete) | ⁉️          | Account doesn't have access to it                        |
 
 ## Installation
 

@@ -12,6 +12,8 @@ defmodule ExDoppler.Groups do
       groups =
         body["groups"]
         |> Enum.map(&build_group/1)
+
+      {:ok, groups}
     end
   end
 
