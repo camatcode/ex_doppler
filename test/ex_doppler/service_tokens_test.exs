@@ -13,7 +13,7 @@ defmodule ExDoppler.ServiceTokensTest do
 
     configs
     |> Enum.each(fn config ->
-      {:ok, service_tokens} = ServiceTokens.list_service_tokens(config.project, config.name)
+      {:ok, service_tokens} = ServiceTokens.list_service_tokens(config)
 
       service_tokens
       |> Enum.each(fn service_token ->
