@@ -121,3 +121,8 @@ defmodule ExDoppler.ServiceAccount do
   @moduledoc false
   defstruct [:name, :slug, :created_at, :workplace_role]
 end
+
+defmodule ExDoppler.TokenInfo do
+  @moduledoc false
+  defstruct [:slug, :name, :created_at, :last_seen_at, :type, :token_preview, :workplace]
+end
