@@ -55,7 +55,7 @@ defmodule ExDoppler.Integrations do
         {key, val}
       end)
 
-    struct(ExDoppler.IntegrationSync, val)
+    struct(ExDoppler.Sync, val)
   end
 
   defp serialize(_, val), do: val

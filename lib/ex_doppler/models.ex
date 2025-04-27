@@ -97,7 +97,7 @@ defmodule ExDoppler.Integration do
   defstruct [:slug, :name, :type, :kind, :enabled, :syncs]
 end
 
-defmodule ExDoppler.IntegrationSync do
+defmodule ExDoppler.Sync do
   @moduledoc false
   defstruct [:slug, :enabled, :last_synced_at, :project, :config, :integration]
 end
