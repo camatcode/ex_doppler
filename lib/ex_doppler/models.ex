@@ -116,6 +116,29 @@ end
 defmodule ExDoppler.ProjectMember do
   @moduledoc false
   defstruct [:access_all_environments, :environments, :role, :slug, :type]
+
+  def build_project_member(member) do
+    fields =
+      member
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, serialize(key, val)}
+      end)
+
+    struct(ExDoppler.ProjectMember, fields)
+  end
+
+  defp serialize(_, nil), do: nil
+
+  defp serialize(:role, val) do
+    val =
+      val
+      |> Enum.map(fn {key, val} -> {String.to_atom(key), val} end)
+
+    struct(ExDoppler.ProjectMemberRole, val)
+  end
+
+  defp serialize(_, val), do: val
 end
 
 defmodule ExDoppler.ProjectMemberRole do
