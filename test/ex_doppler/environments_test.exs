@@ -11,6 +11,21 @@ defmodule ExDoppler.EnvironmentsTest do
 
     projects
     |> Enum.each(fn project ->
+      new_env_name = "env-one-two"
+      new_env_slug = "eot"
+      Environments.delete_environment(project.name, new_env_slug)
+
+      assert {:ok, new_env} =
+               Environments.create_environment(project.name, new_env_name, new_env_slug)
+
+      assert {:ok, new_env} =
+               Environments.update_environment(project.name, new_env.slug,
+                 name: "new-name",
+                 personal_configs: true
+               )
+
+      assert new_env.name == "new-name"
+
       assert {:ok, %{page: 1, environments: environments}} =
                Environments.list_environments(project.name)
 
@@ -29,6 +44,8 @@ defmodule ExDoppler.EnvironmentsTest do
 
       assert {:ok, %{page: 1, environments: [_env]}} =
                Environments.list_environments(project.name, per_page: 1)
+
+      assert {:ok, _} = Environments.delete_environment(project.name, new_env.slug)
     end)
   end
 end
