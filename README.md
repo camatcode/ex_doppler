@@ -51,7 +51,7 @@
 | [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |       |
 | [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                       | ✅           |       |
 | [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |       |
-
+| [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                     | ✅           |       |
 
 
 ### To Implement
@@ -81,7 +81,6 @@
 | [Change Request Policies : Delete](https://docs.doppler.com/reference/change-request-policies-delete) | ❌           |       |
 | [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                       | ❌           |       |
 | [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                           | ❌           |       |
-| [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                 | ❌           |       |
 | [Share : E2E Encrypted](https://docs.doppler.com/reference/share-secret-encrypted)                    | ❌           |       |
 
 ### Requires Investigation
