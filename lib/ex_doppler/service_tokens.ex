@@ -19,4 +19,40 @@ defmodule ExDoppler.ServiceTokens do
       {:ok, tokens}
     end
   end
+
+  def create_service_token(
+        %Config{name: config_name, project: project_name},
+        service_token_name,
+        opts \\ []
+      )
+      when is_bitstring(service_token_name) do
+    opts = Keyword.merge([expire_at: nil, access: :read], opts)
+
+    body =
+      %{
+        project: project_name,
+        config: config_name,
+        name: service_token_name,
+        expire_at: opts[:expire_at],
+        access: opts[:access]
+      }
+      |> Enum.filter(fn {_k, v} -> v end)
+      |> Enum.into(%{})
+
+    with {:ok, %{body: body}} <- Requester.post(@service_tokens_api_path, json: body) do
+      {:ok, ServiceToken.build(body["token"])}
+    end
+  end
+
+  def delete_service_token(%ServiceToken{project: project_name, config: config_name, slug: slug}) do
+    body = %{project: project_name, config: config_name, slug: slug}
+
+    path =
+      @service_tokens_api_path
+      |> Path.join("/token")
+
+    with {:ok, %{body: _}} <- Requester.delete(path, json: body) do
+      {:ok, {:success, true}}
+    end
+  end
 end
