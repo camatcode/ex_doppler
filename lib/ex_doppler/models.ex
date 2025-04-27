@@ -150,6 +150,29 @@ end
 defmodule ExDoppler.ConfigLog do
   @moduledoc false
   defstruct [:config, :created_at, :environment, :html, :id, :project, :rollback, :text, :user]
+
+  def build_config_log(log) do
+    fields =
+      log
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, serialize(key, val)}
+      end)
+
+    struct(ExDoppler.ConfigLog, fields)
+  end
+
+  defp serialize(_, nil), do: nil
+
+  defp serialize(:user, val) do
+    val =
+      val
+      |> Enum.map(fn {key, val} -> {String.to_atom(key), val} end)
+
+    struct(ExDoppler.User, val)
+  end
+
+  defp serialize(_, val), do: val
 end
 
 defmodule ExDoppler.Secret do
