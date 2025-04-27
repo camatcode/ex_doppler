@@ -4,6 +4,7 @@ defmodule ExDoppler.ServiceTokensTest do
 
   alias ExDoppler.Configs
   alias ExDoppler.Projects
+  alias ExDoppler.ServiceToken
   alias ExDoppler.ServiceTokens
 
   test "Configs" do
@@ -13,6 +14,16 @@ defmodule ExDoppler.ServiceTokensTest do
 
     configs
     |> Enum.each(fn config ->
+      token_slug = "my-service-token"
+
+      ServiceTokens.delete_service_token(%ServiceToken{
+        project: config.project,
+        config: config.name,
+        slug: token_slug
+      })
+
+      {:ok, service_token} = ServiceTokens.create_service_token(config, token_slug)
+
       {:ok, service_tokens} = ServiceTokens.list_service_tokens(config)
 
       service_tokens
@@ -24,6 +35,8 @@ defmodule ExDoppler.ServiceTokensTest do
         assert service_token.environment
         assert service_token.project
       end)
+
+      {:ok, _} = ServiceTokens.delete_service_token(service_token)
     end)
   end
 end

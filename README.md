@@ -48,10 +48,13 @@
 | [Secrets : Delete](https://docs.doppler.com/reference/secrets-delete)                                     | ✅           |       |
 | [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                           | ✅           |       |
 | [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅           |       |
+| [Service Tokens : Create](https://docs.doppler.com/reference/service_tokens-create)                       | ✅           |       |
+| [Service Tokens : Delete](https://docs.doppler.com/reference/service_tokens-delete)                       | ✅           |       |
 | [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |       |
 | [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                       | ✅           |       |
 | [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |       |
 | [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                     | ✅           |       |
+
 
 
 ### To Implement
@@ -73,8 +76,6 @@
 | [Secrets Sync : Delete](https://docs.doppler.com/reference/syncs-delete)                              | ❌           |       |
 | [Dynamic Secrets : Issue Lease](https://docs.doppler.com/reference/dynamic_secrets-issue_lease)       | ❌           |       |
 | [Dynamic Secrets : Revoke](https://docs.doppler.com/reference/dynamic_secrets-revoke_lease)           | ❌           |       |
-| [Service Tokens : Create](https://docs.doppler.com/reference/service_tokens-create)                   | ❌           |       |
-| [Service Tokens : Delete](https://docs.doppler.com/reference/service_tokens-delete)                   | ❌           |       |
 | [Change Request Policies : Create](https://docs.doppler.com/reference/change-request-policies-create) | ❌           |       |
 | [Change Request Policies : Retrieve](https://docs.doppler.com/reference/change-request-policies-get)  | ❌           |       |
 | [Change Request Policies : Update](https://docs.doppler.com/reference/change-request-policies-update) | ❌           |       |
