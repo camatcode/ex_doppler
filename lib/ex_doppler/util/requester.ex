@@ -72,5 +72,5 @@ defmodule ExDoppler.Util.Requester do
   def make_request(:get, path, opts), do: Req.get(path, opts)
   def make_request(:post, path, opts), do: Req.post(path, opts)
   def make_request(:put, path, opts), do: Req.put(path, opts)
-  def make_request(:delete, path, opts), do: Req.put(path, opts)
+  def make_request(:delete, path, opts), do: Req.delete(path, opts)
 end

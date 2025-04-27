@@ -145,6 +145,17 @@ defmodule ExDoppler.Config do
     :root,
     :slug
   ]
+
+  def build_config(config) do
+    fields =
+      config
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, val}
+      end)
+
+    struct(ExDoppler.Config, fields)
+  end
 end
 
 defmodule ExDoppler.ConfigLog do
