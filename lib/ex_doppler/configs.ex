@@ -20,7 +20,7 @@ defmodule ExDoppler.Configs do
   end
 
   def get_config(project_name, config_name)
-      when not is_nil(project_name) and not is_nil(config_name) do
+      when is_bitstring(project_name) and is_bitstring(config_name) do
     path =
       @configs_api_path
       |> Path.join("/config")
@@ -32,7 +32,7 @@ defmodule ExDoppler.Configs do
   end
 
   def list_trusted_ips(project_name, config_name)
-      when not is_nil(project_name) and not is_nil(config_name) do
+      when is_bitstring(project_name) and is_bitstring(config_name) do
     path =
       @configs_api_path
       |> Path.join("/config/trusted_ips")

@@ -18,7 +18,7 @@ defmodule ExDoppler.ProjectMembers do
   end
 
   def get_project_member(member_type, member_slug)
-      when not is_nil(member_type) and not is_nil(member_slug) do
+      when is_bitstring(member_type) and is_bitstring(member_slug) do
     path =
       @project_members_api_path
       |> Path.join("/member/#{member_type}/#{member_slug}")
@@ -38,6 +38,8 @@ defmodule ExDoppler.ProjectMembers do
 
     struct(ExDoppler.ProjectMember, fields)
   end
+
+  defp serialize(_, nil), do: nil
 
   defp serialize(:role, val) do
     val =

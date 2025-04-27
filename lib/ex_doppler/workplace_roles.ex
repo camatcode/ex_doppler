@@ -15,7 +15,7 @@ defmodule ExDoppler.WorkplaceRoles do
     end
   end
 
-  def get_workplace_role(identifier) when not is_nil(identifier) do
+  def get_workplace_role(identifier) when is_bitstring(identifier) do
     path =
       @workplace_roles_api_path
       |> Path.join("/role/#{identifier}")

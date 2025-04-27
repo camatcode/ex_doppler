@@ -28,6 +28,8 @@ defmodule ExDoppler.Invites do
     struct(ExDoppler.Invite, fields)
   end
 
+  defp serialize(_, nil), do: nil
+
   defp serialize(:workplace_role, val) do
     val =
       val

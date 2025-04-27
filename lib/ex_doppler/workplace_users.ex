@@ -19,7 +19,7 @@ defmodule ExDoppler.WorkplaceUsers do
     end
   end
 
-  def get_workplace_user(id) when not is_nil(id) do
+  def get_workplace_user(id) when is_bitstring(id) do
     path =
       @workplace_users_api_path
       |> Path.join("/#{id}")
@@ -39,6 +39,8 @@ defmodule ExDoppler.WorkplaceUsers do
 
     struct(ExDoppler.WorkplaceUser, fields)
   end
+
+  defp serialize(_, nil), do: nil
 
   defp serialize(:user, val) do
     val =

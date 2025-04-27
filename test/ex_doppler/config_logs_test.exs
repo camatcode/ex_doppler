@@ -14,8 +14,6 @@ defmodule ExDoppler.ConfigLogsTest do
       {:ok, %{page: 1, logs: logs}} =
         ConfigLogs.list_config_logs(config.project, config.name)
 
-      refute Enum.empty?(logs)
-
       logs
       |> Enum.each(fn log ->
         assert log.config

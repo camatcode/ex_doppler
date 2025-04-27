@@ -5,7 +5,7 @@ defmodule ExDoppler.Environments do
 
   @environments_api_path "/v3/environments"
 
-  def list_environments(project_name, opts \\ []) when not is_nil(project_name) do
+  def list_environments(project_name, opts \\ []) when is_bitstring(project_name) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@environments_api_path, qparams: opts) do
@@ -20,7 +20,7 @@ defmodule ExDoppler.Environments do
   end
 
   def get_environment(project_name, environment_slug)
-      when not is_nil(project_name) and not is_nil(environment_slug) do
+      when is_bitstring(project_name) and is_bitstring(environment_slug) do
     path =
       @environments_api_path
       |> Path.join("/environment")

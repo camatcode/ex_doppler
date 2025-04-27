@@ -46,6 +46,8 @@ defmodule ExDoppler.Integrations do
     struct(ExDoppler.Integration, fields)
   end
 
+  defp serialize(_, nil), do: nil
+
   defp serialize(:syncs, val) do
     val =
       val
