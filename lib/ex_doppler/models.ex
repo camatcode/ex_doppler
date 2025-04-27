@@ -311,6 +311,17 @@ end
 defmodule ExDoppler.ServiceToken do
   @moduledoc false
   defstruct [:name, :slug, :created_at, :config, :environment, :project, :expires_at]
+
+  def build_service_token(token) do
+    fields =
+      token
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, val}
+      end)
+
+    struct(ExDoppler.ServiceToken, fields)
+  end
 end
 
 defmodule ExDoppler.Invite do

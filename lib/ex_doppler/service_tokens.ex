@@ -1,6 +1,7 @@
 defmodule ExDoppler.ServiceTokens do
   @moduledoc false
 
+  alias ExDoppler.ServiceToken
   alias ExDoppler.Util.Requester
 
   @service_tokens_api_path "/v3/configs/config/tokens"
@@ -13,20 +14,9 @@ defmodule ExDoppler.ServiceTokens do
            ) do
       tokens =
         body["tokens"]
-        |> Enum.map(&build_service_token/1)
+        |> Enum.map(&ServiceToken.build_service_token/1)
 
       {:ok, tokens}
     end
-  end
-
-  def build_service_token(token) do
-    fields =
-      token
-      |> Enum.map(fn {key, val} ->
-        key = String.to_atom(key)
-        {key, val}
-      end)
-
-    struct(ExDoppler.ServiceToken, fields)
   end
 end
