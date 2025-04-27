@@ -11,7 +11,7 @@ defmodule ExDoppler.ActivityLogs do
 
     with {:ok, %{body: body}} <- Requester.get(@activity_logs_api_path, qparams: opts) do
       page = body["page"]
-      logs = body["logs"] |> Enum.map(&ActivityLog.build_activity_log/1)
+      logs = body["logs"] |> Enum.map(&ActivityLog.build/1)
       {:ok, %{page: page, logs: logs}}
     end
   end
@@ -22,7 +22,7 @@ defmodule ExDoppler.ActivityLogs do
       |> Path.join("/log")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [log: id]) do
-      {:ok, ActivityLog.build_activity_log(body["log"])}
+      {:ok, ActivityLog.build(body["log"])}
     end
   end
 end

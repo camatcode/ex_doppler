@@ -12,7 +12,7 @@ defmodule ExDoppler.ServiceAccounts do
     with {:ok, %{body: body}} <- Requester.get(@service_accounts_api_path, qparams: opts) do
       accounts =
         body["service_accounts"]
-        |> Enum.map(&ServiceAccount.build_service_account/1)
+        |> Enum.map(&ServiceAccount.build/1)
 
       {:ok, accounts}
     end

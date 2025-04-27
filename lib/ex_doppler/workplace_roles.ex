@@ -10,7 +10,7 @@ defmodule ExDoppler.WorkplaceRoles do
     with {:ok, %{body: body}} <- Requester.get(@workplace_roles_api_path) do
       roles =
         body["roles"]
-        |> Enum.map(&WorkplaceRole.build_workplace_role/1)
+        |> Enum.map(&WorkplaceRole.build/1)
 
       {:ok, roles}
     end
@@ -22,7 +22,7 @@ defmodule ExDoppler.WorkplaceRoles do
       |> Path.join("/role/#{identifier}")
 
     with {:ok, %{body: body}} <- Requester.get(path) do
-      {:ok, WorkplaceRole.build_workplace_role(body["role"])}
+      {:ok, WorkplaceRole.build(body["role"])}
     end
   end
 end

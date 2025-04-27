@@ -14,7 +14,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
       workplace_users =
         body["workplace_users"]
-        |> Enum.map(&WorkplaceUser.build_wp_user/1)
+        |> Enum.map(&WorkplaceUser.build/1)
 
       {:ok, %{page: page, workplace_users: workplace_users}}
     end
@@ -26,7 +26,7 @@ defmodule ExDoppler.WorkplaceUsers do
       |> Path.join("/#{id}")
 
     with {:ok, %{body: body}} <- Requester.get(path) do
-      {:ok, WorkplaceUser.build_wp_user(body["workplace_user"])}
+      {:ok, WorkplaceUser.build(body["workplace_user"])}
     end
   end
 end

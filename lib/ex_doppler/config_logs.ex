@@ -16,7 +16,7 @@ defmodule ExDoppler.ConfigLogs do
 
       logs =
         body["logs"]
-        |> Enum.map(&ConfigLog.build_config_log/1)
+        |> Enum.map(&ConfigLog.build/1)
 
       {:ok, %{page: page, logs: logs}}
     end
@@ -31,7 +31,7 @@ defmodule ExDoppler.ConfigLogs do
     opts = [qparams: [project: project_name, config: config_name, log: log_id]]
 
     with {:ok, %{body: body}} <- Requester.get(path, opts) do
-      {:ok, ConfigLog.build_config_log(body["log"])}
+      {:ok, ConfigLog.build(body["log"])}
     end
   end
 
@@ -44,7 +44,7 @@ defmodule ExDoppler.ConfigLogs do
     opts = [qparams: [project: project_name, config: config_name, log: log_id]]
 
     with {:ok, %{body: body}} <- Requester.post(path, opts) do
-      {:ok, ConfigLog.build_config_log(body["log"])}
+      {:ok, ConfigLog.build(body["log"])}
     end
   end
 end

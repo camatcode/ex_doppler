@@ -12,7 +12,7 @@ defmodule ExDoppler.ProjectMembers do
     with {:ok, %{body: body}} <- Requester.get(@project_members_api_path, qparams: opts) do
       members =
         body["members"]
-        |> Enum.map(&ProjectMember.build_project_member/1)
+        |> Enum.map(&ProjectMember.build/1)
 
       {:ok, members}
     end
@@ -25,7 +25,7 @@ defmodule ExDoppler.ProjectMembers do
       |> Path.join("/member/#{member_type}/#{member_slug}")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [project: project_slug]) do
-      {:ok, ProjectMember.build_project_member(body["member"])}
+      {:ok, ProjectMember.build(body["member"])}
     end
   end
 end

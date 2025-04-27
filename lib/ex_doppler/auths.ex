@@ -8,7 +8,7 @@ defmodule ExDoppler.Auths do
     path = "/v3/me"
 
     with {:ok, %{body: body}} <- Requester.get(path) do
-      {:ok, TokenInfo.build_token_info(body)}
+      {:ok, TokenInfo.build(body)}
     end
   end
 end

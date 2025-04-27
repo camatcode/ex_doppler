@@ -8,7 +8,7 @@ defmodule ExDoppler.Workplaces do
 
   def get_workplace(opts \\ []) do
     with {:ok, %{body: body}} <- Requester.get(@workplace_api_path, opts) do
-      {:ok, Workplace.build_workplace(body["workplace"])}
+      {:ok, Workplace.build(body["workplace"])}
     end
   end
 

@@ -14,7 +14,7 @@ defmodule ExDoppler.Configs do
 
       configs =
         body["configs"]
-        |> Enum.map(&Config.build_config/1)
+        |> Enum.map(&Config.build/1)
 
       {:ok, %{page: page, configs: configs}}
     end
@@ -28,7 +28,7 @@ defmodule ExDoppler.Configs do
 
     with {:ok, %{body: body}} <-
            Requester.get(path, qparams: [project: project_name, config: config_name]) do
-      {:ok, Config.build_config(body["config"])}
+      {:ok, Config.build(body["config"])}
     end
   end
 
@@ -39,7 +39,7 @@ defmodule ExDoppler.Configs do
     body = %{project: project_name, environment: environment_id, name: config_name}
 
     with {:ok, %{body: body}} <- Requester.post(@configs_api_path, json: body) do
-      {:ok, Config.build_config(body["config"])}
+      {:ok, Config.build(body["config"])}
     end
   end
 
@@ -54,7 +54,7 @@ defmodule ExDoppler.Configs do
     body = %{project: project_name, config: current_config_name, name: new_config_name}
 
     with {:ok, %{body: body}} <- Requester.post(path, json: body) do
-      {:ok, Config.build_config(body["config"])}
+      {:ok, Config.build(body["config"])}
     end
   end
 
@@ -69,7 +69,7 @@ defmodule ExDoppler.Configs do
     body = %{project: project_name, config: source_config, name: new_config_name}
 
     with {:ok, %{body: body}} <- Requester.post(path, json: body) do
-      {:ok, Config.build_config(body["config"])}
+      {:ok, Config.build(body["config"])}
     end
   end
 
@@ -83,7 +83,7 @@ defmodule ExDoppler.Configs do
     body = %{project: project_name, config: config_name}
 
     with {:ok, %{body: body}} <- Requester.post(path, json: body) do
-      {:ok, Config.build_config(body["config"])}
+      {:ok, Config.build(body["config"])}
     end
   end
 
@@ -97,7 +97,7 @@ defmodule ExDoppler.Configs do
     body = %{project: project_name, config: config_name}
 
     with {:ok, %{body: body}} <- Requester.post(path, json: body) do
-      {:ok, Config.build_config(body["config"])}
+      {:ok, Config.build(body["config"])}
     end
   end
 
@@ -109,7 +109,7 @@ defmodule ExDoppler.Configs do
     body = %{project: project_name, config: config_name, inheritable: is_inheritable}
 
     with {:ok, %{body: body}} <- Requester.post(path, json: body) do
-      {:ok, Config.build_config(body["config"])}
+      {:ok, Config.build(body["config"])}
     end
   end
 

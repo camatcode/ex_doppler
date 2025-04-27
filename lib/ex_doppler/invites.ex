@@ -12,7 +12,7 @@ defmodule ExDoppler.Invites do
     with {:ok, %{body: body}} <- Requester.get(@invites_api_path, qparams: opts) do
       invites =
         body["invites"]
-        |> Enum.map(&Invite.build_invite/1)
+        |> Enum.map(&Invite.build/1)
 
       {:ok, invites}
     end

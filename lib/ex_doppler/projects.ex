@@ -14,7 +14,7 @@ defmodule ExDoppler.Projects do
 
       projects =
         body["projects"]
-        |> Enum.map(&Project.build_project/1)
+        |> Enum.map(&Project.build/1)
 
       {:ok, %{page: page, projects: projects}}
     end
@@ -26,7 +26,7 @@ defmodule ExDoppler.Projects do
       |> Path.join("/project")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [project: identifier]) do
-      {:ok, Project.build_project(body["project"])}
+      {:ok, Project.build(body["project"])}
     end
   end
 
@@ -38,7 +38,7 @@ defmodule ExDoppler.Projects do
       |> Enum.into(%{})
 
     with {:ok, %{body: body}} <- Requester.post(@projects_api_path, json: body) do
-      {:ok, Project.build_project(body["project"])}
+      {:ok, Project.build(body["project"])}
     end
   end
 
@@ -56,7 +56,7 @@ defmodule ExDoppler.Projects do
         |> Path.join("/project")
 
       with {:ok, %{body: body}} <- Requester.post(path, json: body) do
-        {:ok, Project.build_project(body["project"])}
+        {:ok, Project.build(body["project"])}
       end
     end
   end
