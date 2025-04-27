@@ -185,4 +185,27 @@ end
 defmodule ExDoppler.TokenInfo do
   @moduledoc false
   defstruct [:slug, :name, :created_at, :last_seen_at, :type, :token_preview, :workplace]
+
+  def build_token_info(token_info) do
+    fields =
+      token_info
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, serialize(key, val)}
+      end)
+
+    struct(ExDoppler.TokenInfo, fields)
+  end
+
+  defp serialize(_, nil), do: nil
+
+  defp serialize(:workplace, val) do
+    val =
+      val
+      |> Enum.map(fn {key, val} -> {String.to_atom(key), val} end)
+
+    struct(ExDoppler.Workplace, val)
+  end
+
+  defp serialize(_, val), do: val
 end
