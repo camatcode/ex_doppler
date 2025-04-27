@@ -67,6 +67,38 @@ defmodule ExDoppler.Util.Requester do
     end
   end
 
+  def put(path, opts \\ []) do
+    qparams = opts[:qparams]
+
+    opts =
+      Keyword.delete(opts, :qparams)
+      |> Keyword.put(:headers, [auth_header()])
+
+    base_url()
+    |> Path.join(path)
+    |> handle_qparams(qparams)
+    |> Req.put(opts)
+    |> case do
+      {:ok, %Req.Response{status: 200, body: _body, headers: _headers}} = resp ->
+        resp
+
+      {:ok, %Req.Response{status: 429, headers: %{"retry-after" => [seconds_str]}}} ->
+        if opts[:is_retry] do
+          {:err, "Rate limit exceeded"}
+        else
+          seconds = String.to_integer(seconds_str)
+          milliseconds = (seconds + 1) * 1000
+          Logger.debug("Hit a rate limit, waiting #{milliseconds} milliseconds and retrying")
+          :timer.sleep(milliseconds)
+          new_opts = Keyword.merge(opts, is_retry: true)
+          get(path, new_opts)
+        end
+
+      other ->
+        {:err, other}
+    end
+  end
+
   def delete(path, opts \\ []) do
     qparams = opts[:qparams]
 

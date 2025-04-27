@@ -25,7 +25,10 @@
 | [Project Members : List](https://docs.doppler.com/reference/project_members-list)                         | ✅           |       |
 | [Project Members : Retrieve](https://docs.doppler.com/reference/project_members-get)                      | ✅           |       |
 | [Environments : List](https://docs.doppler.com/reference/environments-list)                               | ✅           |       |
+| [Environments : Create](https://docs.doppler.com/reference/environments-create)                           | ✅           |       |
 | [Environments : Retrieve](https://docs.doppler.com/reference/environments-get)                            | ✅           |       |
+| [Environments : Delete](https://docs.doppler.com/reference/environments-delete)                           | ✅           |       |
+| [Environments : Rename](https://docs.doppler.com/reference/environments-rename)                           | ✅           |       |
 | [Configs : List](https://docs.doppler.com/reference/configs-list)                                         | ✅           |       |
 | [Configs : Retrieve](https://docs.doppler.com/reference/configs-get)                                      | ✅           |       |
 | [Config Logs : List](https://docs.doppler.com/reference/config_logs-list)                                 | ✅           |       |
@@ -41,6 +44,7 @@
 
 
 
+
 ### To Implement
 
 | Realm : Action                                                                                        | Implemented | Notes |
@@ -53,9 +57,6 @@
 | [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                       | ❌           |       |
 | [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ❌           |       |
 | [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ❌           |       |
-| [Environments : Create](https://docs.doppler.com/reference/environments-create)                       | ❌           |       |
-| [Environments : Delete](https://docs.doppler.com/reference/environments-delete)                       | ❌           |       |
-| [Environments : Rename](https://docs.doppler.com/reference/environments-rename)                       | ❌           |       |
 | [Configs : Create](https://docs.doppler.com/reference/configs-create)                                 | ❌           |       |
 | [Configs : Update](https://docs.doppler.com/reference/configs-update)                                 | ❌           |       |
 | [Configs : Delete](https://docs.doppler.com/reference/configs-delete)                                 | ❌           |       |
