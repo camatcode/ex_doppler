@@ -51,7 +51,7 @@ defmodule ExDoppler.Util.Requester do
   def delete(path, opts \\ []), do: request(:delete, path, opts)
 
   defp auth_header do
-    auth_token = Application.get_env(:ex_doppler, :token)
+    auth_token = Application.get_env(:ex_doppler, :token) || System.get_env("DOPPLER_TOKEN")
     {"authorization", "Bearer #{auth_token}"}
   end
 
