@@ -10,7 +10,7 @@ defmodule ExDoppler.ProjectRoles do
     with {:ok, %{body: body}} <- Requester.get(@project_roles_api_path) do
       roles =
         body["roles"]
-        |> Enum.map(&ProjectRole.build_project_role/1)
+        |> Enum.map(&ProjectRole.build/1)
 
       {:ok, roles}
     end
@@ -22,7 +22,7 @@ defmodule ExDoppler.ProjectRoles do
       |> Path.join("/role/#{identifier}")
 
     with {:ok, %{body: body}} <- Requester.get(path) do
-      {:ok, ProjectRole.build_project_role(body["role"])}
+      {:ok, ProjectRole.build(body["role"])}
     end
   end
 end

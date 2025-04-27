@@ -14,7 +14,7 @@ defmodule ExDoppler.Environments do
 
       environments =
         body["environments"]
-        |> Enum.map(&Environment.build_environment/1)
+        |> Enum.map(&Environment.build/1)
 
       {:ok, %{page: page, environments: environments}}
     end
@@ -29,7 +29,7 @@ defmodule ExDoppler.Environments do
     opts = [qparams: [project: project_name, environment: environment_slug]]
 
     with {:ok, %{body: body}} <- Requester.get(path, opts) do
-      {:ok, Environment.build_environment(body["environment"])}
+      {:ok, Environment.build(body["environment"])}
     end
   end
 
@@ -40,7 +40,7 @@ defmodule ExDoppler.Environments do
     opts = [qparams: [project: project_name], json: body]
 
     with {:ok, %{body: body}} <- Requester.post(@environments_api_path, opts) do
-      {:ok, Environment.build_environment(body["environment"])}
+      {:ok, Environment.build(body["environment"])}
     end
   end
 
@@ -65,7 +65,7 @@ defmodule ExDoppler.Environments do
       qparams = [project: project_name, environment: env_slug]
 
       with {:ok, %{body: body}} <- Requester.put(path, qparams: qparams, json: body) do
-        {:ok, Environment.build_environment(body["environment"])}
+        {:ok, Environment.build(body["environment"])}
       end
     end
   end
