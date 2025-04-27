@@ -5,35 +5,36 @@
 ### Implemented 
 
 | Realm : Action                                                                                            | Implemented | Notes |
-|-----------------------------------------------------------------------------------------------------------|-------------|-------|
-| [Workplace : Retrieve](https://docs.doppler.com/reference/workplace-get)                                  | ✅           |       |
-| [Workplace Users : List](https://docs.doppler.com/reference/users-list)                                   | ✅           |       |
-| [Workplace Users : Retrieve](https://docs.doppler.com/reference/users-get)                                | ✅           |       |
-| [Workplace Roles : List](https://docs.doppler.com/reference/workplace_roles-list)                         | ✅           |       |
-| [Workplace Roles : Retrieve](https://docs.doppler.com/reference/workplace_roles-get)                      | ✅           |       |
-| [Workplace Roles : List Permissions](https://docs.doppler.com/reference/workplace_roles-list_permissions) | ✅           |       |
-| [Activity Logs : List](https://docs.doppler.com/reference/activity_logs-list)                             | ✅           |       |
-| [Activity Logs : Retrieve](https://docs.doppler.com/reference/activity_logs-retrieve)                     | ✅           |       |
-| [Projects : List](https://docs.doppler.com/reference/projects-list)                                       | ✅           |       |
-| [Projects : Retrieve](https://docs.doppler.com/reference/projects-get)                                    | ✅           |       |
-| [Project Roles : List](https://docs.doppler.com/reference/project_roles-list)                             | ✅           |       |
-| [Project Roles : Retrieve](https://docs.doppler.com/reference/project_roles-get)                          | ✅           |       |
-| [Project Roles : List Permissions](https://docs.doppler.com/reference/project_roles-list_permissions)     | ✅           |       |
-| [Project Members : List](https://docs.doppler.com/reference/project_members-list)                         | ✅           |       |
-| [Project Members : Retrieve](https://docs.doppler.com/reference/project_members-get)                      | ✅           |       |
-| [Environments : List](https://docs.doppler.com/reference/environments-list)                               | ✅           |       |
-| [Environments : Retrieve](https://docs.doppler.com/reference/environments-get)                            | ✅           |       |
-| [Configs : List](https://docs.doppler.com/reference/configs-list)                                         | ✅           |       |
-| [Configs : Retrieve](https://docs.doppler.com/reference/configs-get)                                      | ✅           |       |
-| [Config Logs : List](https://docs.doppler.com/reference/config_logs-list)                                 | ✅           |       |
-| [Config Logs : Retrieve](https://docs.doppler.com/reference/config_logs-get)                              | ✅           |       |
-| [Secrets : List](https://docs.doppler.com/reference/secrets-list)                                         | ✅           |       |
-| [Secrets : Retrieve](https://docs.doppler.com/reference/secrets-get)                                      | ✅           |       |
-| [Secrets : Download](https://docs.doppler.com/reference/secrets-download)                                 | ✅           |       |
-| [Secrets : List Names](https://docs.doppler.com/reference/secrets-names)                                  | ✅           |       |
-| [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅           |       |
-| [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |       |
-|  [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                  | ✅           |       |
+|-----------------------------------------------------------------------------------------------------------|------------|-------|
+| [Workplace : Retrieve](https://docs.doppler.com/reference/workplace-get)                                  | ✅          |       |
+| [Workplace Users : List](https://docs.doppler.com/reference/users-list)                                   | ✅          |       |
+| [Workplace Users : Retrieve](https://docs.doppler.com/reference/users-get)                                | ✅          |       |
+| [Workplace Roles : List](https://docs.doppler.com/reference/workplace_roles-list)                         | ✅          |       |
+| [Workplace Roles : Retrieve](https://docs.doppler.com/reference/workplace_roles-get)                      | ✅          |       |
+| [Workplace Roles : List Permissions](https://docs.doppler.com/reference/workplace_roles-list_permissions) | ✅          |       |
+| [Activity Logs : List](https://docs.doppler.com/reference/activity_logs-list)                             | ✅          |       |
+| [Activity Logs : Retrieve](https://docs.doppler.com/reference/activity_logs-retrieve)                     | ✅          |       |
+| [Projects : List](https://docs.doppler.com/reference/projects-list)                                       | ✅          |       |
+| [Projects : Retrieve](https://docs.doppler.com/reference/projects-get)                                    | ✅          |       |
+| [Project Roles : List](https://docs.doppler.com/reference/project_roles-list)                             | ✅          |       |
+| [Project Roles : Retrieve](https://docs.doppler.com/reference/project_roles-get)                          | ✅          |       |
+| [Project Roles : List Permissions](https://docs.doppler.com/reference/project_roles-list_permissions)     | ✅          |       |
+| [Project Members : List](https://docs.doppler.com/reference/project_members-list)                         | ✅          |       |
+| [Project Members : Retrieve](https://docs.doppler.com/reference/project_members-get)                      | ✅          |       |
+| [Environments : List](https://docs.doppler.com/reference/environments-list)                               | ✅          |       |
+| [Environments : Retrieve](https://docs.doppler.com/reference/environments-get)                            | ✅          |       |
+| [Configs : List](https://docs.doppler.com/reference/configs-list)                                         | ✅          |       |
+| [Configs : Retrieve](https://docs.doppler.com/reference/configs-get)                                      | ✅          |       |
+| [Config Logs : List](https://docs.doppler.com/reference/config_logs-list)                                 | ✅          |       |
+| [Config Logs : Retrieve](https://docs.doppler.com/reference/config_logs-get)                              | ✅          |       |
+| [Secrets : List](https://docs.doppler.com/reference/secrets-list)                                         | ✅          |       |
+| [Secrets : Retrieve](https://docs.doppler.com/reference/secrets-get)                                      | ✅          |       |
+| [Secrets : Download](https://docs.doppler.com/reference/secrets-download)                                 | ✅          |       |
+| [Secrets : List Names](https://docs.doppler.com/reference/secrets-names)                                  | ✅          |       |
+| [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅          |       |
+| [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅          |       |
+|  [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                  | ✅          |       |
+| [Auth : Me](https://docs.doppler.com/reference/auth-me)                                               | ✅           |       |
 
 ### To Implement
 
@@ -83,7 +84,6 @@
 | [Change Request Policies : Delete](https://docs.doppler.com/reference/change-request-policies-delete) | ❌           |       |
 | [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                       | ❌           |       |
 | [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                           | ❌           |       |
-| [Auth : Me](https://docs.doppler.com/reference/auth-me)                                               | ❌           |       |
 | [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                 | ❌           |       |
 | [Share : E2E Encrypted](https://docs.doppler.com/reference/share-secret-encrypted)                    | ❌           |       |
 | [Audit API : Workplace](https://docs.doppler.com/reference/audit-get_workplace)                       | ❌           |       |
