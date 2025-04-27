@@ -45,6 +45,17 @@ defmodule ExDoppler.WorkplaceRole do
       :workplace_integrations_manage,
       :workplace_integrations_read
     ]
+
+  def build_workplace_role(wp_role) do
+    fields =
+      wp_role
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, val}
+      end)
+
+    struct(ExDoppler.WorkplaceRole, fields)
+  end
 end
 
 defmodule ExDoppler.DefaultWorkplaceRole do
