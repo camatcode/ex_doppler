@@ -76,6 +76,18 @@ defmodule ExDoppler.SecretsTest do
 
       assert {:ok, names} = Secrets.list_secret_names(config.project, config.name)
       refute Enum.empty?(names)
+
+      secret_name = "NEW_SEC2"
+      secret_value = "three-six-twelve"
+
+      Secrets.delete_secret(config.project, config.name, secret_name)
+
+      assert {:ok, new_secret} =
+               Secrets.create_secret(config.project, config.name, secret_name, secret_value,
+                 visibility: :masked
+               )
+
+      assert {:ok, _} = Secrets.delete_secret(config.project, config.name, new_secret.name)
     end)
   end
 end

@@ -114,6 +114,9 @@ defmodule ExDoppler.Util.Requester do
       {:ok, %Req.Response{status: 200, body: _body, headers: _headers}} = resp ->
         resp
 
+      {:ok, %Req.Response{status: 204, body: _body, headers: _headers}} = resp ->
+        resp
+
       {:ok, %Req.Response{status: 429, headers: %{"retry-after" => [seconds_str]}}} ->
         if opts[:is_retry] do
           {:err, "Rate limit exceeded"}

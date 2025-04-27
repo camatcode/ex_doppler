@@ -86,6 +86,10 @@ defmodule ExDoppler.Secrets do
     end
   end
 
+  def create_secret(project_name, config_name, new_secret_name, value, opts \\ []) do
+    update_secret(project_name, config_name, new_secret_name, value, opts)
+  end
+
   def update_secret(project_name, config_name, secret_name, value, opts \\ [])
       when is_bitstring(project_name) and
              is_bitstring(config_name) and
@@ -115,14 +119,15 @@ defmodule ExDoppler.Secrets do
           visibility: :masked,
           shouldPromote: false,
           shouldDelete: false,
-          shouldConverge: false,
-          valueType: %{type: "string"}
+          shouldConverge: false
         ],
         opts
       )
 
-    change_request = Enum.into(opts, %{})
-    body = %{project: project_name, config: config_name, change_requests: [change_request]}
+    change_request = opts |> Enum.filter(fn {_k, v} -> v end) |> Enum.into(%{})
+
+    body =
+      %{project: project_name, config: config_name, change_requests: [change_request]}
 
     with {:ok, %{body: body}} <- Requester.post(@list_secrets_api_path, json: body) do
       secret =
@@ -134,6 +139,17 @@ defmodule ExDoppler.Secrets do
         |> hd()
 
       {:ok, secret}
+    end
+  end
+
+  def delete_secret(project_name, config_name, secret_name)
+      when is_bitstring(project_name) and
+             is_bitstring(config_name) and
+             is_bitstring(secret_name) do
+    opts = [qparams: [project: project_name, config: config_name, name: secret_name]]
+
+    with {:ok, %{body: body}} <- Requester.delete(@get_secrets_api_path, opts) do
+      {:ok, {:success, true}}
     end
   end
 
