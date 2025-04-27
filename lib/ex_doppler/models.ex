@@ -294,6 +294,18 @@ end
 defmodule ExDoppler.Sync do
   @moduledoc false
   defstruct [:slug, :enabled, :last_synced_at, :project, :config, :integration]
+
+  def build_secrets_sync(sync) do
+    fields =
+      sync
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        key = if key == :lastSyncedAt, do: :last_synced_at, else: key
+        {key, val}
+      end)
+
+    struct(ExDoppler.Sync, fields)
+  end
 end
 
 defmodule ExDoppler.ServiceToken do
