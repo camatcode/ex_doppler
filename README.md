@@ -31,7 +31,8 @@
 | [Secrets : Retrieve](https://docs.doppler.com/reference/secrets-get)                                      | ✅           |       |
 | [Secrets : Download](https://docs.doppler.com/reference/secrets-download)                                 | ✅           |       |
 | [Secrets : List Names](https://docs.doppler.com/reference/secrets-names)                                  | ✅           |       |
-| [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                       | ✅           |       |
+| [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅           |       |
+| [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |       |
 
 ### To Implement
 

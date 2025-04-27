@@ -5,6 +5,14 @@ defmodule ExDoppler.InvitesTest do
   alias ExDoppler.Invites
 
   test "Integrations" do
-    assert {:ok, _invites} = Invites.list_invites() |> IO.inspect()
+    assert {:ok, invites} = Invites.list_invites()
+
+    invites
+    |> Enum.each(fn invite ->
+      assert invite.slug
+      assert invite.email
+      assert invite.created_at
+      assert invite.workplace_role
+    end)
   end
 end
