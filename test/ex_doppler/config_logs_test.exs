@@ -27,14 +27,17 @@ defmodule ExDoppler.ConfigLogsTest do
         assert log.rollback != nil
         assert log.text
         assert log.user
+        assert {:ok, log} == ConfigLogs.get_config_log(log.project, log.config, log.id)
+      end)
 
+      logs
+      |> Enum.take(1)
+      |> Enum.each(fn log ->
         ConfigLogs.rollback(log.project, log.config, log.id)
         |> case do
           {:ok, log} -> assert log.rollback
           _ -> :ok
         end
-
-        assert {:ok, log} == ConfigLogs.get_config_log(log.project, log.config, log.id)
       end)
     end)
   end

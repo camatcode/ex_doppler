@@ -3,6 +3,7 @@ defmodule ExDoppler.ServiceTokensTest do
   doctest ExDoppler.ServiceTokens
 
   alias ExDoppler.Configs
+  alias ExDoppler.Projects
   alias ExDoppler.ServiceTokens
 
   test "Configs" do

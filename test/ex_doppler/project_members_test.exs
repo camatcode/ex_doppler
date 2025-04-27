@@ -3,9 +3,11 @@ defmodule ExDoppler.ProjectMembersTest do
   doctest ExDoppler.ProjectMembers
 
   alias ExDoppler.ProjectMembers
+  alias ExDoppler.Projects
 
   test "Project Members" do
-    assert {:ok, members} = ProjectMembers.list_project_members(page: 1)
+    {:ok, %{page: 1, projects: [project | _]}} = Projects.list_projects()
+    assert {:ok, members} = ProjectMembers.list_project_members(project.slug, page: 1)
     refute Enum.empty?(members)
 
     members
@@ -14,9 +16,11 @@ defmodule ExDoppler.ProjectMembersTest do
       assert member.role.identifier
       assert member.slug
       assert member.type
-      assert {:ok, member} == ProjectMembers.get_project_member(member.type, member.slug)
+
+      assert {:ok, member} ==
+               ProjectMembers.get_project_member(project.slug, member.type, member.slug)
     end)
 
-    assert {:ok, []} = ProjectMembers.list_project_members(page: 200)
+    assert {:ok, []} = ProjectMembers.list_project_members(project.slug, page: 200)
   end
 end

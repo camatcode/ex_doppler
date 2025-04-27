@@ -2,14 +2,15 @@ defmodule ExDoppler.WorkplaceRoles do
   @moduledoc false
 
   alias ExDoppler.Util.Requester
+  alias ExDoppler.WorkplaceRole
 
   @workplace_roles_api_path "/v3/workplace/roles"
 
-  def list_workplace_roles() do
+  def list_workplace_roles do
     with {:ok, %{body: body}} <- Requester.get(@workplace_roles_api_path) do
       roles =
         body["roles"]
-        |> Enum.map(&build_workplace_role/1)
+        |> Enum.map(&WorkplaceRole.build_workplace_role/1)
 
       {:ok, roles}
     end
@@ -21,18 +22,7 @@ defmodule ExDoppler.WorkplaceRoles do
       |> Path.join("/role/#{identifier}")
 
     with {:ok, %{body: body}} <- Requester.get(path) do
-      {:ok, build_workplace_role(body["role"])}
+      {:ok, WorkplaceRole.build_workplace_role(body["role"])}
     end
-  end
-
-  defp build_workplace_role(wp_role) do
-    fields =
-      wp_role
-      |> Enum.map(fn {key, val} ->
-        key = String.to_atom(key)
-        {key, val}
-      end)
-
-    struct(ExDoppler.WorkplaceRole, fields)
   end
 end
