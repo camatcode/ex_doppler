@@ -1,6 +1,7 @@
 defmodule ExDoppler.Environments do
   @moduledoc false
 
+  alias ExDoppler.Environment
   alias ExDoppler.Util.Requester
 
   @environments_api_path "/v3/environments"
@@ -13,7 +14,7 @@ defmodule ExDoppler.Environments do
 
       environments =
         body["environments"]
-        |> Enum.map(&build_environment/1)
+        |> Enum.map(&Environment.build_environment/1)
 
       {:ok, %{page: page, environments: environments}}
     end
@@ -28,7 +29,7 @@ defmodule ExDoppler.Environments do
     opts = [qparams: [project: project_name, environment: environment_slug]]
 
     with {:ok, %{body: body}} <- Requester.get(path, opts) do
-      {:ok, build_environment(body["environment"])}
+      {:ok, Environment.build_environment(body["environment"])}
     end
   end
 
@@ -39,7 +40,7 @@ defmodule ExDoppler.Environments do
     opts = [qparams: [project: project_name], json: body]
 
     with {:ok, %{body: body}} <- Requester.post(@environments_api_path, opts) do
-      {:ok, build_environment(body["environment"])}
+      {:ok, Environment.build_environment(body["environment"])}
     end
   end
 
@@ -64,7 +65,7 @@ defmodule ExDoppler.Environments do
       qparams = [project: project_name, environment: env_slug]
 
       with {:ok, %{body: body}} <- Requester.put(path, qparams: qparams, json: body) do
-        {:ok, build_environment(body["environment"])}
+        {:ok, Environment.build_environment(body["environment"])}
       end
     end
   end
@@ -80,16 +81,5 @@ defmodule ExDoppler.Environments do
     with {:ok, %{body: body}} <- Requester.delete(path, opts) do
       {:ok, {:success, body["success"]}}
     end
-  end
-
-  defp build_environment(env) do
-    fields =
-      env
-      |> Enum.map(fn {key, val} ->
-        key = String.to_atom(key)
-        {key, val}
-      end)
-
-    struct(ExDoppler.Environment, fields)
   end
 end

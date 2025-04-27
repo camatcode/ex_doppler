@@ -126,6 +126,17 @@ end
 defmodule ExDoppler.Environment do
   @moduledoc false
   defstruct [:created_at, :id, :initial_fetch_at, :name, :project, :slug]
+
+  def build_environment(env) do
+    fields =
+      env
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, val}
+      end)
+
+    struct(ExDoppler.Environment, fields)
+  end
 end
 
 defmodule ExDoppler.Config do
