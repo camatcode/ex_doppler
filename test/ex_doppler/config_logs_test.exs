@@ -4,9 +4,11 @@ defmodule ExDoppler.ConfigLogsTest do
 
   alias ExDoppler.ConfigLogs
   alias ExDoppler.Configs
+  alias ExDoppler.Projects
 
   test "config logs" do
-    {:ok, %{page: 1, configs: configs}} = Configs.list_configs()
+    assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
+    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project.name)
     refute Enum.empty?(configs)
 
     configs
@@ -25,6 +27,12 @@ defmodule ExDoppler.ConfigLogsTest do
         assert log.rollback != nil
         assert log.text
         assert log.user
+
+        ConfigLogs.rollback(log.project, log.config, log.id)
+        |> case do
+          {:ok, log} -> assert log.rollback
+          _ -> :ok
+        end
 
         assert {:ok, log} == ConfigLogs.get_config_log(log.project, log.config, log.id)
       end)

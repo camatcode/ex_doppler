@@ -39,6 +39,7 @@
 | [Configs : Unlock](https://docs.doppler.com/reference/configs-unlock)                                     | ✅           |       |
 | [Config Logs : List](https://docs.doppler.com/reference/config_logs-list)                                 | ✅           |       |
 | [Config Logs : Retrieve](https://docs.doppler.com/reference/config_logs-get)                              | ✅           |       |
+| [Config Logs : Rollback](https://docs.doppler.com/reference/config_logs-rollback)                         | ✅           |       |
 | [Secrets : List](https://docs.doppler.com/reference/secrets-list)                                         | ✅           |       |
 | [Secrets : Retrieve](https://docs.doppler.com/reference/secrets-get)                                      | ✅           |       |
 | [Secrets : Download](https://docs.doppler.com/reference/secrets-download)                                 | ✅           |       |
@@ -62,7 +63,6 @@
 | [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                       | ❌           |       |
 | [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ❌           |       |
 | [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ❌           |       |
-|  [Config Logs : Rollback](https://docs.doppler.com/reference/config_logs-rollback)                    | ❌           |       |
 | [Secrets : Delete](https://docs.doppler.com/reference/secrets-delete)                                 | ❌           |       |
 | [Secrets : Update](https://docs.doppler.com/reference/secrets-update)                                 | ❌           |       |
 | [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                       | ❌           |       |
