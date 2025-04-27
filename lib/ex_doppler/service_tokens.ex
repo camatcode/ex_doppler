@@ -14,7 +14,7 @@ defmodule ExDoppler.ServiceTokens do
            ) do
       tokens =
         body["tokens"]
-        |> Enum.map(&ServiceToken.build_service_token/1)
+        |> Enum.map(&ServiceToken.build/1)
 
       {:ok, tokens}
     end
