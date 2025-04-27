@@ -2,12 +2,13 @@ defmodule ExDoppler.ProjectsTest do
   use ExUnit.Case
   doctest ExDoppler.Projects
 
+  alias ExDoppler.Project
   alias ExDoppler.Projects
 
   test "Projects" do
     name = "one-two-three"
     description = "An example project"
-    Projects.delete_project(name)
+    Projects.delete_project(%Project{name: name})
     assert {:ok, new_project} = Projects.create_project(name, description)
 
     assert new_project.created_at
@@ -19,7 +20,7 @@ defmodule ExDoppler.ProjectsTest do
     new_description = "A new description"
 
     assert {:ok, new_project} =
-             Projects.update_project(new_project.name, description: new_description)
+             Projects.update_project(new_project, description: new_description)
 
     assert new_project.description == new_description
 
@@ -43,6 +44,6 @@ defmodule ExDoppler.ProjectsTest do
     {:ok, permissions} = Projects.list_project_permissions()
     refute Enum.empty?(permissions)
 
-    assert {:ok, _} = Projects.delete_project(name)
+    assert {:ok, _} = Projects.delete_project(new_project)
   end
 end

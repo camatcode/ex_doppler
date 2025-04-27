@@ -8,13 +8,13 @@ defmodule ExDoppler.ConfigLogsTest do
 
   test "config logs" do
     assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
-    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project.name)
+    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project)
     refute Enum.empty?(configs)
 
     configs
     |> Enum.each(fn config ->
       {:ok, %{page: 1, logs: logs}} =
-        ConfigLogs.list_config_logs(config.project, config.name)
+        ConfigLogs.list_config_logs(config)
 
       logs
       |> Enum.each(fn log ->
@@ -27,13 +27,13 @@ defmodule ExDoppler.ConfigLogsTest do
         assert log.rollback != nil
         assert log.text
         assert log.user
-        assert {:ok, log} == ConfigLogs.get_config_log(log.project, log.config, log.id)
+        assert {:ok, log} == ConfigLogs.get_config_log(config, log.id)
       end)
 
       logs
       |> Enum.take(1)
       |> Enum.each(fn log ->
-        ConfigLogs.rollback(log.project, log.config, log.id)
+        ConfigLogs.rollback(log)
         |> case do
           {:ok, log} -> assert log.rollback
           _ -> :ok

@@ -42,7 +42,7 @@ defmodule ExDoppler.Projects do
     end
   end
 
-  def update_project(current_project_name, opts \\ []) when is_bitstring(current_project_name) do
+  def update_project(%Project{name: current_project_name}, opts \\ []) do
     with {:ok, project} <- get_project(current_project_name) do
       opts = Keyword.merge([name: project.name, description: project.description], opts)
 
@@ -61,7 +61,7 @@ defmodule ExDoppler.Projects do
     end
   end
 
-  def delete_project(project_name) when is_bitstring(project_name) do
+  def delete_project(%Project{name: project_name}) do
     path =
       @projects_api_path
       |> Path.join("/project")

@@ -8,12 +8,12 @@ defmodule ExDoppler.ServiceTokensTest do
 
   test "Configs" do
     assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
-    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project.name)
+    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project)
     refute Enum.empty?(configs)
 
     configs
     |> Enum.each(fn config ->
-      {:ok, service_tokens} = ServiceTokens.list_service_tokens(config.project, config.name)
+      {:ok, service_tokens} = ServiceTokens.list_service_tokens(config)
 
       service_tokens
       |> Enum.each(fn service_token ->

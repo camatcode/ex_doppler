@@ -2,11 +2,12 @@ defmodule ExDoppler.Configs do
   @moduledoc false
 
   alias ExDoppler.Config
+  alias ExDoppler.Project
   alias ExDoppler.Util.Requester
 
   @configs_api_path "/v3/configs"
 
-  def list_configs(project_name, opts \\ []) do
+  def list_configs(%Project{name: project_name}, opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@configs_api_path, qparams: opts) do

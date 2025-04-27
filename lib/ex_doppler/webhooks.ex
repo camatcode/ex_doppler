@@ -1,14 +1,15 @@
 defmodule ExDoppler.Webhooks do
   @moduledoc false
 
+  alias ExDoppler.Project
   alias ExDoppler.Util.Requester
 
   @webhooks_api_path "/v3/webhooks"
 
-  def list_webhooks(opts \\ []) do
-    opts = Keyword.merge([project: nil], opts)
+  def list_webhooks(%Project{name: name}) do
+    opts = [qparams: [project: name]]
 
-    with {:ok, %{body: body}} <- Requester.get(@webhooks_api_path, qparams: opts) do
+    with {:ok, %{body: body}} <- Requester.get(@webhooks_api_path, opts) do
       webhooks =
         body["webhooks"]
         |> Enum.map(fn {key, val} ->

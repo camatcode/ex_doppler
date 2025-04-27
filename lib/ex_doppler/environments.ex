@@ -2,11 +2,12 @@ defmodule ExDoppler.Environments do
   @moduledoc false
 
   alias ExDoppler.Environment
+  alias ExDoppler.Project
   alias ExDoppler.Util.Requester
 
   @environments_api_path "/v3/environments"
 
-  def list_environments(project_name, opts \\ []) when is_bitstring(project_name) do
+  def list_environments(%Project{name: project_name}, opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@environments_api_path, qparams: opts) do
@@ -20,8 +21,8 @@ defmodule ExDoppler.Environments do
     end
   end
 
-  def get_environment(project_name, environment_slug)
-      when is_bitstring(project_name) and is_bitstring(environment_slug) do
+  def get_environment(%Project{name: project_name}, environment_slug)
+      when is_bitstring(environment_slug) do
     path =
       @environments_api_path
       |> Path.join("/environment")
@@ -33,8 +34,13 @@ defmodule ExDoppler.Environments do
     end
   end
 
-  def create_environment(project_name, env_name, env_slug, enable_personal_config \\ false)
-      when is_bitstring(project_name) and is_bitstring(env_name) and is_bitstring(env_slug) and
+  def create_environment(
+        %Project{name: project_name},
+        env_name,
+        env_slug,
+        enable_personal_config \\ false
+      )
+      when is_bitstring(env_name) and is_bitstring(env_slug) and
              is_boolean(enable_personal_config) do
     body = %{name: env_name, slug: env_slug, personal_configs: enable_personal_config}
     opts = [qparams: [project: project_name], json: body]
@@ -44,9 +50,8 @@ defmodule ExDoppler.Environments do
     end
   end
 
-  def update_environment(project_name, env_slug, opts \\ [])
-      when is_bitstring(project_name) and is_bitstring(env_slug) do
-    with {:ok, environment} <- get_environment(project_name, env_slug) do
+  def update_environment(%Environment{project: project_name, slug: env_slug}, opts \\ []) do
+    with {:ok, environment} <- get_environment(%Project{name: project_name}, env_slug) do
       path =
         @environments_api_path
         |> Path.join("/environment")
@@ -70,8 +75,7 @@ defmodule ExDoppler.Environments do
     end
   end
 
-  def delete_environment(project_name, env_slug)
-      when is_bitstring(project_name) and is_bitstring(env_slug) do
+  def delete_environment(%Environment{project: project_name, slug: env_slug}) do
     opts = [qparams: [project: project_name, environment: env_slug]]
 
     path =
