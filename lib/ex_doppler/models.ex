@@ -205,6 +205,33 @@ end
 defmodule ExDoppler.Integration do
   @moduledoc false
   defstruct [:slug, :name, :type, :kind, :enabled, :syncs]
+
+  def build_integration(integration) do
+    fields =
+      integration
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, serialize(key, val)}
+      end)
+
+    struct(ExDoppler.Integration, fields)
+  end
+
+  defp serialize(_, nil), do: nil
+
+  defp serialize(:syncs, val) do
+    val =
+      val
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        key = if key == :lastSyncedAt, do: :last_synced_at, else: key
+        {key, val}
+      end)
+
+    struct(ExDoppler.Sync, val)
+  end
+
+  defp serialize(_, val), do: val
 end
 
 defmodule ExDoppler.Sync do
