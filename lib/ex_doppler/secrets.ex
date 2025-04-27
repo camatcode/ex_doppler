@@ -1,8 +1,8 @@
 defmodule ExDoppler.Secrets do
   @moduledoc false
 
-  alias ExDoppler.Util.Requester
   alias ExDoppler.Secret
+  alias ExDoppler.Util.Requester
 
   @list_secrets_api_path "/v3/configs/config/secrets"
   @get_secrets_api_path "/v3/configs/config/secret"
@@ -24,7 +24,7 @@ defmodule ExDoppler.Secrets do
     with {:ok, %{body: body}} <- Requester.get(@list_secrets_api_path, qparams: opts) do
       secrets =
         body["secrets"]
-        |> Enum.map(&build_secret/1)
+        |> Enum.map(&Secret.build_secret/1)
 
       {:ok, secrets}
     end
@@ -35,7 +35,7 @@ defmodule ExDoppler.Secrets do
     opts = [project: project_name, config: config_name, name: secret_name]
 
     with {:ok, %{body: body}} <- Requester.get(@get_secrets_api_path, qparams: opts) do
-      {:ok, build_secret({body["name"], body["value"]})}
+      {:ok, Secret.build_secret({body["name"], body["value"]})}
     end
   end
 
@@ -132,7 +132,7 @@ defmodule ExDoppler.Secrets do
     with {:ok, %{body: body}} <- Requester.post(@list_secrets_api_path, json: body) do
       secret =
         body["secrets"]
-        |> Enum.map(&build_secret/1)
+        |> Enum.map(&Secret.build_secret/1)
         |> Enum.filter(fn %{name: name} ->
           name == secret_name
         end)
@@ -163,17 +163,5 @@ defmodule ExDoppler.Secrets do
     with {:ok, %{body: _}} <- Requester.delete(@get_secrets_api_path, opts) do
       {:ok, {:success, true}}
     end
-  end
-
-  defp build_secret({name, map}) do
-    fields =
-      Map.put(map, "name", name)
-      |> Enum.map(fn {key, val} ->
-        # Doppler foolishly uses camelCase for this
-        key = ProperCase.snake_case(key) |> String.to_atom()
-        {key, val}
-      end)
-
-    struct(Secret, fields)
   end
 end
