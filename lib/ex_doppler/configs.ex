@@ -42,6 +42,76 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  def rename_config(project_name, current_config_name, new_config_name)
+      when is_bitstring(project_name) and
+             is_bitstring(current_config_name) and
+             is_bitstring(new_config_name) do
+    path =
+      @configs_api_path
+      |> Path.join("/config")
+
+    body = %{project: project_name, config: current_config_name, name: new_config_name}
+
+    with {:ok, %{body: body}} <- Requester.post(path, json: body) do
+      {:ok, build_config(body["config"])}
+    end
+  end
+
+  def clone_config(project_name, source_config, new_config_name)
+      when is_bitstring(project_name) and
+             is_bitstring(source_config) and
+             is_bitstring(new_config_name) do
+    path =
+      @configs_api_path
+      |> Path.join("/config/clone")
+
+    body = %{project: project_name, config: source_config, name: new_config_name}
+
+    with {:ok, %{body: body}} <- Requester.post(path, json: body) do
+      {:ok, build_config(body["config"])}
+    end
+  end
+
+  def lock_config(project_name, config_name)
+      when is_bitstring(project_name) and
+             is_bitstring(config_name) do
+    path =
+      @configs_api_path
+      |> Path.join("/config/lock")
+
+    body = %{project: project_name, config: config_name}
+
+    with {:ok, %{body: body}} <- Requester.post(path, json: body) do
+      {:ok, build_config(body["config"])}
+    end
+  end
+
+  def unlock_config(project_name, config_name)
+      when is_bitstring(project_name) and
+             is_bitstring(config_name) do
+    path =
+      @configs_api_path
+      |> Path.join("/config/unlock")
+
+    body = %{project: project_name, config: config_name}
+
+    with {:ok, %{body: body}} <- Requester.post(path, json: body) do
+      {:ok, build_config(body["config"])}
+    end
+  end
+
+  def set_config_inheritable(project_name, config_name, is_inheritable) do
+    path =
+      @configs_api_path
+      |> Path.join("/config/inheritable")
+
+    body = %{project: project_name, config: config_name, inheritable: is_inheritable}
+
+    with {:ok, %{body: body}} <- Requester.post(path, json: body) do
+      {:ok, build_config(body["config"])}
+    end
+  end
+
   def delete_config(project_name, config_name)
       when is_bitstring(project_name) and
              is_bitstring(config_name) do

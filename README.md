@@ -31,6 +31,12 @@
 | [Environments : Rename](https://docs.doppler.com/reference/environments-rename)                           | ✅           |       |
 | [Configs : List](https://docs.doppler.com/reference/configs-list)                                         | ✅           |       |
 | [Configs : Retrieve](https://docs.doppler.com/reference/configs-get)                                      | ✅           |       |
+| [Configs : Create](https://docs.doppler.com/reference/configs-create)                                     | ✅           |       |
+| [Configs : Update](https://docs.doppler.com/reference/configs-update)                                     | ✅           |       |
+| [Configs : Delete](https://docs.doppler.com/reference/configs-delete)                                     | ✅           |       |
+| [Configs : Clone](https://docs.doppler.com/reference/configs-clone)                                       | ✅           |       |
+| [Configs : Lock](https://docs.doppler.com/reference/configs-lock)                                         | ✅           |       |
+| [Configs : Unlock](https://docs.doppler.com/reference/configs-unlock)                                     | ✅           |       |
 | [Config Logs : List](https://docs.doppler.com/reference/config_logs-list)                                 | ✅           |       |
 | [Config Logs : Retrieve](https://docs.doppler.com/reference/config_logs-get)                              | ✅           |       |
 | [Secrets : List](https://docs.doppler.com/reference/secrets-list)                                         | ✅           |       |
@@ -56,15 +62,7 @@
 | [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                       | ❌           |       |
 | [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ❌           |       |
 | [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ❌           |       |
-| [Configs : Create](https://docs.doppler.com/reference/configs-create)                                 | ❌           |       |
-| [Configs : Update](https://docs.doppler.com/reference/configs-update)                                 | ❌           |       |
-| [Configs : Delete](https://docs.doppler.com/reference/configs-delete)                                 | ❌           |       |
-| [Configs : Clone](https://docs.doppler.com/reference/configs-clone)                                   | ❌           |       |
-| [Configs : Lock](https://docs.doppler.com/reference/configs-lock)                                     | ❌           |       |
-| [Configs : Unlock](https://docs.doppler.com/reference/configs-unlock)                                 | ❌           |       |
-| [Configs : Inheritable](https://docs.doppler.com/reference/configs-inheritable)                       | ❌           |       |
-| [Configs : Inherits](https://docs.doppler.com/reference/configs-inherits)                             | ❌           |       |
-| [Config Logs : Rollback](https://docs.doppler.com/reference/config_logs-rollback)                     | ❌           |       |
+|  [Config Logs : Rollback](https://docs.doppler.com/reference/config_logs-rollback)                    | ❌           |       |
 | [Secrets : Delete](https://docs.doppler.com/reference/secrets-delete)                                 | ❌           |       |
 | [Secrets : Update](https://docs.doppler.com/reference/secrets-update)                                 | ❌           |       |
 | [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                       | ❌           |       |
@@ -123,6 +121,9 @@
 | [Workplace Roles : Create](https://docs.doppler.com/reference/workplace_roles-create)               | ⁉️          | Account doesn't have access to it                        |
 | [Workplace Roles : Update](https://docs.doppler.com/reference/workplace_roles-update)               | ⁉️          | Account doesn't have access to it                        |
 | [Workplace Roles : Delete](https://docs.doppler.com/reference/workplace_roles-delete)               | ⁉️          | Account doesn't have access to it                        |
+| [Configs : Inheritable](https://docs.doppler.com/reference/configs-inheritable)                     | ⁉️          | Account doesn't have access to it                        |
+| [Configs : Inherits](https://docs.doppler.com/reference/configs-inherits)                           | ⁉️          | Account doesn't have access to it                        |
+
 
 
 ## Installation
