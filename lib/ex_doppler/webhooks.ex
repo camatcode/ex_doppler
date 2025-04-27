@@ -19,6 +19,42 @@ defmodule ExDoppler.Webhooks do
     end
   end
 
+  def get_webhook(%Project{name: project_name}, id) when is_bitstring(id) do
+    path =
+      @webhooks_api_path
+      |> Path.join("/webhook/#{id}")
+
+    opts = [qparams: [project: project_name]]
+
+    with {:ok, %{body: body}} <- Requester.get(path, opts) do
+      {:ok, Webhook.build(body["webhook"])}
+    end
+  end
+
+  def enable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
+    path =
+      @webhooks_api_path
+      |> Path.join("/webhook/#{id}/enable")
+
+    opts = [qparams: [project: project_name]]
+
+    with {:ok, %{body: body}} <- Requester.post(path, opts) do
+      {:ok, Webhook.build(body["webhook"])}
+    end
+  end
+
+  def disable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
+    path =
+      @webhooks_api_path
+      |> Path.join("/webhook/#{id}/disable")
+
+    opts = [qparams: [project: project_name]]
+
+    with {:ok, %{body: body}} <- Requester.post(path, opts) do
+      {:ok, Webhook.build(body["webhook"])}
+    end
+  end
+
   def create_webhook(%Project{name: project_name}, url, opts \\ [])
       when is_bitstring(url) do
     # Doppler uses camelCase for this route
