@@ -1,6 +1,7 @@
 defmodule ExDoppler.Projects do
   @moduledoc false
 
+  alias ExDoppler.Project
   alias ExDoppler.Util.Requester
 
   @projects_api_path "/v3/projects"
@@ -13,7 +14,7 @@ defmodule ExDoppler.Projects do
 
       projects =
         body["projects"]
-        |> Enum.map(&build_project/1)
+        |> Enum.map(&Project.build_project/1)
 
       {:ok, %{page: page, projects: projects}}
     end
@@ -25,7 +26,7 @@ defmodule ExDoppler.Projects do
       |> Path.join("/project")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [project: identifier]) do
-      {:ok, build_project(body["project"])}
+      {:ok, Project.build_project(body["project"])}
     end
   end
 
@@ -37,7 +38,7 @@ defmodule ExDoppler.Projects do
       |> Enum.into(%{})
 
     with {:ok, %{body: body}} <- Requester.post(@projects_api_path, json: body) do
-      {:ok, build_project(body["project"])}
+      {:ok, Project.build_project(body["project"])}
     end
   end
 
@@ -55,7 +56,7 @@ defmodule ExDoppler.Projects do
         |> Path.join("/project")
 
       with {:ok, %{body: body}} <- Requester.post(path, json: body) do
-        {:ok, build_project(body["project"])}
+        {:ok, Project.build_project(body["project"])}
       end
     end
   end
@@ -79,16 +80,5 @@ defmodule ExDoppler.Projects do
     with {:ok, %{body: body}} <- Requester.get(path) do
       {:ok, body["permissions"]}
     end
-  end
-
-  defp build_project(project) do
-    fields =
-      project
-      |> Enum.map(fn {key, val} ->
-        key = String.to_atom(key)
-        {key, val}
-      end)
-
-    struct(ExDoppler.Project, fields)
   end
 end

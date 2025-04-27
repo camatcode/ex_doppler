@@ -122,6 +122,17 @@ end
 defmodule ExDoppler.Project do
   @moduledoc false
   defstruct [:created_at, :description, :id, :name, :slug]
+
+  def build_project(project) do
+    fields =
+      project
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, val}
+      end)
+
+    struct(ExDoppler.Project, fields)
+  end
 end
 
 defmodule ExDoppler.ProjectMember do
