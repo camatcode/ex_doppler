@@ -5,6 +5,24 @@ defmodule ExDoppler.ProjectsTest do
   alias ExDoppler.Projects
 
   test "Projects" do
+    name = "one-two-three"
+    description = "An example project"
+    Projects.delete_project(name)
+    assert {:ok, new_project} = Projects.create_project(name, description)
+
+    assert new_project.created_at
+    assert new_project.description == description
+    assert new_project.id == name
+    assert new_project.name == name
+    assert new_project.slug == name
+
+    new_description = "A new description"
+
+    assert {:ok, new_project} =
+             Projects.update_project(new_project.name, description: new_description)
+
+    assert new_project.description == new_description
+
     {:ok, %{page: 1, projects: projects}} = Projects.list_projects()
     refute Enum.empty?(projects)
 
@@ -24,5 +42,7 @@ defmodule ExDoppler.ProjectsTest do
 
     {:ok, permissions} = Projects.list_project_permissions()
     refute Enum.empty?(permissions)
+
+    assert {:ok, _} = Projects.delete_project(name)
   end
 end

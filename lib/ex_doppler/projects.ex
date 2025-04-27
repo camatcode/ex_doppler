@@ -29,6 +29,48 @@ defmodule ExDoppler.Projects do
     end
   end
 
+  def create_project(project_name, description \\ "")
+      when is_bitstring(project_name) and is_bitstring(description) do
+    body =
+      %{name: project_name, description: description}
+      |> Enum.filter(fn {_k, v} -> v end)
+      |> Enum.into(%{})
+
+    with {:ok, %{body: body}} <- Requester.post(@projects_api_path, json: body) do
+      {:ok, build_project(body["project"])}
+    end
+  end
+
+  def update_project(current_project_name, opts \\ []) when is_bitstring(current_project_name) do
+    with {:ok, project} <- get_project(current_project_name) do
+      opts = Keyword.merge([name: project.name, description: project.description], opts)
+
+      body =
+        %{project: project.id, name: opts[:name], description: opts[:description]}
+        |> Enum.filter(fn {_k, v} -> v end)
+        |> Enum.into(%{})
+
+      path =
+        @projects_api_path
+        |> Path.join("/project")
+
+      with {:ok, %{body: body}} <- Requester.post(path, json: body) do
+        {:ok, build_project(body["project"])}
+      end
+    end
+  end
+
+  def delete_project(project_name) when is_bitstring(project_name) do
+    path =
+      @projects_api_path
+      |> Path.join("/project")
+
+    with {:ok, %{body: body}} <-
+           Requester.delete(path, json: %{project: project_name}) do
+      {:ok, {:success, body["success"]}}
+    end
+  end
+
   def list_project_permissions() do
     path =
       @projects_api_path
