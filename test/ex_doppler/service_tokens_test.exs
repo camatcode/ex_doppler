@@ -1,0 +1,27 @@
+defmodule ExDoppler.ServiceTokensTest do
+  use ExUnit.Case
+  doctest ExDoppler.ServiceTokens
+
+  alias ExDoppler.Configs
+  alias ExDoppler.ServiceTokens
+
+  test "Configs" do
+    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs()
+    refute Enum.empty?(configs)
+
+    configs
+    |> Enum.each(fn config ->
+      {:ok, service_tokens} = ServiceTokens.list_service_tokens(config.project, config.name)
+
+      service_tokens
+      |> Enum.each(fn service_token ->
+        assert service_token.name
+        assert service_token.slug
+        assert service_token.created_at
+        assert service_token.config
+        assert service_token.environment
+        assert service_token.project
+      end)
+    end)
+  end
+end

@@ -101,3 +101,8 @@ defmodule ExDoppler.Sync do
   @moduledoc false
   defstruct [:slug, :enabled, :last_synced_at, :project, :config, :integration]
 end
+
+defmodule ExDoppler.ServiceToken do
+  @moduledoc false
+  defstruct [:name, :slug, :created_at, :config, :environment, :project, :expires_at]
+end
