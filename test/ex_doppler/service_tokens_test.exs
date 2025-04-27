@@ -6,7 +6,8 @@ defmodule ExDoppler.ServiceTokensTest do
   alias ExDoppler.ServiceTokens
 
   test "Configs" do
-    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs()
+    assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
+    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project.name)
     refute Enum.empty?(configs)
 
     configs
