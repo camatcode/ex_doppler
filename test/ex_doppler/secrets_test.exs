@@ -87,6 +87,11 @@ defmodule ExDoppler.SecretsTest do
                  visibility: :masked
                )
 
+      note = "I'm a note"
+
+      assert {:ok, %{note: note, secret: new_secret.name}} ==
+               Secrets.update_secret_note(config.project, new_secret.name, note)
+
       assert {:ok, _} = Secrets.delete_secret(config.project, config.name, new_secret.name)
     end)
   end

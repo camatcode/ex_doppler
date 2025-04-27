@@ -46,6 +46,7 @@
 | [Secrets : Download](https://docs.doppler.com/reference/secrets-download)                                 | ✅           |       |
 | [Secrets : List Names](https://docs.doppler.com/reference/secrets-names)                                  | ✅           |       |
 | [Secrets : Delete](https://docs.doppler.com/reference/secrets-delete)                                     | ✅           |       |
+| [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                           | ❌           |       |
 | [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅           |       |
 | [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |       |
 | [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                       | ✅           |       |
@@ -65,7 +66,6 @@
 | [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                       | ❌           |       |
 | [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ❌           |       |
 | [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ❌           |       |
-| [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                       | ❌           |       |
 | [Integrations : Create](https://docs.doppler.com/reference/integrations-create)                       | ❌           |       |
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
 | [Integrations : Delete](https://docs.doppler.com/reference/integrations-delete)                       | ❌           |       |

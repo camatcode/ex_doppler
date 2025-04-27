@@ -142,13 +142,25 @@ defmodule ExDoppler.Secrets do
     end
   end
 
+  def update_secret_note(project_name, secret_name, note)
+      when is_bitstring(project_name) and
+             is_bitstring(secret_name) and
+             is_bitstring(note) do
+    opts = [qparams: [project: project_name], json: %{secret: secret_name, note: note}]
+    path = "/v3/projects/project/note"
+
+    with {:ok, %{body: body}} <- Requester.post(path, opts) do
+      {:ok, %{note: body["note"], secret: body["secret"]}}
+    end
+  end
+
   def delete_secret(project_name, config_name, secret_name)
       when is_bitstring(project_name) and
              is_bitstring(config_name) and
              is_bitstring(secret_name) do
     opts = [qparams: [project: project_name, config: config_name, name: secret_name]]
 
-    with {:ok, %{body: body}} <- Requester.delete(@get_secrets_api_path, opts) do
+    with {:ok, %{body: _}} <- Requester.delete(@get_secrets_api_path, opts) do
       {:ok, {:success, true}}
     end
   end
