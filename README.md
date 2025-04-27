@@ -42,13 +42,13 @@
 | [Config Logs : Rollback](https://docs.doppler.com/reference/config_logs-rollback)                         | ✅           |       |
 | [Secrets : List](https://docs.doppler.com/reference/secrets-list)                                         | ✅           |       |
 | [Secrets : Retrieve](https://docs.doppler.com/reference/secrets-get)                                      | ✅           |       |
+| [Secrets : Update](https://docs.doppler.com/reference/secrets-update)                                     | ✅           |       |
 | [Secrets : Download](https://docs.doppler.com/reference/secrets-download)                                 | ✅           |       |
 | [Secrets : List Names](https://docs.doppler.com/reference/secrets-names)                                  | ✅           |       |
 | [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅           |       |
 | [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |       |
 | [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                       | ✅           |       |
 | [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |       |
-
 
 
 ### To Implement
@@ -64,7 +64,6 @@
 | [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ❌           |       |
 | [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ❌           |       |
 | [Secrets : Delete](https://docs.doppler.com/reference/secrets-delete)                                 | ❌           |       |
-| [Secrets : Update](https://docs.doppler.com/reference/secrets-update)                                 | ❌           |       |
 | [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                       | ❌           |       |
 | [Integrations : Create](https://docs.doppler.com/reference/integrations-create)                       | ❌           |       |
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |

@@ -3,6 +3,7 @@ defmodule ExDoppler.SecretsTest do
   doctest ExDoppler.Secrets
 
   alias ExDoppler.Configs
+  alias ExDoppler.Projects
   alias ExDoppler.Secrets
 
   @thirty_min 1800
@@ -33,6 +34,23 @@ defmodule ExDoppler.SecretsTest do
         assert raw == secret.raw
         assert computed == secret.computed
         assert note == secret.note
+
+        if !String.starts_with?(secret.name, "DOPPLER") do
+          new_value = "hello-three-four-five"
+
+          assert {:ok, updated_secret} =
+                   Secrets.update_secret(config.project, config.name, secret.name, new_value,
+                     visibility: :masked
+                   )
+
+          assert updated_secret.raw == new_value
+          assert updated_secret.raw_visibility
+
+          assert {:ok, updated_secret} =
+                   Secrets.update_secret(config.project, config.name, secret.name, secret.raw)
+
+          assert raw == updated_secret.raw
+        end
       end)
 
       assert {:ok, sec} =

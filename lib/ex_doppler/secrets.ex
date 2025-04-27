@@ -86,13 +86,63 @@ defmodule ExDoppler.Secrets do
     end
   end
 
+  def update_secret(project_name, config_name, secret_name, value, opts \\ [])
+      when is_bitstring(project_name) and
+             is_bitstring(config_name) and
+             is_bitstring(secret_name) and
+             is_bitstring(value) do
+    secret =
+      get_secret(project_name, config_name, secret_name)
+      |> case do
+        {:ok, secret} -> secret
+        _ -> nil
+      end
+
+    # Doppler foolishly uses camelCase for this route
+    opts =
+      opts
+      |> Enum.map(fn
+        {k, v} ->
+          {ProperCase.camel_case(k) |> String.to_atom(), v}
+      end)
+
+    opts =
+      Keyword.merge(
+        [
+          name: secret_name,
+          originalName: (secret && secret.name) || nil,
+          value: value,
+          visibility: :masked,
+          shouldPromote: false,
+          shouldDelete: false,
+          shouldConverge: false,
+          valueType: %{type: "string"}
+        ],
+        opts
+      )
+
+    change_request = Enum.into(opts, %{})
+    body = %{project: project_name, config: config_name, change_requests: [change_request]}
+
+    with {:ok, %{body: body}} <- Requester.post(@list_secrets_api_path, json: body) do
+      secret =
+        body["secrets"]
+        |> Enum.map(&build_secret/1)
+        |> Enum.filter(fn %{name: name} ->
+          name == secret_name
+        end)
+        |> hd()
+
+      {:ok, secret}
+    end
+  end
+
   defp build_secret({name, map}) do
     fields =
       Map.put(map, "name", name)
       |> Enum.map(fn {key, val} ->
-        key = String.to_atom(key)
-        key = if key == :rawVisibility, do: :raw_visibility, else: key
-        key = if key == :computedVisibility, do: :computed_visibility, else: key
+        # Doppler foolishly uses camelCase for this
+        key = ProperCase.snake_case(key) |> String.to_atom()
         {key, val}
       end)
 
