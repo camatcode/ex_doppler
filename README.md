@@ -77,13 +77,6 @@
 | [Dynamic Secrets : Revoke](https://docs.doppler.com/reference/dynamic_secrets-revoke_lease)           | ❌           |       |
 | [Service Tokens : Create](https://docs.doppler.com/reference/service_tokens-create)                   | ❌           |       |
 | [Service Tokens : Delete](https://docs.doppler.com/reference/service_tokens-delete)                   | ❌           |       |
-| [Invites : List](https://docs.doppler.com/reference/invites-list)                                     | ❌           |       |
-| [Webhooks : Retrieve](https://docs.doppler.com/reference/webhooks-get)                                | ❌           |       |
-| [Webhooks : Add](https://docs.doppler.com/reference/webhooks-add)                                     | ❌           |       |
-| [Webhooks : Update](https://docs.doppler.com/reference/webhooks-update)                               | ❌           |       |
-| [Webhooks : Delete](https://docs.doppler.com/reference/webhooks-delete)                               | ❌           |       |
-| [Webhooks : Enable](https://docs.doppler.com/reference/webhooks-enable)                               | ❌           |       |
-| [Webhooks : Disable](https://docs.doppler.com/reference/webhooks-disable)                             | ❌           |       |
 | [Change Request Policies : Create](https://docs.doppler.com/reference/change-request-policies-create) | ❌           |       |
 | [Change Request Policies : Retrieve](https://docs.doppler.com/reference/change-request-policies-get)  | ❌           |       |
 | [Change Request Policies : Update](https://docs.doppler.com/reference/change-request-policies-update) | ❌           |       |
