@@ -55,6 +55,17 @@ end
 defmodule ExDoppler.ProjectRole do
   @moduledoc false
   defstruct [:created_at, :identifier, :is_custom_role, :name, :permissions]
+
+  def build_project_role(role) do
+    fields =
+      role
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, val}
+      end)
+
+    struct(ExDoppler.ProjectRole, fields)
+  end
 end
 
 defmodule ExDoppler.ActivityLog do
