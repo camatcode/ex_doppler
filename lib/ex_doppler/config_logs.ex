@@ -22,13 +22,27 @@ defmodule ExDoppler.ConfigLogs do
   end
 
   def get_config_log(project_name, config_name, log_id)
-      when is_bitstring(project_name) and is_bitstring(config_name) do
+      when is_bitstring(project_name) and is_bitstring(config_name) and is_bitstring(log_id) do
     path =
       @config_logs_api_path
       |> Path.join("/log")
 
-    with {:ok, %{body: body}} <-
-           Requester.get(path, qparams: [project: project_name, config: config_name, log: log_id]) do
+    opts = [qparams: [project: project_name, config: config_name, log: log_id]]
+
+    with {:ok, %{body: body}} <- Requester.get(path, opts) do
+      {:ok, build_config_log(body["log"])}
+    end
+  end
+
+  def rollback(project_name, config_name, log_id)
+      when is_bitstring(project_name) and is_bitstring(config_name) and is_bitstring(log_id) do
+    path =
+      @config_logs_api_path
+      |> Path.join("/log/rollback")
+
+    opts = [qparams: [project: project_name, config: config_name, log: log_id]]
+
+    with {:ok, %{body: body}} <- Requester.post(path, opts) do
       {:ok, build_config_log(body["log"])}
     end
   end

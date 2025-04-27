@@ -40,6 +40,7 @@ defmodule ExDoppler.ConfigsTest do
 
     renamed_config_name = "#{environment.slug}_three-four-five"
     Configs.delete_config(project.name, renamed_config_name)
+
     assert {:ok, new_config} =
              Configs.rename_config(project.name, new_config_name, renamed_config_name)
 
