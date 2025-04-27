@@ -116,3 +116,8 @@ defmodule ExDoppler.Invite do
   @moduledoc false
   defstruct [:slug, :email, :created_at, :workplace_role]
 end
+
+defmodule ExDoppler.ServiceAccount do
+  @moduledoc false
+  defstruct [:name, :slug, :created_at, :workplace_role]
+end
