@@ -2,16 +2,13 @@ defmodule ExDoppler.Workplaces do
   @moduledoc false
 
   alias ExDoppler.Util.Requester
+  alias ExDoppler.Workplace
 
   @workplace_api_path "/v3/workplace"
 
   def get_workplace(opts \\ []) do
     with {:ok, %{body: body}} <- Requester.get(@workplace_api_path, opts) do
-      workplace =
-        body["workplace"]
-        |> Enum.map(fn {key, val} -> {String.to_existing_atom(key), val} end)
-
-      {:ok, struct(ExDoppler.Workplace, workplace)}
+      {:ok, Workplace.build_workplace(body["workplace"])}
     end
   end
 

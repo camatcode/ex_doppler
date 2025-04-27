@@ -1,11 +1,45 @@
 defmodule ExDoppler.Workplace do
   @moduledoc false
   defstruct [:billing_email, :name, :security_email, :id]
+
+  def build_workplace(wp) do
+    fields =
+      wp
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, val}
+      end)
+
+    struct(ExDoppler.Workplace, fields)
+  end
 end
 
 defmodule ExDoppler.WorkplaceUser do
   @moduledoc false
   defstruct [:access, :created_at, :id, :user]
+
+  def build_wp_user(wp_user) do
+    fields =
+      wp_user
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, serialize(key, val)}
+      end)
+
+    struct(ExDoppler.WorkplaceUser, fields)
+  end
+
+  defp serialize(_, nil), do: nil
+
+  defp serialize(:user, val) do
+    val =
+      val
+      |> Enum.map(fn {key, val} -> {String.to_atom(key), val} end)
+
+    struct(ExDoppler.User, val)
+  end
+
+  defp serialize(_, val), do: val
 end
 
 defmodule ExDoppler.User do
