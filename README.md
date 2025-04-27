@@ -77,14 +77,6 @@
 | [Service Tokens : Create](https://docs.doppler.com/reference/service_tokens-create)                   | ❌           |       |
 | [Service Tokens : Delete](https://docs.doppler.com/reference/service_tokens-delete)                   | ❌           |       |
 | [Invites : List](https://docs.doppler.com/reference/invites-list)                                     | ❌           |       |
-| [Groups : List](https://docs.doppler.com/reference/groups-list)                                       | ❌           |       |
-| [Groups : Create](https://docs.doppler.com/reference/groups-create)                                   | ❌           |       |
-| [Groups : Retrieve](https://docs.doppler.com/reference/groups-get)                                    | ❌           |       |
-| [Groups : Update](https://docs.doppler.com/reference/groups-update)                                   | ❌           |       |
-| [Groups : Delete](https://docs.doppler.com/reference/groups-delete)                                   | ❌           |       |
-| [Groups : Add Member](https://docs.doppler.com/reference/groups-add_member)                           | ❌           |       |
-| [Groups : Delete Memeber](https://docs.doppler.com/reference/groups-delete_member)                    | ❌           |       |
-| [Groups : Retrieve Memeber](https://docs.doppler.com/reference/retrieve-member)                       | ❌           |       |
 | [Service Accounts : List](https://docs.doppler.com/reference/service_accounts-list)                   | ❌           |       |
 | [Service Accounts : Create](https://docs.doppler.com/reference/service_accounts-create)               | ❌           |       |
 | [Service Accounts : Retrieve](https://docs.doppler.com/reference/service_accounts-get)                | ❌           |       |
@@ -126,7 +118,14 @@
 | [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)       | ⁉️          | Account doesn't have access to it                        |
 | [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip) | ⁉️          | Account doesn't have access to it                        |
 | [Secrets Sync : Retrieve](https://docs.doppler.com/reference/syncs-get)              | ⁉️          | Technically implemented - will have to come back to test |
-
+| [Groups : List](https://docs.doppler.com/reference/groups-list)                      | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Create](https://docs.doppler.com/reference/groups-create)                  | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Retrieve](https://docs.doppler.com/reference/groups-get)                   | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Update](https://docs.doppler.com/reference/groups-update)                  | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Delete](https://docs.doppler.com/reference/groups-delete)                  | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Add Member](https://docs.doppler.com/reference/groups-add_member)          | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Delete Memeber](https://docs.doppler.com/reference/groups-delete_member)   | ⁉️          | Account doesn't have access to it                        |
+| [Groups : Retrieve Memeber](https://docs.doppler.com/reference/retrieve-member)      | ⁉️          | Account doesn't have access to it                        |
 
 
 ## Installation
