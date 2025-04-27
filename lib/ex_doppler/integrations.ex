@@ -6,7 +6,7 @@ defmodule ExDoppler.Integrations do
 
   @integrations_api_path "/v3/integrations"
 
-  def list_integrations() do
+  def list_integrations do
     with {:ok, %{body: body}} <- Requester.get(@integrations_api_path) do
       integrations =
         body["integrations"]

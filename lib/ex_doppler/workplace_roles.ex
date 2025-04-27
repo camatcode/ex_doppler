@@ -5,7 +5,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   @workplace_roles_api_path "/v3/workplace/roles"
 
-  def list_workplace_roles() do
+  def list_workplace_roles do
     with {:ok, %{body: body}} <- Requester.get(@workplace_roles_api_path) do
       roles =
         body["roles"]

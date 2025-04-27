@@ -15,7 +15,7 @@ defmodule ExDoppler.Workplaces do
     end
   end
 
-  def list_permissions() do
+  def list_permissions do
     Path.join(@workplace_api_path, "/permissions")
     |> Requester.get()
     |> case do

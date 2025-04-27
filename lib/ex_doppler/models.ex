@@ -17,7 +17,7 @@ defmodule ExDoppler.WorkplaceRole do
   @moduledoc false
   defstruct [:created_at, :identifier, :is_custom_role, :is_inline_role, :name, :permissions]
 
-  def all_permissions(),
+  def all_permissions,
     do: [
       :all_enclave_projects_admin,
       :all_enclave_projects,

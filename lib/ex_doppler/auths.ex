@@ -4,7 +4,7 @@ defmodule ExDoppler.Auths do
   alias ExDoppler.TokenInfo
   alias ExDoppler.Util.Requester
 
-  def me() do
+  def me do
     path = "/v3/me"
 
     with {:ok, %{body: body}} <- Requester.get(path) do

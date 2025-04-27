@@ -72,7 +72,7 @@ defmodule ExDoppler.Projects do
     end
   end
 
-  def list_project_permissions() do
+  def list_project_permissions do
     path =
       @projects_api_path
       |> Path.join("/permissions")

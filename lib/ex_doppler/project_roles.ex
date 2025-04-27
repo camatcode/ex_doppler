@@ -6,7 +6,7 @@ defmodule ExDoppler.ProjectRoles do
 
   @project_roles_api_path "/v3/projects/roles"
 
-  def list_project_roles() do
+  def list_project_roles do
     with {:ok, %{body: body}} <- Requester.get(@project_roles_api_path) do
       roles =
         body["roles"]

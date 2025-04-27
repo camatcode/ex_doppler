@@ -2,8 +2,8 @@ defmodule ExDoppler.ProjectMembersTest do
   use ExUnit.Case
   doctest ExDoppler.ProjectMembers
 
-  alias ExDoppler.Projects
   alias ExDoppler.ProjectMembers
+  alias ExDoppler.Projects
 
   test "Project Members" do
     {:ok, %{page: 1, projects: [project | _]}} = Projects.list_projects()
