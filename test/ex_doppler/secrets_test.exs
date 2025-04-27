@@ -3,6 +3,7 @@ defmodule ExDoppler.SecretsTest do
   doctest ExDoppler.Secrets
 
   alias ExDoppler.Configs
+  alias ExDoppler.Projects
   alias ExDoppler.Secrets
 
   @thirty_min 1800
@@ -33,6 +34,23 @@ defmodule ExDoppler.SecretsTest do
         assert raw == secret.raw
         assert computed == secret.computed
         assert note == secret.note
+
+        if !String.starts_with?(secret.name, "DOPPLER") do
+          new_value = "hello-three-four-five"
+
+          assert {:ok, updated_secret} =
+                   Secrets.update_secret(config.project, config.name, secret.name, new_value,
+                     visibility: :masked
+                   )
+
+          assert updated_secret.raw == new_value
+          assert updated_secret.raw_visibility
+
+          assert {:ok, updated_secret} =
+                   Secrets.update_secret(config.project, config.name, secret.name, secret.raw)
+
+          assert raw == updated_secret.raw
+        end
       end)
 
       assert {:ok, sec} =
@@ -58,6 +76,23 @@ defmodule ExDoppler.SecretsTest do
 
       assert {:ok, names} = Secrets.list_secret_names(config.project, config.name)
       refute Enum.empty?(names)
+
+      secret_name = "NEW_SEC2"
+      secret_value = "three-six-twelve"
+
+      Secrets.delete_secret(config.project, config.name, secret_name)
+
+      assert {:ok, new_secret} =
+               Secrets.create_secret(config.project, config.name, secret_name, secret_value,
+                 visibility: :masked
+               )
+
+      note = "I'm a note"
+
+      assert {:ok, %{note: note, secret: new_secret.name}} ==
+               Secrets.update_secret_note(config.project, new_secret.name, note)
+
+      assert {:ok, _} = Secrets.delete_secret(config.project, config.name, new_secret.name)
     end)
   end
 end

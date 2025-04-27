@@ -26,7 +26,8 @@ defmodule ExDoppler.MixProject do
       {:ex_machina, "~> 2.8.0", only: :test},
       {:faker, "~> 0.18.0", only: :test},
       {:req, "~> 0.5.10"},
-      {:date_time_parser, "~> 1.2.0"}
+      {:date_time_parser, "~> 1.2.0"},
+      {:proper_case, "~> 1.3"}
     ]
   end
 end
