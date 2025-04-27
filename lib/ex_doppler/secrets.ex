@@ -1,14 +1,14 @@
 defmodule ExDoppler.Secrets do
   @moduledoc false
 
+  alias ExDoppler.Config
   alias ExDoppler.Secret
   alias ExDoppler.Util.Requester
 
   @list_secrets_api_path "/v3/configs/config/secrets"
   @get_secrets_api_path "/v3/configs/config/secret"
 
-  def list_secrets(project_name, config_name, opts \\ [])
-      when is_bitstring(project_name) and is_bitstring(config_name) do
+  def list_secrets(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
       Keyword.merge(
         [
@@ -30,8 +30,8 @@ defmodule ExDoppler.Secrets do
     end
   end
 
-  def get_secret(project_name, config_name, secret_name)
-      when is_bitstring(project_name) and is_bitstring(config_name) and is_bitstring(secret_name) do
+  def get_secret(%Config{name: config_name, project: project_name}, secret_name)
+      when is_bitstring(secret_name) do
     opts = [project: project_name, config: config_name, name: secret_name]
 
     with {:ok, %{body: body}} <- Requester.get(@get_secrets_api_path, qparams: opts) do
@@ -39,8 +39,7 @@ defmodule ExDoppler.Secrets do
     end
   end
 
-  def download(project_name, config_name, opts \\ [])
-      when is_bitstring(project_name) and is_bitstring(config_name) do
+  def download(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
       Keyword.merge(
         [
@@ -64,8 +63,7 @@ defmodule ExDoppler.Secrets do
     end
   end
 
-  def list_secret_names(project_name, config_name, opts \\ [])
-      when is_bitstring(project_name) and is_bitstring(config_name) do
+  def list_secret_names(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
       Keyword.merge(
         [
@@ -86,17 +84,19 @@ defmodule ExDoppler.Secrets do
     end
   end
 
-  def create_secret(project_name, config_name, new_secret_name, value, opts \\ []) do
-    update_secret(project_name, config_name, new_secret_name, value, opts)
+  def create_secret(%Config{} = config, new_secret_name, value, opts \\ []) do
+    update_secret(config, new_secret_name, value, opts)
   end
 
-  def update_secret(project_name, config_name, secret_name, value, opts \\ [])
-      when is_bitstring(project_name) and
-             is_bitstring(config_name) and
-             is_bitstring(secret_name) and
-             is_bitstring(value) do
+  def update_secret(
+        %Config{name: config_name, project: project_name} = config,
+        secret_name,
+        value,
+        opts \\ []
+      )
+      when is_bitstring(secret_name) and is_bitstring(value) do
     secret =
-      get_secret(project_name, config_name, secret_name)
+      get_secret(config, secret_name)
       |> case do
         {:ok, secret} -> secret
         _ -> nil
@@ -154,10 +154,8 @@ defmodule ExDoppler.Secrets do
     end
   end
 
-  def delete_secret(project_name, config_name, secret_name)
-      when is_bitstring(project_name) and
-             is_bitstring(config_name) and
-             is_bitstring(secret_name) do
+  def delete_secret(%Config{name: config_name, project: project_name}, secret_name)
+      when is_bitstring(secret_name) do
     opts = [qparams: [project: project_name, config: config_name, name: secret_name]]
 
     with {:ok, %{body: _}} <- Requester.delete(@get_secrets_api_path, opts) do
