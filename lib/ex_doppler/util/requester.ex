@@ -13,7 +13,7 @@ defmodule ExDoppler.Util.Requester do
       |> Keyword.put(:headers, [auth_header()])
 
     path =
-      base_url()
+      @base_url
       |> Path.join(path)
       |> handle_qparams(qparams)
 

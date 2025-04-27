@@ -70,6 +70,37 @@ defmodule ExDoppler.ActivityLog do
     :text,
     :user
   ]
+
+  def build_activity_log(activity_log) do
+    fields =
+      activity_log
+      |> Enum.map(fn {key, val} ->
+        key = String.to_atom(key)
+        {key, serialize(key, val)}
+      end)
+
+    struct(ExDoppler.ActivityLog, fields)
+  end
+
+  defp serialize(_, nil), do: nil
+
+  defp serialize(:user, val) do
+    val =
+      val
+      |> Enum.map(fn {key, val} -> {String.to_atom(key), val} end)
+
+    struct(ExDoppler.User, val)
+  end
+
+  defp serialize(:diff, val) do
+    val =
+      val
+      |> Enum.map(fn {key, val} -> {String.to_atom(key), val} end)
+
+    struct(ExDoppler.ActivityDiff, val)
+  end
+
+  defp serialize(_, val), do: val
 end
 
 defmodule ExDoppler.ActivityDiff do
