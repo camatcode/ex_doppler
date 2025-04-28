@@ -76,9 +76,6 @@
 |-------------------------------------------------------------------------------------------------------|-------------|-------|
 | [Workplace : Update](https://docs.doppler.com/reference/workplace-update)                             | ❌           |       |
 | [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                           | ❌           |       |
-| [Project Roles : Create](https://docs.doppler.com/reference/project_roles-create)                     | ❌           |       |
-| [Project Roles : Update](https://docs.doppler.com/reference/project_roles-update)                     | ❌           |       |
-| [Project Roles : Delete](https://docs.doppler.com/reference/project_roles-delete)                     | ❌           |       |
 | [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                       | ❌           |       |
 | [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ❌           |       |
 | [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ❌           |       |
@@ -97,6 +94,9 @@
 
 | Realm : Action                                                                                      | Implemented | Notes                |
 |-----------------------------------------------------------------------------------------------------|-------------|----------------------|
+| [Project Roles : Create](https://docs.doppler.com/reference/project_roles-create)                   | ⁉️          | Requires a Team tier |
+| [Project Roles : Update](https://docs.doppler.com/reference/project_roles-update)                   | ⁉️          | Requires a Team tier |
+| [Project Roles : Delete](https://docs.doppler.com/reference/project_roles-delete)                   | ⁉️          | Requires a Team tier |
 | [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)                   | ⁉️          | Requires a Team tier |
 | [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)                      | ⁉️          | Requires a Team tier |
 | [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip)                | ⁉️          | Requires a Team tier |

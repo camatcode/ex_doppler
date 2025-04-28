@@ -37,4 +37,19 @@ defmodule ExDoppler.ProjectRoles do
       project_role
     end
   end
+
+  def create_project_role(name, permissions)
+      when is_bitstring(name) and is_list(permissions) do
+    opts = [json: %{name: name, permissions: permissions}]
+
+    with {:ok, %{body: body}} <- Requester.post(@project_roles_api_path, opts) do
+      {:ok, ProjectRole.build(body["role"])}
+    end
+  end
+
+  def create_project_role!(name, permissions) do
+    with {:ok, role} <- create_project_role(name, permissions) do
+      role
+    end
+  end
 end
