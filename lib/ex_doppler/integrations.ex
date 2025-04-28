@@ -26,13 +26,34 @@ defmodule ExDoppler.Integrations do
     end
   end
 
+  def create_integration(type, name, data)
+      when is_bitstring(type) and is_bitstring(name) and is_map(data) do
+    body = %{type: type, name: name, data: data}
+
+    with {:ok, %{body: body}} <- Requester.post(@integrations_api_path, json: body) do
+      {:ok, Integration.build(body["integration"])}
+    end
+  end
+
   def get_integration_options(integration_slug) when is_bitstring(integration_slug) do
     path =
       @integrations_api_path
       |> Path.join("/integration/options")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [integration: integration_slug]) do
-      {:ok, body}
+      {:ok, body["options"]}
+    end
+  end
+
+  def delete_integration(%Integration{slug: slug}) do
+    path =
+      @integrations_api_path
+      |> Path.join("/integration")
+
+    opts = [qparams: [integration: slug]]
+
+    with {:ok, %{body: _}} <- Requester.delete(path, opts) do
+      {:ok, %{success: true}}
     end
   end
 end

@@ -17,14 +17,17 @@ defmodule ExDoppler.Integration do
   defp serialize(_, nil), do: nil
 
   defp serialize(:syncs, val) do
-    fields =
-      val
-      |> atomize_keys()
-      |> Enum.map(fn {key, val} ->
-        {ProperCase.snake_case(key), val}
-      end)
+    val
+    |> Enum.map(fn sync ->
+      fields =
+        sync
+        |> Enum.map(fn {key, val} ->
+          {ProperCase.snake_case(key), val}
+        end)
+        |> atomize_keys()
 
-    struct(ExDoppler.Sync, fields)
+      struct(ExDoppler.Sync, fields)
+    end)
   end
 
   defp serialize(_, val), do: val
@@ -40,10 +43,10 @@ defmodule ExDoppler.Sync do
   def build(sync) do
     fields =
       sync
-      |> atomize_keys()
       |> Enum.map(fn {key, val} ->
         {ProperCase.snake_case(key), val}
       end)
+      |> atomize_keys()
 
     struct(ExDoppler.Sync, fields)
   end
