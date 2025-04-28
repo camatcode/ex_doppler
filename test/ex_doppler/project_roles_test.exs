@@ -16,6 +16,8 @@ defmodule ExDoppler.ProjectRolesTest do
       assert role.name
       assert role.permissions
 
+      IO.inspect(role)
+
       assert {:ok, role} == ProjectRoles.get_project_role(role.identifier)
     end)
   end
