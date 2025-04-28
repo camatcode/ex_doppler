@@ -30,12 +30,24 @@ defmodule ExDoppler.Secrets do
     end
   end
 
+  def list_secrets!(%Config{} = config, opts \\ []) do
+    with {:ok, secrets} <- list_secrets(config, opts) do
+      secrets
+    end
+  end
+
   def get_secret(%Config{name: config_name, project: project_name}, secret_name)
       when is_bitstring(secret_name) do
     opts = [project: project_name, config: config_name, name: secret_name]
 
     with {:ok, %{body: body}} <- Requester.get(@get_secrets_api_path, qparams: opts) do
       {:ok, Secret.build({body["name"], body["value"]})}
+    end
+  end
+
+  def get_secret!(%Config{} = config, secret_name) do
+    with {:ok, secret} <- get_secret(config, secret_name) do
+      secret
     end
   end
 
@@ -63,6 +75,12 @@ defmodule ExDoppler.Secrets do
     end
   end
 
+  def download!(%Config{} = config, opts \\ []) do
+    with {:ok, body} <- download(config, opts) do
+      body
+    end
+  end
+
   def list_secret_names(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
       Keyword.merge(
@@ -84,8 +102,18 @@ defmodule ExDoppler.Secrets do
     end
   end
 
+  def list_secret_names!(%Config{} = config, opts \\ []) do
+    with {:ok, names} <- list_secret_names(config, opts) do
+      names
+    end
+  end
+
   def create_secret(%Config{} = config, new_secret_name, value, opts \\ []) do
     update_secret(config, new_secret_name, value, opts)
+  end
+
+  def create_secret!(%Config{} = config, new_secret_name, value, opts \\ []) do
+    update_secret!(config, new_secret_name, value, opts)
   end
 
   def update_secret(
@@ -142,6 +170,12 @@ defmodule ExDoppler.Secrets do
     end
   end
 
+  def update_secret!(%Config{} = config, secret_name, value, opts) do
+    with {:ok, secret} <- update_secret(config, secret_name, value, opts) do
+      secret
+    end
+  end
+
   def update_secret_note(project_name, secret_name, note)
       when is_bitstring(project_name) and
              is_bitstring(secret_name) and
@@ -154,12 +188,24 @@ defmodule ExDoppler.Secrets do
     end
   end
 
+  def update_secret_note!(project_name, secret_name, note) do
+    with {:ok, body} <- update_secret_note(project_name, secret_name, note) do
+      body
+    end
+  end
+
   def delete_secret(%Config{name: config_name, project: project_name}, secret_name)
       when is_bitstring(secret_name) do
     opts = [qparams: [project: project_name, config: config_name, name: secret_name]]
 
     with {:ok, %{body: _}} <- Requester.delete(@get_secrets_api_path, opts) do
       {:ok, {:success, true}}
+    end
+  end
+
+  def delete_secret!(%Config{} = config, secret_name) do
+    with {:ok, _} <- delete_secret(config, secret_name) do
+      :ok
     end
   end
 end

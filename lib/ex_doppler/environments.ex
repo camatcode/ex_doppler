@@ -21,6 +21,12 @@ defmodule ExDoppler.Environments do
     end
   end
 
+  def list_environments!(%Project{} = project, opts \\ []) do
+    with {:ok, environments} <- list_environments(project, opts) do
+      environments
+    end
+  end
+
   def get_environment(%Project{name: project_name}, environment_slug)
       when is_bitstring(environment_slug) do
     path =
@@ -31,6 +37,12 @@ defmodule ExDoppler.Environments do
 
     with {:ok, %{body: body}} <- Requester.get(path, opts) do
       {:ok, Environment.build(body["environment"])}
+    end
+  end
+
+  def get_environment!(%Project{} = project, environment_slug) do
+    with {:ok, environment} <- get_environment(project, environment_slug) do
+      environment
     end
   end
 
@@ -47,6 +59,18 @@ defmodule ExDoppler.Environments do
 
     with {:ok, %{body: body}} <- Requester.post(@environments_api_path, opts) do
       {:ok, Environment.build(body["environment"])}
+    end
+  end
+
+  def create_environment!(
+        %Project{} = project,
+        env_name,
+        env_slug,
+        enable_personal_config \\ false
+      ) do
+    with {:ok, environment} <-
+           create_environment(project, env_name, env_slug, enable_personal_config) do
+      environment
     end
   end
 
@@ -75,6 +99,12 @@ defmodule ExDoppler.Environments do
     end
   end
 
+  def update_environment!(%Environment{} = environment, opts \\ []) do
+    with {:ok, environment} <- update_environment(environment, opts) do
+      environment
+    end
+  end
+
   def delete_environment(%Environment{project: project_name, slug: env_slug}) do
     opts = [qparams: [project: project_name, environment: env_slug]]
 
@@ -84,6 +114,12 @@ defmodule ExDoppler.Environments do
 
     with {:ok, %{body: body}} <- Requester.delete(path, opts) do
       {:ok, {:success, body["success"]}}
+    end
+  end
+
+  def delete_environment!(%Environment{} = environment) do
+    with {:ok, _} <- delete_environment(environment) do
+      :ok
     end
   end
 end

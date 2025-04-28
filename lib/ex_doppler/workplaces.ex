@@ -12,15 +12,23 @@ defmodule ExDoppler.Workplaces do
     end
   end
 
-  def list_permissions do
-    Path.join(@workplace_api_path, "/permissions")
-    |> Requester.get()
-    |> case do
-      {:ok, %{body: body}} ->
-        {:ok, body["permissions"]}
+  def get_workplace!(opts \\ []) do
+    with {:ok, wp} <- get_workplace(opts) do
+      wp
+    end
+  end
 
-      err ->
-        err
+  def list_permissions do
+    path = Path.join(@workplace_api_path, "/permissions")
+
+    with {:ok, %{body: body}} <- Requester.get(path) do
+      {:ok, body["permissions"]}
+    end
+  end
+
+  def list_permissions! do
+    with {:ok, permissions} <- list_permissions() do
+      permissions
     end
   end
 end

@@ -20,6 +20,12 @@ defmodule ExDoppler.WorkplaceUsers do
     end
   end
 
+  def list_workplace_users!(opts \\ []) do
+    with {:ok, wp_users} <- list_workplace_users(opts) do
+      wp_users
+    end
+  end
+
   def get_workplace_user(id) when is_bitstring(id) do
     path =
       @workplace_users_api_path
@@ -27,6 +33,12 @@ defmodule ExDoppler.WorkplaceUsers do
 
     with {:ok, %{body: body}} <- Requester.get(path) do
       {:ok, WorkplaceUser.build(body["workplace_user"])}
+    end
+  end
+
+  def get_workplace_user!(id) do
+    with {:ok, wp_user} <- get_workplace_user(id) do
+      wp_user
     end
   end
 end

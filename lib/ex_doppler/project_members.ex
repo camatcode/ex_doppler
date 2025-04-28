@@ -19,6 +19,12 @@ defmodule ExDoppler.ProjectMembers do
     end
   end
 
+  def list_project_members!(%Project{} = project, opts \\ []) do
+    with {:ok, project_members} <- list_project_members(project, opts) do
+      project_members
+    end
+  end
+
   def get_project_member(%Project{slug: project_slug}, member_type, member_slug)
       when is_bitstring(member_type) and is_bitstring(member_slug) do
     path =
@@ -27,6 +33,12 @@ defmodule ExDoppler.ProjectMembers do
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [project: project_slug]) do
       {:ok, ProjectMember.build(body["member"])}
+    end
+  end
+
+  def get_project_member!(%Project{} = project, member_type, member_slug) do
+    with {:ok, project_member} <- get_project_member(project, member_type, member_slug) do
+      project_member
     end
   end
 end

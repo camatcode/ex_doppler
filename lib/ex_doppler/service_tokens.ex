@@ -20,6 +20,12 @@ defmodule ExDoppler.ServiceTokens do
     end
   end
 
+  def list_service_tokens!(%Config{} = config) do
+    with {:ok, tokens} <- list_service_tokens(config) do
+      tokens
+    end
+  end
+
   def create_service_token(
         %Config{name: config_name, project: project_name},
         service_token_name,
@@ -44,6 +50,12 @@ defmodule ExDoppler.ServiceTokens do
     end
   end
 
+  def create_service_token!(%Config{} = config, service_token_name, opts \\ []) do
+    with {:ok, token} <- create_service_token(config, service_token_name, opts) do
+      token
+    end
+  end
+
   def delete_service_token(%ServiceToken{project: project_name, config: config_name, slug: slug}) do
     body = %{project: project_name, config: config_name, slug: slug}
 
@@ -53,6 +65,12 @@ defmodule ExDoppler.ServiceTokens do
 
     with {:ok, %{body: _}} <- Requester.delete(path, json: body) do
       {:ok, {:success, true}}
+    end
+  end
+
+  def delete_service_token!(%ServiceToken{} = token) do
+    with {:ok, _} <- delete_service_token(token) do
+      :ok
     end
   end
 end
