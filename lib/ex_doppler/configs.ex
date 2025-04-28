@@ -1,5 +1,7 @@
 defmodule ExDoppler.Configs do
-  @moduledoc false
+  @moduledoc """
+  Module for interacting with `ExDoppler.Config`
+  """
 
   alias ExDoppler.Config
   alias ExDoppler.Project
@@ -7,6 +9,19 @@ defmodule ExDoppler.Configs do
 
   @configs_api_path "/v3/configs"
 
+  @doc """
+  Lists `ExDoppler.Config` using pagination.
+
+  *Returns* `{:ok, %{page: num, configs: [%ExDoppler.Config{}...]}}` or `{:err, err}`
+
+  ## Params
+    * **project**: The `ExDoppler.Project` for which you want the configs (e.g `%Project{name: "example-project"}`)
+    * **opts**: Optional modifications to the list call
+      * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
+      * **per_page** - the number of `ExDoppler.Config` to return for this page (e.g `per_page: 50`). Default: `20`
+
+  See [Doppler Docs](https://docs.doppler.com/reference/config_logs-list)
+  """
   def list_configs(%Project{name: project_name}, opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
 
@@ -21,12 +36,26 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  @doc """
+  Same as `list_configs/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def list_configs!(%Project{} = project, opts \\ []) do
     with {:ok, configs} <- list_configs(project, opts) do
       configs
     end
   end
 
+  @doc """
+  Retrieves a `ExDoppler.Config`, given a project name and config name
+
+  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+
+  ## Params
+    * **project_name**: The relevant project name (e.g `"example-project"`)
+    * **config_name**: The config name to get (e.g `"dev_personal"`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/configs-get)
+  """
   def get_config(project_name, config_name)
       when is_bitstring(project_name) and is_bitstring(config_name) do
     path =
@@ -39,12 +68,27 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  @doc """
+  Same as `get_config/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def get_config!(project_name, config_name) do
     with {:ok, config} <- get_config(project_name, config_name) do
       config
     end
   end
 
+  @doc """
+  Creates a new `ExDoppler.Config`, given a project name, an environment id and config name
+
+  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+
+  ## Params
+    * **project_name**: The relevant project name (e.g `"example-project"`)
+    * **environment_id**: The relevant environment id (e.g `"prd"`)
+    * **config_name**: The config name to make (e.g `"prd_aws"`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/configs-create)
+  """
   def create_config(project_name, environment_id, config_name)
       when is_bitstring(project_name) and
              is_bitstring(environment_id) and
@@ -56,12 +100,27 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  @doc """
+  Same as `create_config/3` but won't wrap a successful response in `{:ok, response}`
+  """
   def create_config!(project_name, environment_id, config_name) do
     with {:ok, config} <- create_config(project_name, environment_id, config_name) do
       config
     end
   end
 
+  @doc """
+  Renames a `ExDoppler.Config`, given a project name, the current name and a new name
+
+  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+
+  ## Params
+    * **project_name**: The relevant project name (e.g `"example-project"`)
+    * **current_config_name**: The relevant environment id (e.g `"prd_aws"`)
+    * **new_config_name**: The new config name (e.g `"prd_gcp"`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/configs-update)
+  """
   def rename_config(project_name, current_config_name, new_config_name)
       when is_bitstring(project_name) and
              is_bitstring(current_config_name) and
@@ -77,12 +136,27 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  @doc """
+  Same as `rename_config/3` but won't wrap a successful response in `{:ok, response}`
+  """
   def rename_config!(project_name, current_config_name, new_config_name) do
     with {:ok, config} <- rename_config(project_name, current_config_name, new_config_name) do
       config
     end
   end
 
+  @doc """
+  Clones a `ExDoppler.Config` to a new Config, given a project name, the source config name, and the new config name
+
+  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+
+  ## Params
+    * **project_name**: The relevant project name (e.g `"example-project"`)
+    * **source_config**: The config to clone (e.g `"prd_aws"`)
+    * **new_config_name**: The config name to clone (e.g `"prd_aws2"`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/configs-clone)
+  """
   def clone_config(project_name, source_config, new_config_name)
       when is_bitstring(project_name) and
              is_bitstring(source_config) and
@@ -98,12 +172,26 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  @doc """
+  Same as `clone_config/3` but won't wrap a successful response in `{:ok, response}`
+  """
   def clone_config!(project_name, source_config, new_config_name) do
     with {:ok, config} <- clone_config(project_name, source_config, new_config_name) do
       config
     end
   end
 
+  @doc """
+  Locks a `ExDoppler.Config` (no modifications allowed)
+
+  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+
+  ## Params
+    * **project_name**: The relevant project name (e.g `"example-project"`)
+    * **config_name**: The config to lock (e.g `"prd_aws"`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/configs-lock)
+  """
   def lock_config(project_name, config_name)
       when is_bitstring(project_name) and
              is_bitstring(config_name) do
@@ -118,12 +206,26 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  @doc """
+  Same as `lock_config/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def lock_config!(project_name, config_name) do
     with {:ok, config} <- lock_config(project_name, config_name) do
       config
     end
   end
 
+  @doc """
+  Unlocks a `ExDoppler.Config` (modifications allowed)
+
+  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+
+  ## Params
+    * **project_name**: The relevant project name (e.g `"example-project"`)
+    * **config_name**: The config to unlock (e.g `"prd_aws"`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/configs-unlock)
+  """
   def unlock_config(project_name, config_name)
       when is_bitstring(project_name) and
              is_bitstring(config_name) do
@@ -138,6 +240,9 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  @doc """
+  Same as `unlock_config/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def unlock_config!(project_name, config_name) do
     with {:ok, config} <- unlock_config(project_name, config_name) do
       config
@@ -156,12 +261,26 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  @doc """
+  Same as `set_config_inheritable/3` but won't wrap a successful response in `{:ok, response}`
+  """
   def set_config_inheritable!(project_name, config_name, is_inheritable) do
     with {:ok, config} <- set_config_inheritable(project_name, config_name, is_inheritable) do
       config
     end
   end
 
+  @doc """
+  Deletes a `ExDoppler.Config`
+
+  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+
+  ## Params
+    * **project_name**: The relevant project name (e.g `"example-project"`)
+    * **config_name**: The config to delete (e.g `"prd_aws"`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/configs-delete)
+  """
   def delete_config(project_name, config_name)
       when is_bitstring(project_name) and
              is_bitstring(config_name) do
@@ -176,6 +295,9 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  @doc """
+  Same as `delete_config/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def delete_config!(project_name, config_name) do
     with {:ok, _} <- delete_config(project_name, config_name) do
       :ok
