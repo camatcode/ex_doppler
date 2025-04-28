@@ -33,4 +33,19 @@ defmodule ExDoppler.Auths do
       odic_token
     end
   end
+
+  def revoke_auth_token(token_to_delete) when is_bitstring(token_to_delete) do
+    opts = [json: %{token: token_to_delete}]
+    path = "/v3/auth/revoke"
+
+    with {:ok, %{body: _}} <- Requester.post(path, opts) do
+      {:ok, %{success: true}}
+    end
+  end
+
+  def revoke_auth_token!(token_to_delete) do
+    with {:ok, _} <- revoke_auth_token(token_to_delete) do
+      :ok
+    end
+  end
 end

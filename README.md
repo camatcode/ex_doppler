@@ -79,7 +79,6 @@
 | [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                           | ❌           |       |
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
 | [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                       | ❌           |       |
-| [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                           | ❌           |       |
 | [Share : E2E Encrypted](https://docs.doppler.com/reference/share-secret-encrypted)                    | ❌           |       |
 
 ### Requires Investigation
