@@ -76,9 +76,6 @@
 |-------------------------------------------------------------------------------------------------------|-------------|-------|
 | [Workplace : Update](https://docs.doppler.com/reference/workplace-update)                             | ❌           |       |
 | [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                           | ❌           |       |
-| [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                       | ❌           |       |
-| [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ❌           |       |
-| [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ❌           |       |
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
 | [Dynamic Secrets : Issue Lease](https://docs.doppler.com/reference/dynamic_secrets-issue_lease)       | ❌           |       |
 | [Dynamic Secrets : Revoke](https://docs.doppler.com/reference/dynamic_secrets-revoke_lease)           | ❌           |       |
@@ -96,6 +93,9 @@
 |-----------------------------------------------------------------------------------------------------|-------------|----------------------|
 | [Project Roles : Create](https://docs.doppler.com/reference/project_roles-create)                   | ⁉️          | Requires a Team tier |
 | [Project Roles : Update](https://docs.doppler.com/reference/project_roles-update)                   | ⁉️          | Requires a Team tier |
+| [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                     | ⁉️          | Requires a Team tier |
+| [Project Members : Update](https://docs.doppler.com/reference/project_members-update)               | ⁉️          | Requires a Team tier |
+| [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)               | ⁉️          | Requires a Team tier |
 | [Project Roles : Delete](https://docs.doppler.com/reference/project_roles-delete)                   | ⁉️          | Requires a Team tier |
 | [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)                   | ⁉️          | Requires a Team tier |
 | [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)                      | ⁉️          | Requires a Team tier |
