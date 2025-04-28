@@ -59,7 +59,7 @@ defmodule ExDoppler.Integrations do
       @integrations_api_path
       |> Path.join("/integration")
 
-    body = %{name: name, data: data}
+    body = %{name: new_name, data: new_data}
 
     with {:ok, %{body: body}} <- Requester.put(path, qparams: [integration: slug], json: body) do
       {:ok, Integration.build(body["integration"])}
