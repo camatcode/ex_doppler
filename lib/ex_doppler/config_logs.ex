@@ -1,5 +1,7 @@
 defmodule ExDoppler.ConfigLogs do
-  @moduledoc false
+  @moduledoc """
+  Module for interacting with `ExDoppler.ConfigLog`
+  """
 
   alias ExDoppler.Config
   alias ExDoppler.ConfigLog
@@ -7,6 +9,19 @@ defmodule ExDoppler.ConfigLogs do
 
   @config_logs_api_path "/v3/configs/config/logs"
 
+  @doc """
+  Lists `ExDoppler.ConfigLog` using pagination.
+
+  *Returns* `{:ok, %{page: num, logs: [%ExDoppler.ConfigLog{}...]}}` or `{:err, err}`
+
+  ## Params
+    * **config**: The `ExDoppler.Config` for which you want the logs (e.g `%Config{project: "example-project", name: "dev"}`)
+    * **opts**: Optional modifications to the list call
+      * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
+      * **per_page** - the number of `ExDoppler.ConfigLog` to return for this page (e.g `per_page: 50`). Default: `20`
+
+  See [Doppler Docs](https://docs.doppler.com/reference/config_logs-list)
+  """
   def list_config_logs(%Config{project: project_name, name: config_name}, opts \\ []) do
     qparams =
       Keyword.merge([page: 1, per_page: 20, project: project_name, config: config_name], opts)
@@ -22,12 +37,26 @@ defmodule ExDoppler.ConfigLogs do
     end
   end
 
+  @doc """
+  Same as `list_config_logs/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def list_config_logs!(%Config{} = config, opts \\ []) do
     with {:ok, config_logs} <- list_config_logs(config, opts) do
       config_logs
     end
   end
 
+  @doc """
+  Retrieves a `ExDoppler.ConfigLog`, given a config and log id
+
+  *Returns* `{:ok, %ExDoppler.ConfigLog{...}}` or `{:err, err}`
+
+  ## Params
+    * **config**: The relevant `ExDoppler.Config` (e.g `%Config{project: "example-project", name: "dev"}`)
+    * **log_id**: Unique identifier for the log object.
+
+  See [Doppler Docs](https://docs.doppler.com/reference/config_logs-get)
+  """
   def get_config_log(%Config{project: project_name, name: config_name}, log_id)
       when is_bitstring(log_id) do
     path =
@@ -41,12 +70,25 @@ defmodule ExDoppler.ConfigLogs do
     end
   end
 
+  @doc """
+  Same as `get_config_log/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def get_config_log!(%Config{} = config, log_id) do
     with {:ok, config_log} <- get_config_log(config, log_id) do
       config_log
     end
   end
 
+  @doc """
+  Rolls back a `ExDoppler.ConfigLog`, given a config log
+
+  *Returns* `{:ok, %ExDoppler.ConfigLog{...}}` or `{:err, err}`
+
+  ## Params
+    * **config_log**: The `ExDoppler.ConfigLog` to roll back (e.g `%ConfigLog{project: "example-project", config: "dev", id: "0000.."}`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/config_logs-rollback)
+  """
   def rollback_config_log(%ConfigLog{project: project_name, config: config_name, id: log_id}) do
     path =
       @config_logs_api_path
@@ -59,6 +101,9 @@ defmodule ExDoppler.ConfigLogs do
     end
   end
 
+  @doc """
+  Same as `rollback_config_log/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def rollback_config_log!(%ConfigLog{} = config_log) do
     with {:ok, log} <- rollback_config_log(config_log) do
       log

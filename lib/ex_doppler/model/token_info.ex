@@ -9,7 +9,7 @@ defmodule ExDoppler.TokenInfo do
     * `last_seen_at` - DateTime for last use (e.g `"2025-04-28T22:05:38.952Z"`)
     * `type` - Token Type (e.g `"personal"`)
     * `token_preview` - Used when referring to this token (e.g `dp.pt....ABCdEF`)
-    * `workplace` - Relevant `ExDoppler.Workplace` .
+    * `workplace` - Relevant `ExDoppler.Workplace`.
   """
 
   import ExDoppler.Model
