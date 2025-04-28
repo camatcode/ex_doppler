@@ -7,6 +7,7 @@
 | Realm : Action                                                                                            | Implemented | Notes                        |
 |-----------------------------------------------------------------------------------------------------------|-------------|------------------------------|
 | [Workplace : Retrieve](https://docs.doppler.com/reference/workplace-get)                                  | ✅           |                              |
+| [Workplace : Update](https://docs.doppler.com/reference/workplace-update)                                 | ✅           |                              |
 | [Workplace Users : List](https://docs.doppler.com/reference/users-list)                                   | ✅           |                              |
 | [Workplace Users : Retrieve](https://docs.doppler.com/reference/users-get)                                | ✅           |                              |
 | [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                               | ✅           |                              |
@@ -73,11 +74,11 @@
 
 
 
+
 ### To Implement
 
 | Realm : Action                                                                                        | Implemented | Notes |
 |-------------------------------------------------------------------------------------------------------|-------------|-------|
-| [Workplace : Update](https://docs.doppler.com/reference/workplace-update)                             | ❌           |       |
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
 | [Share : E2E Encrypted](https://docs.doppler.com/reference/share-secret-encrypted)                    | ❌           |       |
 
