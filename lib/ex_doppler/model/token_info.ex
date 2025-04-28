@@ -1,5 +1,16 @@
 defmodule ExDoppler.TokenInfo do
-  @moduledoc false
+  @moduledoc """
+  Module describing a [Doppler Me](https://docs.doppler.com/reference/auth-me)
+
+  ### Fields
+    * `slug` - Unique identifier for this token (e.g `"00000000-0000-0000-0000-000000000000"`)
+    * `name` - If given, a human-readable name for this token (e.g `"my-auth-token"`)
+    * `created_at` - DateTime creation for this token (e.g `"2025-04-24T15:53:27.189Z"`)
+    * `last_seen_at` - DateTime for last use (e.g `"2025-04-28T22:05:38.952Z"`)
+    * `type` - Token Type (e.g `"personal"`)
+    * `token_preview` - Used when referring to this token (e.g `dp.pt....ABCdEF`)
+    * `workplace` - Relevant `ExDoppler.Workplace` .
+  """
 
   import ExDoppler.Model
 
@@ -7,6 +18,12 @@ defmodule ExDoppler.TokenInfo do
 
   defstruct [:slug, :name, :created_at, :last_seen_at, :type, :token_preview, :workplace]
 
+  @doc """
+  Creates a `TokenInfo` from a map
+
+  ## Params
+    * **token_info**: Map of fields to turn into a `TokenInfo`
+  """
   def build(%{} = token_info) do
     fields =
       token_info
@@ -24,11 +41,23 @@ defmodule ExDoppler.TokenInfo do
 end
 
 defmodule ExDoppler.ODICToken do
-  @moduledoc false
+  @moduledoc """
+  Module describing a [Doppler ODIC](https://docs.doppler.com/reference/auth-oidc)
+
+  ### Fields
+    * `token` - ODIC Token
+    * `created_at` - DateTime creation for this token (e.g `"2025-04-24T15:53:27.189Z"`)
+  """
 
   import ExDoppler.Model
 
   defstruct [:token, :expires_at]
 
+  @doc """
+  Creates a `TokenInfo` from a map
+
+  ## Params
+    * **odic_token**: Map of fields to turn into a `TokenInfo`
+  """
   def build(%{} = odic_token), do: struct(ExDoppler.ODICToken, prepare_keys(odic_token))
 end

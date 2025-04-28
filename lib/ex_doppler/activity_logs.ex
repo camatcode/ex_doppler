@@ -11,6 +11,8 @@ defmodule ExDoppler.ActivityLogs do
   @doc """
   Lists `ExDoppler.ActivityLog` using pagination.
 
+  *Returns* `{:ok, %{page: num, logs: [%ExDoppler.ActivityLog{}...]}}` or `{:err, err}`
+
   ## Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
@@ -39,6 +41,8 @@ defmodule ExDoppler.ActivityLogs do
 
   @doc """
   Retrieves an `ExDoppler.ActivityLog` given an identifier.
+
+  *Returns* `{:ok, %ExDoppler.ActivityLog{...}}` or `{:err, err}`
 
   ## Params
     * **id**: Unique identifier for the log object. (e.g "emwk7ra70oem3xa")

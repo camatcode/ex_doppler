@@ -11,8 +11,6 @@ defmodule ExDoppler.ActivityLog do
     * `html` - HTML rendering of `text`
     * `text` - Human-readable explanation of the log
     * `user` - Relevant user to this activity log. See `ExDoppler.User`.
-
-
   """
   import ExDoppler.Model
 
