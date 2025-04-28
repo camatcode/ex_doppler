@@ -41,4 +41,16 @@ defmodule ExDoppler.WorkplaceUsers do
       wp_user
     end
   end
+
+  def update_workplace_user(%WorkplaceUser{id: id}, new_access) do
+    path =
+      @workplace_users_api_path
+      |> Path.join("/#{id}")
+
+    opts = [json: %{access: new_access}]
+
+    with {:ok, %{body: body}} <- Requester.patch(path, opts) do
+      {:ok, WorkplaceUser.build(body["workplace_user"])}
+    end
+  end
 end

@@ -7,7 +7,7 @@ defmodule ExDoppler.TokenInfo do
 
   defstruct [:slug, :name, :created_at, :last_seen_at, :type, :token_preview, :workplace]
 
-  def build(%{} =token_info) do
+  def build(%{} = token_info) do
     fields =
       token_info
       |> prepare_keys()

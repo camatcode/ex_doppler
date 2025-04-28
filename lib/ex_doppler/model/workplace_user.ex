@@ -5,7 +5,7 @@ defmodule ExDoppler.WorkplaceUser do
 
   alias ExDoppler.User
 
-  def build(wp_user) do
+  def build(%{} = wp_user) do
     fields =
       wp_user
       |> prepare_keys()
@@ -27,5 +27,5 @@ defmodule ExDoppler.User do
 
   defstruct [:email, :name, :profile_image_url, :username]
 
-  def build(user), do: struct(ExDoppler.User, prepare_keys(user))
+  def build(%{} = user), do: struct(ExDoppler.User, prepare_keys(user))
 end

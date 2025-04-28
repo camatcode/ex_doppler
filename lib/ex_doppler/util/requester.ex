@@ -48,6 +48,8 @@ defmodule ExDoppler.Util.Requester do
 
   def put(path, opts \\ []), do: request(:put, path, opts)
 
+  def patch(path, opts \\ []), do: request(:patch, path, opts)
+
   def delete(path, opts \\ []), do: request(:delete, path, opts)
 
   defp auth_header do
@@ -73,4 +75,5 @@ defmodule ExDoppler.Util.Requester do
   def make_request(:post, path, opts), do: Req.post(path, opts)
   def make_request(:put, path, opts), do: Req.put(path, opts)
   def make_request(:delete, path, opts), do: Req.delete(path, opts)
+  def make_request(:patch, path, opts), do: Req.patch(path, opts)
 end
