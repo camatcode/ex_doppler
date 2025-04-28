@@ -2,6 +2,9 @@ defmodule ExDoppler.ActivityLog do
   @moduledoc false
   import ExDoppler.Model
 
+  alias ExDoppler.ActivityDiff
+  alias ExDoppler.User
+
   defstruct [
     :created_at,
     :diff,
@@ -26,12 +29,17 @@ defmodule ExDoppler.ActivityLog do
   end
 
   defp serialize(_, nil), do: nil
-  defp serialize(:user, val), do: struct(ExDoppler.User, atomize_keys(val))
-  defp serialize(:diff, val), do: struct(ExDoppler.ActivityDiff, atomize_keys(val))
+  defp serialize(:user, val), do: User.build(val)
+  defp serialize(:diff, val), do: ActivityDiff.build(val)
   defp serialize(_, val), do: val
 end
 
 defmodule ExDoppler.ActivityDiff do
   @moduledoc false
+
+  import ExDoppler.Model
+
   defstruct [:added, :removed, :updated]
+
+  def build(diff), do: struct(ExDoppler.ActivityDiff, prepare_keys(diff))
 end

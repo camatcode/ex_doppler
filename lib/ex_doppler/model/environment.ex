@@ -3,5 +3,5 @@ defmodule ExDoppler.Environment do
   import ExDoppler.Model
   defstruct [:created_at, :id, :initial_fetch_at, :name, :project, :slug]
 
-  def build(env), do: struct(ExDoppler.Environment, atomize_keys(env))
+  def build(env), do: struct(ExDoppler.Environment, prepare_keys(env))
 end

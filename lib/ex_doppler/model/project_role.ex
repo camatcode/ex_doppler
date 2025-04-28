@@ -4,5 +4,5 @@ defmodule ExDoppler.ProjectRole do
 
   defstruct [:created_at, :identifier, :is_custom_role, :name, :permissions]
 
-  def build(role), do: struct(ExDoppler.ProjectRole, atomize_keys(role))
+  def build(role), do: struct(ExDoppler.ProjectRole, prepare_keys(role))
 end

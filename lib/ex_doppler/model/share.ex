@@ -4,5 +4,5 @@ defmodule ExDoppler.Share do
 
   defstruct [:url, :authenticated_url, :password]
 
-  def build(token), do: struct(ExDoppler.Share, atomize_keys(token))
+  def build(token), do: struct(ExDoppler.Share, prepare_keys(token))
 end
