@@ -33,5 +33,5 @@ defmodule ExDoppler.WorkplaceRole do
       :workplace_integrations_read
     ]
 
-  def build(wp_role), do: struct(ExDoppler.WorkplaceRole, atomize_keys(wp_role))
+  def build(wp_role), do: struct(ExDoppler.WorkplaceRole, prepare_keys(wp_role))
 end

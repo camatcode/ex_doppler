@@ -4,5 +4,5 @@ defmodule ExDoppler.Project do
 
   defstruct [:created_at, :description, :id, :name, :slug]
 
-  def build(project), do: struct(ExDoppler.Project, atomize_keys(project))
+  def build(project), do: struct(ExDoppler.Project, prepare_keys(project))
 end

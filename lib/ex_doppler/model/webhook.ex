@@ -3,6 +3,8 @@ defmodule ExDoppler.Webhook do
 
   import ExDoppler.Model
 
+  alias ExDoppler.WebhookAuth
+
   defstruct [
     :authentication,
     :can_manage,
@@ -15,32 +17,23 @@ defmodule ExDoppler.Webhook do
   ]
 
   def build(webhook) do
-    # Doppler uses camelCase here
     fields =
       webhook
-      |> Enum.map(fn {k, v} -> {ProperCase.snake_case(k), v} end)
-      |> atomize_keys()
+      |> prepare_keys()
       |> Enum.map(fn {k, v} -> {k, serialize(k, v)} end)
 
     struct(ExDoppler.Webhook, fields)
   end
 
   defp serialize(_, nil), do: nil
-
-  defp serialize(:authentication, val) do
-    fields =
-      val
-      |> Enum.map(fn {k, v} -> {ProperCase.snake_case(k), v} end)
-      |> atomize_keys()
-
-    struct(ExDoppler.WebhookAuth, fields)
-  end
-
+  defp serialize(:authentication, val), do: WebhookAuth.build(val)
   defp serialize(_, val), do: val
 end
 
 defmodule ExDoppler.WebhookAuth do
   @moduledoc false
+
+  import ExDoppler.Model
 
   defstruct [
     :type,
@@ -48,4 +41,6 @@ defmodule ExDoppler.WebhookAuth do
     :username,
     :has_password
   ]
+
+  def build(auth), do: struct(ExDoppler.WebhookAuth, prepare_keys(auth))
 end
