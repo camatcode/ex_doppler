@@ -16,6 +16,12 @@ defmodule ExDoppler.ProjectRoles do
     end
   end
 
+  def list_project_roles! do
+    with {:ok, project_roles} <- list_project_roles() do
+      project_roles
+    end
+  end
+
   def get_project_role(identifier) when is_bitstring(identifier) do
     path =
       @project_roles_api_path
@@ -23,6 +29,12 @@ defmodule ExDoppler.ProjectRoles do
 
     with {:ok, %{body: body}} <- Requester.get(path) do
       {:ok, ProjectRole.build(body["role"])}
+    end
+  end
+
+  def get_project_role!(identifier) do
+    with {:ok, project_role} <- get_project_role(identifier) do
+      project_role
     end
   end
 end

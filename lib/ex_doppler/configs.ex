@@ -21,6 +21,12 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  def list_configs!(%Project{} = project, opts \\ []) do
+    with {:ok, configs} <- list_configs(project, opts) do
+      configs
+    end
+  end
+
   def get_config(project_name, config_name)
       when is_bitstring(project_name) and is_bitstring(config_name) do
     path =
@@ -33,6 +39,12 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  def get_config!(project_name, config_name) do
+    with {:ok, config} <- get_config(project_name, config_name) do
+      config
+    end
+  end
+
   def create_config(project_name, environment_id, config_name)
       when is_bitstring(project_name) and
              is_bitstring(environment_id) and
@@ -41,6 +53,12 @@ defmodule ExDoppler.Configs do
 
     with {:ok, %{body: body}} <- Requester.post(@configs_api_path, json: body) do
       {:ok, Config.build(body["config"])}
+    end
+  end
+
+  def create_config!(project_name, environment_id, config_name) do
+    with {:ok, config} <- create_config(project_name, environment_id, config_name) do
+      config
     end
   end
 
@@ -59,6 +77,12 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  def rename_config!(project_name, current_config_name, new_config_name) do
+    with {:ok, config} <- rename_config(project_name, current_config_name, new_config_name) do
+      config
+    end
+  end
+
   def clone_config(project_name, source_config, new_config_name)
       when is_bitstring(project_name) and
              is_bitstring(source_config) and
@@ -71,6 +95,12 @@ defmodule ExDoppler.Configs do
 
     with {:ok, %{body: body}} <- Requester.post(path, json: body) do
       {:ok, Config.build(body["config"])}
+    end
+  end
+
+  def clone_config!(project_name, source_config, new_config_name) do
+    with {:ok, config} <- clone_config(project_name, source_config, new_config_name) do
+      config
     end
   end
 
@@ -88,6 +118,12 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  def lock_config!(project_name, config_name) do
+    with {:ok, config} <- lock_config(project_name, config_name) do
+      config
+    end
+  end
+
   def unlock_config(project_name, config_name)
       when is_bitstring(project_name) and
              is_bitstring(config_name) do
@@ -99,6 +135,12 @@ defmodule ExDoppler.Configs do
 
     with {:ok, %{body: body}} <- Requester.post(path, json: body) do
       {:ok, Config.build(body["config"])}
+    end
+  end
+
+  def unlock_config!(project_name, config_name) do
+    with {:ok, config} <- unlock_config(project_name, config_name) do
+      config
     end
   end
 
@@ -114,6 +156,12 @@ defmodule ExDoppler.Configs do
     end
   end
 
+  def set_config_inheritable!(project_name, config_name, is_inheritable) do
+    with {:ok, config} <- set_config_inheritable(project_name, config_name, is_inheritable) do
+      config
+    end
+  end
+
   def delete_config(project_name, config_name)
       when is_bitstring(project_name) and
              is_bitstring(config_name) do
@@ -125,6 +173,12 @@ defmodule ExDoppler.Configs do
 
     with {:ok, %{body: body}} <- Requester.delete(path, opts) do
       {:ok, {:success, body["success"]}}
+    end
+  end
+
+  def delete_config!(project_name, config_name) do
+    with {:ok, _} <- delete_config(project_name, config_name) do
+      :ok
     end
   end
 

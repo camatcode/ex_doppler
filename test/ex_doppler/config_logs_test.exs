@@ -33,7 +33,7 @@ defmodule ExDoppler.ConfigLogsTest do
       logs
       |> Enum.take(1)
       |> Enum.each(fn log ->
-        ConfigLogs.rollback(log)
+        ConfigLogs.rollback_config_log(log)
         |> case do
           {:ok, log} -> assert log.rollback
           _ -> :ok

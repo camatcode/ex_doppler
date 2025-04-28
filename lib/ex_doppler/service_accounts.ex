@@ -17,4 +17,10 @@ defmodule ExDoppler.ServiceAccounts do
       {:ok, accounts}
     end
   end
+
+  def list_service_accounts!(opts \\ []) do
+    with {:ok, accounts} <- list_service_accounts(opts) do
+      accounts
+    end
+  end
 end

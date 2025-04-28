@@ -16,6 +16,12 @@ defmodule ExDoppler.Integrations do
     end
   end
 
+  def list_integrations! do
+    with {:ok, integrations} <- list_integrations() do
+      integrations
+    end
+  end
+
   def get_integration(integration_slug) when is_bitstring(integration_slug) do
     path =
       @integrations_api_path
@@ -26,12 +32,24 @@ defmodule ExDoppler.Integrations do
     end
   end
 
+  def get_integration!(integration_slug) do
+    with {:ok, integration} <- get_integration(integration_slug) do
+      integration
+    end
+  end
+
   def create_integration(type, name, data)
       when is_bitstring(type) and is_bitstring(name) and is_map(data) do
     body = %{type: type, name: name, data: data}
 
     with {:ok, %{body: body}} <- Requester.post(@integrations_api_path, json: body) do
       {:ok, Integration.build(body["integration"])}
+    end
+  end
+
+  def create_integration!(type, name, data) do
+    with {:ok, integration} <- create_integration(type, name, data) do
+      integration
     end
   end
 
@@ -45,6 +63,12 @@ defmodule ExDoppler.Integrations do
     end
   end
 
+  def get_integration_options!(integration_slug) do
+    with {:ok, options} <- get_integration_options(integration_slug) do
+      options
+    end
+  end
+
   def delete_integration(%Integration{slug: slug}) do
     path =
       @integrations_api_path
@@ -54,6 +78,12 @@ defmodule ExDoppler.Integrations do
 
     with {:ok, %{body: _}} <- Requester.delete(path, opts) do
       {:ok, %{success: true}}
+    end
+  end
+
+  def delete_integration!(%Integration{} = integration) do
+    with {:ok, _} <- delete_integration(integration) do
+      :ok
     end
   end
 end

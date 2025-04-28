@@ -6,7 +6,7 @@ defmodule ExDoppler.Shares do
 
   @shares_api_path "/v1/share/secrets"
 
-  def plain_text(text_to_share, opts \\ []) do
+  def plain_text(text_to_share, opts \\ []) when is_bitstring(text_to_share) do
     opts = Keyword.merge([expire_days: 90, expire_views: -1], opts)
 
     path =
@@ -21,6 +21,12 @@ defmodule ExDoppler.Shares do
 
     with {:ok, %{body: body}} <- Requester.post(path, json: body) do
       {:ok, Share.build(body)}
+    end
+  end
+
+  def plain_text!(text_to_share, opts \\ []) do
+    with {:ok, share} <- plain_text(text_to_share, opts) do
+      share
     end
   end
 end

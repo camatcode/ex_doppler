@@ -22,6 +22,12 @@ defmodule ExDoppler.SecretsSyncs do
     end
   end
 
+  def get_secrets_sync!(%Config{} = config, sync_slug) do
+    with {:ok, sync} <- get_secrets_sync(config, sync_slug) do
+      sync
+    end
+  end
+
   def create_secrets_sync(
         %Config{name: config_name, project: project_slug},
         %Integration{slug: slug},
@@ -33,6 +39,12 @@ defmodule ExDoppler.SecretsSyncs do
 
     with {:ok, %{body: body}} <- Requester.post(@secrets_sync_api_path, opts) do
       {:ok, Sync.build(body["sync"])}
+    end
+  end
+
+  def create_secrets_sync!(%Config{} = config, %Integration{} = integration, data) do
+    with {:ok, sync} <- create_secrets_sync(config, integration, data) do
+      sync
     end
   end
 
@@ -57,6 +69,12 @@ defmodule ExDoppler.SecretsSyncs do
 
     with {:ok, %{body: _}} <- Requester.delete(path, opts) do
       {:ok, %{success: true}}
+    end
+  end
+
+  def delete_secrets_sync!(%Config{} = config, %Sync{} = sync, delete_from_target \\ true) do
+    with {:ok, _} <- delete_secrets_sync(config, sync, delete_from_target) do
+      :ok
     end
   end
 end

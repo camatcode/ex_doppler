@@ -20,6 +20,12 @@ defmodule ExDoppler.Projects do
     end
   end
 
+  def list_projects!(opts \\ []) do
+    with {:ok, projects} <- list_projects(opts) do
+      projects
+    end
+  end
+
   def get_project(identifier) when is_bitstring(identifier) do
     path =
       @projects_api_path
@@ -27,6 +33,12 @@ defmodule ExDoppler.Projects do
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [project: identifier]) do
       {:ok, Project.build(body["project"])}
+    end
+  end
+
+  def get_project!(identifier) do
+    with {:ok, project} <- get_project(identifier) do
+      project
     end
   end
 
@@ -39,6 +51,12 @@ defmodule ExDoppler.Projects do
 
     with {:ok, %{body: body}} <- Requester.post(@projects_api_path, json: body) do
       {:ok, Project.build(body["project"])}
+    end
+  end
+
+  def create_project!(project_name, description \\ "") do
+    with {:ok, project} <- create_project(project_name, description) do
+      project
     end
   end
 
@@ -61,6 +79,12 @@ defmodule ExDoppler.Projects do
     end
   end
 
+  def update_project!(%Project{} = project, opts \\ []) do
+    with {:ok, project} <- update_project(project, opts) do
+      project
+    end
+  end
+
   def delete_project(%Project{name: project_name}) do
     path =
       @projects_api_path
@@ -72,6 +96,12 @@ defmodule ExDoppler.Projects do
     end
   end
 
+  def delete_project!(%Project{} = project) do
+    with {:ok, project} <- delete_project(project) do
+      project
+    end
+  end
+
   def list_project_permissions do
     path =
       @projects_api_path
@@ -79,6 +109,12 @@ defmodule ExDoppler.Projects do
 
     with {:ok, %{body: body}} <- Requester.get(path) do
       {:ok, body["permissions"]}
+    end
+  end
+
+  def list_project_permissions! do
+    with {:ok, permissions} <- list_project_permissions() do
+      permissions
     end
   end
 end

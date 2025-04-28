@@ -16,6 +16,12 @@ defmodule ExDoppler.WorkplaceRoles do
     end
   end
 
+  def list_workplace_roles! do
+    with {:ok, roles} <- list_workplace_roles() do
+      roles
+    end
+  end
+
   def get_workplace_role(identifier) when is_bitstring(identifier) do
     path =
       @workplace_roles_api_path
@@ -23,6 +29,12 @@ defmodule ExDoppler.WorkplaceRoles do
 
     with {:ok, %{body: body}} <- Requester.get(path) do
       {:ok, WorkplaceRole.build(body["role"])}
+    end
+  end
+
+  def get_workplace_role!(identifier) do
+    with {:ok, role} <- get_workplace_role(identifier) do
+      role
     end
   end
 end

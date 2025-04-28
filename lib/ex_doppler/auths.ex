@@ -11,4 +11,10 @@ defmodule ExDoppler.Auths do
       {:ok, TokenInfo.build(body)}
     end
   end
+
+  def me! do
+    with {:ok, token_info} <- me() do
+      token_info
+    end
+  end
 end

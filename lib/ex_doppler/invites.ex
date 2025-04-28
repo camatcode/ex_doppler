@@ -17,4 +17,10 @@ defmodule ExDoppler.Invites do
       {:ok, invites}
     end
   end
+
+  def list_invites!(opts \\ []) do
+    with {:ok, invites} <- list_invites(opts) do
+      invites
+    end
+  end
 end
