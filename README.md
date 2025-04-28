@@ -4,61 +4,70 @@
 
 ### Implemented 
 
-| Realm : Action                                                                                            | Implemented | Notes              |
-|-----------------------------------------------------------------------------------------------------------|-------------|--------------------|
-| [Workplace : Retrieve](https://docs.doppler.com/reference/workplace-get)                                  | ✅           |                    |
-| [Workplace Users : List](https://docs.doppler.com/reference/users-list)                                   | ✅           |                    |
-| [Workplace Users : Retrieve](https://docs.doppler.com/reference/users-get)                                | ✅           |                    |
-| [Workplace Roles : List](https://docs.doppler.com/reference/workplace_roles-list)                         | ✅           |                    |
-| [Workplace Roles : Retrieve](https://docs.doppler.com/reference/workplace_roles-get)                      | ✅           |                    |
-| [Workplace Roles : List Permissions](https://docs.doppler.com/reference/workplace_roles-list_permissions) | ✅           |                    |
-| [Activity Logs : List](https://docs.doppler.com/reference/activity_logs-list)                             | ✅           |                    |
-| [Activity Logs : Retrieve](https://docs.doppler.com/reference/activity_logs-retrieve)                     | ✅           |                    |
-| [Projects : List](https://docs.doppler.com/reference/projects-list)                                       | ✅           |                    |
-| [Projects : Create](https://docs.doppler.com/reference/projects-create)                                   | ✅           |                    |
-| [Projects : Retrieve](https://docs.doppler.com/reference/projects-get)                                    | ✅           |                    |
-| [Projects : Update](https://docs.doppler.com/reference/projects-update)                                   | ✅           |                    |
-| [Projects : Delete](https://docs.doppler.com/reference/projects-update)                                   | ✅           |                    |
-| [Project Roles : List](https://docs.doppler.com/reference/project_roles-list)                             | ✅           |                    |
-| [Project Roles : Retrieve](https://docs.doppler.com/reference/project_roles-get)                          | ✅           |                    |
-| [Project Roles : List Permissions](https://docs.doppler.com/reference/project_roles-list_permissions)     | ✅           |                    |
-| [Project Members : List](https://docs.doppler.com/reference/project_members-list)                         | ✅           |                    |
-| [Project Members : Retrieve](https://docs.doppler.com/reference/project_members-get)                      | ✅           |                    |
-| [Environments : List](https://docs.doppler.com/reference/environments-list)                               | ✅           |                    |
-| [Environments : Create](https://docs.doppler.com/reference/environments-create)                           | ✅           |                    |
-| [Environments : Retrieve](https://docs.doppler.com/reference/environments-get)                            | ✅           |                    |
-| [Environments : Delete](https://docs.doppler.com/reference/environments-delete)                           | ✅           |                    |
-| [Environments : Rename](https://docs.doppler.com/reference/environments-rename)                           | ✅           |                    |
-| [Configs : List](https://docs.doppler.com/reference/configs-list)                                         | ✅           |                    |
-| [Configs : Retrieve](https://docs.doppler.com/reference/configs-get)                                      | ✅           |                    |
-| [Configs : Create](https://docs.doppler.com/reference/configs-create)                                     | ✅           |                    |
-| [Configs : Update](https://docs.doppler.com/reference/configs-update)                                     | ✅           |                    |
-| [Configs : Delete](https://docs.doppler.com/reference/configs-delete)                                     | ✅           |                    |
-| [Configs : Clone](https://docs.doppler.com/reference/configs-clone)                                       | ✅           |                    |
-| [Configs : Lock](https://docs.doppler.com/reference/configs-lock)                                         | ✅           |                    |
-| [Configs : Unlock](https://docs.doppler.com/reference/configs-unlock)                                     | ✅           |                    |
-| [Config Logs : List](https://docs.doppler.com/reference/config_logs-list)                                 | ✅           |                    |
-| [Config Logs : Retrieve](https://docs.doppler.com/reference/config_logs-get)                              | ✅           |                    |
-| [Config Logs : Rollback](https://docs.doppler.com/reference/config_logs-rollback)                         | ✅           |                    |
-| [Secrets : List](https://docs.doppler.com/reference/secrets-list)                                         | ✅           |                    |
-| [Secrets : Retrieve](https://docs.doppler.com/reference/secrets-get)                                      | ✅           |                    |
-| [Secrets : Update](https://docs.doppler.com/reference/secrets-update)                                     | ✅           |                    |
-| [Secrets : Download](https://docs.doppler.com/reference/secrets-download)                                 | ✅           |                    |
-| [Secrets : List Names](https://docs.doppler.com/reference/secrets-names)                                  | ✅           |                    |
-| [Secrets : Delete](https://docs.doppler.com/reference/secrets-delete)                                     | ✅           |                    |
-| [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                           | ✅           |                    |
-| [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅           |                    |
-| [Service Tokens : Create](https://docs.doppler.com/reference/service_tokens-create)                       | ✅           |                    |
-| [Service Tokens : Delete](https://docs.doppler.com/reference/service_tokens-delete)                       | ✅           |                    |
-| [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |                    |
-| [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                       | ✅           |                    |
-| [Webhooks : Retrieve](https://docs.doppler.com/reference/webhooks-get)                                    | ✅           |                    |
-| [Webhooks : Add](https://docs.doppler.com/reference/webhooks-add)                                         | ✅           |                    |
-| [Webhooks : Delete](https://docs.doppler.com/reference/webhooks-delete)                                   | ✅           | Poor documentation |
-| [Webhooks : Enable](https://docs.doppler.com/reference/webhooks-enable)                                   | ✅           | Poor documentation |
-| [Webhooks : Disable](https://docs.doppler.com/reference/webhooks-disable)                                 | ✅           | Poor documentation |
-| [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |                    |
-| [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                     | ✅           |                    |
+| Realm : Action                                                                                            | Implemented | Notes                        |
+|-----------------------------------------------------------------------------------------------------------|-------------|------------------------------|
+| [Workplace : Retrieve](https://docs.doppler.com/reference/workplace-get)                                  | ✅           |                              |
+| [Workplace Users : List](https://docs.doppler.com/reference/users-list)                                   | ✅           |                              |
+| [Workplace Users : Retrieve](https://docs.doppler.com/reference/users-get)                                | ✅           |                              |
+| [Workplace Roles : List](https://docs.doppler.com/reference/workplace_roles-list)                         | ✅           |                              |
+| [Workplace Roles : Retrieve](https://docs.doppler.com/reference/workplace_roles-get)                      | ✅           |                              |
+| [Workplace Roles : List Permissions](https://docs.doppler.com/reference/workplace_roles-list_permissions) | ✅           |                              |
+| [Activity Logs : List](https://docs.doppler.com/reference/activity_logs-list)                             | ✅           |                              |
+| [Activity Logs : Retrieve](https://docs.doppler.com/reference/activity_logs-retrieve)                     | ✅           |                              |
+| [Projects : List](https://docs.doppler.com/reference/projects-list)                                       | ✅           |                              |
+| [Projects : Create](https://docs.doppler.com/reference/projects-create)                                   | ✅           |                              |
+| [Projects : Retrieve](https://docs.doppler.com/reference/projects-get)                                    | ✅           |                              |
+| [Projects : Update](https://docs.doppler.com/reference/projects-update)                                   | ✅           |                              |
+| [Projects : Delete](https://docs.doppler.com/reference/projects-update)                                   | ✅           |                              |
+| [Project Roles : List](https://docs.doppler.com/reference/project_roles-list)                             | ✅           |                              |
+| [Project Roles : Retrieve](https://docs.doppler.com/reference/project_roles-get)                          | ✅           |                              |
+| [Project Roles : List Permissions](https://docs.doppler.com/reference/project_roles-list_permissions)     | ✅           |                              |
+| [Project Members : List](https://docs.doppler.com/reference/project_members-list)                         | ✅           |                              |
+| [Project Members : Retrieve](https://docs.doppler.com/reference/project_members-get)                      | ✅           |                              |
+| [Environments : List](https://docs.doppler.com/reference/environments-list)                               | ✅           |                              |
+| [Environments : Create](https://docs.doppler.com/reference/environments-create)                           | ✅           |                              |
+| [Environments : Retrieve](https://docs.doppler.com/reference/environments-get)                            | ✅           |                              |
+| [Environments : Delete](https://docs.doppler.com/reference/environments-delete)                           | ✅           |                              |
+| [Environments : Rename](https://docs.doppler.com/reference/environments-rename)                           | ✅           |                              |
+| [Configs : List](https://docs.doppler.com/reference/configs-list)                                         | ✅           |                              |
+| [Configs : Retrieve](https://docs.doppler.com/reference/configs-get)                                      | ✅           |                              |
+| [Configs : Create](https://docs.doppler.com/reference/configs-create)                                     | ✅           |                              |
+| [Configs : Update](https://docs.doppler.com/reference/configs-update)                                     | ✅           |                              |
+| [Configs : Delete](https://docs.doppler.com/reference/configs-delete)                                     | ✅           |                              |
+| [Configs : Clone](https://docs.doppler.com/reference/configs-clone)                                       | ✅           |                              |
+| [Configs : Lock](https://docs.doppler.com/reference/configs-lock)                                         | ✅           |                              |
+| [Configs : Unlock](https://docs.doppler.com/reference/configs-unlock)                                     | ✅           |                              |
+| [Config Logs : List](https://docs.doppler.com/reference/config_logs-list)                                 | ✅           |                              |
+| [Config Logs : Retrieve](https://docs.doppler.com/reference/config_logs-get)                              | ✅           |                              |
+| [Config Logs : Rollback](https://docs.doppler.com/reference/config_logs-rollback)                         | ✅           |                              |
+| [Secrets : List](https://docs.doppler.com/reference/secrets-list)                                         | ✅           |                              |
+| [Secrets : Retrieve](https://docs.doppler.com/reference/secrets-get)                                      | ✅           |                              |
+| [Secrets : Update](https://docs.doppler.com/reference/secrets-update)                                     | ✅           |                              |
+| [Secrets : Download](https://docs.doppler.com/reference/secrets-download)                                 | ✅           |                              |
+| [Secrets : List Names](https://docs.doppler.com/reference/secrets-names)                                  | ✅           |                              |
+| [Secrets : Delete](https://docs.doppler.com/reference/secrets-delete)                                     | ✅           |                              |
+| [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                           | ✅           |                              |
+| [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅           |                              |
+| [Service Tokens : Create](https://docs.doppler.com/reference/service_tokens-create)                       | ✅           |                              |
+| [Service Tokens : Delete](https://docs.doppler.com/reference/service_tokens-delete)                       | ✅           |                              |
+| [Integrations : List](https://docs.doppler.com/reference/integrations-list)                               | ✅           |                              |
+| [Integrations : Retrieve](https://docs.doppler.com/reference/integrations-get)                            | ✅           |                              |
+| [Integrations : Create](https://docs.doppler.com/reference/integrations-create)                           | ✅           | Route has poor documentation |
+| [Integrations : Get Options](https://docs.doppler.com/reference/get-options)                              | ✅           |                              |
+| [Integrations : Delete](https://docs.doppler.com/reference/integrations-delete)                           | ✅           |                              |
+| [Secrets Sync : Create](https://docs.doppler.com/reference/syncs-create)                                  | ✅           |                              |
+| [Secrets Sync : Retrieve](https://docs.doppler.com/reference/syncs-get)                                   | ✅           |                              |
+| [Secrets Sync : Delete](https://docs.doppler.com/reference/syncs-delete)                                  | ✅           |                              |
+| [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |                              |
+| [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                       | ✅           |                              |
+| [Webhooks : Retrieve](https://docs.doppler.com/reference/webhooks-get)                                    | ✅           |                              |
+| [Webhooks : Add](https://docs.doppler.com/reference/webhooks-add)                                         | ✅           |                              |
+| [Webhooks : Delete](https://docs.doppler.com/reference/webhooks-delete)                                   | ✅           |                              |
+| [Webhooks : Enable](https://docs.doppler.com/reference/webhooks-enable)                                   | ✅           |                              |
+| [Webhooks : Disable](https://docs.doppler.com/reference/webhooks-disable)                                 | ✅           |                              |
+| [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |                              |
+| [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                     | ✅           |                              |
+
 
 
 ### To Implement
@@ -73,11 +82,7 @@
 | [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                       | ❌           |       |
 | [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ❌           |       |
 | [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ❌           |       |
-| [Integrations : Create](https://docs.doppler.com/reference/integrations-create)                       | ❌           |       |
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
-| [Integrations : Delete](https://docs.doppler.com/reference/integrations-delete)                       | ❌           |       |
-| [Secrets Sync : Create](https://docs.doppler.com/reference/syncs-create)                              | ❌           |       |
-| [Secrets Sync : Delete](https://docs.doppler.com/reference/syncs-delete)                              | ❌           |       |
 | [Dynamic Secrets : Issue Lease](https://docs.doppler.com/reference/dynamic_secrets-issue_lease)       | ❌           |       |
 | [Dynamic Secrets : Revoke](https://docs.doppler.com/reference/dynamic_secrets-revoke_lease)           | ❌           |       |
 | [Change Request Policies : Create](https://docs.doppler.com/reference/change-request-policies-create) | ❌           |       |
@@ -90,38 +95,35 @@
 
 ### Requires Investigation
 
-| Realm : Action                                                                                     | Implemented | Notes                                                    |
-|----------------------------------------------------------------------------------------------------|-------------|----------------------------------------------------------|
-| [Integrations : List](https://docs.doppler.com/reference/integrations-list)                        | ⁉️          | Technically implemented - will have to come back to test |
-| [Integrations : Retrieve](https://docs.doppler.com/reference/integrations-get)                     | ⁉️          | Technically implemented - will have to come back to test |
-| [Integrations : Get Options](https://docs.doppler.com/reference/get-options)                       | ⁉️          | Technically implemented - will have to come back to test |
-| [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)                  | ⁉️          | Account doesn't have access to it                        |
-| [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)                     | ⁉️          | Account doesn't have access to it                        |
-| [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip)               | ⁉️          | Account doesn't have access to it                        |
-| [Secrets Sync : Retrieve](https://docs.doppler.com/reference/syncs-get)                            | ⁉️          | Technically implemented - will have to come back to test |
-| [Groups : List](https://docs.doppler.com/reference/groups-list)                                    | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Create](https://docs.doppler.com/reference/groups-create)                                | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Retrieve](https://docs.doppler.com/reference/groups-get)                                 | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Update](https://docs.doppler.com/reference/groups-update)                                | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Delete](https://docs.doppler.com/reference/groups-delete)                                | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Add Member](https://docs.doppler.com/reference/groups-add_member)                        | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Delete Memeber](https://docs.doppler.com/reference/groups-delete_member)                 | ⁉️          | Account doesn't have access to it                        |
-| [Groups : Retrieve Memeber](https://docs.doppler.com/reference/retrieve-member)                    | ⁉️          | Account doesn't have access to it                        |
-| [Service Accounts : List](https://docs.doppler.com/reference/service_accounts-list)                | ⁉️          | Account doesn't have access to it                        |
-| [Service Accounts : Create](https://docs.doppler.com/reference/service_accounts-create)            | ⁉️          | Account doesn't have access to it                        |
-| [Service Accounts : Retrieve](https://docs.doppler.com/reference/service_accounts-get)             | ⁉️          | Account doesn't have access to it                        |
-| [Service Accounts : Update](https://docs.doppler.com/reference/service_accounts-update)            | ⁉️          | Account doesn't have access to it                        |
-| [Service Accounts : Delete](https://docs.doppler.com/reference/service_accounts-delete)            | ⁉️          | Account doesn't have access to it                        |
-| [Service Account Tokens : List](https://docs.doppler.com/reference/service_account_tokens-list)    | ⁉️          | Account doesn't have access to it                        |
-| [Service Account Tokens : Create](https://docs.doppler.com/reference/service_account_tokens-create) | ⁉️          | Account doesn't have access to it                        |
-| [Service Account Tokens : Retrieve](https://docs.doppler.com/reference/service_account_tokens-get) | ⁉️          | Account doesn't have access to it                        |
-| [Service Account Tokens : Delete](https://docs.doppler.com/reference/service_account_tokens-delete) | ⁉️          | Account doesn't have access to it                        |
-| [Webhooks : Update](https://docs.doppler.com/reference/webhooks-update)                            | ⁉️          | It's...complex                                           |
-| [Workplace Roles : Create](https://docs.doppler.com/reference/workplace_roles-create)              | ⁉️          | Account doesn't have access to it                        |
-| [Workplace Roles : Update](https://docs.doppler.com/reference/workplace_roles-update)              | ⁉️          | Account doesn't have access to it                        |
-| [Workplace Roles : Delete](https://docs.doppler.com/reference/workplace_roles-delete)              | ⁉️          | Account doesn't have access to it                        |
-| [Configs : Inheritable](https://docs.doppler.com/reference/configs-inheritable)                    | ⁉️          | Account doesn't have access to it                        |
-| [Configs : Inherits](https://docs.doppler.com/reference/configs-inherits)                          | ⁉️          | Account doesn't have access to it                        |
+| Realm : Action                                                                                      | Implemented | Notes                |
+|-----------------------------------------------------------------------------------------------------|-------------|----------------------|
+| [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)                   | ⁉️          | Requires a Team tier |
+| [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)                      | ⁉️          | Requires a Team tier |
+| [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip)                | ⁉️          | Requires a Team tier |
+| [Groups : List](https://docs.doppler.com/reference/groups-list)                                     | ⁉️          | Requires a Team tier |
+| [Groups : Create](https://docs.doppler.com/reference/groups-create)                                 | ⁉️          | Requires a Team tier |
+| [Groups : Retrieve](https://docs.doppler.com/reference/groups-get)                                  | ⁉️          | Requires a Team tier |
+| [Groups : Update](https://docs.doppler.com/reference/groups-update)                                 | ⁉️          | Requires a Team tier |
+| [Groups : Delete](https://docs.doppler.com/reference/groups-delete)                                 | ⁉️          | Requires a Team tier |
+| [Groups : Add Member](https://docs.doppler.com/reference/groups-add_member)                         | ⁉️          | Requires a Team tier |
+| [Groups : Delete Memeber](https://docs.doppler.com/reference/groups-delete_member)                  | ⁉️          | Requires a Team tier |
+| [Groups : Retrieve Memeber](https://docs.doppler.com/reference/retrieve-member)                     | ⁉️          | Requires a Team tier |
+| [Service Accounts : List](https://docs.doppler.com/reference/service_accounts-list)                 | ⁉️          | Requires a Team tier |
+| [Service Accounts : Create](https://docs.doppler.com/reference/service_accounts-create)             | ⁉️          | Requires a Team tier |
+| [Service Accounts : Retrieve](https://docs.doppler.com/reference/service_accounts-get)              | ⁉️          | Requires a Team tier |
+| [Service Accounts : Update](https://docs.doppler.com/reference/service_accounts-update)             | ⁉️          | Requires a Team tier |
+| [Service Accounts : Delete](https://docs.doppler.com/reference/service_accounts-delete)             | ⁉️          | Requires a Team tier |
+| [Service Account Tokens : List](https://docs.doppler.com/reference/service_account_tokens-list)     | ⁉️          | Requires a Team tier |
+| [Service Account Tokens : Create](https://docs.doppler.com/reference/service_account_tokens-create) | ⁉️          | Requires a Team tier |
+| [Service Account Tokens : Retrieve](https://docs.doppler.com/reference/service_account_tokens-get)  | ⁉️          | Requires a Team tier |
+| [Service Account Tokens : Delete](https://docs.doppler.com/reference/service_account_tokens-delete) | ⁉️          | Requires a Team tier |
+| [Webhooks : Update](https://docs.doppler.com/reference/webhooks-update)                             | ⁉️          | It's...complex       |
+| [Workplace Roles : Create](https://docs.doppler.com/reference/workplace_roles-create)               | ⁉️          | Requires a Team tier |
+| [Workplace Roles : Update](https://docs.doppler.com/reference/workplace_roles-update)               | ⁉️          | Requires a Team tier |
+| [Workplace Roles : Delete](https://docs.doppler.com/reference/workplace_roles-delete)               | ⁉️          | Requires a Team tier |
+| [Configs : Inheritable](https://docs.doppler.com/reference/configs-inheritable)                     | ⁉️          | Requires a Team tier |
+| [Configs : Inherits](https://docs.doppler.com/reference/configs-inherits)                           | ⁉️          | Requires a Team tier |
+
 
 
 
