@@ -53,6 +53,25 @@ defmodule ExDoppler.Integrations do
     end
   end
 
+  def update_integration(%Integration{slug: slug}, new_name, new_data)
+      when is_bitstring(new_name) and is_map(new_data) do
+    path =
+      @integrations_api_path
+      |> Path.join("/integration")
+
+    body = %{name: name, data: data}
+
+    with {:ok, %{body: body}} <- Requester.put(path, qparams: [integration: slug], json: body) do
+      {:ok, Integration.build(body["integration"])}
+    end
+  end
+
+  def update_integration!(%Integration{} = integration, new_name, new_data) do
+    with {:ok, integrate} <- update_integration(integration, new_name, new_data) do
+      integrate
+    end
+  end
+
   def get_integration_options(integration_slug) when is_bitstring(integration_slug) do
     path =
       @integrations_api_path
