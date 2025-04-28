@@ -42,7 +42,8 @@ defmodule ExDoppler.WorkplaceUsers do
     end
   end
 
-  def update_workplace_user(%WorkplaceUser{id: id}, new_access) do
+  def update_workplace_user(%WorkplaceUser{id: id}, new_access)
+      when is_bitstring(new_access) or is_atom(new_access) do
     path =
       @workplace_users_api_path
       |> Path.join("/#{id}")
@@ -51,6 +52,12 @@ defmodule ExDoppler.WorkplaceUsers do
 
     with {:ok, %{body: body}} <- Requester.patch(path, opts) do
       {:ok, WorkplaceUser.build(body["workplace_user"])}
+    end
+  end
+
+  def update_workplace_user!(%WorkplaceUser{} = wp_user, new_access) do
+    with {:ok, wp_user} <- update_workplace_user(wp_user, new_access) do
+      wp_user
     end
   end
 end
