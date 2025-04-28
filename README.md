@@ -66,6 +66,8 @@
 | [Webhooks : Enable](https://docs.doppler.com/reference/webhooks-enable)                                   | ✅           |                              |
 | [Webhooks : Disable](https://docs.doppler.com/reference/webhooks-disable)                                 | ✅           |                              |
 | [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |                              |
+| [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                               | ✅           |                              |
+| [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                       | ✅           |       |
 | [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                     | ✅           |                              |
 
 
@@ -77,8 +79,6 @@
 | [Workplace : Update](https://docs.doppler.com/reference/workplace-update)                             | ❌           |       |
 | [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                           | ❌           |       |
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
-| [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                       | ❌           |       |
-| [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                           | ❌           |       |
 | [Share : E2E Encrypted](https://docs.doppler.com/reference/share-secret-encrypted)                    | ❌           |       |
 
 ### Requires Investigation
