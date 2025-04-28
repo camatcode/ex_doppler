@@ -22,3 +22,13 @@ defmodule ExDoppler.TokenInfo do
   defp serialize(:workplace, val), do: Workplace.build(val)
   defp serialize(_, val), do: val
 end
+
+defmodule ExDoppler.ODICToken do
+  @moduledoc false
+
+  import ExDoppler.Model
+
+  defstruct [:token, :expires_at]
+
+  def build(%{} = odic_token), do: struct(ExDoppler.ODICToken, prepare_keys(odic_token))
+end

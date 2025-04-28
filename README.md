@@ -66,6 +66,7 @@
 | [Webhooks : Enable](https://docs.doppler.com/reference/webhooks-enable)                                   | ✅           |                              |
 | [Webhooks : Disable](https://docs.doppler.com/reference/webhooks-disable)                                 | ✅           |                              |
 | [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |                              |
+| [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                               | ✅           |                              |
 | [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                     | ✅           |                              |
 
 
