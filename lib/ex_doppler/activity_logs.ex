@@ -1,5 +1,9 @@
 defmodule ExDoppler.ActivityLogs do
-  @moduledoc false
+  @moduledoc """
+      Module for interacting with Doppler Activity Logs
+
+      Doppler API Doc: https://docs.doppler.com/reference/activity_logs-object
+  """
 
   alias ExDoppler.ActivityLog
   alias ExDoppler.Util.Requester
