@@ -26,6 +26,8 @@ defmodule ExDoppler.WorkplaceUsersTest do
       refute Enum.empty?(by_email)
 
       assert {:ok, wp_user} == WorkplaceUsers.get_workplace_user(wp_user.id)
+
+      assert {:ok, wp_user} == WorkplaceUsers.update_workplace_user(wp_user, :owner)
     end)
 
     assert {:ok, %{page: 2, workplace_users: []}} = WorkplaceUsers.list_workplace_users(page: 2)

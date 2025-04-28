@@ -9,6 +9,7 @@
 | [Workplace : Retrieve](https://docs.doppler.com/reference/workplace-get)                                  | ✅           |                              |
 | [Workplace Users : List](https://docs.doppler.com/reference/users-list)                                   | ✅           |                              |
 | [Workplace Users : Retrieve](https://docs.doppler.com/reference/users-get)                                | ✅           |                              |
+| [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                               | ✅           |                              |
 | [Workplace Roles : List](https://docs.doppler.com/reference/workplace_roles-list)                         | ✅           |                              |
 | [Workplace Roles : Retrieve](https://docs.doppler.com/reference/workplace_roles-get)                      | ✅           |                              |
 | [Workplace Roles : List Permissions](https://docs.doppler.com/reference/workplace_roles-list_permissions) | ✅           |                              |
@@ -67,7 +68,7 @@
 | [Webhooks : Disable](https://docs.doppler.com/reference/webhooks-disable)                                 | ✅           |                              |
 | [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |                              |
 | [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                               | ✅           |                              |
-| [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                       | ✅           |       |
+| [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                           | ✅           |                              |
 | [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                     | ✅           |                              |
 
 
@@ -77,7 +78,6 @@
 | Realm : Action                                                                                        | Implemented | Notes |
 |-------------------------------------------------------------------------------------------------------|-------------|-------|
 | [Workplace : Update](https://docs.doppler.com/reference/workplace-update)                             | ❌           |       |
-| [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                           | ❌           |       |
 | [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
 | [Share : E2E Encrypted](https://docs.doppler.com/reference/share-secret-encrypted)                    | ❌           |       |
 
