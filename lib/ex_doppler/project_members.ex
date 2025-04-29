@@ -12,15 +12,33 @@ defmodule ExDoppler.ProjectMembers do
   @doc """
   Lists `ExDoppler.ProjectMember` using pagination
 
-  *Returns* `{:ok, [%ExDoppler.ProjectMember{}...]}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project**: The `ExDoppler.Project` for which you want the environments (e.g `%Project{name: "example-project"}`)
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ProjectMember` to return for this page (e.g `per_page: 50`). Default: `20`
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.ProjectMember{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/project_members-list)
+
+  <!-- tabs-close -->
   """
   def list_project_members(%Project{slug: project_slug}, opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_slug], opts)
@@ -44,14 +62,30 @@ defmodule ExDoppler.ProjectMembers do
   end
 
   @doc """
-  Retrieves a `ExDoppler.ProjectMember`, given a project, a member type and slug
+  Retrieves a `ExDoppler.ProjectMember`
 
-  *Returns* `{:ok, %ExDoppler.ProjectMember{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project**: The `ExDoppler.Project` for which you want the environments (e.g `%Project{name: "example-project"}`)
     * **member_type**: type of member (e.g `"workplace_user"`)
     * **member_slug**: slug of member (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.ProjectMember{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/project_members-get)
   """
