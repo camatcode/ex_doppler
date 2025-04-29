@@ -23,7 +23,7 @@ defmodule ExDoppler.ActivityLogs do
     **On Success**
 
     ```elixir
-    {:ok, %{page: num, logs: [%ExDoppler.ActivityLog{}...]}}
+    {:ok, [%ExDoppler.ActivityLog{...} ...]}
     ```
 
     **On Failure**
@@ -42,9 +42,8 @@ defmodule ExDoppler.ActivityLogs do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@activity_logs_api_path, qparams: opts) do
-      page = body["page"]
       logs = body["logs"] |> Enum.map(&ActivityLog.build/1)
-      {:ok, %{page: page, logs: logs}}
+      {:ok, logs}
     end
   end
 
