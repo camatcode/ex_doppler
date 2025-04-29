@@ -15,7 +15,6 @@ defmodule ExDoppler.WorkplaceRole do
 
   defstruct [:created_at, :identifier, :is_custom_role, :is_inline_role, :name, :permissions]
 
-
   @doc """
   Returns a list of all possible Workplace Role permissions
   """

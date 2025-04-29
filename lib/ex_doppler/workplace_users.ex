@@ -1,11 +1,25 @@
 defmodule ExDoppler.WorkplaceUsers do
-  @moduledoc false
+  @moduledoc """
+  Module for interacting with `ExDoppler.WorkplaceUser`
+  """
 
   alias ExDoppler.Util.Requester
   alias ExDoppler.WorkplaceUser
 
   @workplace_users_api_path "v3/workplace/users"
 
+  @doc """
+  Lists `ExDoppler.WorkplaceUser` using pagination.
+
+  *Returns* `{:ok, %{page: num, configs: [%ExDoppler.WorkplaceUser{}...]}}` or `{:err, err}`
+
+  ## Params\
+    * **opts**: Optional modifications to the list call
+      * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
+      * **email** - Filter results to only include the user with the provided email address. Default: `nil`
+
+  See [Doppler Docs](https://docs.doppler.com/reference/users-list)
+  """
   def list_workplace_users(opts \\ []) do
     opts = Keyword.merge([page: 1, email: nil], opts)
 
@@ -20,12 +34,25 @@ defmodule ExDoppler.WorkplaceUsers do
     end
   end
 
+  @doc """
+  Same as `list_workplace_users/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def list_workplace_users!(opts \\ []) do
     with {:ok, wp_users} <- list_workplace_users(opts) do
       wp_users
     end
   end
 
+  @doc """
+  Retrieves a `ExDoppler.WorkplaceUser`, given a project and a webhook id
+
+  *Returns* `{:ok, %ExDoppler.WorkplaceUser{...}}` or `{:err, err}`
+
+  ## Params
+    * **id** - ID of the Workplace User to retrieve
+
+  See [Doppler Docs](https://docs.doppler.com/reference/users-get)
+  """
   def get_workplace_user(id) when is_bitstring(id) do
     path =
       @workplace_users_api_path
@@ -36,12 +63,26 @@ defmodule ExDoppler.WorkplaceUsers do
     end
   end
 
+  @doc """
+  Same as `get_workplace_user/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def get_workplace_user!(id) do
     with {:ok, wp_user} <- get_workplace_user(id) do
       wp_user
     end
   end
 
+  @doc """
+  Updates an `ExDoppler.WorkplaceUser`, given a workplace user and new access
+
+  *Returns* `{:ok, %ExDoppler.WorkplaceUser{...}}` or `{:err, err}`
+
+  ## Params
+    * **workplace_user**: The relevant environment (e.g `%WorkplaceUser{id: "98370f9a-0675-430a-abbc-dbb02b78c5a8" ...}`)
+    * **new_access**: E.g., `:owner`, `:collaborator`, etc.
+
+  See [Doppler Docs](https://docs.doppler.com/reference/environments-rename)
+  """
   def update_workplace_user(%WorkplaceUser{id: id}, new_access)
       when is_bitstring(new_access) or is_atom(new_access) do
     path =
@@ -55,6 +96,9 @@ defmodule ExDoppler.WorkplaceUsers do
     end
   end
 
+  @doc """
+  Same as `update_workplace_user/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def update_workplace_user!(%WorkplaceUser{} = wp_user, new_access) do
     with {:ok, wp_user} <- update_workplace_user(wp_user, new_access) do
       wp_user

@@ -1,5 +1,4 @@
 defmodule ExDoppler do
-
   @moduledoc """
   Documentation for `ExDoppler`.
   """
