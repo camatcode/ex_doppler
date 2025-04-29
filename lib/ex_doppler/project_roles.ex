@@ -14,7 +14,7 @@ defmodule ExDoppler.ProjectRoles do
   *Returns* `{:ok, [%ExDoppler.ProjectRole{}...]}` or `{:err, err}`
 
 
-  See [Doppler Docs](https://docs.doppler.com/reference/project_roles-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-list)
   """
   def list_project_roles do
     with {:ok, %{body: body}} <- Requester.get(@project_roles_api_path) do
@@ -43,7 +43,7 @@ defmodule ExDoppler.ProjectRoles do
   ## Params
    * `identifier` - identifier for role -  e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/project_roles-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-get)
   """
   def get_project_role(identifier) when is_bitstring(identifier) do
     path =
@@ -73,7 +73,7 @@ defmodule ExDoppler.ProjectRoles do
     * **name**: Role name (e.g `"viewer_but_different"`)
     * **permissions**: List of permissions given to the role. See Doppler Docs
 
-  See [Doppler Docs](https://docs.doppler.com/reference/project_roles-create)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-create)
   """
   def create_project_role(name, permissions)
       when is_bitstring(name) and is_list(permissions) do

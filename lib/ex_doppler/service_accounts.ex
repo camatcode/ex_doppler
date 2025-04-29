@@ -18,7 +18,7 @@ defmodule ExDoppler.ServiceAccounts do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ServiceAccount` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/service_accounts-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_accounts-list)
   """
   def list_service_accounts(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)

@@ -20,7 +20,7 @@ defmodule ExDoppler.Environments do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Environment` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/environments-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-list)
   """
   def list_environments(%Project{name: project_name}, opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
@@ -54,7 +54,7 @@ defmodule ExDoppler.Environments do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The environment to get (e.g `"dev"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/environments-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-get)
   """
   def get_environment(%Project{name: project_name}, environment_slug)
       when is_bitstring(environment_slug) do
@@ -90,7 +90,7 @@ defmodule ExDoppler.Environments do
     * **env_slug**: A new environment's slug (e.g `"prd"`)
     * **enable_personal_config**: Optional setting if this environment has personal configs (default: false)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/environments-create)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-create)
   """
   def create_environment(
         %Project{name: project_name},
@@ -135,7 +135,7 @@ defmodule ExDoppler.Environments do
       * **slug** - New slug for this environment
       * **personal_configs** - If set true, will enable personal configs
 
-  See [Doppler Docs](https://docs.doppler.com/reference/environments-rename)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-rename)
   """
   def update_environment(%Environment{project: project_name, slug: env_slug}, opts \\ []) do
     with {:ok, environment} <- get_environment(%Project{name: project_name}, env_slug) do
@@ -179,7 +179,7 @@ defmodule ExDoppler.Environments do
   ## Params
     * **environment**: The relevant environment (e.g `%Environment{project: "example-project", slug: "dev" ...}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/environments-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-delete)
   """
   def delete_environment(%Environment{project: project_name, slug: env_slug}) do
     opts = [qparams: [project: project_name, environment: env_slug]]

@@ -12,7 +12,7 @@ defmodule ExDoppler.Auths do
 
   *Returns* `{:ok, %ExDoppler.TokenInfo{...}}` or `{:err, err}`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/auth-me)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-me)
   """
   def me do
     path = "/v3/me"
@@ -40,7 +40,7 @@ defmodule ExDoppler.Auths do
     * **token**: the OIDC token string from your OIDC provider (likely CI)
     * **identity**: Identity ID from the Doppler Dashboard
 
-  See [Doppler Docs](https://docs.doppler.com/reference/auth-oidc)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-oidc)
   """
   def odic(token, identity) when is_bitstring(token) and is_bitstring(identity) do
     opts = [json: %{token: token, identity: identity}]
@@ -68,7 +68,7 @@ defmodule ExDoppler.Auths do
   ## Params
     * **token_to_revoke**: the auth token to revoke
 
-    See [Doppler Docs](https://docs.doppler.com/reference/auth-revoke)
+    See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-revoke)
   """
   def revoke_auth_token(token_to_revoke) when is_bitstring(token_to_revoke) do
     opts = [json: %{token: token_to_revoke}]

@@ -17,7 +17,7 @@ defmodule ExDoppler.Webhooks do
   ## Params
     * **project**: The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-list)
   """
   def list_webhooks(%Project{name: name}) do
     opts = [qparams: [project: name]]
@@ -49,7 +49,7 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **id** - ID of the webhook to retrieve
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-get)
   """
   def get_webhook(%Project{name: project_name}, id) when is_bitstring(id) do
     path =
@@ -81,7 +81,7 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-enable)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-enable)
   """
   def enable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =
@@ -113,7 +113,7 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-disable)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-disable)
   """
   def disable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =
@@ -152,7 +152,7 @@ defmodule ExDoppler.Webhooks do
       * **authentication** - Either `%{type: :Bearer, token: "BEARER TOKEN HERE"}` or `%{type: :Basic, username: "example_user", password: "pass"}`
 
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-add)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-add)
   """
   def create_webhook(%Project{name: project_name}, url, opts \\ [])
       when is_bitstring(url) do
@@ -193,7 +193,7 @@ defmodule ExDoppler.Webhooks do
   ## Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-delete)
   """
   def delete_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =

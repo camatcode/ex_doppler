@@ -2,6 +2,8 @@ defmodule ExDoppler.ActivityLog do
   @moduledoc """
   Module describing a [Doppler Activity Log](https://docs.doppler.com/reference/activity_logs-object)
 
+  Used by `ExDoppler.ActivityLogs`
+
   ### Fields
     * `created_at` - Date and time of the Activity Log's creation (e.g `"2025-04-28T16:09:17.737Z"`)
     * `diff` - Details what was added, removed or updated. See `ExDoppler.ActivityDiff`.
@@ -34,8 +36,6 @@ defmodule ExDoppler.ActivityLog do
 
   ## Params
     * **activity_log**: Map of fields to turn into an `ActivityLog`
-
-  See [Doppler Docs](https://docs.doppler.com/reference/activity_logs-object)
   """
   def build(%{} = activity_log) do
     fields =

@@ -18,7 +18,7 @@ defmodule ExDoppler.Projects do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Project` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-list)
   """
   def list_projects(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
@@ -51,7 +51,7 @@ defmodule ExDoppler.Projects do
   ## Params
    * `identifier` - identifier for project (e.g `"example-project"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-get)
   """
   def get_project(identifier) when is_bitstring(identifier) do
     path =
@@ -81,7 +81,7 @@ defmodule ExDoppler.Projects do
     * **project_name**: New Project Name (e.g `"example-project"`)
     * **description**: Optional description (e.g `"my awesome project"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-create)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-create)
   """
   def create_project(project_name, description \\ "")
       when is_bitstring(project_name) and is_bitstring(description) do
@@ -115,7 +115,7 @@ defmodule ExDoppler.Projects do
       * **name** - New name for this project
       * **description** - New description for this project
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-update)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-update)
   """
   def update_project(%Project{name: current_project_name}, opts \\ []) do
     with {:ok, project} <- get_project(current_project_name) do
@@ -153,7 +153,7 @@ defmodule ExDoppler.Projects do
   ## Params
     * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-delete)
   """
   def delete_project(%Project{name: project_name}) do
     path =
@@ -180,7 +180,7 @@ defmodule ExDoppler.Projects do
 
   *Returns* `{:ok, ["permissions1"...]}` or `{:err, err}`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/project_roles-list_permissions)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-list_permissions)
   """
   def list_project_permissions do
     path =

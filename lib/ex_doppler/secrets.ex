@@ -22,7 +22,7 @@ defmodule ExDoppler.Secrets do
       * **include_managed_secrets** - whether to include dynamic secrets. Default: `true`
       * **secrets** - A comma-separated list of secrets to include in the response. Default: `nil`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/secrets-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-list)
   """
   def list_secrets(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
@@ -64,7 +64,7 @@ defmodule ExDoppler.Secrets do
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of the secret to get (e.g `"API_KEY"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/secrets-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-get)
   """
   def get_secret(%Config{name: config_name, project: project_name}, secret_name)
       when is_bitstring(secret_name) do
@@ -98,7 +98,7 @@ defmodule ExDoppler.Secrets do
       * **name_transformer** - Transform secret names to a different case (e.g `"camel"`, `"upper-camel"`, `"lower-snake"`, `"tf-var"`, `"dotnet"`, `"dotnet-env"`, `"lower-kebab"`). Default: `nil`
       * **secrets** - Comma-delimited list of secrets to include in the download. Defaults to all secrets if left unspecified.
 
-  See [Doppler Docs](https://docs.doppler.com/reference/secrets-download)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-download)
   """
   def download(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
@@ -145,7 +145,7 @@ defmodule ExDoppler.Secrets do
       * **include_managed_secrets** - whether to include managed secrets. Default: `true`
 
 
-  See [Doppler Docs](https://docs.doppler.com/reference/secrets-names)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-names)
   """
   def list_secret_names(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
@@ -189,7 +189,7 @@ defmodule ExDoppler.Secrets do
    * **opts**: Optional modifications
       * **visibility** - how the secret should appear - `:masked`, `:unmasked`, or `:restricted`. Default: `:masked`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/secrets-update)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-update)
   """
   def create_secret(%Config{} = config, new_secret_name, value, opts \\ []) do
     update_secret(config, new_secret_name, value, opts)
@@ -217,7 +217,7 @@ defmodule ExDoppler.Secrets do
       * **should_delete** - Defaults to false. If set to true, will delete the secret matching the name field.
       * **should_converge** - Defaults to false. Can only be set to true if the config being updated is a branch config and there is a secret with the same name in the root config. In this case, the branch secret will inherit the value and visibility type from the root secret.
 
-  See [Doppler Docs](https://docs.doppler.com/reference/secrets-update)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-update)
   """
   def update_secret(
         %Config{name: config_name, project: project_name} = config,
@@ -291,7 +291,7 @@ defmodule ExDoppler.Secrets do
    * **project_name** - Name of the associated project (e.g `"example-project"`)
    * **secret_name** - Name of this secret
    * **note** - Attached Note
-  See [Doppler Docs](https://docs.doppler.com/reference/secrets-update_note)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-update_note)
   """
   def update_secret_note(project_name, secret_name, note)
       when is_bitstring(project_name) and
@@ -323,7 +323,7 @@ defmodule ExDoppler.Secrets do
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of secret to delete
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-delete)
   """
   def delete_secret(%Config{name: config_name, project: project_name}, secret_name)
       when is_bitstring(secret_name) do

@@ -20,7 +20,7 @@ defmodule ExDoppler.Configs do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Config` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-list)
   """
   def list_configs(%Project{name: project_name}, opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
@@ -54,7 +54,7 @@ defmodule ExDoppler.Configs do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config name to get (e.g `"dev_personal"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-get)
   """
   def get_config(project_name, config_name)
       when is_bitstring(project_name) and is_bitstring(config_name) do
@@ -87,7 +87,7 @@ defmodule ExDoppler.Configs do
     * **environment_id**: The relevant environment id (e.g `"prd"`)
     * **config_name**: The config name to make (e.g `"prd_aws"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-create)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-create)
   """
   def create_config(project_name, environment_id, config_name)
       when is_bitstring(project_name) and
@@ -119,7 +119,7 @@ defmodule ExDoppler.Configs do
     * **current_config_name**: The relevant environment id (e.g `"prd_aws"`)
     * **new_config_name**: The new config name (e.g `"prd_gcp"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-update)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-update)
   """
   def rename_config(project_name, current_config_name, new_config_name)
       when is_bitstring(project_name) and
@@ -155,7 +155,7 @@ defmodule ExDoppler.Configs do
     * **source_config**: The config to clone (e.g `"prd_aws"`)
     * **new_config_name**: The config name to clone (e.g `"prd_aws2"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-clone)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-clone)
   """
   def clone_config(project_name, source_config, new_config_name)
       when is_bitstring(project_name) and
@@ -190,7 +190,7 @@ defmodule ExDoppler.Configs do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to lock (e.g `"prd_aws"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-lock)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-lock)
   """
   def lock_config(project_name, config_name)
       when is_bitstring(project_name) and
@@ -224,7 +224,7 @@ defmodule ExDoppler.Configs do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to unlock (e.g `"prd_aws"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-unlock)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-unlock)
   """
   def unlock_config(project_name, config_name)
       when is_bitstring(project_name) and
@@ -279,7 +279,7 @@ defmodule ExDoppler.Configs do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to delete (e.g `"prd_aws"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-delete)
   """
   def delete_config(project_name, config_name)
       when is_bitstring(project_name) and

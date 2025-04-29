@@ -13,7 +13,7 @@ defmodule ExDoppler.Workplaces do
 
   *Returns* `{:ok, %ExDoppler.Workplace{...}}` or `{:err, err}`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/users-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-get)
   """
   def get_workplace() do
     with {:ok, %{body: body}} <- Requester.get(@workplace_api_path) do
@@ -40,7 +40,7 @@ defmodule ExDoppler.Workplaces do
       * **billing_email** - New billing email for the workplace
       * **security_email** - New security email for the workplace
 
-  See [Doppler Docs](https://docs.doppler.com/reference/workplace-update)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace-update)
   """
   def update_workplace(opts \\ []) do
     {:ok, workplace} = get_workplace()
@@ -72,7 +72,7 @@ defmodule ExDoppler.Workplaces do
 
   *Returns* `{:ok, ["perm1"...]}` or `{:err, err}`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list_permissions)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list_permissions)
   """
   def list_permissions do
     path = Path.join(@workplace_api_path, "/permissions")

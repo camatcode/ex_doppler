@@ -18,7 +18,7 @@ defmodule ExDoppler.WorkplaceUsers do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **email** - Filter results to only include the user with the provided email address. Default: `nil`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/users-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-list)
   """
   def list_workplace_users(opts \\ []) do
     opts = Keyword.merge([page: 1, email: nil], opts)
@@ -51,7 +51,7 @@ defmodule ExDoppler.WorkplaceUsers do
   ## Params
     * **id** - ID of the Workplace User to retrieve
 
-  See [Doppler Docs](https://docs.doppler.com/reference/users-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-get)
   """
   def get_workplace_user(id) when is_bitstring(id) do
     path =
@@ -81,7 +81,7 @@ defmodule ExDoppler.WorkplaceUsers do
     * **workplace_user**: The relevant environment (e.g `%WorkplaceUser{id: "98370f9a-0675-430a-abbc-dbb02b78c5a8" ...}`)
     * **new_access**: E.g., `:owner`, `:collaborator`, etc.
 
-  See [Doppler Docs](https://docs.doppler.com/reference/environments-rename)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-rename)
   """
   def update_workplace_user(%WorkplaceUser{id: id}, new_access)
       when is_bitstring(new_access) or is_atom(new_access) do

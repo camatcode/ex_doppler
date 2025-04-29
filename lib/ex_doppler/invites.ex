@@ -13,7 +13,7 @@ defmodule ExDoppler.Invites do
 
   *Returns* `{:ok,  [%ExDoppler.Invite{}...]}` or `{:err, err}`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/invites-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/invites-list)
   """
   def list_invites(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)

@@ -13,7 +13,7 @@ defmodule ExDoppler.Integrations do
 
   *Returns* `{:ok, %{page: num, configs: [%ExDoppler.Integration{}...]}}` or `{:err, err}`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/integrations-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-list)
   """
   def list_integrations do
     with {:ok, %{body: body}} <- Requester.get(@integrations_api_path) do
@@ -42,7 +42,7 @@ defmodule ExDoppler.Integrations do
   ## Params
     * **integration_slug**: The relevant integration (e.g `"gh-integration"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/integrations-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-get)
   """
   def get_integration(integration_slug) when is_bitstring(integration_slug) do
     path =
@@ -75,7 +75,7 @@ defmodule ExDoppler.Integrations do
     * **name**: Integration Name (e.g `"aws-secrets-integration"`)
     * **data**: A map containing fields that are specific to each integration (e.g `%{"aws_assume_role_arn" : "arn..."}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/integrations-create)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-create)
   """
   def create_integration(type, name, data)
       when is_bitstring(type) and is_bitstring(name) and is_map(data) do
@@ -106,7 +106,7 @@ defmodule ExDoppler.Integrations do
     * **Integration**: Integration to update (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282"... }`)
     * **data**: A map containing fields that are specific to each integration (e.g `%{"aws_assume_role_arn" : "arn..."}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/integrations-update)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-update)
   """
   def update_integration(%Integration{slug: slug}, new_name, new_data)
       when is_bitstring(new_name) and is_map(new_data) do
@@ -133,7 +133,7 @@ defmodule ExDoppler.Integrations do
   @doc """
   Returns the data payload for the integration(?)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/get-options)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/get-options)
   """
   def get_integration_options(integration_slug) when is_bitstring(integration_slug) do
     path =
@@ -162,7 +162,7 @@ defmodule ExDoppler.Integrations do
   ## Params
     * **integration**: The relevant integration (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282"... }`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/integrations-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-delete)
   """
   def delete_integration(%Integration{slug: slug}) do
     path =

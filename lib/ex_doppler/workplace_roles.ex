@@ -13,7 +13,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   *Returns* `{:ok, [%ExDoppler.WorkplaceRole{}...]}` or `{:err, err}`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list)
   """
   def list_workplace_roles do
     with {:ok, %{body: body}} <- Requester.get(@workplace_roles_api_path) do
@@ -42,7 +42,7 @@ defmodule ExDoppler.WorkplaceRoles do
   ## Params
     * **id** - ID of the role to retrieve
 
-  See [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-get)
   """
   def get_workplace_role(identifier) when is_bitstring(identifier) do
     path =

@@ -17,7 +17,7 @@ defmodule ExDoppler.ServiceTokens do
   ## Params
    * **config** - Config associated with the tokens (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/service_tokens-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-list)
   """
   def list_service_tokens(%Config{name: config_name, project: project_name}) do
     with {:ok, %{body: body}} <-
@@ -53,7 +53,7 @@ defmodule ExDoppler.ServiceTokens do
       * **expire_at** - Unix timestamp of when token should expire. Default: `nil`
       * **access** - Token's capabilities. `"read"` or `"read/write"`. Default: `"read"`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/service_tokens-create)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-create)
   """
   def create_service_token(
         %Config{name: config_name, project: project_name},
@@ -96,7 +96,7 @@ defmodule ExDoppler.ServiceTokens do
   ## Params
     * **service_token**: The token to delete (e.g `%ServiceToken{project: "example-project", config: "dev_personal", slug: "56c69f96-3045-11ea-978f-2e728ce8812"}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/service_tokens-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-delete)
   """
   def delete_service_token(%ServiceToken{project: project_name, config: config_name, slug: slug}) do
     body = %{project: project_name, config: config_name, slug: slug}

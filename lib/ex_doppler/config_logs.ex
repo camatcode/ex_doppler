@@ -20,7 +20,7 @@ defmodule ExDoppler.ConfigLogs do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ConfigLog` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/config_logs-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/config_logs-list)
   """
   def list_config_logs(%Config{project: project_name, name: config_name}, opts \\ []) do
     qparams =
@@ -55,7 +55,7 @@ defmodule ExDoppler.ConfigLogs do
     * **config**: The relevant `ExDoppler.Config` (e.g `%Config{project: "example-project", name: "dev"}`)
     * **log_id**: Unique identifier for the log object.
 
-  See [Doppler Docs](https://docs.doppler.com/reference/config_logs-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/config_logs-get)
   """
   def get_config_log(%Config{project: project_name, name: config_name}, log_id)
       when is_bitstring(log_id) do
@@ -87,7 +87,7 @@ defmodule ExDoppler.ConfigLogs do
   ## Params
     * **config_log**: The `ExDoppler.ConfigLog` to roll back (e.g `%ConfigLog{project: "example-project", config: "dev", id: "0000.."}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/config_logs-rollback)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/config_logs-rollback)
   """
   def rollback_config_log(%ConfigLog{project: project_name, config: config_name, id: log_id}) do
     path =
