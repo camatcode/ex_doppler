@@ -13,7 +13,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   *Returns* `{:ok, %{page: num, configs: [%ExDoppler.WorkplaceUser{}...]}}` or `{:err, err}`
 
-  ## Params\
+  ### Params\
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **email** - Filter results to only include the user with the provided email address. Default: `nil`
@@ -48,7 +48,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   *Returns* `{:ok, %ExDoppler.WorkplaceUser{...}}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **id** - ID of the Workplace User to retrieve
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/users-get)
@@ -77,7 +77,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   *Returns* `{:ok, %ExDoppler.WorkplaceUser{...}}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **workplace_user**: The relevant environment (e.g `%WorkplaceUser{id: "98370f9a-0675-430a-abbc-dbb02b78c5a8" ...}`)
     * **new_access**: E.g., `:owner`, `:collaborator`, etc.
 

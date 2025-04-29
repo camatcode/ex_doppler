@@ -16,7 +16,7 @@ defmodule ExDoppler.Environment do
   @doc """
   Creates an `Environment` from a map
 
-  ## Params
+  ### Params
     * **env**: Map of fields to turn into a `Environment`
   """
   def build(%{} = env), do: struct(ExDoppler.Environment, prepare_keys(env))

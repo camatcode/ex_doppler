@@ -21,7 +21,7 @@ defmodule ExDoppler.TokenInfo do
   @doc """
   Creates a `TokenInfo` from a map
 
-  ## Params
+  ### Params
     * **token_info**: Map of fields to turn into a `TokenInfo`
   """
   def build(%{} = token_info) do
@@ -56,7 +56,7 @@ defmodule ExDoppler.ODICToken do
   @doc """
   Creates a `TokenInfo` from a map
 
-  ## Params
+  ### Params
     * **odic_token**: Map of fields to turn into a `TokenInfo`
   """
   def build(%{} = odic_token), do: struct(ExDoppler.ODICToken, prepare_keys(odic_token))

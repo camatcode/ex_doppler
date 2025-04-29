@@ -16,7 +16,7 @@ defmodule ExDoppler.Project do
   @doc """
   Creates an `Project` from a map
 
-  ## Params
+  ### Params
     * **project**: Map of fields to turn into a `Project`
   """
   def build(%{} = project), do: struct(ExDoppler.Project, prepare_keys(project))

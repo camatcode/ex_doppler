@@ -17,7 +17,7 @@ defmodule ExDoppler.ServiceAccount do
   @doc """
   Creates an `ServiceAccount` from a map
 
-  ## Params
+  ### Params
     * **account**: Map of fields to turn into a `ServiceAccount`
   """
   def build(account) do

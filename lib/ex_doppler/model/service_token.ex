@@ -17,7 +17,7 @@ defmodule ExDoppler.ServiceToken do
   @doc """
   Creates an `ServiceToken` from a map
 
-  ## Params
+  ### Params
     * **token**: Map of fields to turn into a `ServiceToken`
   """
   def build(%{} = token), do: struct(ExDoppler.ServiceToken, prepare_keys(token))

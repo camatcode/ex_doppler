@@ -14,7 +14,7 @@ defmodule ExDoppler.Workplace do
   @doc """
   Creates a `Workplace` from a map
 
-  ## Params
+  ### Params
     * **wp**: Map of fields to turn into a `Workplace`
   """
   def build(%{} = wp), do: struct(ExDoppler.Workplace, prepare_keys(wp))

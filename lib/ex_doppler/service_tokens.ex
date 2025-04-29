@@ -14,7 +14,7 @@ defmodule ExDoppler.ServiceTokens do
 
   *Returns* `{:ok, [%ExDoppler.ServiceToken{}...]}` or `{:err, err}`
 
-  ## Params
+  ### Params
    * **config** - Config associated with the tokens (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-list)
@@ -46,7 +46,7 @@ defmodule ExDoppler.ServiceTokens do
 
   *Returns* `{:ok, %ExDoppler.ServiceToken{...}}` or `{:err, err}`
 
-  ## Params
+  ### Params
    * **config** - Config associated with the tokens (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
     * **service_token_name**: Name of this token (e.g `"cli_token"`)
     * **opts**: Optional modifications to the list call
@@ -93,7 +93,7 @@ defmodule ExDoppler.ServiceTokens do
 
   *Returns* `{:ok, %{success: true}}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **service_token**: The token to delete (e.g `%ServiceToken{project: "example-project", config: "dev_personal", slug: "56c69f96-3045-11ea-978f-2e728ce8812"}`)
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-delete)

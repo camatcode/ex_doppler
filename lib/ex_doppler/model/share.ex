@@ -14,7 +14,7 @@ defmodule ExDoppler.Share do
   @doc """
   Creates an `Share` from a map
 
-  ## Params
+  ### Params
     * **token**: Map of fields to turn into a `Share`
   """
   def build(%{} = token), do: struct(ExDoppler.Share, prepare_keys(token))

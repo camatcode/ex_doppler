@@ -16,7 +16,7 @@ defmodule ExDoppler.ProjectRole do
   @doc """
   Creates an `ProjectRole` from a map
 
-  ## Params
+  ### Params
     * **role**: Map of fields to turn into a `ProjectRole`
   """
   def build(%{} = role), do: struct(ExDoppler.ProjectRole, prepare_keys(role))

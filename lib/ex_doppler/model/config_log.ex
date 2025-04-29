@@ -23,7 +23,7 @@ defmodule ExDoppler.ConfigLog do
   @doc """
   Creates an `ConfigLog` from a map
 
-  ## Params
+  ### Params
     * **log**: Map of fields to turn into a `ConfigLog`
   """
   def build(%{} = log) do

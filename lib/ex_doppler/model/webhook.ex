@@ -31,7 +31,7 @@ defmodule ExDoppler.Webhook do
   @doc """
   Creates a `Webhook` from a map
 
-  ## Params
+  ### Params
     * **webhook**: Map of fields to turn into a `Webhook`
   """
   def build(%{} = webhook) do
@@ -71,7 +71,7 @@ defmodule ExDoppler.WebhookAuth do
   @doc """
   Creates a `WebhookAuth` from a map
 
-  ## Params
+  ### Params
     * **auth**: Map of fields to turn into a `WebhookAuth`
   """
   def build(%{} = auth), do: struct(ExDoppler.WebhookAuth, prepare_keys(auth))

@@ -37,7 +37,7 @@ defmodule ExDoppler.Config do
   @doc """
   Creates an `Config` from a map
 
-  ## Params
+  ### Params
     * **config**: Map of fields to turn into a `Config`
   """
   def build(%{} = config), do: struct(ExDoppler.Config, prepare_keys(config))

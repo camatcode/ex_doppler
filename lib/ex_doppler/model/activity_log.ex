@@ -34,7 +34,7 @@ defmodule ExDoppler.ActivityLog do
   @doc """
   Creates an `ActivityLog` from a map
 
-  ## Params
+  ### Params
     * **activity_log**: Map of fields to turn into an `ActivityLog`
   """
   def build(%{} = activity_log) do
@@ -71,7 +71,7 @@ defmodule ExDoppler.ActivityDiff do
   @doc """
   Creates an `ActivityDiff` from a map
 
-  ## Params
+  ### Params
     * **diff**: Map of fields to turn into an `ActivityDiff`
   """
   def build(%{} = diff), do: struct(ExDoppler.ActivityDiff, prepare_keys(diff))

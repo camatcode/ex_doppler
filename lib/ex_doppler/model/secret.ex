@@ -18,7 +18,7 @@ defmodule ExDoppler.Secret do
   @doc """
   Creates an `Secret` from a map
 
-  ## Params
+  ### Params
     * **{name, map}**: The secret's name and map of fields to turn into a `Secret`
   """
   def build({name, map}) do

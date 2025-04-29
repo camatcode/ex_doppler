@@ -13,7 +13,7 @@ defmodule ExDoppler.Shares do
 
   *Returns* `{:ok, %ExDoppler.Share{...}}` or `{:err, err}`
 
-  ## Params
+  ### Params
    * **text_to_share** - Plain text to share (e.g `"sharing this string"`)
     * **opts**: Optional modifications
       * **expire_days** - Days until the link is inaccessible. Default: `90`

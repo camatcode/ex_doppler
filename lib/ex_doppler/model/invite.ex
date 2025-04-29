@@ -18,7 +18,7 @@ defmodule ExDoppler.Invite do
   @doc """
   Creates an `Invite` from a map
 
-  ## Params
+  ### Params
     * **invite**: Map of fields to turn into a `Invite`
   """
   def build(%{} = invite) do

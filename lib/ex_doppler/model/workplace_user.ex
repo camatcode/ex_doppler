@@ -16,7 +16,7 @@ defmodule ExDoppler.WorkplaceUser do
   @doc """
   Creates an `WorkplaceUser` from a map
 
-  ## Params
+  ### Params
     * **wp_user**: Map of fields to turn into an `User`
   """
   def build(%{} = wp_user) do
@@ -52,7 +52,7 @@ defmodule ExDoppler.User do
   @doc """
   Creates an `User` from a map
 
-  ## Params
+  ### Params
     * **user**: Map of fields to turn into an `User`
   """
   def build(%{} = user), do: struct(ExDoppler.User, prepare_keys(user))

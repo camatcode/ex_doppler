@@ -39,7 +39,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   *Returns* `{:ok, %ExDoppler.WorkplaceRole{...}}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **id** - ID of the role to retrieve
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-get)

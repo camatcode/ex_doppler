@@ -14,7 +14,7 @@ defmodule ExDoppler.Webhooks do
 
   *Returns* `{:ok, [%ExDoppler.Webhook{}...]}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **project**: The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-list)
@@ -45,7 +45,7 @@ defmodule ExDoppler.Webhooks do
 
   *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **id** - ID of the webhook to retrieve
 
@@ -77,7 +77,7 @@ defmodule ExDoppler.Webhooks do
 
   *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
@@ -109,7 +109,7 @@ defmodule ExDoppler.Webhooks do
 
   *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
@@ -141,7 +141,7 @@ defmodule ExDoppler.Webhooks do
 
   *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **url**: The webhook URL. Must be https (e.g `"https://httpbin.org/post"`)
     * **opts**: Optional modifications
@@ -190,7 +190,7 @@ defmodule ExDoppler.Webhooks do
 
   *Returns* `{:ok, %{success: true}}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-delete)

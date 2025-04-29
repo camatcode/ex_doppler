@@ -50,7 +50,7 @@ defmodule ExDoppler.WorkplaceRole do
   @doc """
   Creates a `WorkplaceRole` from a map
 
-  ## Params
+  ### Params
     * **wp_role**: Map of fields to turn into a `WorkplaceRole`
   """
   def build(%{} = wp_role), do: struct(ExDoppler.WorkplaceRole, prepare_keys(wp_role))

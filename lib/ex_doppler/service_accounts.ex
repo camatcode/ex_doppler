@@ -13,7 +13,7 @@ defmodule ExDoppler.ServiceAccounts do
 
   *Returns* `{:ok, [%ExDoppler.ServiceAccount{}...]}` or `{:err, err}`
 
-  ## Params
+  ### Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ServiceAccount` to return for this page (e.g `per_page: 50`). Default: `20`
