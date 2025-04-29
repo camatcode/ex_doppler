@@ -11,14 +11,31 @@ defmodule ExDoppler.WorkplaceUsers do
   @doc """
   Lists `ExDoppler.WorkplaceUser` using pagination.
 
-  *Returns* `{:ok, %{page: num, configs: [%ExDoppler.WorkplaceUser{}...]}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ### Params\
+  ### Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **email** - Filter results to only include the user with the provided email address. Default: `nil`
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.WorkplaceUser{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/users-list)
+  <!-- tabs-close -->
   """
   def list_workplace_users(opts \\ []) do
     opts = Keyword.merge([page: 1, email: nil], opts)
@@ -46,12 +63,29 @@ defmodule ExDoppler.WorkplaceUsers do
   @doc """
   Retrieves a `ExDoppler.WorkplaceUser`, given a project and a webhook id
 
-  *Returns* `{:ok, %ExDoppler.WorkplaceUser{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
     * **id** - ID of the Workplace User to retrieve
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.WorkplaceUser{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/users-get)
+  <!-- tabs-close -->
   """
   def get_workplace_user(id) when is_bitstring(id) do
     path =
@@ -75,13 +109,30 @@ defmodule ExDoppler.WorkplaceUsers do
   @doc """
   Updates an `ExDoppler.WorkplaceUser`, given a workplace user and new access
 
-  *Returns* `{:ok, %ExDoppler.WorkplaceUser{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
     * **workplace_user**: The relevant environment (e.g `%WorkplaceUser{id: "98370f9a-0675-430a-abbc-dbb02b78c5a8" ...}`)
     * **new_access**: E.g., `:owner`, `:collaborator`, etc.
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.WorkplaceUser{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-rename)
+  <!-- tabs-close -->
   """
   def update_workplace_user(%WorkplaceUser{id: id}, new_access)
       when is_bitstring(new_access) or is_atom(new_access) do
