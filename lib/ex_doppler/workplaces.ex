@@ -15,7 +15,7 @@ defmodule ExDoppler.Workplaces do
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/users-get)
   """
-  def get_workplace() do
+  def get_workplace do
     with {:ok, %{body: body}} <- Requester.get(@workplace_api_path) do
       {:ok, Workplace.build(body["workplace"])}
     end
@@ -24,7 +24,7 @@ defmodule ExDoppler.Workplaces do
   @doc """
   Same as `get_workplace/0` but won't wrap a successful response in `{:ok, response}`
   """
-  def get_workplace!() do
+  def get_workplace! do
     with {:ok, wp} <- get_workplace() do
       wp
     end

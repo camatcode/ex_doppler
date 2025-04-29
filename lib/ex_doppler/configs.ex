@@ -48,7 +48,7 @@ defmodule ExDoppler.Configs do
         body["configs"]
         |> Enum.map(&Config.build/1)
 
-      {:ok,  configs}
+      {:ok, configs}
     end
   end
 
@@ -428,7 +428,7 @@ defmodule ExDoppler.Configs do
 
     opts = [qparams: [project: project_name, config: config_name]]
 
-    with {:ok, %{body: body}} <- Requester.delete(path, opts) do
+    with {:ok, %{body: _}} <- Requester.delete(path, opts) do
       {:ok, {:success, true}}
     end
   end

@@ -12,27 +12,42 @@ defmodule ExDoppler.Environments do
   @doc """
   Lists `ExDoppler.Environment` using pagination.
 
-  *Returns* `{:ok, %{page: num, configs: [%ExDoppler.Environment{}...]}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project**: The `ExDoppler.Project` for which you want the environments (e.g `%Project{name: "example-project"}`)
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Environment` to return for this page (e.g `per_page: 50`). Default: `20`
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.Environment{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-list)
+  <!-- tabs-close -->
   """
   def list_environments(%Project{name: project_name}, opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@environments_api_path, qparams: opts) do
-      page = body["page"]
-
       environments =
         body["environments"]
         |> Enum.map(&Environment.build/1)
 
-      {:ok, %{page: page, environments: environments}}
+      {:ok, environments}
     end
   end
 
@@ -46,13 +61,29 @@ defmodule ExDoppler.Environments do
   end
 
   @doc """
-  Retrieves a `ExDoppler.Environment`, given a project name and environment slug
+  Retrieves a `ExDoppler.Environment`
 
-  *Returns* `{:ok, %ExDoppler.Environment{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The environment to get (e.g `"dev"`)
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Environment{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-get)
   """
@@ -79,18 +110,34 @@ defmodule ExDoppler.Environments do
   end
 
   @doc """
-  Creates a new `ExDoppler.Environment`, given a project name, a new environment name, new slug
-  and if its personal (optional)
+  Creates a new `ExDoppler.Environment`
 
-  *Returns* `{:ok, %ExDoppler.Environment{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **env_name**: A new environment's name (e.g `"prd"`)
     * **env_slug**: A new environment's slug (e.g `"prd"`)
-    * **enable_personal_config**: Optional setting if this environment has personal configs (default: false)
+    * **enable_personal_config**: Optional setting if this environment has personal configs (default: `false`)
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Environment{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-create)
+  <!-- tabs-close -->
   """
   def create_environment(
         %Project{name: project_name},
@@ -126,16 +173,33 @@ defmodule ExDoppler.Environments do
   @doc """
   Updates an `ExDoppler.Environment`, given a project name, a env slug and options detailing modifications
 
-  *Returns* `{:ok, %ExDoppler.Environment{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **environment**: The relevant environment (e.g `%Environment{project: "example-project", slug: "dev" ...}`)
     * **opts**: Optional modifications
       * **name** - New name for this environment
       * **slug** - New slug for this environment
       * **personal_configs** - If set true, will enable personal configs
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Environment{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-rename)
+  <!-- tabs-close -->
   """
   def update_environment(%Environment{project: project_name, slug: env_slug}, opts \\ []) do
     with {:ok, environment} <- get_environment(%Project{name: project_name}, env_slug) do
@@ -174,12 +238,29 @@ defmodule ExDoppler.Environments do
   @doc """
   Deletes a `ExDoppler.Environment`
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **environment**: The relevant environment (e.g `%Environment{project: "example-project", slug: "dev" ...}`)
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-delete)
+  <!-- tabs-close -->
   """
   def delete_environment(%Environment{project: project_name, slug: env_slug}) do
     opts = [qparams: [project: project_name, environment: env_slug]]
@@ -188,8 +269,8 @@ defmodule ExDoppler.Environments do
       @environments_api_path
       |> Path.join("/environment")
 
-    with {:ok, %{body: body}} <- Requester.delete(path, opts) do
-      {:ok, {:success, body["success"]}}
+    with {:ok, %{body: _}} <- Requester.delete(path, opts) do
+      {:ok, {:success, true}}
     end
   end
 
