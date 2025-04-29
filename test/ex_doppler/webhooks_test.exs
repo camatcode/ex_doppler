@@ -34,7 +34,7 @@ defmodule ExDoppler.WebhooksTest do
     assert webhook.id
     assert webhook.url
 
-    assert {:ok, webhook} == Webhooks.get_webhook(project, webhook.id) |> IO.inspect()
+    assert {:ok, webhook} == Webhooks.get_webhook(project, webhook.id)
 
     {:ok, webhook} = Webhooks.disable_webhook(project, webhook)
     refute webhook.enabled
