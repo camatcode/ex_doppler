@@ -43,7 +43,7 @@ defmodule ExDoppler.ProjectRoles do
   ## Params
    * `identifier` - identifier for role -  e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/environments-get)
+  See [Doppler Docs](https://docs.doppler.com/reference/project_roles-get)
   """
   def get_project_role(identifier) when is_bitstring(identifier) do
     path =
@@ -73,7 +73,7 @@ defmodule ExDoppler.ProjectRoles do
     * **name**: Role name (e.g `"viewer_but_different"`)
     * **permissions**: List of permissions given to the role. See Doppler Docs
 
-  See [Doppler Docs](https://docs.doppler.com/reference/environments-create)
+  See [Doppler Docs](https://docs.doppler.com/reference/project_roles-create)
   """
   def create_project_role(name, permissions)
       when is_bitstring(name) and is_list(permissions) do

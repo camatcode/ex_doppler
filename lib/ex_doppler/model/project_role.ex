@@ -8,7 +8,6 @@ defmodule ExDoppler.ProjectRole do
     * `is_custom_role` - Whether it's a user made role
     * `name` - Name of role (e.g `"viewer"`)
     * `permissions` - member type (e.g `["enclave_config_logs", "enclave_project_config_secrets_read"...]`)
-  `)
   """
   import ExDoppler.Model
 

@@ -20,7 +20,7 @@ defmodule ExDoppler.Configs do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Config` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/config_logs-list)
+  See [Doppler Docs](https://docs.doppler.com/reference/configs-list)
   """
   def list_configs(%Project{name: project_name}, opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)

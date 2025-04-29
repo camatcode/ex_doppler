@@ -75,7 +75,7 @@ defmodule ExDoppler.Integrations do
     * **name**: Integration Name (e.g `"aws-secrets-integration"`)
     * **data**: A map containing fields that are specific to each integration (e.g `%{"aws_assume_role_arn" : "arn..."}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/environments-create)
+  See [Doppler Docs](https://docs.doppler.com/reference/integrations-create)
   """
   def create_integration(type, name, data)
       when is_bitstring(type) and is_bitstring(name) and is_map(data) do
@@ -132,6 +132,8 @@ defmodule ExDoppler.Integrations do
 
   @doc """
   Returns the data payload for the integration(?)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/get-options)
   """
   def get_integration_options(integration_slug) when is_bitstring(integration_slug) do
     path =
