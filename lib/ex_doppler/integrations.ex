@@ -9,11 +9,27 @@ defmodule ExDoppler.Integrations do
   @integrations_api_path "/v3/integrations"
 
   @doc """
-  Lists `ExDoppler.Integration` using pagination.
+  Lists `ExDoppler.Integration`
 
-  *Returns* `{:ok, %{page: num, configs: [%ExDoppler.Integration{}...]}}` or `{:err, err}`
+  <!-- tabs-open -->
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.Integration{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-list)
+  <!-- tabs-close -->
   """
   def list_integrations do
     with {:ok, %{body: body}} <- Requester.get(@integrations_api_path) do
@@ -35,12 +51,28 @@ defmodule ExDoppler.Integrations do
   end
 
   @doc """
-  Retrieves a `ExDoppler.Integration`, given an integration slug
+  Retrieves a `ExDoppler.Integration`
 
-  *Returns* `{:ok, %ExDoppler.Integration{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **integration_slug**: The relevant integration (e.g `"gh-integration"`)
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Integration{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-get)
   """
@@ -64,18 +96,39 @@ defmodule ExDoppler.Integrations do
   end
 
   @doc """
-  Creates a new `ExDoppler.Integration`, given a integration type, name and a data payload
+  Creates a new `ExDoppler.Integration`
 
-  *Returns* `{:ok, %ExDoppler.Integration{...}}` or `{:err, err}`
 
-  Really, truly - you'll have to look carefully at Doppler's docs.
+  > #### Read the API docs! {: .warning}
+  >
+  > The `data` parameter is tailored toward each kind of `type`.
 
-  ## Params
+  <!-- tabs-open -->
+
+  ### Params
     * **type**: Integration Type (e.g `"aws_secrets_manager"`)
     * **name**: Integration Name (e.g `"aws-secrets-integration"`)
     * **data**: A map containing fields that are specific to each integration (e.g `%{"aws_assume_role_arn" : "arn..."}`)
 
+  ### Returns
+
+  **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Integration{...}}
+    ```
+
+  **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-create)
+
+  <!-- tabs-close -->
   """
   def create_integration(type, name, data)
       when is_bitstring(type) and is_bitstring(name) and is_map(data) do
@@ -96,17 +149,36 @@ defmodule ExDoppler.Integrations do
   end
 
   @doc """
-  Updates an `ExDoppler.Integration`, given the integration, a new name, and new data payload
+  Updates an `ExDoppler.Integration`
 
-  *Returns* `{:ok, %ExDoppler.Integration{...}}` or `{:err, err}`
+  > #### Read the API docs! {: .warning}
+  >
+  > The `data` parameter is tailored toward each kind of `type`.
 
-  Really, truly - you'll have to look carefully at Doppler's docs.
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **Integration**: Integration to update (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282"... }`)
     * **data**: A map containing fields that are specific to each integration (e.g `%{"aws_assume_role_arn" : "arn..."}`)
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Integration{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-update)
+  <!-- tabs-close -->
   """
   def update_integration(%Integration{slug: slug}, new_name, new_data)
       when is_bitstring(new_name) and is_map(new_data) do
@@ -131,7 +203,33 @@ defmodule ExDoppler.Integrations do
   end
 
   @doc """
-  Returns the data payload for the integration(?)
+  Returns the data payload for the integration
+
+  > #### Read the API docs! {: .warning}
+  >
+  > These options relate to the `data` payload inside each integration
+  > Please use with care
+
+  <!-- tabs-open -->
+
+  ### Params
+    * **integration_slug**: Unique identifier for the integration (e.g `"00000000-0000-0000-0000-000000000000"`)
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, options}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/get-options)
   """
