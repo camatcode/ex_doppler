@@ -1,23 +1,47 @@
 defmodule ExDoppler.Workplaces do
-  @moduledoc false
+  @moduledoc """
+  Module for interacting with `ExDoppler.Workplace`
+  """
 
   alias ExDoppler.Util.Requester
   alias ExDoppler.Workplace
 
   @workplace_api_path "/v3/workplace"
 
-  def get_workplace(opts \\ []) do
-    with {:ok, %{body: body}} <- Requester.get(@workplace_api_path, opts) do
+  @doc """
+  Retrieves a `ExDoppler.Workplace`, given options
+
+  *Returns* `{:ok, %ExDoppler.Workplace{...}}` or `{:err, err}`
+
+  See [Doppler Docs](https://docs.doppler.com/reference/users-get)
+  """
+  def get_workplace() do
+    with {:ok, %{body: body}} <- Requester.get(@workplace_api_path) do
       {:ok, Workplace.build(body["workplace"])}
     end
   end
 
-  def get_workplace!(opts \\ []) do
-    with {:ok, wp} <- get_workplace(opts) do
+  @doc """
+  Same as `get_workplace/0` but won't wrap a successful response in `{:ok, response}`
+  """
+  def get_workplace!() do
+    with {:ok, wp} <- get_workplace() do
       wp
     end
   end
 
+  @doc """
+  Updates an `ExDoppler.Workplace`, given options detailing modifications
+
+  *Returns* `{:ok, %ExDoppler.Workplace{...}}` or `{:err, err}`
+
+  ## Params
+    * **opts**: Optional modifications
+      * **billing_email** - New billing email for the workplace
+      * **security_email** - New security email for the workplace
+
+  See [Doppler Docs](https://docs.doppler.com/reference/workplace-update)
+  """
   def update_workplace(opts \\ []) do
     {:ok, workplace} = get_workplace()
 
@@ -34,6 +58,22 @@ defmodule ExDoppler.Workplaces do
     end
   end
 
+  @doc """
+  Same as `update_workplace/1` but won't wrap a successful response in `{:ok, response}`
+  """
+  def update_workplace!(opts \\ []) do
+    with {:ok, wp} <- update_workplace(opts) do
+      wp
+    end
+  end
+
+  @doc """
+  Lists permissions known in `ExDoppler.Workplace`
+
+  *Returns* `{:ok, ["perm1"...]}` or `{:err, err}`
+
+  See [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list_permissions)
+  """
   def list_permissions do
     path = Path.join(@workplace_api_path, "/permissions")
 
@@ -42,6 +82,9 @@ defmodule ExDoppler.Workplaces do
     end
   end
 
+  @doc """
+  Same as `list_permissions/0` but won't wrap a successful response in `{:ok, response}`
+  """
   def list_permissions! do
     with {:ok, permissions} <- list_permissions() do
       permissions
