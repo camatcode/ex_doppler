@@ -12,12 +12,29 @@ defmodule ExDoppler.ServiceTokens do
   @doc """
   Lists `ExDoppler.ServiceAccount`
 
-  *Returns* `{:ok, [%ExDoppler.ServiceToken{}...]}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config associated with the tokens (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.ServiceToken{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-list)
+  <!-- tabs-close -->
   """
   def list_service_tokens(%Config{name: config_name, project: project_name}) do
     with {:ok, %{body: body}} <-
@@ -44,7 +61,7 @@ defmodule ExDoppler.ServiceTokens do
   @doc """
   Creates a new `ExDoppler.ServiceToken`, given a Config, a name and optional modifications
 
-  *Returns* `{:ok, %ExDoppler.ServiceToken{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config associated with the tokens (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
@@ -53,7 +70,24 @@ defmodule ExDoppler.ServiceTokens do
       * **expire_at** - Unix timestamp of when token should expire. Default: `nil`
       * **access** - Token's capabilities. `"read"` or `"read/write"`. Default: `"read"`
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.ServiceToken{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-create)
+  <!-- tabs-close -->
   """
   def create_service_token(
         %Config{name: config_name, project: project_name},
@@ -91,10 +125,26 @@ defmodule ExDoppler.ServiceTokens do
   @doc """
   Deletes a `ExDoppler.ServiceToken`
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
     * **service_token**: The token to delete (e.g `%ServiceToken{project: "example-project", config: "dev_personal", slug: "56c69f96-3045-11ea-978f-2e728ce8812"}`)
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-delete)
   """
@@ -106,7 +156,7 @@ defmodule ExDoppler.ServiceTokens do
       |> Path.join("/token")
 
     with {:ok, %{body: _}} <- Requester.delete(path, json: body) do
-      {:ok, %{success: true}}
+      {:ok, {:success, true}}
     end
   end
 
