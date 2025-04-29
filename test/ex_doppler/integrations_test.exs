@@ -9,6 +9,7 @@ defmodule ExDoppler.IntegrationsTest do
 
     integrations
     |> Enum.each(fn integration ->
+      IO.inspect(integration)
       assert integration.slug
       assert integration.name
       assert integration.type
