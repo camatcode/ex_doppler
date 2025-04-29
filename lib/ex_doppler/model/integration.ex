@@ -20,9 +20,9 @@ defmodule ExDoppler.Integration do
   Creates an `Integration` from a map
 
   ## Params
-    * **config**: Map of fields to turn into a `Integration`
+    * **integration**: Map of fields to turn into a `Integration`
   """
-  def build(integration) do
+  def build(%{} = integration) do
     fields =
       integration
       |> prepare_keys()
@@ -59,7 +59,7 @@ defmodule ExDoppler.Sync do
   Creates an `Sync` from a map
 
   ## Params
-    * **config**: Map of fields to turn into a `Sync`
+    * **sync**: Map of fields to turn into a `Sync`
   """
-  def build(sync), do: struct(ExDoppler.Sync, prepare_keys(sync))
+  def build(%{} = sync), do: struct(ExDoppler.Sync, prepare_keys(sync))
 end

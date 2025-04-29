@@ -24,7 +24,7 @@ defmodule ExDoppler.ConfigLog do
   Creates an `ConfigLog` from a map
 
   ## Params
-    * **config**: Map of fields to turn into a `ConfigLog`
+    * **log**: Map of fields to turn into a `ConfigLog`
   """
   def build(%{} = log) do
     fields =
