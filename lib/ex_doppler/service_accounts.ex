@@ -11,14 +11,31 @@ defmodule ExDoppler.ServiceAccounts do
   @doc """
   Lists `ExDoppler.ServiceAccount` using pagination.
 
-  *Returns* `{:ok, [%ExDoppler.ServiceAccount{}...]}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ServiceAccount` to return for this page (e.g `per_page: 50`). Default: `20`
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.ServiceAccount{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/service_accounts-list)
+  <!-- tabs-close -->
   """
   def list_service_accounts(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
