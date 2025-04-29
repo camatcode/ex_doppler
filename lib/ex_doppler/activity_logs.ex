@@ -11,7 +11,7 @@ defmodule ExDoppler.ActivityLogs do
   @doc """
   Lists `ExDoppler.ActivityLog` using pagination.
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-list)
+  <!-- tabs-open -->
 
   ### Params
     * **opts**: Optional modifications to the list call
@@ -20,7 +20,23 @@ defmodule ExDoppler.ActivityLogs do
 
   ### Returns
 
-        `{:ok, %{page: num, logs: [%ExDoppler.ActivityLog{}...]}}` or `{:err, err}`
+    **On Success**
+
+    ```elixir
+    {:ok, %{page: num, logs: [%ExDoppler.ActivityLog{}...]}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-list)
+
+  <!-- tabs-close -->
   """
   def list_activity_logs(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
@@ -44,14 +60,30 @@ defmodule ExDoppler.ActivityLogs do
   @doc """
   Retrieves an `ExDoppler.ActivityLog`, given an identifier.
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-retrieve)
+  <!-- tabs-open -->
 
   ### Params
-    * **id**: Unique identifier for the log object. (e.g "dmwk7ra70oem3xa")
+    * **id**: Unique identifier for the log object. (e.g `"dmwk7ra70oem3xa"`)
 
   ### Returns
 
-        `{:ok, %ExDoppler.ActivityLog{...}}` or `{:err, err}`
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.ActivityLog{}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-retrieve)
+
+  <!-- tabs-close -->
   """
   def get_activity_log(id) when is_bitstring(id) do
     path =
