@@ -1,11 +1,26 @@
 defmodule ExDoppler.Shares do
-  @moduledoc false
+  @moduledoc """
+  Module for interacting with `ExDoppler.Share`
+  """
 
   alias ExDoppler.Share
   alias ExDoppler.Util.Requester
 
   @shares_api_path "/v1/share/secrets"
 
+  @doc """
+  Creates a plain-text share link `ExDoppler.Share`
+
+  *Returns* `{:ok, %ExDoppler.Share{...}}` or `{:err, err}`
+
+  ## Params
+   * **text_to_share** - Plain text to share (e.g `"sharing this string"`)
+    * **opts**: Optional modifications
+      * **expire_days** - Days until the link is inaccessible. Default: `90`
+      * **expire_views** - Number of views until the link is inaccessible. -1 means infinite. Default: `-1`
+
+  See [Doppler Docs](https://docs.doppler.com/reference/share-secret)
+  """
   def plain_text(text_to_share, opts \\ []) when is_bitstring(text_to_share) do
     opts = Keyword.merge([expire_days: 90, expire_views: -1], opts)
 
@@ -24,6 +39,9 @@ defmodule ExDoppler.Shares do
     end
   end
 
+  @doc """
+  Same as `plain_text/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def plain_text!(text_to_share, opts \\ []) do
     with {:ok, share} <- plain_text(text_to_share, opts) do
       share
