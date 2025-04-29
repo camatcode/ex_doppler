@@ -1,6 +1,5 @@
 defmodule ExDoppler do
 
-  import ExDoppler.Workplaces
   @moduledoc """
   Documentation for `ExDoppler`.
   """

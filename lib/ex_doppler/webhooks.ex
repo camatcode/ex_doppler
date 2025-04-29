@@ -1,5 +1,7 @@
 defmodule ExDoppler.Webhooks do
-  @moduledoc false
+  @moduledoc """
+  Module for interacting with `ExDoppler.Webhook`
+  """
 
   alias ExDoppler.Project
   alias ExDoppler.Util.Requester
@@ -7,6 +9,16 @@ defmodule ExDoppler.Webhooks do
 
   @webhooks_api_path "/v3/webhooks"
 
+  @doc """
+  Lists `ExDoppler.Webhook`
+
+  *Returns* `{:ok, [%ExDoppler.Webhook{}...]}` or `{:err, err}`
+
+  ## Params
+    * **project**: The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-list)
+  """
   def list_webhooks(%Project{name: name}) do
     opts = [qparams: [project: name]]
 
@@ -19,12 +31,26 @@ defmodule ExDoppler.Webhooks do
     end
   end
 
+  @doc """
+  Same as `list_webhooks/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def list_webhooks!(%Project{} = project) do
     with {:ok, webhooks} <- list_webhooks(project) do
       webhooks
     end
   end
 
+  @doc """
+  Retrieves a `ExDoppler.Webhook`, given a project and a webhook id
+
+  *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
+
+  ## Params
+    * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
+    * **id** - ID of the webhook to retrieve
+
+  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-get)
+  """
   def get_webhook(%Project{name: project_name}, id) when is_bitstring(id) do
     path =
       @webhooks_api_path
@@ -37,12 +63,26 @@ defmodule ExDoppler.Webhooks do
     end
   end
 
+  @doc """
+  Same as `get_webhook/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def get_webhook!(%Project{} = project, id) do
     with {:ok, webhook} <- get_webhook(project, id) do
       webhook
     end
   end
 
+  @doc """
+  Enables a `ExDoppler.Webhook`, given a project and a webhook
+
+  *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
+
+  ## Params
+    * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
+    * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
+
+  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-enable)
+  """
   def enable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =
       @webhooks_api_path
@@ -55,12 +95,26 @@ defmodule ExDoppler.Webhooks do
     end
   end
 
+  @doc """
+  Same as `enable_webhook/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def enable_webhook!(%Project{} = project, %Webhook{} = webhook) do
     with {:ok, webhook} <- enable_webhook(project, webhook) do
       webhook
     end
   end
 
+  @doc """
+  Disables a `ExDoppler.Webhook`, given a project and a webhook
+
+  *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
+
+  ## Params
+    * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
+    * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
+
+  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-disable)
+  """
   def disable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =
       @webhooks_api_path
@@ -73,12 +127,33 @@ defmodule ExDoppler.Webhooks do
     end
   end
 
+  @doc """
+  Same as `disable_webhook/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def disable_webhook!(%Project{} = project, %Webhook{} = webhook) do
     with {:ok, webhook} <- disable_webhook(project, webhook) do
       webhook
     end
   end
 
+  @doc """
+  Creates a new `ExDoppler.Webhook`, given a project, a webhook URL, and options
+
+  *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
+
+  ## Params
+    * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
+    * **url**: The webhook URL. Must be https (e.g `"https://httpbin.org/post"`)
+    * **opts**: Optional modifications
+      * **name** - The name of the webhook (e.g "`my-web-hook"`)
+      * **secret** - See https://docs.doppler.com/docs/webhooks#verify-webhook-with-request-signing
+      * **payload** - See https://docs.doppler.com/docs/webhooks#default-payload
+      * **enable_configs** - List of Config slugs that the webhook should be enabled for. Default: `[]`
+      * **authentication** - Either `%{type: :Bearer, token: "BEARER TOKEN HERE"}` or `%{type: :Basic, username: "example_user", password: "pass"}`
+
+
+  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-add)
+  """
   def create_webhook(%Project{name: project_name}, url, opts \\ [])
       when is_bitstring(url) do
     # Doppler uses camelCase for this route
@@ -101,12 +176,25 @@ defmodule ExDoppler.Webhooks do
     end
   end
 
+  @doc """
+  Same as `create_webhook/3` but won't wrap a successful response in `{:ok, response}`
+  """
   def create_webhook!(%Project{} = project, url, opts \\ []) do
     with {:ok, webhook} <- create_webhook(project, url, opts) do
       webhook
     end
   end
 
+  @doc """
+  Deletes a `ExDoppler.Webhook`
+
+  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+
+  ## Params
+    * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
+
+  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-delete)
+  """
   def delete_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =
       @webhooks_api_path
@@ -119,6 +207,9 @@ defmodule ExDoppler.Webhooks do
     end
   end
 
+  @doc """
+  Same as `delete_webhook/2` but won't wrap a successful response in `{:ok, response}`
+  """
   def delete_webhook!(%Project{} = project, %Webhook{} = webhook) do
     with {:ok, _} <- delete_webhook(project, webhook) do
       :ok
