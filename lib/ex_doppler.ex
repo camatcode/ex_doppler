@@ -6,7 +6,7 @@ defmodule ExDoppler do
   @doc """
   Hello world.
 
-  ## Examples{:req, "~> 0.5.0"}
+  ## Examples
 
       iex> ExDoppler.hello()
       :world
