@@ -1,12 +1,28 @@
 defmodule ExDoppler.Integration do
-  @moduledoc false
+  @moduledoc """
+  Module describing a [Doppler Integration](https://docs.doppler.com/reference/integrations-list)
+
+  ### Fields
+    * `slug` - Unique identifier for the object  (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
+    * `name` - Unique identifier for the object (e.g `"Cloudflare Integration"`)
+    * `type` - Provider of integration (e.g `"cloudflare_tokens"`)
+    * `kind` - Class of integration (e.g `"rotatedSecrets"`)
+    * `enabled` - Whether integration is enabled
+    * `syncs` - List of Syncs. See `ExDoppler.Sync`
+  """
   import ExDoppler.Model
 
   alias ExDoppler.Sync
 
   defstruct [:slug, :name, :type, :kind, :enabled, :syncs]
 
-  def build(integration) do
+  @doc """
+  Creates an `Integration` from a map
+
+  ## Params
+    * **integration**: Map of fields to turn into a `Integration`
+  """
+  def build(%{} = integration) do
     fields =
       integration
       |> prepare_keys()
@@ -23,11 +39,27 @@ defmodule ExDoppler.Integration do
 end
 
 defmodule ExDoppler.Sync do
-  @moduledoc false
+  @moduledoc """
+  Module describing a [Doppler Sync](https://docs.doppler.com/reference/syncs-create)
+
+  ### Fields
+    * `slug` - Unique identifier for the object  (e.g `"0cd84923-b8c5-49e6-8713-e6ea2148a6c1"`)
+    * `enabled` - Whether sync is enabled
+    * `last_synced_at` - Date and Time of last sync (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `project` - Unique identifier for the project object (e.g `"example-project"`)
+    * `config` - Relevant config (e.g `"prd"`)
+    * `integration` - Relevant integration slug (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
+  """
 
   import ExDoppler.Model
 
   defstruct [:slug, :enabled, :last_synced_at, :project, :config, :integration]
 
-  def build(sync), do: struct(ExDoppler.Sync, prepare_keys(sync))
+  @doc """
+  Creates an `Sync` from a map
+
+  ## Params
+    * **sync**: Map of fields to turn into a `Sync`
+  """
+  def build(%{} = sync), do: struct(ExDoppler.Sync, prepare_keys(sync))
 end

@@ -1,11 +1,20 @@
 defmodule ExDoppler.Invites do
-  @moduledoc false
+  @moduledoc """
+  Module for interacting with `ExDoppler.Invite`
+  """
 
   alias ExDoppler.Invite
   alias ExDoppler.Util.Requester
 
   @invites_api_path "/v3/workplace/invites"
 
+  @doc """
+  Lists `ExDoppler.Invite`
+
+  *Returns* `{:ok,  [%ExDoppler.Invite{}...]}` or `{:err, err}`
+
+  See [Doppler Docs](https://docs.doppler.com/reference/invites-list)
+  """
   def list_invites(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
@@ -18,6 +27,9 @@ defmodule ExDoppler.Invites do
     end
   end
 
+  @doc """
+  Same as `list_invites/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def list_invites!(opts \\ []) do
     with {:ok, invites} <- list_invites(opts) do
       invites
