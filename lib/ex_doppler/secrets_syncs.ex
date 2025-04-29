@@ -11,15 +11,32 @@ defmodule ExDoppler.SecretsSyncs do
   @secrets_sync_api_path "/v3/configs/config/syncs"
 
   @doc """
-  Retrieves a `ExDoppler.Sync`, given a config and a sync slug
+  Retrieves a `ExDoppler.Sync`
 
-  *Returns* `{:ok, %ExDoppler.Sync{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **sync_slug** - Unique ID for the Sync
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Sync{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/syncs-get)
+  <!-- tabs-close -->
   """
   def get_secrets_sync(%Config{name: config_name, project: project_slug}, sync_slug)
       when is_bitstring(sync_slug) do
@@ -45,18 +62,38 @@ defmodule ExDoppler.SecretsSyncs do
   end
 
   @doc """
-  Creates a new `ExDoppler.Sync`, given a config, an integration, and a data map
+  Creates a new `ExDoppler.Sync`
 
-  *Returns* `{:ok, %ExDoppler.Sync{...}}` or `{:err, err}`
+  > #### Read the API docs! {: .warning}
+  >
+  > The `data` payload differs with each integration.
+  > Please use with care
 
-  Really, truly - read the doppler docs carefully
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config associated with the Sync (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **integration** - Integration associated with the Sync (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282" ...}`)
    * **data** - A map of data associated with the Sync; the fields will differ depending on the integration
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Sync{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/syncs-create)
+  <!-- tabs-close -->
   """
   def create_secrets_sync(
         %Config{name: config_name, project: project_slug},
@@ -84,15 +121,31 @@ defmodule ExDoppler.SecretsSyncs do
   @doc """
   Deletes a `ExDoppler.Sync`
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config associated with the Sync (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **sync** - Sync to delete (e.g `%Sync{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282" ...}`)
    * **delete_from_target** - Whether or not to delete the synced data from the target integration. Defaults to `true`
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/syncs-delete)
+  <!-- tabs-close -->
   """
   def delete_secrets_sync(
         %Config{name: config_name, project: project_slug},
@@ -114,7 +167,7 @@ defmodule ExDoppler.SecretsSyncs do
     ]
 
     with {:ok, %{body: _}} <- Requester.delete(path, opts) do
-      {:ok, %{success: true}}
+      {:ok, {:success, true}}
     end
   end
 
