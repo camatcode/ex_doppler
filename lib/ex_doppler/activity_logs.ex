@@ -57,7 +57,7 @@ defmodule ExDoppler.ActivityLogs do
   end
 
   @doc """
-  Retrieves an `ExDoppler.ActivityLog`, given an identifier.
+  Retrieves an `ExDoppler.ActivityLog`
 
   <!-- tabs-open -->
 

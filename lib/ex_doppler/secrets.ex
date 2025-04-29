@@ -13,7 +13,7 @@ defmodule ExDoppler.Secrets do
   @doc """
   Lists `ExDoppler.Secret`
 
-  *Returns* `{:ok, [%ExDoppler.Secret{}...]}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
     * **config**: Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
@@ -22,7 +22,24 @@ defmodule ExDoppler.Secrets do
       * **include_managed_secrets** - whether to include dynamic secrets. Default: `true`
       * **secrets** - A comma-separated list of secrets to include in the response. Default: `nil`
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.Secret{...}]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-list)
+  <!-- tabs-close -->
   """
   def list_secrets(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
@@ -56,15 +73,32 @@ defmodule ExDoppler.Secrets do
   end
 
   @doc """
-  Retrieves a `ExDoppler.Secret`, given a config and a secret name
+  Retrieves a `ExDoppler.Secret`
 
-  *Returns* `{:ok, %ExDoppler.Secret{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of the secret to get (e.g `"API_KEY"`)
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Secret{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-get)
+  <!-- tabs-close -->
   """
   def get_secret(%Config{name: config_name, project: project_name}, secret_name)
       when is_bitstring(secret_name) do
@@ -87,7 +121,7 @@ defmodule ExDoppler.Secrets do
   @doc """
   Retrieves multiple `ExDoppler.Secret` and responds in a format ready to put into a file
 
-  *Returns* `{:ok, %ExDoppler.Secret{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
@@ -98,7 +132,24 @@ defmodule ExDoppler.Secrets do
       * **name_transformer** - Transform secret names to a different case (e.g `"camel"`, `"upper-camel"`, `"lower-snake"`, `"tf-var"`, `"dotnet"`, `"dotnet-env"`, `"lower-kebab"`). Default: `nil`
       * **secrets** - Comma-delimited list of secrets to include in the download. Defaults to all secrets if left unspecified.
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, requested_body}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-download)
+  <!-- tabs-close -->
   """
   def download(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
@@ -136,7 +187,7 @@ defmodule ExDoppler.Secrets do
   @doc """
   Lists the names of `ExDoppler.Secret`, given a config and options
 
-  *Returns* `{:ok, ["SEC_1", "SEC_2"..]}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
@@ -145,7 +196,24 @@ defmodule ExDoppler.Secrets do
       * **include_managed_secrets** - whether to include managed secrets. Default: `true`
 
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, ["name1"...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-names)
+  <!-- tabs-close -->
   """
   def list_secret_names(%Config{name: config_name, project: project_name}, opts \\ []) do
     opts =
@@ -180,7 +248,7 @@ defmodule ExDoppler.Secrets do
   @doc """
   Creates a new `ExDoppler.Secret`
 
-  *Returns* `{:ok, %ExDoppler.Secret{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
@@ -189,7 +257,24 @@ defmodule ExDoppler.Secrets do
    * **opts**: Optional modifications
       * **visibility** - how the secret should appear - `:masked`, `:unmasked`, or `:restricted`. Default: `:masked`
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Secret{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-update)
+  <!-- tabs-close -->
   """
   def create_secret(%Config{} = config, new_secret_name, value, opts \\ []) do
     update_secret(config, new_secret_name, value, opts)
@@ -205,7 +290,7 @@ defmodule ExDoppler.Secrets do
   @doc """
   Updates a `ExDoppler.Secret`
 
-  *Returns* `{:ok, %ExDoppler.Secret{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
@@ -217,7 +302,24 @@ defmodule ExDoppler.Secrets do
       * **should_delete** - Defaults to false. If set to true, will delete the secret matching the name field.
       * **should_converge** - Defaults to false. Can only be set to true if the config being updated is a branch config and there is a secret with the same name in the root config. In this case, the branch secret will inherit the value and visibility type from the root secret.
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Secret{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-update)
+  <!-- tabs-close -->
   """
   def update_secret(
         %Config{name: config_name, project: project_name} = config,
@@ -285,12 +387,29 @@ defmodule ExDoppler.Secrets do
   @doc """
   Updates the `note` field on a  `ExDoppler.Secret`
 
-  *Returns* ` {:ok, %{note: note, secret: ExDoppler.Secret{...}}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **project_name** - Name of the associated project (e.g `"example-project"`)
    * **secret_name** - Name of this secret
    * **note** - Attached Note
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %{note: note secret: %ExDoppler.Secret{...}}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-update_note)
   """
   def update_secret_note(project_name, secret_name, note)
@@ -317,11 +436,27 @@ defmodule ExDoppler.Secrets do
   @doc """
   Deletes a `ExDoppler.Secret`
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
   ### Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of secret to delete
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-delete)
   """
@@ -330,7 +465,7 @@ defmodule ExDoppler.Secrets do
     opts = [qparams: [project: project_name, config: config_name, name: secret_name]]
 
     with {:ok, %{body: _}} <- Requester.delete(@get_secrets_api_path, opts) do
-      {:ok, %{success: true}}
+      {:ok, {:success, true}}
     end
   end
 
