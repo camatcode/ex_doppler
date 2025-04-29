@@ -10,9 +10,25 @@ defmodule ExDoppler.Auths do
   @doc """
   Get information about the token in use.
 
-  *Returns* `{:ok, %ExDoppler.TokenInfo{...}}` or `{:err, err}`
+  <!-- tabs-open -->
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.TokenInfo{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-me)
+  <!-- tabs-close -->
   """
   def me do
     path = "/v3/me"
@@ -32,15 +48,33 @@ defmodule ExDoppler.Auths do
   end
 
   @doc """
-  Authenticate via a Service Account Identity with OIDC. Returns a short lived API token.
+  Authenticate via a Service Account Identity with OIDC. Returns a short-lived API token.
 
-  *Returns* `{:ok, %ExDoppler.ODICToken{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **token**: the OIDC token string from your OIDC provider (likely CI)
     * **identity**: Identity ID from the Doppler Dashboard
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.ODICToken{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-oidc)
+
+  <!-- tabs-close -->
   """
   def odic(token, identity) when is_bitstring(token) and is_bitstring(identity) do
     opts = [json: %{token: token, identity: identity}]
@@ -63,19 +97,37 @@ defmodule ExDoppler.Auths do
   @doc """
   Revoke an auth token
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
-    * **token_to_revoke**: the auth token to revoke
+  ### Params
+    * **token_to_revoke**: the auth token to revoke (e.g `"auth-2342-asdf"`)
 
-    See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-revoke)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-revoke)
+
+  <!-- tabs-close -->
   """
   def revoke_auth_token(token_to_revoke) when is_bitstring(token_to_revoke) do
     opts = [json: %{token: token_to_revoke}]
     path = "/v3/auth/revoke"
 
     with {:ok, %{body: _}} <- Requester.post(path, opts) do
-      {:ok, %{success: true}}
+      {:ok, {:success, true}}
     end
   end
 

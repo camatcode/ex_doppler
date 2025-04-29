@@ -70,7 +70,7 @@ defmodule ExDoppler.ActivityLogs do
     **On Success**
 
     ```elixir
-    {:ok, %ExDoppler.ActivityLog{}}
+    {:ok, %ExDoppler.ActivityLog{...}}
     ```
 
     **On Failure**
