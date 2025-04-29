@@ -11,10 +11,25 @@ defmodule ExDoppler.ProjectRoles do
   @doc """
   Lists `ExDoppler.ProjectRole`
 
-  *Returns* `{:ok, [%ExDoppler.ProjectRole{}...]}` or `{:err, err}`
+  <!-- tabs-open -->
+  ### Returns
 
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.ProjectRole{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-list)
+  <!-- tabs-close -->
   """
   def list_project_roles do
     with {:ok, %{body: body}} <- Requester.get(@project_roles_api_path) do
@@ -36,14 +51,31 @@ defmodule ExDoppler.ProjectRoles do
   end
 
   @doc """
-  Retrieves a `ExDoppler.ProjectRole`, given an identifier
+  Retrieves a `ExDoppler.ProjectRole`
 
-  *Returns* `{:ok, %ExDoppler.ProjectRole{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
-   * `identifier` - identifier for role -  e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
+  ### Params
+   * **identifier** - identifier for role -  e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.ProjectRole{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-get)
+  <!-- tabs-close -->
   """
   def get_project_role(identifier) when is_bitstring(identifier) do
     path =
@@ -67,13 +99,30 @@ defmodule ExDoppler.ProjectRoles do
   @doc """
   Creates a new `ExDoppler.ProjectRole`, given a name and list of permissions
 
-  *Returns* `{:ok, %ExDoppler.ProjectRole{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **name**: Role name (e.g `"viewer_but_different"`)
-    * **permissions**: List of permissions given to the role. See Doppler Docs
+    * **permissions**: List of permissions given to the role. See [Doppler Docs](https://docs.doppler.com/reference/project_roles-create)
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.ProjectRole{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
 
   See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-create)
+  <!-- tabs-close -->
   """
   def create_project_role(name, permissions)
       when is_bitstring(name) and is_list(permissions) do
