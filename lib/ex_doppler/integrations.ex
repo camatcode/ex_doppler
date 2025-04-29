@@ -255,12 +255,29 @@ defmodule ExDoppler.Integrations do
   @doc """
   Deletes a `ExDoppler.Integration`
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **integration**: The relevant integration (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282"... }`)
 
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Doppler Docs
+
   See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-delete)
+  <!-- tabs-close -->
   """
   def delete_integration(%Integration{slug: slug}) do
     path =
@@ -270,7 +287,7 @@ defmodule ExDoppler.Integrations do
     opts = [qparams: [integration: slug]]
 
     with {:ok, %{body: _}} <- Requester.delete(path, opts) do
-      {:ok, %{success: true}}
+      {:ok, {:success, true}}
     end
   end
 
