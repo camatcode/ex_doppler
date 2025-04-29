@@ -34,7 +34,7 @@ defmodule ExDoppler.Projects do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_projects(opts \\ []) do
@@ -82,7 +82,7 @@ defmodule ExDoppler.Projects do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_project(identifier) when is_bitstring(identifier) do
@@ -129,7 +129,7 @@ defmodule ExDoppler.Projects do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-create)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-create){:target="_blank"}
   <!-- tabs-close -->
   """
   def create_project(project_name, description \\ "")
@@ -180,7 +180,7 @@ defmodule ExDoppler.Projects do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-update)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-update){:target="_blank"}
   <!-- tabs-close -->
   """
   def update_project(%Project{name: current_project_name}, opts \\ []) do
@@ -235,7 +235,7 @@ defmodule ExDoppler.Projects do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-delete){:target="_blank"}
   <!-- tabs-close -->
   """
   def delete_project(%Project{name: project_name}) do
@@ -279,7 +279,7 @@ defmodule ExDoppler.Projects do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-list_permissions)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-list_permissions){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_project_permissions do

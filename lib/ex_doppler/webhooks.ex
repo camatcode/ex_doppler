@@ -33,7 +33,7 @@ defmodule ExDoppler.Webhooks do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_webhooks(%Project{name: name}) do
@@ -82,7 +82,7 @@ defmodule ExDoppler.Webhooks do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_webhook(%Project{name: project_name}, id) when is_bitstring(id) do
@@ -131,7 +131,7 @@ defmodule ExDoppler.Webhooks do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-enable)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-enable){:target="_blank"}
    <!-- tabs-close -->
   """
   def enable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
@@ -180,7 +180,7 @@ defmodule ExDoppler.Webhooks do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-disable)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-disable){:target="_blank"}
   <!-- tabs-close -->
   """
   def disable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
@@ -236,7 +236,7 @@ defmodule ExDoppler.Webhooks do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-add)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-add){:target="_blank"}
   <!-- tabs-close -->
   """
   def create_webhook(%Project{name: project_name}, url, opts \\ [])
@@ -294,7 +294,7 @@ defmodule ExDoppler.Webhooks do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/webhooks-delete){:target="_blank"}
   <!-- tabs-close -->
   """
   def delete_webhook(%Project{name: project_name}, %Webhook{id: id}) do

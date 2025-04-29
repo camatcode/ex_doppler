@@ -34,7 +34,7 @@ defmodule ExDoppler.ServiceAccounts do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_accounts-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_service_accounts(opts \\ []) do

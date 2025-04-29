@@ -36,7 +36,7 @@ defmodule ExDoppler.Configs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-list){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -86,7 +86,7 @@ defmodule ExDoppler.Configs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-get){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -137,7 +137,7 @@ defmodule ExDoppler.Configs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-create)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-create){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -187,7 +187,7 @@ defmodule ExDoppler.Configs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-update)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-update){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -241,7 +241,7 @@ defmodule ExDoppler.Configs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-clone)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-clone){:target="_blank"}
   <!-- tabs-close -->
   """
   def clone_config(project_name, source_config, new_config_name)
@@ -293,7 +293,7 @@ defmodule ExDoppler.Configs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-lock)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-lock){:target="_blank"}
   <!-- tabs-close -->
   """
   def lock_config(project_name, config_name)
@@ -344,7 +344,7 @@ defmodule ExDoppler.Configs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-unlock)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-unlock){:target="_blank"}
   <!-- tabs-close -->
   """
   def unlock_config(project_name, config_name)
@@ -416,7 +416,7 @@ defmodule ExDoppler.Configs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-delete)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-delete){:target="_blank"}
   <!-- tabs-close -->
   """
   def delete_config(project_name, config_name)

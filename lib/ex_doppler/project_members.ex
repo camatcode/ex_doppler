@@ -36,7 +36,7 @@ defmodule ExDoppler.ProjectMembers do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_members-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_members-list){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -87,7 +87,7 @@ defmodule ExDoppler.ProjectMembers do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_members-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_members-get){:target="_blank"}
   """
   def get_project_member(%Project{slug: project_slug}, member_type, member_slug)
       when is_bitstring(member_type) and is_bitstring(member_slug) do

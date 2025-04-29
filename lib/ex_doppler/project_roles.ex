@@ -28,7 +28,7 @@ defmodule ExDoppler.ProjectRoles do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_project_roles do
@@ -74,7 +74,7 @@ defmodule ExDoppler.ProjectRoles do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_project_role(identifier) when is_bitstring(identifier) do
@@ -103,7 +103,7 @@ defmodule ExDoppler.ProjectRoles do
 
   ### Params
     * **name**: Role name (e.g `"viewer_but_different"`)
-    * **permissions**: List of permissions given to the role. See [Doppler Docs](https://docs.doppler.com/reference/project_roles-create)
+    * **permissions**: List of permissions given to the role. See [Doppler Docs](https://docs.doppler.com/reference/project_roles-create){:target="_blank"}
 
   ### Returns
 
@@ -121,7 +121,7 @@ defmodule ExDoppler.ProjectRoles do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-create)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-create){:target="_blank"}
   <!-- tabs-close -->
   """
   def create_project_role(name, permissions)

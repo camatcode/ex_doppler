@@ -29,7 +29,7 @@ defmodule ExDoppler.Workplaces do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_workplace do
@@ -74,7 +74,7 @@ defmodule ExDoppler.Workplaces do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace-update)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace-update){:target="_blank"}
   """
   def update_workplace(opts \\ []) do
     {:ok, workplace} = get_workplace()
@@ -122,7 +122,7 @@ defmodule ExDoppler.Workplaces do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list_permissions)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list_permissions){:target="_blank"}
   """
   def list_permissions do
     path = Path.join(@workplace_api_path, "/permissions")

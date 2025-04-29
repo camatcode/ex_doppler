@@ -34,7 +34,7 @@ defmodule ExDoppler.Invites do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/invites-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_invites(opts \\ []) do

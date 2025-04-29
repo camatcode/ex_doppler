@@ -34,7 +34,7 @@ defmodule ExDoppler.ActivityLogs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-list){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -80,7 +80,7 @@ defmodule ExDoppler.ActivityLogs do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-retrieve)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-retrieve){:target="_blank"}
 
   <!-- tabs-close -->
   """

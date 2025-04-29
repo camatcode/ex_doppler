@@ -27,7 +27,7 @@ defmodule ExDoppler.Auths do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-me)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
   <!-- tabs-close -->
   """
   def me do
@@ -72,7 +72,7 @@ defmodule ExDoppler.Auths do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-oidc)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-oidc){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -118,7 +118,7 @@ defmodule ExDoppler.Auths do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-revoke)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-revoke){:target="_blank"}
 
   <!-- tabs-close -->
   """

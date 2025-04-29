@@ -35,7 +35,7 @@ defmodule ExDoppler.Shares do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/share-secret)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/share-secret){:target="_blank"}
   <!-- tabs-close -->
   """
   def plain_text(text_to_share, opts \\ []) when is_bitstring(text_to_share) do

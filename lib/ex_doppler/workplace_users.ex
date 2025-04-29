@@ -34,7 +34,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_workplace_users(opts \\ []) do
@@ -84,7 +84,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_workplace_user(id) when is_bitstring(id) do
@@ -131,7 +131,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-rename)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-update){:target="_blank"}
   <!-- tabs-close -->
   """
   def update_workplace_user(%WorkplaceUser{id: id}, new_access)

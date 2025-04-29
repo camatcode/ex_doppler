@@ -29,7 +29,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_workplace_roles do
@@ -75,7 +75,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   ### Doppler Docs
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-get)
+  See relevant [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_workplace_role(identifier) when is_bitstring(identifier) do
