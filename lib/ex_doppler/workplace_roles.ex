@@ -52,7 +52,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **id** - ID of the role to retrieve
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceRole{...}}", failure: "{:err, err}")}

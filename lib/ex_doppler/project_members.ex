@@ -21,7 +21,7 @@ defmodule ExDoppler.ProjectMembers do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The `ExDoppler.Project` for which you want the environments (e.g `%Project{name: "example-project"}`)
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
@@ -59,7 +59,7 @@ defmodule ExDoppler.ProjectMembers do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The `ExDoppler.Project` for which you want the environments (e.g `%Project{name: "example-project"}`)
     * **member_type**: type of member (e.g `"workplace_user"`)
     * **member_slug**: slug of member (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)

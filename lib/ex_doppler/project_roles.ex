@@ -49,7 +49,7 @@ defmodule ExDoppler.ProjectRoles do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **identifier** - identifier for role -  e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:err, err}")}
@@ -82,7 +82,7 @@ defmodule ExDoppler.ProjectRoles do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **name**: Role name (e.g `"viewer_but_different"`)
     * **permissions**: List of permissions given to the role. See [Doppler Docs](https://docs.doppler.com/reference/project_roles-create){:target="_blank"}
 

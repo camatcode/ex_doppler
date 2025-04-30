@@ -46,7 +46,7 @@ defmodule ExDoppler.Auths do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **token**: the OIDC token string from your OIDC provider (likely CI)
     * **identity**: Identity ID from the Doppler Dashboard
 
@@ -79,7 +79,7 @@ defmodule ExDoppler.Auths do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **token_to_revoke**: the auth token to revoke (e.g `"auth-2342-asdf"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}

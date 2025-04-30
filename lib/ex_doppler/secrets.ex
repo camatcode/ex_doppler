@@ -22,7 +22,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **config**: Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
     * **opts**: Optional modifications to the list call
       * **include_dynamic_secrets** - whether to include dynamic secrets. Default: `false`
@@ -71,7 +71,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of the secret to get (e.g `"API_KEY"`)
 
@@ -104,7 +104,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **opts**: Optional modifications to the download call
       * **include_dynamic_secrets** - whether to include dynamic secrets. Default: `false`
@@ -157,7 +157,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **opts**: Optional modifications to the list call
       * **include_dynamic_secrets** - whether to include dynamic secrets. Default: `false`
@@ -205,7 +205,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **new_secret_name** - Name of this new secret
    * **value** - Value of this new secret
@@ -234,7 +234,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of this secret
    * **value** - Value of this secret
@@ -318,7 +318,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **project_name** - Name of the associated project (e.g `"example-project"`)
    * **secret_name** - Name of this secret
    * **note** - Attached Note
@@ -355,7 +355,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of secret to delete
 

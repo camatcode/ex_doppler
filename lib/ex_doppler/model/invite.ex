@@ -25,7 +25,7 @@ defmodule ExDoppler.Invite do
   Creates an `Invite` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **invite**: Map of fields to turn into a `Invite`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.Invite{...}", failure: "raise Error")}

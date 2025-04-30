@@ -23,7 +23,7 @@ defmodule ExDoppler.ProjectRole do
   Creates an `ProjectRole` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **role**: Map of fields to turn into a `ProjectRole`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.ProjectRole{...}", failure: "raise Error")}

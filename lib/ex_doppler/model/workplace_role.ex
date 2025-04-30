@@ -57,7 +57,7 @@ defmodule ExDoppler.WorkplaceRole do
   Creates a `WorkplaceRole` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **wp_role**: Map of fields to turn into a `WorkplaceRole`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.WorkplaceRole{...}", failure: "raise Error")}

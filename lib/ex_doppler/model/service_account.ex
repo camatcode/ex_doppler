@@ -24,7 +24,7 @@ defmodule ExDoppler.ServiceAccount do
   Creates an `ServiceAccount` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **account**: Map of fields to turn into a `ServiceAccount`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.ServiceAccount{...}", failure: "raise Error")}

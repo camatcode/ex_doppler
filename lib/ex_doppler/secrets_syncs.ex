@@ -22,7 +22,7 @@ defmodule ExDoppler.SecretsSyncs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **sync_slug** - Unique ID for the Sync
 
@@ -65,7 +65,7 @@ defmodule ExDoppler.SecretsSyncs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config associated with the Sync (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **integration** - Integration associated with the Sync (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282" ...}`)
    * **data** - A map of data associated with the Sync; the fields will differ depending on the integration
@@ -104,7 +104,7 @@ defmodule ExDoppler.SecretsSyncs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config associated with the Sync (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **sync** - Sync to delete (e.g `%Sync{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282" ...}`)
    * **delete_from_target** - Whether or not to delete the synced data from the target integration. Defaults to `true`

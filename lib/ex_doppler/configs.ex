@@ -21,7 +21,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The `ExDoppler.Project` for which you want the configs (e.g `%Project{name: "example-project"}`)
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
@@ -59,7 +59,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config name to get (e.g `"dev_personal"`)
 
@@ -95,7 +95,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **environment_id**: The relevant environment id (e.g `"prd"`)
     * **config_name**: The config name to make (e.g `"prd_aws"`)
@@ -131,7 +131,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **current_config_name**: The relevant environment id (e.g `"prd_aws"`)
     * **new_config_name**: The new config name (e.g `"prd_gcp"`)
@@ -171,7 +171,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **source_config**: The config to clone (e.g `"prd_aws"`)
     * **new_config_name**: The config name to clone (e.g `"prd_aws2"`)
@@ -211,7 +211,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to lock (e.g `"prd_aws"`)
 
@@ -249,7 +249,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to unlock (e.g `"prd_aws"`)
 
@@ -308,7 +308,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to delete (e.g `"prd_aws"`)
 

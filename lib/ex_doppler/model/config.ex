@@ -45,7 +45,7 @@ defmodule ExDoppler.Config do
   Creates an `Config` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **config**: Map of fields to turn into a `Config`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.Config{...}", failure: "raise Error")}

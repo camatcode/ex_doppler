@@ -21,7 +21,7 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The `ExDoppler.Project` for which you want the environments (e.g `%Project{name: "example-project"}`)
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
@@ -59,7 +59,7 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The environment to get (e.g `"dev"`)
 
@@ -96,7 +96,7 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **env_name**: A new environment's name (e.g `"prd"`)
     * **env_slug**: A new environment's slug (e.g `"prd"`)
@@ -144,7 +144,7 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **environment**: The relevant environment (e.g `%Environment{project: "example-project", slug: "dev" ...}`)
     * **opts**: Optional modifications
       * **name** - New name for this environment
@@ -196,7 +196,7 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **environment**: The relevant environment (e.g `%Environment{project: "example-project", slug: "dev" ...}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}

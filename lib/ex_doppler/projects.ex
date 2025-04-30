@@ -20,7 +20,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Project` to return for this page (e.g `per_page: 50`). Default: `20`
@@ -57,7 +57,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * `identifier` - identifier for project (e.g `"example-project"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
@@ -90,7 +90,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: New Project Name (e.g `"example-project"`)
     * **description**: Optional description (e.g `"my awesome project"`)
 
@@ -126,7 +126,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
     * **opts**: Optional modifications
       * **name** - New name for this project
@@ -171,7 +171,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}

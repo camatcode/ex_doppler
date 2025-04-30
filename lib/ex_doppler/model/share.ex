@@ -21,7 +21,7 @@ defmodule ExDoppler.Share do
   Creates an `Share` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **token**: Map of fields to turn into a `Share`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.Share{...}", failure: "raise Error")}

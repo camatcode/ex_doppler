@@ -3,16 +3,16 @@ defmodule ExDoppler.Doc do
   @moduledoc false
 
   def maintainer_github,
-    do: "[Github: camatcode](https://github.com/camatcode/){:target=\"_blank\"}"
+    do: "👾 [Github: camatcode](https://github.com/camatcode/){:target=\"_blank\"}"
 
   def maintainer_fediverse,
     do:
-      "[Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target=\"_blank\"}"
+      "🐘 [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target=\"_blank\"}"
 
-  def contact_maintainer, do: "Contact the maintainer (he's happy to help!)"
+  def contact_maintainer, do: "💬 Contact the maintainer (he's happy to help!)"
 
   def resources(doppler_doc, doppler_api_doc) do
-    "### Resources
+    "### 📖 Resources
   * #{see_doppler_doc("https://docs.doppler.com/docs/#{doppler_doc}")}
   * #{see_api_docs("https://docs.doppler.com/reference/#{doppler_api_doc}")}
   * #{contact_maintainer()}
@@ -22,7 +22,7 @@ defmodule ExDoppler.Doc do
   end
 
   def resources(doppler_api_doc) do
-    "### Resources
+    "### 📖 Resources
   * #{see_api_docs("https://docs.doppler.com/reference/#{doppler_api_doc}")}
   * #{contact_maintainer()}
     * #{maintainer_github()}
@@ -31,15 +31,15 @@ defmodule ExDoppler.Doc do
   end
 
   def returns(opts) do
-    "### Returns
+    "### ⤵️ Returns
 
-  **On Success**
+  **✅ On Success**
 
   ```elixir
   #{opts[:success]}
   ```
 
-  **On Failure**
+  **❌ On Failure**
 
    ```elixir
   #{opts[:failure]}
@@ -55,6 +55,6 @@ defmodule ExDoppler.Doc do
   end
 
   def see_link(title, url) do
-    "See: [#{title}](#{url}){:target=\"_blank\"}"
+    "📖 [#{title}](#{url}){:target=\"_blank\"}"
   end
 end

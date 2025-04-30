@@ -46,7 +46,7 @@ defmodule ExDoppler.Workplaces do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **opts**: Optional modifications
       * **billing_email** - New billing email for the workplace
       * **security_email** - New security email for the workplace
