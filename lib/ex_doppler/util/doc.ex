@@ -21,6 +21,15 @@ defmodule ExDoppler.Doc do
     "
   end
 
+  def resources(doppler_api_doc) do
+    "### Resources
+  * #{see_api_docs("https://docs.doppler.com/reference/#{doppler_api_doc}")}
+  * #{contact_maintainer()}
+    * #{maintainer_github()}
+    * #{maintainer_fediverse()}
+    "
+  end
+
   def returns(opts) do
     "### Returns
 

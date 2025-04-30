@@ -29,9 +29,7 @@ defmodule ExDoppler.ProjectMembers do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ProjectMember{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_members-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("project_members-list")}
 
   <!-- tabs-close -->
   """
@@ -68,9 +66,7 @@ defmodule ExDoppler.ProjectMembers do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectMember{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_members-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("project_members-get")}
 
   <!-- tabs-close -->
   """

@@ -27,9 +27,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceUser{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("users-list")}
 
   <!-- tabs-close -->
   """
@@ -64,9 +62,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("users-get")}
 
   <!-- tabs-close -->
   """
@@ -100,9 +96,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("users-update")}
 
   <!-- tabs-close -->
   """

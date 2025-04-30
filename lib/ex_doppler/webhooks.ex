@@ -26,9 +26,7 @@ defmodule ExDoppler.Webhooks do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Webhook{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("webhooks-list")}
 
   <!-- tabs-close -->
   """
@@ -64,9 +62,7 @@ defmodule ExDoppler.Webhooks do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("webhooks-get")}
 
   <!-- tabs-close -->
   """
@@ -102,9 +98,7 @@ defmodule ExDoppler.Webhooks do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-enable){:target="_blank"}
+  #{ExDoppler.Doc.resources("webhooks-enable")}
 
   <!-- tabs-close -->
   """
@@ -140,9 +134,7 @@ defmodule ExDoppler.Webhooks do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-disable){:target="_blank"}
+  #{ExDoppler.Doc.resources("webhooks-disable")}
 
   <!-- tabs-close -->
   """
@@ -184,9 +176,7 @@ defmodule ExDoppler.Webhooks do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-add){:target="_blank"}
+  #{ExDoppler.Doc.resources("webhooks-add")}
 
   <!-- tabs-close -->
   """
@@ -231,9 +221,7 @@ defmodule ExDoppler.Webhooks do
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("webhooks-delete")}
 
   <!-- tabs-close -->
   """

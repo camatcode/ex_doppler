@@ -22,9 +22,7 @@ defmodule ExDoppler.Workplaces do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-get")}
 
   <!-- tabs-close -->
   """
@@ -56,9 +54,7 @@ defmodule ExDoppler.Workplaces do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-update")}
 
   <!-- tabs-close -->
   """
@@ -94,9 +90,7 @@ defmodule ExDoppler.Workplaces do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\"...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list_permissions){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace_roles-list_permissions")}
 
   <!-- tabs-close -->
   """

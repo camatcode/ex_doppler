@@ -29,9 +29,7 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Config{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-list")}
 
   <!-- tabs-close -->
   """
@@ -67,9 +65,7 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-get")}
 
   <!-- tabs-close -->
   """
@@ -106,9 +102,7 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-create")}
 
   <!-- tabs-close -->
   """
@@ -144,9 +138,7 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-update")}
 
   <!-- tabs-close -->
   """
@@ -186,9 +178,7 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-clone){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-clone")}
 
   <!-- tabs-close -->
   """
@@ -227,9 +217,7 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-lock){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-lock")}
 
   <!-- tabs-close -->
   """
@@ -267,9 +255,7 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-unlock){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-unlock")}
 
   <!-- tabs-close -->
   """
@@ -328,9 +314,7 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-delete")}
 
   <!-- tabs-close -->
   """

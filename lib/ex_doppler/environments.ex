@@ -29,9 +29,7 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Environment{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-list")}
 
   <!-- tabs-close -->
   """
@@ -67,9 +65,7 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-get")}
 
   <!-- tabs-close -->
   """
@@ -108,9 +104,7 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-create")}
 
   <!-- tabs-close -->
   """
@@ -159,9 +153,7 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-rename){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-rename")}
 
   <!-- tabs-close -->
   """
@@ -209,9 +201,7 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-delete")}
 
   <!-- tabs-close -->
   """

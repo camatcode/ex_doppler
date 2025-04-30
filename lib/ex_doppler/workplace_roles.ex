@@ -24,9 +24,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceRole{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace_roles-list")}
 
   <!-- tabs-close -->
   """
@@ -59,9 +57,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceRole{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace_roles-get")}
 
   <!-- tabs-close -->
   """

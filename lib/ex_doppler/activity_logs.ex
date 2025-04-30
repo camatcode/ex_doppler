@@ -27,9 +27,7 @@ defmodule ExDoppler.ActivityLogs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ActivityLog{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/activity_logs-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("activity_logs-list")}
 
   <!-- tabs-close -->
   """
@@ -61,9 +59,7 @@ defmodule ExDoppler.ActivityLogs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ActivityLog{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/activity_logs-retrieve){:target="_blank"}
+  #{ExDoppler.Doc.resources("activity_logs-retrieve")}
 
   <!-- tabs-close -->
   """

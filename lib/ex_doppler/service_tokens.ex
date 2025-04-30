@@ -26,9 +26,7 @@ defmodule ExDoppler.ServiceTokens do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ServiceToken{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_tokens-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("service_tokens-list")}
 
   <!-- tabs-close -->
   """
@@ -68,9 +66,7 @@ defmodule ExDoppler.ServiceTokens do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ServiceToken{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_tokens-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("service_tokens-create")}
 
   <!-- tabs-close -->
   """
@@ -117,9 +113,7 @@ defmodule ExDoppler.ServiceTokens do
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_tokens-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("service_tokens-delete")}
 
   <!-- tabs-close -->
   """

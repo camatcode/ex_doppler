@@ -28,9 +28,7 @@ defmodule ExDoppler.SecretsSyncs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Sync{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("syncs-get")}
 
   <!-- tabs-close -->
   """
@@ -74,9 +72,7 @@ defmodule ExDoppler.SecretsSyncs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Sync{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("syncs-create")}
 
   <!-- tabs-close -->
   """
@@ -115,9 +111,7 @@ defmodule ExDoppler.SecretsSyncs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("syncs-delete")}
 
   <!-- tabs-close -->
   """

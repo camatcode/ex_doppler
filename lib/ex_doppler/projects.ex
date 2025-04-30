@@ -27,9 +27,7 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Project{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-list")}
 
   <!-- tabs-close -->
   """
@@ -64,9 +62,7 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-get")}
 
   <!-- tabs-close -->
   """
@@ -100,9 +96,7 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-create")}
 
   <!-- tabs-close -->
   """
@@ -140,9 +134,7 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-update")}
 
   <!-- tabs-close -->
   """
@@ -184,9 +176,7 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-delete")}
 
   <!-- tabs-close -->
   """
@@ -217,9 +207,7 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\" ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-list_permissions){:target="_blank"}
+  #{ExDoppler.Doc.resources("project_roles-list_permissions")}
 
   <!-- tabs-close -->
   """

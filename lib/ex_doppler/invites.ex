@@ -27,9 +27,7 @@ defmodule ExDoppler.Invites do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Invite{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("invites-list")}
 
   <!-- tabs-close -->
   """

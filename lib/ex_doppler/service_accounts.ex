@@ -27,9 +27,7 @@ defmodule ExDoppler.ServiceAccounts do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ServiceAccount{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("service_accounts-list")}
 
   <!-- tabs-close -->
   """

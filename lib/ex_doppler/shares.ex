@@ -28,9 +28,7 @@ defmodule ExDoppler.Shares do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Share{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/share-secret){:target="_blank"}
+  #{ExDoppler.Doc.resources("share-secret")}
 
   <!-- tabs-close -->
   """

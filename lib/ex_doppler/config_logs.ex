@@ -29,9 +29,7 @@ defmodule ExDoppler.ConfigLogs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ConfigLog{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("config_logs-list")}
 
   <!-- tabs-close -->
   """
@@ -68,9 +66,7 @@ defmodule ExDoppler.ConfigLogs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ConfigLog{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("config_logs-get")}
 
   <!-- tabs-close -->
   """
@@ -106,9 +102,7 @@ defmodule ExDoppler.ConfigLogs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ConfigLog{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-rollback){:target="_blank"}
+  #{ExDoppler.Doc.resources("config_logs-rollback")}
 
   <!-- tabs-close -->
   """

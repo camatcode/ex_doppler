@@ -21,9 +21,7 @@ defmodule ExDoppler.Integrations do
   <!-- tabs-open -->
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Integration{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-list")}
 
   <!-- tabs-close -->
   """
@@ -56,9 +54,7 @@ defmodule ExDoppler.Integrations do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-get")}
 
   <!-- tabs-close -->
   """
@@ -98,9 +94,7 @@ defmodule ExDoppler.Integrations do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-create")}
 
   <!-- tabs-close -->
   """
@@ -137,9 +131,7 @@ defmodule ExDoppler.Integrations do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-update")}
 
   <!-- tabs-close -->
   """
@@ -180,9 +172,7 @@ defmodule ExDoppler.Integrations do
 
   #{ExDoppler.Doc.returns(success: "{:ok, options}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/get-options){:target="_blank"}
+  #{ExDoppler.Doc.resources("get-options")}
 
   <!-- tabs-close -->
   """
@@ -215,9 +205,7 @@ defmodule ExDoppler.Integrations do
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-delete")}
 
   <!-- tabs-close -->
   """
