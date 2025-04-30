@@ -11,6 +11,30 @@
 </p>
 
 
+<p align="center">
+  <a href="https://hex.pm/packages/ex_doppler">
+    <img alt="Hex Version" src="https://img.shields.io/hexpm/v/ex_doppler.svg">
+  </a>
+
+  <a href="https://hexdocs.pm/ex_doppler">
+    <img alt="Hex Docs" src="http://img.shields.io/badge/hex.pm-docs-green.svg?style=flat">
+  </a>
+
+  <!--
+  <a href="https://github.com/camatcode/ex_doppler/actions">
+    <img alt="CI Status" src="https://github.com/camatcode/ex_doppler/workflows/ci/badge.svg">
+  </a>
+  -->
+  
+  <a href="https://opensource.org/licenses/Apache-2.0">
+    <img alt="Apache 2 License" src="https://img.shields.io/hexpm/l/oban">
+  </a>
+</p>
+
+## Table of Contents
+
+- [Implementation Status](#implementation-status)
+
 ## Implementation Status
 
 ### Implemented 
