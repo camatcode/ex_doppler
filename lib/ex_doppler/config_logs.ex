@@ -29,6 +29,15 @@ defmodule ExDoppler.ConfigLogs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ConfigLog{...}]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.ConfigLogs
+      iex> alias ExDoppler.Configs
+      iex> alias ExDoppler.Projects
+      iex> [project | _] = Projects.list_projects!()
+      iex> [config | _] = Configs.list_configs!(project)
+      iex> _config_logs = ConfigLogs.list_config_logs!(config, page: 1, per_page: 20)
+
   #{ExDoppler.Doc.resources("config_logs-list")}
 
   <!-- tabs-close -->
@@ -66,6 +75,15 @@ defmodule ExDoppler.ConfigLogs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ConfigLog{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.ConfigLogs
+      iex> alias ExDoppler.Configs
+      iex> alias ExDoppler.Projects
+      iex> [project | _] = Projects.list_projects!()
+      iex> [config | _] = Configs.list_configs!(project)
+      iex> _config_log = ConfigLogs.get_config_log(config, "Ul8KeqJzKK3n7OadwqX5RZW2")
+
   #{ExDoppler.Doc.resources("config_logs-get")}
 
   <!-- tabs-close -->
@@ -101,6 +119,12 @@ defmodule ExDoppler.ConfigLogs do
     * **config_log**: The `ExDoppler.ConfigLog` to roll back (e.g `%ConfigLog{project: "example-project", config: "dev", id: "0000.."}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ConfigLog{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.ConfigLogs
+      iex> alias ExDoppler.ConfigLog
+      iex> _config_log = ConfigLogs.rollback_config_log!(%ConfigLog{project: "example-project", config: "dev", id: "Ul8KeqJzKK3n7OadwqX5RZW2" })
 
   #{ExDoppler.Doc.resources("config_logs-rollback")}
 

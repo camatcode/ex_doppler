@@ -6,9 +6,9 @@ defmodule ExDoppler.ConfigLogsTest do
   alias ExDoppler.Configs
   alias ExDoppler.Projects
 
-  test "config logs" do
-    assert {:ok, [project | _]} = Projects.list_projects()
-    assert {:ok, configs} = Configs.list_configs(project)
+  test "list_config_logs/2 and get_config_log/2" do
+    assert [project | _] = Projects.list_projects!()
+    assert configs = Configs.list_configs!(project)
     refute Enum.empty?(configs)
 
     configs
@@ -27,10 +27,19 @@ defmodule ExDoppler.ConfigLogsTest do
         assert log.rollback != nil
         assert log.text
         assert log.user
-        assert {:ok, log} == ConfigLogs.get_config_log(config, log.id)
+        assert log == ConfigLogs.get_config_log!(config, log.id)
       end)
+    end)
+  end
 
-      logs
+  test "rollback_config_log/1" do
+    assert [project | _] = Projects.list_projects!()
+    assert configs = Configs.list_configs!(project)
+    refute Enum.empty?(configs)
+
+    configs
+    |> Enum.each(fn config ->
+      ConfigLogs.list_config_logs!(config)
       |> Enum.take(1)
       |> Enum.each(fn log ->
         ConfigLogs.rollback_config_log(log)
