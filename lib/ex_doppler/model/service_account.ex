@@ -7,7 +7,7 @@ defmodule ExDoppler.ServiceAccount do
   ### Fields
     * `name` - Name of the Service Account (e.g `"sa"`)
     * `slug` - Unique slug for this Service Account (e.g `"00000000-0000-0000-0000-000000000000"`)
-    * `created_at` - Date and Time for this Service Account's creation (e.g `"2023-08-01T00:00:00.000Z"`)
+    * `created_at` - Date and Time for this Service Account's creation (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `workplace_role` - See `ExDoppler.WorkplaceRole`
 
   #{ExDoppler.Doc.resources("service-accounts", "service_accounts-list")}
@@ -34,7 +34,7 @@ defmodule ExDoppler.ServiceAccount do
   def build(%{} = account) do
     fields =
       account
-      |> prepare_keys()
+      |> prepare()
       |> Enum.map(fn {key, val} ->
         {key, serialize(key, val)}
       end)

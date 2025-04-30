@@ -11,7 +11,7 @@ defmodule ExDoppler.ProjectRoles do
   """
 
   alias ExDoppler.ProjectRole
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @project_roles_api_path "/v3/projects/roles"
 

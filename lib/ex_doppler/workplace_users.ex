@@ -10,7 +10,7 @@ defmodule ExDoppler.WorkplaceUsers do
   <!-- tabs-close -->
   """
 
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
   alias ExDoppler.WorkplaceUser
 
   @workplace_users_api_path "v3/workplace/users"

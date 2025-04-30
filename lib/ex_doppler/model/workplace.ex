@@ -28,5 +28,5 @@ defmodule ExDoppler.Workplace do
 
   <!-- tabs-close -->
   """
-  def build(%{} = wp), do: struct(ExDoppler.Workplace, prepare_keys(wp))
+  def build(%{} = wp), do: struct(ExDoppler.Workplace, prepare(wp))
 end

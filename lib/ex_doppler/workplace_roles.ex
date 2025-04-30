@@ -10,7 +10,7 @@ defmodule ExDoppler.WorkplaceRoles do
   <!-- tabs-close -->
   """
 
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
   alias ExDoppler.WorkplaceRole
 
   @workplace_roles_api_path "/v3/workplace/roles"

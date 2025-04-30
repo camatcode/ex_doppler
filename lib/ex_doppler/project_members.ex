@@ -12,7 +12,7 @@ defmodule ExDoppler.ProjectMembers do
 
   alias ExDoppler.Project
   alias ExDoppler.ProjectMember
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @project_members_api_path "/v3/projects/project/members"
 

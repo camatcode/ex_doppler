@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-defmodule ExDoppler.Util.Requester do
+defmodule ExDoppler.Requester do
   @moduledoc false
 
   require Logger

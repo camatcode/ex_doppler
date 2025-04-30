@@ -5,7 +5,7 @@ defmodule ExDoppler.WorkplaceRole do
 
   <!-- tabs-open -->
   ### Fields
-    * `created_at` - Creation Date and Time (e.g `"2023-08-01T00:00:00.000Z"`)
+    * `created_at` - Creation Date and Time (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `identifier` - ID of the role (e.g `"admin"`)
     * `is_custom_role` - Whether role is custom (e.g `false`)
     * `is_inline_role` - Whether role is inline (e.g `false`)
@@ -64,5 +64,5 @@ defmodule ExDoppler.WorkplaceRole do
 
   <!-- tabs-close -->
   """
-  def build(%{} = wp_role), do: struct(ExDoppler.WorkplaceRole, prepare_keys(wp_role))
+  def build(%{} = wp_role), do: struct(ExDoppler.WorkplaceRole, prepare(wp_role))
 end

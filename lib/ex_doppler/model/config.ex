@@ -6,13 +6,13 @@ defmodule ExDoppler.Config do
   <!-- tabs-open -->
 
   ### Fields
-    * `created_at` - Date and time of the Config's creation (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `created_at` - Date and time of the Config's creation (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `environment` - Identifier of the environment that the config belongs to (e.g `"dev"`)
     * `inheritable` - Whether the config can be inherited from (e.g `false`)
     * `inheriting` - Whether the config is inheriting from another (e.g `false`)
     * `inherits` - List of configs that the config is inheriting from (e.g `false`)
-    * `initial_fetch_at` - Date and time of the first secrets fetch (e.g `"2025-04-28T16:09:17.737Z"`)
-    * `last_fetch_at` - Date and time of the last secrets fetch (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `initial_fetch_at` - Date and time of the first secrets fetch (e.g `~U[2025-04-30 10:05:50.040Z]`)
+    * `last_fetch_at` - Date and time of the last secrets fetch (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `locked` - Whether the config can be renamed and/or deleted (e.g `true`)
     * `name` - Name of the config (e.g `"dev_personal"`)
     * `project` - Identifier of the project that the config belongs to (e.g `"example-project"`)
@@ -52,5 +52,5 @@ defmodule ExDoppler.Config do
 
   <!-- tabs-close -->
   """
-  def build(%{} = config), do: struct(ExDoppler.Config, prepare_keys(config))
+  def build(%{} = config), do: struct(ExDoppler.Config, prepare(config))
 end

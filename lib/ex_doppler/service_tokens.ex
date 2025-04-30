@@ -11,8 +11,8 @@ defmodule ExDoppler.ServiceTokens do
   """
 
   alias ExDoppler.Config
+  alias ExDoppler.Requester
   alias ExDoppler.ServiceToken
-  alias ExDoppler.Util.Requester
 
   @service_tokens_api_path "/v3/configs/config/tokens"
 

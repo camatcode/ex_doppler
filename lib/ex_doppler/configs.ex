@@ -12,7 +12,7 @@ defmodule ExDoppler.Configs do
 
   alias ExDoppler.Config
   alias ExDoppler.Project
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @configs_api_path "/v3/configs"
 

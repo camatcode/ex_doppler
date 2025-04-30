@@ -7,7 +7,7 @@ defmodule ExDoppler.ConfigLog do
 
   ### Fields
     * `config` - Name of the config (e.g `"dev_personal"`)
-    * `created_at` - Date and time of config log's creation (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `created_at` - Date and time of config log's creation (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `environment` - Unique identifier for the environment object (e.g `"dev"`)
     * `html` - HTML describing the event.
     * `id` - Unique identifier for the object (e.g `"Ul8KeqJzKK3n7OadwqX5RZW2"`)
@@ -41,7 +41,7 @@ defmodule ExDoppler.ConfigLog do
   def build(%{} = log) do
     fields =
       log
-      |> prepare_keys()
+      |> prepare()
       |> Enum.map(fn {key, val} ->
         {key, serialize(key, val)}
       end)

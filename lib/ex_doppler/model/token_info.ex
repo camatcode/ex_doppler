@@ -7,8 +7,8 @@ defmodule ExDoppler.TokenInfo do
   ### Fields
     * `slug` - Unique identifier for this token (e.g `"00000000-0000-0000-0000-000000000000"`)
     * `name` - If given, a human-readable name for this token (e.g `"my-auth-token"`)
-    * `created_at` - DateTime creation for this token (e.g `"2025-04-24T15:53:27.189Z"`)
-    * `last_seen_at` - DateTime for last use (e.g `"2025-04-28T22:05:38.952Z"`)
+    * `created_at` - DateTime creation for this token (e.g `~U[2025-04-30 10:05:50.040Z]`)
+    * `last_seen_at` - DateTime for last use (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `type` - Token Type (e.g `"personal"`)
     * `token_preview` - Used when referring to this token (e.g `dp.pt....ABCdEF`)
     * `workplace` - Relevant `ExDoppler.Workplace`.
@@ -38,7 +38,7 @@ defmodule ExDoppler.TokenInfo do
   def build(%{} = token_info) do
     fields =
       token_info
-      |> prepare_keys()
+      |> prepare()
       |> Enum.map(fn {key, val} ->
         {key, serialize(key, val)}
       end)
@@ -58,7 +58,7 @@ defmodule ExDoppler.ODICToken do
   <!-- tabs-open -->
   ### Fields
     * `token` - ODIC Token
-    * `created_at` - DateTime creation for this token (e.g `"2025-04-24T15:53:27.189Z"`)
+    * `created_at` - DateTime creation for this token (e.g `~U[2025-04-30 10:05:50.040Z]`)
 
   #{ExDoppler.Doc.resources("service-account-identities", "auth-me")}
 
@@ -80,5 +80,5 @@ defmodule ExDoppler.ODICToken do
 
   <!-- tabs-close -->
   """
-  def build(%{} = odic_token), do: struct(ExDoppler.ODICToken, prepare_keys(odic_token))
+  def build(%{} = odic_token), do: struct(ExDoppler.ODICToken, prepare(odic_token))
 end

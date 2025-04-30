@@ -10,8 +10,8 @@ defmodule ExDoppler.ServiceAccounts do
   <!-- tabs-close -->
   """
 
+  alias ExDoppler.Requester
   alias ExDoppler.ServiceAccount
-  alias ExDoppler.Util.Requester
 
   @service_accounts_api_path "/v3/workplace/service_accounts"
 

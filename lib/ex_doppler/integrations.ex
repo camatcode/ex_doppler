@@ -11,7 +11,7 @@ defmodule ExDoppler.Integrations do
   """
 
   alias ExDoppler.Integration
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @integrations_api_path "/v3/integrations"
 

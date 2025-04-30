@@ -5,7 +5,7 @@ defmodule ExDoppler.Project do
 
   <!-- tabs-open -->
   ### Fields
-    * `created_at` - Date and Time of Project creation (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `created_at` - Date and Time of Project creation (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `description` - Optional description for Project (e.g `"my awesome project"`)
     * `id` - Unique identifier for the object (e.g `"jed0c2a68b6"`)
     * `name` - Name of the project (e.g `"example-project"`)
@@ -30,5 +30,5 @@ defmodule ExDoppler.Project do
 
   <!-- tabs-close -->
   """
-  def build(%{} = project), do: struct(ExDoppler.Project, prepare_keys(project))
+  def build(%{} = project), do: struct(ExDoppler.Project, prepare(project))
 end

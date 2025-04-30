@@ -5,9 +5,9 @@ defmodule ExDoppler.Environment do
 
   <!-- tabs-open -->
   ### Fields
-    * `created_at` - Date and time of environment's creation (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `created_at` - Date and time of environment's creation (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `id` - Unique identifier for the object (e.g `"eot"`)
-    * `initial_fetch_at` - Date and time of the first secrets fetch from a config in the environment (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `initial_fetch_at` - Date and time of the first secrets fetch from a config in the environment (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `name` - Name of the environment.
     * `project` - Unique identifier for the project object (e.g `"example-project"`)
     * `slug` - Unique identifier for the object (e.g `"eot"`)
@@ -30,5 +30,5 @@ defmodule ExDoppler.Environment do
 
   <!-- tabs-close -->
   """
-  def build(%{} = env), do: struct(ExDoppler.Environment, prepare_keys(env))
+  def build(%{} = env), do: struct(ExDoppler.Environment, prepare(env))
 end

@@ -7,10 +7,10 @@ defmodule ExDoppler.ServiceToken do
   ### Fields
     * `name` - Name of the service token. (e.g `"AWS Lambda"`)
     * `slug` - Unique slug for this token (e.g `"00000000-0000-0000-0000-000000000000"`)
-    * `created_at` - Date and Time for this token's creation (e.g `"2023-08-01T00:00:00.000Z"`)
+    * `created_at` - Date and Time for this token's creation (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `config` - Config associated with the token (e.g `"prd_aws"`)
     * `environment` - Environment associated with the token (e.g `"prd"`)
-    * `expires_at` - Date and Time this token will expire (e.g `"2023-08-01T00:00:00.000Z"`)
+    * `expires_at` - Date and Time this token will expire (e.g `~U[2025-04-30 10:05:50.040Z]`)
 
   #{ExDoppler.Doc.resources("service-tokens", "service_tokens-list")}
 
@@ -31,5 +31,5 @@ defmodule ExDoppler.ServiceToken do
 
   <!-- tabs-close -->
   """
-  def build(%{} = token), do: struct(ExDoppler.ServiceToken, prepare_keys(token))
+  def build(%{} = token), do: struct(ExDoppler.ServiceToken, prepare(token))
 end

@@ -12,8 +12,8 @@ defmodule ExDoppler.SecretsSyncs do
 
   alias ExDoppler.Config
   alias ExDoppler.Integration
+  alias ExDoppler.Requester
   alias ExDoppler.Sync
-  alias ExDoppler.Util.Requester
 
   @secrets_sync_api_path "/v3/configs/config/syncs"
 

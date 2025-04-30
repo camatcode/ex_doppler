@@ -34,7 +34,7 @@ defmodule ExDoppler.Integration do
   def build(%{} = integration) do
     fields =
       integration
-      |> prepare_keys()
+      |> prepare()
       |> Enum.map(fn {key, val} ->
         {key, serialize(key, val)}
       end)
@@ -55,7 +55,7 @@ defmodule ExDoppler.Sync do
   ### Fields
     * `slug` - Unique identifier for the object  (e.g `"0cd84923-b8c5-49e6-8713-e6ea2148a6c1"`)
     * `enabled` - Whether sync is enabled (e.g `true`)
-    * `last_synced_at` - Date and Time of last sync (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `last_synced_at` - Date and Time of last sync (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `project` - Unique identifier for the project object (e.g `"example-project"`)
     * `config` - Relevant config (e.g `"prd"`)
     * `integration` - Relevant integration slug (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
@@ -80,5 +80,5 @@ defmodule ExDoppler.Sync do
 
   <!-- tabs-close -->
   """
-  def build(%{} = sync), do: struct(ExDoppler.Sync, prepare_keys(sync))
+  def build(%{} = sync), do: struct(ExDoppler.Sync, prepare(sync))
 end

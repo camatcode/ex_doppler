@@ -11,7 +11,7 @@ defmodule ExDoppler.Projects do
   """
 
   alias ExDoppler.Project
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @projects_api_path "/v3/projects"
 

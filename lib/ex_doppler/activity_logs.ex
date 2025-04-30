@@ -11,7 +11,7 @@ defmodule ExDoppler.ActivityLogs do
   """
 
   alias ExDoppler.ActivityLog
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @activity_logs_api_path "/v3/logs"
 
