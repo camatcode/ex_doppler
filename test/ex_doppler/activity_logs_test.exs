@@ -5,7 +5,7 @@ defmodule ExDoppler.ActivityLogsTest do
   alias ExDoppler.ActivityLogs
 
   test "activity logs" do
-    assert {:ok, %{page: 1, logs: logs}} = ActivityLogs.list_activity_logs()
+    assert {:ok, logs} = ActivityLogs.list_activity_logs()
     refute Enum.empty?(logs)
 
     logs
@@ -26,6 +26,6 @@ defmodule ExDoppler.ActivityLogsTest do
     end)
   end
 
-  assert {:ok, %{page: 2, logs: [log]}} = ActivityLogs.list_activity_logs(page: 2, per_page: 1)
+  assert {:ok, [log]} = ActivityLogs.list_activity_logs(page: 2, per_page: 1)
   assert log.id
 end

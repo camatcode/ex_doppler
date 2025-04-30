@@ -6,7 +6,7 @@ defmodule ExDoppler.WorkplaceUsersTest do
   alias ExDoppler.WorkplaceUsers
 
   test "list Workplace Users" do
-    assert {:ok, %{page: 1, workplace_users: wp_users}} = WorkplaceUsers.list_workplace_users()
+    assert {:ok, wp_users} = WorkplaceUsers.list_workplace_users()
     refute Enum.empty?(wp_users)
 
     wp_users
@@ -20,15 +20,17 @@ defmodule ExDoppler.WorkplaceUsersTest do
       assert user.profile_image_url
       assert user.username
 
-      assert {:ok, %{page: 1, workplace_users: by_email}} =
+      assert {:ok, by_email} =
                WorkplaceUsers.list_workplace_users(email: user.email)
 
       refute Enum.empty?(by_email)
 
       assert {:ok, wp_user} == WorkplaceUsers.get_workplace_user(wp_user.id)
+
+      assert {:ok, wp_user} == WorkplaceUsers.update_workplace_user(wp_user, :owner)
     end)
 
-    assert {:ok, %{page: 2, workplace_users: []}} = WorkplaceUsers.list_workplace_users(page: 2)
+    assert {:ok, []} = WorkplaceUsers.list_workplace_users(page: 2)
 
     assert {:err, _} = WorkplaceUsers.get_workplace_user("does-not-exist")
   end

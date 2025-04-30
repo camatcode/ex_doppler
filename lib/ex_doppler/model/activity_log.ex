@@ -1,5 +1,23 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ActivityLog do
-  @moduledoc false
+  @moduledoc """
+  Module describing an ActivityLog
+
+  <!-- tabs-open -->
+  ### Fields
+    * `created_at` - Date and time of the Activity Log's creation (e.g `~U[2025-04-30 10:05:50.040Z]`)
+    * `diff` - Details what was added, removed or updated. See `ExDoppler.ActivityDiff`.
+    * `enclave_config` - Relevant config (e.g `"github"`)
+    * `enclave_environment` - Relevant environment (e.g `"github"`)
+    * `enclave_project` - Relevant project (e.g `"example-project"`)
+    * `html` - HTML rendering of `text`
+    * `text` - Human-readable explanation of the log
+    * `user` - Relevant user to this activity log. See `ExDoppler.User`.
+
+  #{ExDoppler.Doc.resources("workplace-logs#activity-logs", "activity_logs-object")}
+
+  <!-- tabs-close -->
+  """
   import ExDoppler.Model
 
   alias ExDoppler.ActivityDiff
@@ -17,10 +35,21 @@ defmodule ExDoppler.ActivityLog do
     :user
   ]
 
-  def build(activity_log) do
+  @doc """
+  Creates an `ActivityLog` from a map
+
+  <!-- tabs-open -->
+  ### 🏷️ Params
+    * **activity_log**: Map of fields to turn into an `ActivityLog`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ActivityLog{...}", failure: "raise Error")}
+
+  <!-- tabs-close -->
+  """
+  def build(%{} = activity_log) do
     fields =
       activity_log
-      |> atomize_keys()
+      |> prepare()
       |> Enum.map(fn {key, val} ->
         {key, serialize(key, val)}
       end)
@@ -35,11 +64,34 @@ defmodule ExDoppler.ActivityLog do
 end
 
 defmodule ExDoppler.ActivityDiff do
-  @moduledoc false
+  @moduledoc """
+  Module describing a `diff` to an `ExDoppler.ActivityLog`
+
+  <!-- tabs-open -->
+  ### Fields
+    * `added` - Objects added in this Activity (e.g `["FOO_BAR"]`)
+    * `removed` - Objects removed in this Activity (e.g `["NEW_SEC2"]`)
+    * `updated` - Objects updated in this Activity (e.g `["HELLO_WORLD"]`)
+
+  #{ExDoppler.Doc.resources("workplace-logs#activity-logs", "activity_logs-object")}
+
+  <!-- tabs-close -->
+  """
 
   import ExDoppler.Model
 
   defstruct [:added, :removed, :updated]
 
-  def build(diff), do: struct(ExDoppler.ActivityDiff, prepare_keys(diff))
+  @doc """
+  Creates an `ActivityDiff` from a map
+
+  <!-- tabs-open -->
+  ### 🏷️ Params
+    * **diff**: Map of fields to turn into an `ActivityDiff`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ActivityDiff{...}", failure: "raise Error")}
+
+  <!-- tabs-close -->
+  """
+  def build(%{} = diff), do: struct(ExDoppler.ActivityDiff, prepare(diff))
 end

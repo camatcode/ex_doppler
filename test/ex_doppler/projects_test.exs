@@ -24,7 +24,7 @@ defmodule ExDoppler.ProjectsTest do
 
     assert new_project.description == new_description
 
-    {:ok, %{page: 1, projects: projects}} = Projects.list_projects()
+    {:ok, projects} = Projects.list_projects()
     refute Enum.empty?(projects)
 
     projects
@@ -38,7 +38,7 @@ defmodule ExDoppler.ProjectsTest do
       assert {:ok, project} == Projects.get_project(project.id)
     end)
 
-    assert {:ok, %{page: 1, projects: [project]}} = Projects.list_projects(per_page: 1)
+    assert {:ok, [project]} = Projects.list_projects(per_page: 1)
     assert project.id
 
     {:ok, permissions} = Projects.list_project_permissions()

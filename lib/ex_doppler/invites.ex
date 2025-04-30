@@ -1,11 +1,36 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Invites do
-  @moduledoc false
+  @moduledoc """
+  Module for interacting with `ExDoppler.Invite`
+
+  <!-- tabs-open -->
+
+  #{ExDoppler.Doc.resources("workplace-team#send-invite", "invites-list")}
+
+  <!-- tabs-close -->
+  """
 
   alias ExDoppler.Invite
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @invites_api_path "/v3/workplace/invites"
 
+  @doc """
+  Lists `ExDoppler.Invite`
+
+  <!-- tabs-open -->
+
+  ### 🏷️ Params
+    * **opts**: Optional modifications to the list call
+      * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
+      * **per_page** - the number of `ExDoppler.Invite` to return for this page (e.g `per_page: 50`). Default: `20`
+
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Invite{...}]}", failure: "{:err, err}")}
+
+  #{ExDoppler.Doc.resources("invites-list")}
+
+  <!-- tabs-close -->
+  """
   def list_invites(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
@@ -18,6 +43,9 @@ defmodule ExDoppler.Invites do
     end
   end
 
+  @doc """
+  Same as `list_invites/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def list_invites!(opts \\ []) do
     with {:ok, invites} <- list_invites(opts) do
       invites

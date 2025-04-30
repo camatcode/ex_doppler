@@ -1,5 +1,21 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Model do
   @moduledoc false
+
+  def prepare(m) do
+    m
+    |> prepare_values()
+    |> prepare_keys()
+  end
+
+  def prepare_values(m) do
+    m
+    |> Enum.map(fn {key, val} ->
+      if val && String.ends_with?(key, "_at"),
+        do: {key, DateTimeParser.parse_datetime!(val)},
+        else: {key, val}
+    end)
+  end
 
   def prepare_keys(m) do
     m

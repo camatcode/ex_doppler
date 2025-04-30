@@ -1,31 +1,71 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Projects do
-  @moduledoc false
+  @moduledoc """
+  Module for interacting with `ExDoppler.Project`
+
+  <!-- tabs-open -->
+
+  #{ExDoppler.Doc.resources("create-project", "projects-object")}
+
+  <!-- tabs-close -->
+  """
 
   alias ExDoppler.Project
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @projects_api_path "/v3/projects"
 
+  @doc """
+  Lists `ExDoppler.Project` using pagination
+
+  <!-- tabs-open -->
+
+  ### 🏷️ Params
+    * **opts**: Optional modifications to the list call
+      * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
+      * **per_page** - the number of `ExDoppler.Project` to return for this page (e.g `per_page: 50`). Default: `20`
+
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Project{...} ...]}", failure: "{:err, err}")}
+
+  #{ExDoppler.Doc.resources("projects-list")}
+
+  <!-- tabs-close -->
+  """
   def list_projects(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@projects_api_path, qparams: opts) do
-      page = body["page"]
-
       projects =
         body["projects"]
         |> Enum.map(&Project.build/1)
 
-      {:ok, %{page: page, projects: projects}}
+      {:ok, projects}
     end
   end
 
+  @doc """
+  Same as `list_projects/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def list_projects!(opts \\ []) do
     with {:ok, projects} <- list_projects(opts) do
       projects
     end
   end
 
+  @doc """
+  Retrieves a `ExDoppler.Project`, given an identifier
+
+  <!-- tabs-open -->
+
+  ### 🏷️ Params
+   * `identifier` - identifier for project (e.g `"example-project"`)
+
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
+
+  #{ExDoppler.Doc.resources("projects-get")}
+
+  <!-- tabs-close -->
+  """
   def get_project(identifier) when is_bitstring(identifier) do
     path =
       @projects_api_path
@@ -36,12 +76,30 @@ defmodule ExDoppler.Projects do
     end
   end
 
+  @doc """
+  Same as `get_project/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def get_project!(identifier) do
     with {:ok, project} <- get_project(identifier) do
       project
     end
   end
 
+  @doc """
+  Creates a new `ExDoppler.Project`
+
+  <!-- tabs-open -->
+
+  ### 🏷️ Params
+    * **project_name**: New Project Name (e.g `"example-project"`)
+    * **description**: Optional description (e.g `"my awesome project"`)
+
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
+
+  #{ExDoppler.Doc.resources("projects-create")}
+
+  <!-- tabs-close -->
+  """
   def create_project(project_name, description \\ "")
       when is_bitstring(project_name) and is_bitstring(description) do
     body =
@@ -54,12 +112,32 @@ defmodule ExDoppler.Projects do
     end
   end
 
+  @doc """
+  Same as `create_project/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def create_project!(project_name, description \\ "") do
     with {:ok, project} <- create_project(project_name, description) do
       project
     end
   end
 
+  @doc """
+  Updates an `ExDoppler.Project`
+
+  <!-- tabs-open -->
+
+  ### 🏷️ Params
+    * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
+    * **opts**: Optional modifications
+      * **name** - New name for this project
+      * **description** - New description for this project
+
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
+
+  #{ExDoppler.Doc.resources("projects-update")}
+
+  <!-- tabs-close -->
+  """
   def update_project(%Project{name: current_project_name}, opts \\ []) do
     with {:ok, project} <- get_project(current_project_name) do
       opts = Keyword.merge([name: project.name, description: project.description], opts)
@@ -79,29 +157,60 @@ defmodule ExDoppler.Projects do
     end
   end
 
+  @doc """
+  Same as `update_project/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def update_project!(%Project{} = project, opts \\ []) do
     with {:ok, project} <- update_project(project, opts) do
       project
     end
   end
 
+  @doc """
+  Deletes a `ExDoppler.Project`
+
+  <!-- tabs-open -->
+
+  ### 🏷️ Params
+    * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
+
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}
+
+  #{ExDoppler.Doc.resources("projects-delete")}
+
+  <!-- tabs-close -->
+  """
   def delete_project(%Project{name: project_name}) do
     path =
       @projects_api_path
       |> Path.join("/project")
 
-    with {:ok, %{body: body}} <-
+    with {:ok, %{body: _}} <-
            Requester.delete(path, json: %{project: project_name}) do
-      {:ok, {:success, body["success"]}}
+      {:ok, {:success, true}}
     end
   end
 
+  @doc """
+  Same as `delete_project/1` but won't wrap a successful response in `{:ok, response}`
+  """
   def delete_project!(%Project{} = project) do
     with {:ok, project} <- delete_project(project) do
       project
     end
   end
 
+  @doc """
+  Lists project permissions across all roles
+
+  <!-- tabs-open -->
+
+  #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\" ...]}", failure: "{:err, err}")}
+
+  #{ExDoppler.Doc.resources("project_roles-list_permissions")}
+
+  <!-- tabs-close -->
+  """
   def list_project_permissions do
     path =
       @projects_api_path
@@ -112,6 +221,9 @@ defmodule ExDoppler.Projects do
     end
   end
 
+  @doc """
+  Same as `list_project_permissions/0` but won't wrap a successful response in `{:ok, response}`
+  """
   def list_project_permissions! do
     with {:ok, permissions} <- list_project_permissions() do
       permissions

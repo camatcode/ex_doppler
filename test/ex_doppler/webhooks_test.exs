@@ -8,8 +8,8 @@ defmodule ExDoppler.WebhooksTest do
   alias ExDoppler.Webhooks
 
   test "Webhooks" do
-    assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
-    assert {:ok, %{configs: configs}} = Configs.list_configs(project)
+    assert {:ok, [project | _]} = Projects.list_projects()
+    assert {:ok, configs} = Configs.list_configs(project)
 
     configs_to_apply =
       configs

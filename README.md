@@ -33,8 +33,10 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
 | Realm : Action                                                                                            | Implemented | Notes                        |
 |-----------------------------------------------------------------------------------------------------------|-------------|------------------------------|
 | [Workplace : Retrieve](https://docs.doppler.com/reference/workplace-get)                                  | ✅           |                              |
+| [Workplace : Update](https://docs.doppler.com/reference/workplace-update)                                 | ✅           |                              |
 | [Workplace Users : List](https://docs.doppler.com/reference/users-list)                                   | ✅           |                              |
 | [Workplace Users : Retrieve](https://docs.doppler.com/reference/users-get)                                | ✅           |                              |
+| [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                               | ✅           |                              |
 | [Workplace Roles : List](https://docs.doppler.com/reference/workplace_roles-list)                         | ✅           |                              |
 | [Workplace Roles : Retrieve](https://docs.doppler.com/reference/workplace_roles-get)                      | ✅           |                              |
 | [Workplace Roles : List Permissions](https://docs.doppler.com/reference/workplace_roles-list_permissions) | ✅           |                              |
@@ -79,6 +81,7 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
 | [Integrations : List](https://docs.doppler.com/reference/integrations-list)                               | ✅           |                              |
 | [Integrations : Retrieve](https://docs.doppler.com/reference/integrations-get)                            | ✅           |                              |
 | [Integrations : Create](https://docs.doppler.com/reference/integrations-create)                           | ✅           | Route has poor documentation |
+| [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                           | ✅           | Route has poor documentation |
 | [Integrations : Get Options](https://docs.doppler.com/reference/get-options)                              | ✅           |                              |
 | [Integrations : Delete](https://docs.doppler.com/reference/integrations-delete)                           | ✅           |                              |
 | [Secrets Sync : Create](https://docs.doppler.com/reference/syncs-create)                                  | ✅           |                              |
@@ -92,61 +95,52 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
 | [Webhooks : Enable](https://docs.doppler.com/reference/webhooks-enable)                                   | ✅           |                              |
 | [Webhooks : Disable](https://docs.doppler.com/reference/webhooks-disable)                                 | ✅           |                              |
 | [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |                              |
+| [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                               | ✅           |                              |
+| [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                           | ✅           |                              |
 | [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                     | ✅           |                              |
 
 
-
-### To Implement
-
-| Realm : Action                                                                                        | Implemented | Notes |
-|-------------------------------------------------------------------------------------------------------|-------------|-------|
-| [Workplace : Update](https://docs.doppler.com/reference/workplace-update)                             | ❌           |       |
-| [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                           | ❌           |       |
-| [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                       | ❌           |       |
-| [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                       | ❌           |       |
-| [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                           | ❌           |       |
-| [Share : E2E Encrypted](https://docs.doppler.com/reference/share-secret-encrypted)                    | ❌           |       |
-
 ### Requires Investigation
 
-| Realm : Action                                                                                        | Implemented | Notes                |
-|-------------------------------------------------------------------------------------------------------|-------------|----------------------|
-| [Project Roles : Create](https://docs.doppler.com/reference/project_roles-create)                     | ⁉️          | Requires a Team tier |
-| [Project Roles : Update](https://docs.doppler.com/reference/project_roles-update)                     | ⁉️          | Requires a Team tier |
-| [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                       | ⁉️          | Requires a Team tier |
-| [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ⁉️          | Requires a Team tier |
-| [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ⁉️          | Requires a Team tier |
-| [Project Roles : Delete](https://docs.doppler.com/reference/project_roles-delete)                     | ⁉️          | Requires a Team tier |
-| [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)                     | ⁉️          | Requires a Team tier |
-| [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)                        | ⁉️          | Requires a Team tier |
-| [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip)                  | ⁉️          | Requires a Team tier |
-| [Groups : List](https://docs.doppler.com/reference/groups-list)                                       | ⁉️          | Requires a Team tier |
-| [Groups : Create](https://docs.doppler.com/reference/groups-create)                                   | ⁉️          | Requires a Team tier |
-| [Groups : Retrieve](https://docs.doppler.com/reference/groups-get)                                    | ⁉️          | Requires a Team tier |
-| [Groups : Update](https://docs.doppler.com/reference/groups-update)                                   | ⁉️          | Requires a Team tier |
-| [Groups : Delete](https://docs.doppler.com/reference/groups-delete)                                   | ⁉️          | Requires a Team tier |
-| [Groups : Add Member](https://docs.doppler.com/reference/groups-add_member)                           | ⁉️          | Requires a Team tier |
-| [Groups : Delete Memeber](https://docs.doppler.com/reference/groups-delete_member)                    | ⁉️          | Requires a Team tier |
-| [Groups : Retrieve Memeber](https://docs.doppler.com/reference/retrieve-member)                       | ⁉️          | Requires a Team tier |
-| [Service Accounts : List](https://docs.doppler.com/reference/service_accounts-list)                   | ⁉️          | Requires a Team tier |
-| [Service Accounts : Create](https://docs.doppler.com/reference/service_accounts-create)               | ⁉️          | Requires a Team tier |
-| [Service Accounts : Retrieve](https://docs.doppler.com/reference/service_accounts-get)                | ⁉️          | Requires a Team tier |
-| [Service Accounts : Update](https://docs.doppler.com/reference/service_accounts-update)               | ⁉️          | Requires a Team tier |
-| [Service Accounts : Delete](https://docs.doppler.com/reference/service_accounts-delete)               | ⁉️          | Requires a Team tier |
-| [Service Account Tokens : List](https://docs.doppler.com/reference/service_account_tokens-list)       | ⁉️          | Requires a Team tier |
-| [Service Account Tokens : Create](https://docs.doppler.com/reference/service_account_tokens-create)   | ⁉️          | Requires a Team tier |
-| [Service Account Tokens : Retrieve](https://docs.doppler.com/reference/service_account_tokens-get)    | ⁉️          | Requires a Team tier |
-| [Service Account Tokens : Delete](https://docs.doppler.com/reference/service_account_tokens-delete)   | ⁉️          | Requires a Team tier |
-| [Webhooks : Update](https://docs.doppler.com/reference/webhooks-update)                               | ⁉️          | It's...complex       |
-| [Workplace Roles : Create](https://docs.doppler.com/reference/workplace_roles-create)                 | ⁉️          | Requires a Team tier |
-| [Workplace Roles : Update](https://docs.doppler.com/reference/workplace_roles-update)                 | ⁉️          | Requires a Team tier |
-| [Workplace Roles : Delete](https://docs.doppler.com/reference/workplace_roles-delete)                 | ⁉️          | Requires a Team tier |
-| [Configs : Inheritable](https://docs.doppler.com/reference/configs-inheritable)                       | ⁉️          | Requires a Team tier |
-| [Configs : Inherits](https://docs.doppler.com/reference/configs-inherits)                             | ⁉️          | Requires a Team tier |
-| [Change Request Policies : Create](https://docs.doppler.com/reference/change-request-policies-create) | ⁉️          | Requires a Team tier |
-| [Change Request Policies : Retrieve](https://docs.doppler.com/reference/change-request-policies-get)  | ⁉️          | Requires a Team tier |
-| [Change Request Policies : Update](https://docs.doppler.com/reference/change-request-policies-update) | ⁉️          | Requires a Team tier |
-| [Change Request Policies : Delete](https://docs.doppler.com/reference/change-request-policies-delete) | ⁉️          | Requires a Team tier |
-| [Dynamic Secrets : Issue Lease](https://docs.doppler.com/reference/dynamic_secrets-issue_lease)       | ⁉️          | Requires a Team tier |
-| [Dynamic Secrets : Revoke](https://docs.doppler.com/reference/dynamic_secrets-revoke_lease)           | ⁉️          | Requires a Team tier |
+| Realm : Action                                                                                        | Implemented | Notes                                                  |
+|-------------------------------------------------------------------------------------------------------|-------------|--------------------------------------------------------|
+| [Project Roles : Create](https://docs.doppler.com/reference/project_roles-create)                     | ⁉️          | Requires a Team tier                                   |
+| [Project Roles : Update](https://docs.doppler.com/reference/project_roles-update)                     | ⁉️          | Requires a Team tier                                   |
+| [Project Members : Add](https://docs.doppler.com/reference/project_members-add)                       | ⁉️          | Requires a Team tier                                   |
+| [Project Members : Update](https://docs.doppler.com/reference/project_members-update)                 | ⁉️          | Requires a Team tier                                   |
+| [Project Members : Delete](https://docs.doppler.com/reference/project_members-delete)                 | ⁉️          | Requires a Team tier                                   |
+| [Project Roles : Delete](https://docs.doppler.com/reference/project_roles-delete)                     | ⁉️          | Requires a Team tier                                   |
+| [Trusted IPs : List](https://docs.doppler.com/reference/configs-list_trusted_ips)                     | ⁉️          | Requires a Team tier                                   |
+| [Trusted IPs : Add](https://docs.doppler.com/reference/configs-add_trusted_ip)                        | ⁉️          | Requires a Team tier                                   |
+| [Trusted IPs : Delete](https://docs.doppler.com/reference/configs-delete_trusted_ip)                  | ⁉️          | Requires a Team tier                                   |
+| [Groups : List](https://docs.doppler.com/reference/groups-list)                                       | ⁉️          | Requires a Team tier                                   |
+| [Groups : Create](https://docs.doppler.com/reference/groups-create)                                   | ⁉️          | Requires a Team tier                                   |
+| [Groups : Retrieve](https://docs.doppler.com/reference/groups-get)                                    | ⁉️          | Requires a Team tier                                   |
+| [Groups : Update](https://docs.doppler.com/reference/groups-update)                                   | ⁉️          | Requires a Team tier                                   |
+| [Groups : Delete](https://docs.doppler.com/reference/groups-delete)                                   | ⁉️          | Requires a Team tier                                   |
+| [Groups : Add Member](https://docs.doppler.com/reference/groups-add_member)                           | ⁉️          | Requires a Team tier                                   |
+| [Groups : Delete Memeber](https://docs.doppler.com/reference/groups-delete_member)                    | ⁉️          | Requires a Team tier                                   |
+| [Groups : Retrieve Memeber](https://docs.doppler.com/reference/retrieve-member)                       | ⁉️          | Requires a Team tier                                   |
+| [Service Accounts : List](https://docs.doppler.com/reference/service_accounts-list)                   | ⁉️          | Requires a Team tier                                   |
+| [Service Accounts : Create](https://docs.doppler.com/reference/service_accounts-create)               | ⁉️          | Requires a Team tier                                   |
+| [Service Accounts : Retrieve](https://docs.doppler.com/reference/service_accounts-get)                | ⁉️          | Requires a Team tier                                   |
+| [Service Accounts : Update](https://docs.doppler.com/reference/service_accounts-update)               | ⁉️          | Requires a Team tier                                   |
+| [Service Accounts : Delete](https://docs.doppler.com/reference/service_accounts-delete)               | ⁉️          | Requires a Team tier                                   |
+| [Service Account Tokens : List](https://docs.doppler.com/reference/service_account_tokens-list)       | ⁉️          | Requires a Team tier                                   |
+| [Service Account Tokens : Create](https://docs.doppler.com/reference/service_account_tokens-create)   | ⁉️          | Requires a Team tier                                   |
+| [Service Account Tokens : Retrieve](https://docs.doppler.com/reference/service_account_tokens-get)    | ⁉️          | Requires a Team tier                                   |
+| [Service Account Tokens : Delete](https://docs.doppler.com/reference/service_account_tokens-delete)   | ⁉️          | Requires a Team tier                                   |
+| [Webhooks : Update](https://docs.doppler.com/reference/webhooks-update)                               | ⁉️          | It's...complex                                         |
+| [Workplace Roles : Create](https://docs.doppler.com/reference/workplace_roles-create)                 | ⁉️          | Requires a Team tier                                   |
+| [Workplace Roles : Update](https://docs.doppler.com/reference/workplace_roles-update)                 | ⁉️          | Requires a Team tier                                   |
+| [Workplace Roles : Delete](https://docs.doppler.com/reference/workplace_roles-delete)                 | ⁉️          | Requires a Team tier                                   |
+| [Configs : Inheritable](https://docs.doppler.com/reference/configs-inheritable)                       | ⁉️          | Requires a Team tier                                   |
+| [Configs : Inherits](https://docs.doppler.com/reference/configs-inherits)                             | ⁉️          | Requires a Team tier                                   |
+| [Change Request Policies : Create](https://docs.doppler.com/reference/change-request-policies-create) | ⁉️          | Requires a Team tier                                   |
+| [Change Request Policies : Retrieve](https://docs.doppler.com/reference/change-request-policies-get)  | ⁉️          | Requires a Team tier                                   |
+| [Change Request Policies : Update](https://docs.doppler.com/reference/change-request-policies-update) | ⁉️          | Requires a Team tier                                   |
+| [Change Request Policies : Delete](https://docs.doppler.com/reference/change-request-policies-delete) | ⁉️          | Requires a Team tier                                   |
+| [Dynamic Secrets : Issue Lease](https://docs.doppler.com/reference/dynamic_secrets-issue_lease)       | ⁉️          | Requires a Team tier                                   |
+| [Dynamic Secrets : Revoke](https://docs.doppler.com/reference/dynamic_secrets-revoke_lease)           | ⁉️          | Requires a Team tier                                   |
+| [Share : E2E Encrypted](https://docs.doppler.com/reference/share-secret-encrypted)                    | ⁉️          | Spent hours trying to get the link to actually decrypt |
 

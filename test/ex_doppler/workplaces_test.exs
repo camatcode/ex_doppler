@@ -14,6 +14,12 @@ defmodule ExDoppler.WorkplacesTest do
     assert wp.billing_email
     assert wp.security_email
 
+    assert {:ok, wp} ==
+             Workplaces.update_workplace(
+               billing_email: wp.billing_email,
+               security_email: wp.security_email
+             )
+
     assert {:ok, permissions} = Workplaces.list_permissions()
     refute Enum.empty?(permissions)
   end
