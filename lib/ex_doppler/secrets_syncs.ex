@@ -26,19 +26,7 @@ defmodule ExDoppler.SecretsSyncs do
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **sync_slug** - Unique ID for the Sync
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Sync{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Sync{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -84,19 +72,7 @@ defmodule ExDoppler.SecretsSyncs do
    * **integration** - Integration associated with the Sync (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282" ...}`)
    * **data** - A map of data associated with the Sync; the fields will differ depending on the integration
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Sync{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Sync{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -137,19 +113,7 @@ defmodule ExDoppler.SecretsSyncs do
    * **sync** - Sync to delete (e.g `%Sync{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282" ...}`)
    * **delete_from_target** - Whether or not to delete the synced data from the target integration. Defaults to `true`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, {:success, true}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
   ### Resources
 

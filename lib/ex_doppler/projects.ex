@@ -25,19 +25,7 @@ defmodule ExDoppler.Projects do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Project` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.Project{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.Project{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -74,19 +62,7 @@ defmodule ExDoppler.Projects do
   ### Params
    * `identifier` - identifier for project (e.g `"example-project"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Project{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -122,19 +98,7 @@ defmodule ExDoppler.Projects do
     * **project_name**: New Project Name (e.g `"example-project"`)
     * **description**: Optional description (e.g `"my awesome project"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Project{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -174,19 +138,7 @@ defmodule ExDoppler.Projects do
       * **name** - New name for this project
       * **description** - New description for this project
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Project{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -230,19 +182,7 @@ defmodule ExDoppler.Projects do
   ### Params
     * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, {:success, true}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, {:success, true}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -275,19 +215,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, ["perm1"...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, [\"perm1\" ...]}", failure: "{:err, err}")}
 
   ### Resources
 

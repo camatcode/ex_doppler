@@ -21,6 +21,22 @@ defmodule ExDoppler.Doc do
     "
   end
 
+  def returns_block(opts) do
+    "### Returns
+
+  **On Success**
+
+  ```elixir
+  #{opts[:success]}
+  ```
+
+  **On Failure**
+
+   ```elixir
+  #{opts[:failure]}
+  ```"
+  end
+
   def see_api_docs(url) do
     see_link("Doppler API docs", url)
   end

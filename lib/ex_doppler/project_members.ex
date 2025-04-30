@@ -27,19 +27,7 @@ defmodule ExDoppler.ProjectMembers do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ProjectMember` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.ProjectMember{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.ProjectMember{...}]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -78,19 +66,7 @@ defmodule ExDoppler.ProjectMembers do
     * **member_type**: type of member (e.g `"workplace_user"`)
     * **member_slug**: slug of member (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ProjectMember{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.ProjectMember{...}}", failure: "{:err, err}")}
 
   ### Resources
 

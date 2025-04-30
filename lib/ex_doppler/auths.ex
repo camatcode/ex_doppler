@@ -5,13 +5,7 @@ defmodule ExDoppler.Auths do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.TokenInfo`
-    * See: `ExDoppler.ODICToken`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * #{ExDoppler.Doc.maintainer_github()}
-      * #{ExDoppler.Doc.maintainer_fediverse()}
+  #{ExDoppler.Doc.resources_block("service-account-identities", "auth-me")}
 
   <!-- tabs-close -->
   """
@@ -24,19 +18,7 @@ defmodule ExDoppler.Auths do
   Get information about the token in use.
 
   <!-- tabs-open -->
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.TokenInfo{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.TokenInfo{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -70,19 +52,7 @@ defmodule ExDoppler.Auths do
     * **token**: the OIDC token string from your OIDC provider (likely CI)
     * **identity**: Identity ID from the Doppler Dashboard
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ODICToken{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.ODICToken{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -116,19 +86,7 @@ defmodule ExDoppler.Auths do
   ### Params
     * **token_to_revoke**: the auth token to revoke (e.g `"auth-2342-asdf"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, {:success, true}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
   ### Resources
 

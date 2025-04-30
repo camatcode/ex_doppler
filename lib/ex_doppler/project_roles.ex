@@ -19,19 +19,7 @@ defmodule ExDoppler.ProjectRoles do
   Lists `ExDoppler.ProjectRole`
 
   <!-- tabs-open -->
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.ProjectRole{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.ProjectRole{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -66,19 +54,7 @@ defmodule ExDoppler.ProjectRoles do
   ### Params
    * **identifier** - identifier for role -  e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ProjectRole{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -114,19 +90,7 @@ defmodule ExDoppler.ProjectRoles do
     * **name**: Role name (e.g `"viewer_but_different"`)
     * **permissions**: List of permissions given to the role. See [Doppler Docs](https://docs.doppler.com/reference/project_roles-create){:target="_blank"}
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ProjectRole{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:err, err}")}
 
   ### Resources
 

@@ -20,19 +20,7 @@ defmodule ExDoppler.Workplaces do
 
   <!-- tabs-open -->
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Workplace{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -66,19 +54,7 @@ defmodule ExDoppler.Workplaces do
       * **billing_email** - New billing email for the workplace
       * **security_email** - New security email for the workplace
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Workplace{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -116,19 +92,7 @@ defmodule ExDoppler.Workplaces do
 
   <!-- tabs-open -->
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, ["perm1"...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, [\"perm1\"...]}", failure: "{:err, err}")}
 
   ### Resources
 

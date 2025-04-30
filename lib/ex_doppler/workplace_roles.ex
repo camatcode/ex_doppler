@@ -22,17 +22,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   ### Returns
 
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.WorkplaceRole{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.WorkplaceRole{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -67,19 +57,7 @@ defmodule ExDoppler.WorkplaceRoles do
   ### Params
     * **id** - ID of the role to retrieve
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.WorkplaceRole{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.WorkplaceRole{...}}", failure: "{:err, err}")}
 
   ### Resources
 

@@ -19,19 +19,7 @@ defmodule ExDoppler.Integrations do
   Lists `ExDoppler.Integration`
 
   <!-- tabs-open -->
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.Integration{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.Integration{...}]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -66,19 +54,7 @@ defmodule ExDoppler.Integrations do
   ### Params
     * **integration_slug**: The relevant integration (e.g `"gh-integration"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Integration{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -120,19 +96,7 @@ defmodule ExDoppler.Integrations do
     * **name**: Integration Name (e.g `"aws-secrets-integration"`)
     * **data**: A map containing fields that are specific to each integration (e.g `%{"aws_assume_role_arn" : "arn..."}`)
 
-  ### Returns
-
-  **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Integration{...}}
-    ```
-
-  **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -171,19 +135,7 @@ defmodule ExDoppler.Integrations do
     * **Integration**: Integration to update (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282"... }`)
     * **data**: A map containing fields that are specific to each integration (e.g `%{"aws_assume_role_arn" : "arn..."}`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Integration{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -226,19 +178,7 @@ defmodule ExDoppler.Integrations do
   ### Params
     * **integration_slug**: Unique identifier for the integration (e.g `"00000000-0000-0000-0000-000000000000"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, options}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, options}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -273,19 +213,7 @@ defmodule ExDoppler.Integrations do
   ### Params
     * **integration**: The relevant integration (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282"... }`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, {:success, true}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
   ### Resources
 

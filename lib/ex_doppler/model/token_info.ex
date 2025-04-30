@@ -13,12 +13,7 @@ defmodule ExDoppler.TokenInfo do
     * `token_preview` - Used when referring to this token (e.g `dp.pt....ABCdEF`)
     * `workplace` - Relevant `ExDoppler.Workplace`.
 
-  ### Resources
-    * See: `ExDoppler.Auths`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * #{ExDoppler.Doc.maintainer_github()}
-      * #{ExDoppler.Doc.maintainer_fediverse()}
+  #{ExDoppler.Doc.resources_block("service-account-identities", "auth-me")}
 
   <!-- tabs-close -->
   """
@@ -63,12 +58,7 @@ defmodule ExDoppler.ODICToken do
     * `token` - ODIC Token
     * `created_at` - DateTime creation for this token (e.g `"2025-04-24T15:53:27.189Z"`)
 
-  ### Resources
-    * See: `ExDoppler.Auths`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/auth-oidc){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * #{ExDoppler.Doc.maintainer_github()}
-      * #{ExDoppler.Doc.maintainer_fediverse()}
+  #{ExDoppler.Doc.resources_block("service-account-identities", "auth-me")}
 
   <!-- tabs-close -->
   """

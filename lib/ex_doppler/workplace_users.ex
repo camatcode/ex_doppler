@@ -25,19 +25,7 @@ defmodule ExDoppler.WorkplaceUsers do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **email** - Filter results to only include the user with the provided email address. Default: `nil`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.WorkplaceUser{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.WorkplaceUser{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -74,19 +62,7 @@ defmodule ExDoppler.WorkplaceUsers do
   ### Params
     * **id** - ID of the Workplace User to retrieve
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.WorkplaceUser{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -122,19 +98,7 @@ defmodule ExDoppler.WorkplaceUsers do
     * **workplace_user**: The relevant environment (e.g `%WorkplaceUser{id: "98370f9a-0675-430a-abbc-dbb02b78c5a8" ...}`)
     * **new_access**: E.g., `:owner`, `:collaborator`, etc.
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.WorkplaceUser{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
   ### Resources
 
