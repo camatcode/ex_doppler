@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/camatcode/ex_doppler/master/assets/ex_doppler-logo-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/camatcode/ex_doppler/master/assets/ex_doppler-logo-light.svg">
-    <img alt="ex_doppler logo" src="https://raw.githubusercontent.com/camatcode/ex_doppler/master/ex_doppler-logo-light.png" width="320">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/camatcode/ex_doppler/refs/heads/master/assets/ex_doppler-logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/camatcode/ex_doppler/refs/heads/master/assets/ex_doppler-logo-light.svg">
+    <img alt="ex_doppler logo" src="https://raw.githubusercontent.com/camatcode/ex_doppler/refs/heads/master/assets/ex_doppler-logo-light.svg" width="320">
   </picture>
 </p>
 
