@@ -4,7 +4,7 @@ defmodule ExDoppler.ActivityLogsTest do
 
   alias ExDoppler.ActivityLogs
 
-  test "activity logs" do
+  test "list_activity_logs/1 and get_activity_log/1" do
     assert {:ok, logs} = ActivityLogs.list_activity_logs()
     refute Enum.empty?(logs)
 
@@ -22,10 +22,10 @@ defmodule ExDoppler.ActivityLogsTest do
         assert log.diff.updated
       end
 
-      assert {:ok, log} == ActivityLogs.get_activity_log(log.id)
+      assert log == ActivityLogs.get_activity_log!(log.id)
     end)
-  end
 
-  assert {:ok, [log]} = ActivityLogs.list_activity_logs(page: 2, per_page: 1)
-  assert log.id
+    [log] = ActivityLogs.list_activity_logs!(page: 2, per_page: 1)
+    assert log.id
+  end
 end
