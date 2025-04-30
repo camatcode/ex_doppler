@@ -41,13 +41,11 @@ defmodule ExDoppler.WorkplaceUsers do
     opts = Keyword.merge([page: 1, email: nil], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@workplace_users_api_path, qparams: opts) do
-      page = body["page"]
-
       workplace_users =
         body["workplace_users"]
         |> Enum.map(&WorkplaceUser.build/1)
 
-      {:ok, %{page: page, workplace_users: workplace_users}}
+      {:ok, workplace_users}
     end
   end
 

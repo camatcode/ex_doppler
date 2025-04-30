@@ -7,7 +7,7 @@ defmodule ExDoppler.EnvironmentsTest do
   alias ExDoppler.Projects
 
   test "Environments" do
-    assert {:ok, %{page: 1, projects: projects}} = Projects.list_projects()
+    assert {:ok, projects} = Projects.list_projects()
     refute Enum.empty?(projects)
 
     projects
@@ -27,7 +27,7 @@ defmodule ExDoppler.EnvironmentsTest do
 
       assert new_env.name == "new-name"
 
-      assert {:ok, %{page: 1, environments: environments}} =
+      assert {:ok, environments} =
                Environments.list_environments(project)
 
       refute Enum.empty?(environments)
@@ -43,7 +43,7 @@ defmodule ExDoppler.EnvironmentsTest do
         assert {:ok, env} == Environments.get_environment(project, env.slug)
       end)
 
-      assert {:ok, %{page: 1, environments: [_env]}} =
+      assert {:ok, [_env]} =
                Environments.list_environments(project, per_page: 1)
 
       assert {:ok, _} = Environments.delete_environment(new_env)
