@@ -11,7 +11,7 @@ defmodule ExDoppler.Webhooks do
   """
 
   alias ExDoppler.Project
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
   alias ExDoppler.Webhook
 
   @webhooks_api_path "/v3/webhooks"

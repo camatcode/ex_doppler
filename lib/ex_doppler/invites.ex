@@ -11,7 +11,7 @@ defmodule ExDoppler.Invites do
   """
 
   alias ExDoppler.Invite
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @invites_api_path "/v3/workplace/invites"
 

@@ -35,7 +35,7 @@ defmodule ExDoppler.Secret do
   def build({name, map}) do
     fields =
       Map.put(map, "name", name)
-      |> prepare_keys()
+      |> prepare()
 
     struct(ExDoppler.Secret, fields)
   end

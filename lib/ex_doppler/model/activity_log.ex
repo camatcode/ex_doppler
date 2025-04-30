@@ -5,7 +5,7 @@ defmodule ExDoppler.ActivityLog do
 
   <!-- tabs-open -->
   ### Fields
-    * `created_at` - Date and time of the Activity Log's creation (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `created_at` - Date and time of the Activity Log's creation (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `diff` - Details what was added, removed or updated. See `ExDoppler.ActivityDiff`.
     * `enclave_config` - Relevant config (e.g `"github"`)
     * `enclave_environment` - Relevant environment (e.g `"github"`)
@@ -49,7 +49,7 @@ defmodule ExDoppler.ActivityLog do
   def build(%{} = activity_log) do
     fields =
       activity_log
-      |> atomize_keys()
+      |> prepare()
       |> Enum.map(fn {key, val} ->
         {key, serialize(key, val)}
       end)
@@ -93,5 +93,5 @@ defmodule ExDoppler.ActivityDiff do
 
   <!-- tabs-close -->
   """
-  def build(%{} = diff), do: struct(ExDoppler.ActivityDiff, prepare_keys(diff))
+  def build(%{} = diff), do: struct(ExDoppler.ActivityDiff, prepare(diff))
 end

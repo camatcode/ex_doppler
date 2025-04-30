@@ -35,7 +35,7 @@ defmodule ExDoppler.ProjectMember do
   def build(%{} = member) do
     fields =
       member
-      |> prepare_keys()
+      |> prepare()
       |> Enum.map(fn {key, val} ->
         {key, serialize(key, val)}
       end)
@@ -76,5 +76,5 @@ defmodule ExDoppler.ProjectMemberRole do
 
   <!-- tabs-close -->
   """
-  def build(%{} = role), do: struct(ExDoppler.ProjectMemberRole, prepare_keys(role))
+  def build(%{} = role), do: struct(ExDoppler.ProjectMemberRole, prepare(role))
 end

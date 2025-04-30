@@ -7,7 +7,7 @@ defmodule ExDoppler.Invite do
   ### Fields
     * `slug` - Unique identifier for the object  (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
     * `email` - Unique identifier for the object (e.g `"jsmith@example.com"`)
-    * `created_at` - Date and Time of Invite (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `created_at` - Date and Time of Invite (e.g ~U[2025-04-30 10:05:50.040Z])
     * `workplace_role` - See `ExDoppler.WorkplaceRole`
 
   #{ExDoppler.Doc.resources("workplace-team#send-invite", "invites-list")}
@@ -35,7 +35,7 @@ defmodule ExDoppler.Invite do
   def build(%{} = invite) do
     fields =
       invite
-      |> prepare_keys()
+      |> prepare()
       |> Enum.map(fn {key, val} ->
         {key, serialize(key, val)}
       end)

@@ -10,8 +10,8 @@ defmodule ExDoppler.Shares do
   <!-- tabs-close -->
   """
 
+  alias ExDoppler.Requester
   alias ExDoppler.Share
-  alias ExDoppler.Util.Requester
 
   @shares_api_path "/v1/share/secrets"
 

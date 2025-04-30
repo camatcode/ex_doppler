@@ -12,7 +12,7 @@ defmodule ExDoppler.Environments do
 
   alias ExDoppler.Environment
   alias ExDoppler.Project
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @environments_api_path "/v3/environments"
 

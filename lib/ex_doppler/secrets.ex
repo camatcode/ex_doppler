@@ -11,8 +11,8 @@ defmodule ExDoppler.Secrets do
   """
 
   alias ExDoppler.Config
+  alias ExDoppler.Requester
   alias ExDoppler.Secret
-  alias ExDoppler.Util.Requester
 
   @list_secrets_api_path "/v3/configs/config/secrets"
   @get_secrets_api_path "/v3/configs/config/secret"

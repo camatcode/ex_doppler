@@ -12,7 +12,7 @@ defmodule ExDoppler.ConfigLogs do
 
   alias ExDoppler.Config
   alias ExDoppler.ConfigLog
-  alias ExDoppler.Util.Requester
+  alias ExDoppler.Requester
 
   @config_logs_api_path "/v3/configs/config/logs"
 

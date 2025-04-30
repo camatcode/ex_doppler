@@ -11,8 +11,8 @@ defmodule ExDoppler.Auths do
   """
 
   alias ExDoppler.ODICToken
+  alias ExDoppler.Requester
   alias ExDoppler.TokenInfo
-  alias ExDoppler.Util.Requester
 
   @doc """
   Get information about the token in use.

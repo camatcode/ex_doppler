@@ -28,5 +28,5 @@ defmodule ExDoppler.Share do
 
   <!-- tabs-close -->
   """
-  def build(%{} = token), do: struct(ExDoppler.Share, prepare_keys(token))
+  def build(%{} = token), do: struct(ExDoppler.Share, prepare(token))
 end

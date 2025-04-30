@@ -48,7 +48,7 @@ defmodule ExDoppler.Webhook do
   def build(%{} = webhook) do
     fields =
       webhook
-      |> prepare_keys()
+      |> prepare()
       |> Enum.map(fn {k, v} -> {k, serialize(k, v)} end)
 
     struct(ExDoppler.Webhook, fields)
@@ -95,5 +95,5 @@ defmodule ExDoppler.WebhookAuth do
 
   <!-- tabs-close -->
   """
-  def build(%{} = auth), do: struct(ExDoppler.WebhookAuth, prepare_keys(auth))
+  def build(%{} = auth), do: struct(ExDoppler.WebhookAuth, prepare(auth))
 end

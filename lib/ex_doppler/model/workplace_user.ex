@@ -6,7 +6,7 @@ defmodule ExDoppler.WorkplaceUser do
   <!-- tabs-open -->
   ### Fields
     * `access` - level of access this WorkplaceUser has (e.g `"owner"`, `"collaborator"`, or `"admin"`)
-    * `created_at` - DateTime for when this user was created (e.g `"2025-04-28T16:09:17.737Z"`)
+    * `created_at` - DateTime for when this user was created (e.g `~U[2025-04-30 10:05:50.040Z]`)
     * `id` - Unique Identifier for this user (e.g `"00000000-0000-0000-0000-000000000000"`)
 
   #{ExDoppler.Doc.resources("workplace-team#user-management", "users-list")}
@@ -30,7 +30,7 @@ defmodule ExDoppler.WorkplaceUser do
   def build(%{} = wp_user) do
     fields =
       wp_user
-      |> prepare_keys()
+      |> prepare()
       |> Enum.map(fn {key, val} ->
         {key, serialize(key, val)}
       end)
@@ -73,5 +73,5 @@ defmodule ExDoppler.User do
 
   <!-- tabs-close -->
   """
-  def build(%{} = user), do: struct(ExDoppler.User, prepare_keys(user))
+  def build(%{} = user), do: struct(ExDoppler.User, prepare(user))
 end
