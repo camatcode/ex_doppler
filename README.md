@@ -33,9 +33,21 @@
 
 ## Table of Contents
 
-- [Implementation Status](#implementation-status)
+- [Installation](#installation)
+- [Project Status](#project-status)
 
-## Implementation Status
+## Installation
+
+Add `:ex_doppler` to your list of deps in `mix.exs`:
+
+```elixir
+{:ex_doppler, "~> 1.0"}
+```
+
+Then run `mix deps.get` to install ExDoppler and its dependencies.
+
+
+## Project Status
 
 ### Implemented 
 
@@ -152,26 +164,4 @@
 | [Dynamic Secrets : Issue Lease](https://docs.doppler.com/reference/dynamic_secrets-issue_lease)       | ⁉️          | Requires a Team tier                                   |
 | [Dynamic Secrets : Revoke](https://docs.doppler.com/reference/dynamic_secrets-revoke_lease)           | ⁉️          | Requires a Team tier                                   |
 | [Share : E2E Encrypted](https://docs.doppler.com/reference/share-secret-encrypted)                    | ⁉️          | Spent hours trying to get the link to actually decrypt |
-
-
-
-
-
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ex_doppler` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:ex_doppler, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/ex_doppler>.
 
