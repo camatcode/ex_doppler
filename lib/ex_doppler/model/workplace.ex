@@ -21,7 +21,7 @@ defmodule ExDoppler.Workplace do
   Creates a `Workplace` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **wp**: Map of fields to turn into a `Workplace`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.Workplace{...}", failure: "raise Error")}

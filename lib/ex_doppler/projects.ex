@@ -20,16 +20,14 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Project` to return for this page (e.g `per_page: 50`). Default: `20`
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Project{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-list")}
 
   <!-- tabs-close -->
   """
@@ -59,14 +57,12 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * `identifier` - identifier for project (e.g `"example-project"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-get")}
 
   <!-- tabs-close -->
   """
@@ -94,15 +90,13 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: New Project Name (e.g `"example-project"`)
     * **description**: Optional description (e.g `"my awesome project"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-create")}
 
   <!-- tabs-close -->
   """
@@ -132,7 +126,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
     * **opts**: Optional modifications
       * **name** - New name for this project
@@ -140,9 +134,7 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-update")}
 
   <!-- tabs-close -->
   """
@@ -179,14 +171,12 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("projects-delete")}
 
   <!-- tabs-close -->
   """
@@ -217,9 +207,7 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\" ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-list_permissions){:target="_blank"}
+  #{ExDoppler.Doc.resources("project_roles-list_permissions")}
 
   <!-- tabs-close -->
   """

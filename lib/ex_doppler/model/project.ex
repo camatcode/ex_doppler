@@ -23,7 +23,7 @@ defmodule ExDoppler.Project do
   Creates an `Project` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **project**: Map of fields to turn into a `Project`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.Project{...}", failure: "raise Error")}

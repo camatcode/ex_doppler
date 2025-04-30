@@ -20,16 +20,14 @@ defmodule ExDoppler.WorkplaceUsers do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **email** - Filter results to only include the user with the provided email address. Default: `nil`
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceUser{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("users-list")}
 
   <!-- tabs-close -->
   """
@@ -59,14 +57,12 @@ defmodule ExDoppler.WorkplaceUsers do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **id** - ID of the Workplace User to retrieve
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("users-get")}
 
   <!-- tabs-close -->
   """
@@ -94,15 +90,13 @@ defmodule ExDoppler.WorkplaceUsers do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **workplace_user**: The relevant environment (e.g `%WorkplaceUser{id: "98370f9a-0675-430a-abbc-dbb02b78c5a8" ...}`)
     * **new_access**: E.g., `:owner`, `:collaborator`, etc.
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("users-update")}
 
   <!-- tabs-close -->
   """

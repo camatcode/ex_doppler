@@ -20,16 +20,14 @@ defmodule ExDoppler.ServiceAccounts do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ServiceAccount` to return for this page (e.g `per_page: 50`). Default: `20`
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ServiceAccount{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("service_accounts-list")}
 
   <!-- tabs-close -->
   """

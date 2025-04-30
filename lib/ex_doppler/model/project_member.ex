@@ -25,7 +25,7 @@ defmodule ExDoppler.ProjectMember do
   Creates an `ProjectMember` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **member**: Map of fields to turn into a `ProjectMember`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.ProjectMember{...}", failure: "raise Error")}
@@ -69,7 +69,7 @@ defmodule ExDoppler.ProjectMemberRole do
 
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **role**: Map of fields to turn into a `ProjectMemberRole`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.ProjectMemberRole{...}", failure: "raise Error")}

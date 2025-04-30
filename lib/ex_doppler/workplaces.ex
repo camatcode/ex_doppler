@@ -22,9 +22,7 @@ defmodule ExDoppler.Workplaces do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-get")}
 
   <!-- tabs-close -->
   """
@@ -44,21 +42,18 @@ defmodule ExDoppler.Workplaces do
   end
 
   @doc """
-  Updates an `ExDoppler.Workplace`, given options detailing modifications
+  Updates an `ExDoppler.Workplace`
 
   <!-- tabs-open -->
 
-
-  ### Params
+  ### 🏷️ Params
     * **opts**: Optional modifications
       * **billing_email** - New billing email for the workplace
       * **security_email** - New security email for the workplace
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-update")}
 
   <!-- tabs-close -->
   """
@@ -94,9 +89,7 @@ defmodule ExDoppler.Workplaces do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\"...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list_permissions){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace_roles-list_permissions")}
 
   <!-- tabs-close -->
   """

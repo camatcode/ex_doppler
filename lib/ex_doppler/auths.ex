@@ -20,9 +20,7 @@ defmodule ExDoppler.Auths do
   <!-- tabs-open -->
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.TokenInfo{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
+  #{ExDoppler.Doc.resources("auth-me")}
 
   <!-- tabs-close -->
   """
@@ -48,15 +46,13 @@ defmodule ExDoppler.Auths do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **token**: the OIDC token string from your OIDC provider (likely CI)
     * **identity**: Identity ID from the Doppler Dashboard
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ODICToken{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/auth-oidc){:target="_blank"}
+  #{ExDoppler.Doc.resources("auth-oidc")}
 
   <!-- tabs-close -->
   """
@@ -83,14 +79,12 @@ defmodule ExDoppler.Auths do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **token_to_revoke**: the auth token to revoke (e.g `"auth-2342-asdf"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/auth-revoke){:target="_blank"}
+  #{ExDoppler.Doc.resources("auth-revoke")}
 
   <!-- tabs-close -->
   """

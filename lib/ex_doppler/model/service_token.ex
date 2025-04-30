@@ -24,7 +24,7 @@ defmodule ExDoppler.ServiceToken do
   Creates an `ServiceToken` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **token**: Map of fields to turn into a `ServiceToken`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.ServiceToken{...}", failure: "raise Error")}

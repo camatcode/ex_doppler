@@ -39,7 +39,7 @@ defmodule ExDoppler.ActivityLog do
   Creates an `ActivityLog` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **activity_log**: Map of fields to turn into an `ActivityLog`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.ActivityLog{...}", failure: "raise Error")}
@@ -86,7 +86,7 @@ defmodule ExDoppler.ActivityDiff do
   Creates an `ActivityDiff` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **diff**: Map of fields to turn into an `ActivityDiff`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.ActivityDiff{...}", failure: "raise Error")}

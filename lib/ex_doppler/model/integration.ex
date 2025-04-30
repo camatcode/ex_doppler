@@ -26,7 +26,7 @@ defmodule ExDoppler.Integration do
   Creates an `Integration` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **integration**: Map of fields to turn into a `Integration`
 
   <!-- tabs-close -->
@@ -73,7 +73,7 @@ defmodule ExDoppler.Sync do
   Creates an `Sync` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **sync**: Map of fields to turn into a `Sync`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.Sync{...}", failure: "raise Error")}

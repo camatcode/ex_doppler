@@ -31,7 +31,7 @@ defmodule ExDoppler.ConfigLog do
   Creates an `ConfigLog` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **log**: Map of fields to turn into a `ConfigLog`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.ConfigLog{...}", failure: "raise Error")}

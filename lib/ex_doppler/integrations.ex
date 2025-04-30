@@ -21,9 +21,7 @@ defmodule ExDoppler.Integrations do
   <!-- tabs-open -->
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Integration{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-list")}
 
   <!-- tabs-close -->
   """
@@ -51,14 +49,12 @@ defmodule ExDoppler.Integrations do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **integration_slug**: The relevant integration (e.g `"gh-integration"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-get")}
 
   <!-- tabs-close -->
   """
@@ -91,16 +87,14 @@ defmodule ExDoppler.Integrations do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **type**: Integration Type (e.g `"aws_secrets_manager"`)
     * **name**: Integration Name (e.g `"aws-secrets-integration"`)
     * **data**: A map containing fields that are specific to each integration (e.g `%{"aws_assume_role_arn" : "arn..."}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-create")}
 
   <!-- tabs-close -->
   """
@@ -131,15 +125,13 @@ defmodule ExDoppler.Integrations do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **Integration**: Integration to update (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282"... }`)
     * **data**: A map containing fields that are specific to each integration (e.g `%{"aws_assume_role_arn" : "arn..."}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-update")}
 
   <!-- tabs-close -->
   """
@@ -175,14 +167,12 @@ defmodule ExDoppler.Integrations do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **integration_slug**: Unique identifier for the integration (e.g `"00000000-0000-0000-0000-000000000000"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, options}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/get-options){:target="_blank"}
+  #{ExDoppler.Doc.resources("get-options")}
 
   <!-- tabs-close -->
   """
@@ -210,14 +200,12 @@ defmodule ExDoppler.Integrations do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **integration**: The relevant integration (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282"... }`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations-delete")}
 
   <!-- tabs-close -->
   """

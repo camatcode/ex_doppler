@@ -21,7 +21,7 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The `ExDoppler.Project` for which you want the environments (e.g `%Project{name: "example-project"}`)
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
@@ -29,9 +29,7 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Environment{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-list")}
 
   <!-- tabs-close -->
   """
@@ -61,15 +59,13 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The environment to get (e.g `"dev"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-get")}
 
   <!-- tabs-close -->
   """
@@ -100,7 +96,7 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **env_name**: A new environment's name (e.g `"prd"`)
     * **env_slug**: A new environment's slug (e.g `"prd"`)
@@ -108,9 +104,7 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-create")}
 
   <!-- tabs-close -->
   """
@@ -150,7 +144,7 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **environment**: The relevant environment (e.g `%Environment{project: "example-project", slug: "dev" ...}`)
     * **opts**: Optional modifications
       * **name** - New name for this environment
@@ -159,9 +153,7 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-rename){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-rename")}
 
   <!-- tabs-close -->
   """
@@ -204,14 +196,12 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **environment**: The relevant environment (e.g `%Environment{project: "example-project", slug: "dev" ...}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("environments-delete")}
 
   <!-- tabs-close -->
   """

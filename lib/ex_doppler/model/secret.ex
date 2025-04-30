@@ -25,7 +25,7 @@ defmodule ExDoppler.Secret do
   Creates an `Secret` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **{name, map}**: The secret's name and map of fields to turn into a `Secret`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.Secret{...}", failure: "raise Error")}

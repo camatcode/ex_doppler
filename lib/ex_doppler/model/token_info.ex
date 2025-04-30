@@ -28,7 +28,7 @@ defmodule ExDoppler.TokenInfo do
   Creates a `TokenInfo` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **token_info**: Map of fields to turn into a `TokenInfo`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.TokenInfo{...}", failure: "raise Error")}
@@ -73,7 +73,7 @@ defmodule ExDoppler.ODICToken do
   Creates a `ODICToken` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **odic_token**: Map of fields to turn into a `ODICToken`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.ODICToken{...}", failure: "raise Error")}

@@ -22,7 +22,7 @@ defmodule ExDoppler.WorkplaceUser do
   Creates an `WorkplaceUser` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **wp_user**: Map of fields to turn into an `User`
 
   <!-- tabs-close -->
@@ -66,7 +66,7 @@ defmodule ExDoppler.User do
   Creates an `User` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **user**: Map of fields to turn into an `User`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.User{...}", failure: "raise Error")}

@@ -21,7 +21,7 @@ defmodule ExDoppler.ConfigLogs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **config**: The `ExDoppler.Config` for which you want the logs (e.g `%Config{project: "example-project", name: "dev"}`)
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
@@ -29,9 +29,7 @@ defmodule ExDoppler.ConfigLogs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ConfigLog{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("config_logs-list")}
 
   <!-- tabs-close -->
   """
@@ -62,15 +60,13 @@ defmodule ExDoppler.ConfigLogs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **config**: The relevant `ExDoppler.Config` (e.g `%Config{project: "example-project", name: "dev"}`)
     * **log_id**: Unique identifier for the log object.
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ConfigLog{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("config_logs-get")}
 
   <!-- tabs-close -->
   """
@@ -101,14 +97,12 @@ defmodule ExDoppler.ConfigLogs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **config_log**: The `ExDoppler.ConfigLog` to roll back (e.g `%ConfigLog{project: "example-project", config: "dev", id: "0000.."}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ConfigLog{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-rollback){:target="_blank"}
+  #{ExDoppler.Doc.resources("config_logs-rollback")}
 
   <!-- tabs-close -->
   """

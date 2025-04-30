@@ -21,7 +21,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project**: The `ExDoppler.Project` for which you want the configs (e.g `%Project{name: "example-project"}`)
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
@@ -29,9 +29,7 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Config{...}]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-list")}
 
   <!-- tabs-close -->
   """
@@ -61,15 +59,13 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config name to get (e.g `"dev_personal"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-get")}
 
   <!-- tabs-close -->
   """
@@ -99,16 +95,14 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **environment_id**: The relevant environment id (e.g `"prd"`)
     * **config_name**: The config name to make (e.g `"prd_aws"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-create")}
 
   <!-- tabs-close -->
   """
@@ -137,16 +131,14 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **current_config_name**: The relevant environment id (e.g `"prd_aws"`)
     * **new_config_name**: The new config name (e.g `"prd_gcp"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-update")}
 
   <!-- tabs-close -->
   """
@@ -179,16 +171,14 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **source_config**: The config to clone (e.g `"prd_aws"`)
     * **new_config_name**: The config name to clone (e.g `"prd_aws2"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-clone){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-clone")}
 
   <!-- tabs-close -->
   """
@@ -221,15 +211,13 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to lock (e.g `"prd_aws"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-lock){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-lock")}
 
   <!-- tabs-close -->
   """
@@ -261,15 +249,13 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to unlock (e.g `"prd_aws"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-unlock){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-unlock")}
 
   <!-- tabs-close -->
   """
@@ -322,15 +308,13 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to delete (e.g `"prd_aws"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("configs-delete")}
 
   <!-- tabs-close -->
   """

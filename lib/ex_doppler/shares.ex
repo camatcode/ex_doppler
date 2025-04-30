@@ -20,7 +20,7 @@ defmodule ExDoppler.Shares do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **text_to_share** - Plain text to share (e.g `"sharing this string"`)
     * **opts**: Optional modifications
       * **expire_days** - Days until the link is inaccessible. Default: `90`
@@ -28,9 +28,7 @@ defmodule ExDoppler.Shares do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Share{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/share-secret){:target="_blank"}
+  #{ExDoppler.Doc.resources("share-secret")}
 
   <!-- tabs-close -->
   """

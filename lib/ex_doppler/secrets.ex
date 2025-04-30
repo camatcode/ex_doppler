@@ -22,7 +22,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **config**: Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
     * **opts**: Optional modifications to the list call
       * **include_dynamic_secrets** - whether to include dynamic secrets. Default: `false`
@@ -31,9 +31,7 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Secret{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("secrets-list")}
 
   <!-- tabs-close -->
   """
@@ -73,15 +71,13 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of the secret to get (e.g `"API_KEY"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("secrets-get")}
 
   <!-- tabs-close -->
   """
@@ -108,7 +104,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **opts**: Optional modifications to the download call
       * **include_dynamic_secrets** - whether to include dynamic secrets. Default: `false`
@@ -119,9 +115,7 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, requested_body}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-download){:target="_blank"}
+  #{ExDoppler.Doc.resources("secrets-download")}
 
   <!-- tabs-close -->
   """
@@ -163,7 +157,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **opts**: Optional modifications to the list call
       * **include_dynamic_secrets** - whether to include dynamic secrets. Default: `false`
@@ -172,9 +166,7 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, names}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-names){:target="_blank"}
+  #{ExDoppler.Doc.resources("secrets-names")}
 
   <!-- tabs-close -->
   """
@@ -213,7 +205,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **new_secret_name** - Name of this new secret
    * **value** - Value of this new secret
@@ -222,9 +214,7 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("secrets-update")}
 
   <!-- tabs-close -->
   """
@@ -244,7 +234,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of this secret
    * **value** - Value of this secret
@@ -256,9 +246,7 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-update){:target="_blank"}
+  #{ExDoppler.Doc.resources("secrets-update")}
 
   <!-- tabs-close -->
   """
@@ -330,16 +318,14 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **project_name** - Name of the associated project (e.g `"example-project"`)
    * **secret_name** - Name of this secret
    * **note** - Attached Note
 
   #{ExDoppler.Doc.returns(success: "{:ok, %{note: note secret: %ExDoppler.Secret{...}}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-update_note){:target="_blank"}
+  #{ExDoppler.Doc.resources("secrets-update_note")}
 
   <!-- tabs-close -->
   """
@@ -369,15 +355,13 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of secret to delete
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("secrets-delete")}
 
   <!-- tabs-close -->
   """

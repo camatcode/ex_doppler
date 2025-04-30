@@ -20,16 +20,14 @@ defmodule ExDoppler.ActivityLogs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ActivityLog` to return for this page (e.g `per_page: 50`). Default: `20`
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ActivityLog{...} ...]}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/activity_logs-list){:target="_blank"}
+  #{ExDoppler.Doc.resources("activity_logs-list")}
 
   <!-- tabs-close -->
   """
@@ -56,14 +54,12 @@ defmodule ExDoppler.ActivityLogs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
     * **id**: Unique identifier for the log object. (e.g `"dmwk7ra70oem3xa"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ActivityLog{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/activity_logs-retrieve){:target="_blank"}
+  #{ExDoppler.Doc.resources("activity_logs-retrieve")}
 
   <!-- tabs-close -->
   """

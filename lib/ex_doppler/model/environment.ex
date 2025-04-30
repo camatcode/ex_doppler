@@ -23,7 +23,7 @@ defmodule ExDoppler.Environment do
   Creates an `Environment` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **env**: Map of fields to turn into a `Environment`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.Environment{...}", failure: "raise Error")}

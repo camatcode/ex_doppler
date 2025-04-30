@@ -38,7 +38,7 @@ defmodule ExDoppler.Webhook do
   Creates a `Webhook` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **webhook**: Map of fields to turn into a `Webhook`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.Webhook{...}", failure: "raise Error")}
@@ -88,7 +88,7 @@ defmodule ExDoppler.WebhookAuth do
   Creates a `WebhookAuth` from a map
 
   <!-- tabs-open -->
-  ### Params
+  ### 🏷️ Params
     * **auth**: Map of fields to turn into a `WebhookAuth`
 
   #{ExDoppler.Doc.returns(success: "%ExDoppler.WebhookAuth{...}", failure: "raise Error")}

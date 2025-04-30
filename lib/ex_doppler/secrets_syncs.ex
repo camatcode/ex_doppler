@@ -22,15 +22,13 @@ defmodule ExDoppler.SecretsSyncs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **sync_slug** - Unique ID for the Sync
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Sync{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-get){:target="_blank"}
+  #{ExDoppler.Doc.resources("syncs-get")}
 
   <!-- tabs-close -->
   """
@@ -67,16 +65,14 @@ defmodule ExDoppler.SecretsSyncs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config associated with the Sync (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **integration** - Integration associated with the Sync (e.g `%Integration{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282" ...}`)
    * **data** - A map of data associated with the Sync; the fields will differ depending on the integration
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Sync{...}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-create){:target="_blank"}
+  #{ExDoppler.Doc.resources("syncs-create")}
 
   <!-- tabs-close -->
   """
@@ -108,16 +104,14 @@ defmodule ExDoppler.SecretsSyncs do
 
   <!-- tabs-open -->
 
-  ### Params
+  ### 🏷️ Params
    * **config** - Config associated with the Sync (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **sync** - Sync to delete (e.g `%Sync{slug: "e32d0dcd-c094-4606-aefa-c4127e2a1282" ...}`)
    * **delete_from_target** - Whether or not to delete the synced data from the target integration. Defaults to `true`
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
-  ### Resources
-
-    * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-delete){:target="_blank"}
+  #{ExDoppler.Doc.resources("syncs-delete")}
 
   <!-- tabs-close -->
   """
