@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Environment do
   @moduledoc """
   Module describing a [Doppler Environment](https://docs.doppler.com/reference/environments-object){:target="_blank"}

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Webhook do
   @moduledoc """
   Module describing a [Doppler Webhook](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}

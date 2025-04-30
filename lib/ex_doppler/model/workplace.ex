@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Workplace do
   @moduledoc """
   Module describing a [Doppler Workplace](https://docs.doppler.com/reference/workplace-object){:target="_blank"}

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ActivityLog do
   @moduledoc """
   Module describing a [Doppler Activity Log](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ProjectMembers do
   @moduledoc """
   Module for interacting with `ExDoppler.ProjectMember`

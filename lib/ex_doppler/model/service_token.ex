@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ServiceToken do
   @moduledoc """
   Module describing a [Doppler Service Token](https://docs.doppler.com/reference/service_tokens-object){:target="_blank"}

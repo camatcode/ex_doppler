@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.TokenInfo do
   @moduledoc """
   Module describing a [Doppler Me](https://docs.doppler.com/reference/auth-me){:target="_blank"}

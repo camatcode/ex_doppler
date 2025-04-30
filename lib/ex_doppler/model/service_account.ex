@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ServiceAccount do
   @moduledoc """
   Module describing a [Doppler Service Account](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}

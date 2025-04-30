@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Secret do
   @moduledoc """
   Module describing a [Doppler Secret](https://docs.doppler.com/reference/secrets-list){:target="_blank"}

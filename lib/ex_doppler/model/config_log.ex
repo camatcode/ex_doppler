@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ConfigLog do
   @moduledoc """
   Module describing a [Doppler Config Log](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
