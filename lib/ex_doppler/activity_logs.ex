@@ -3,7 +3,7 @@ defmodule ExDoppler.ActivityLogs do
   Module for interacting with `ExDoppler.ActivityLog`
 
   <!-- tabs-open -->
-  ### Help
+  ### Resources
     * See: `ExDoppler.ActivityLog`
     * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#activity-logs){:target="_blank"}
     * See: [Doppler API docs](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}

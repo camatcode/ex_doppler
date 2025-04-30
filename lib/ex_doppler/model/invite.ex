@@ -9,7 +9,7 @@ defmodule ExDoppler.Invite do
     * `created_at` - Date and Time of Invite (e.g `"2025-04-28T16:09:17.737Z"`)
     * `workplace_role` - See `ExDoppler.WorkplaceRole`
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Invites`
     * See: [Doppler API docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

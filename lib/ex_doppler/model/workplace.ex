@@ -9,7 +9,7 @@ defmodule ExDoppler.Workplace do
     * `security_email` - Email to send security notices to.
     * `id` - Unique ID for the Workplace(e.g `"bc391a7dba8924cd9b69"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Workplaces`
     * See: [Doppler API docs](https://docs.doppler.com/reference/workplace-object){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

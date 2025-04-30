@@ -13,7 +13,7 @@ defmodule ExDoppler.Webhook do
     * `name` - Human readable name for webhook (e.g `"my-new-webhook"`)
     * `url` - Webhook's URL (e.g `"https://httpbin.org/post"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Webhooks`
     * See: [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)
@@ -72,7 +72,7 @@ defmodule ExDoppler.WebhookAuth do
     * `username` - If `type = "Basic"`, the username to use. (e.g `"joe"`)
     * `has_password` - If `type = "Basic"`, that there is a password associated. (e.g `false`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Webhooks`
     * See: [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

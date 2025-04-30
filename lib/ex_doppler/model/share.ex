@@ -8,7 +8,7 @@ defmodule ExDoppler.Share do
     * `authenticated_url` - URL which includes the password (so the user doesn't have to type it in)
     * `password` - Password to open the secret
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Shares`
     * See: [Doppler API docs](https://docs.doppler.com/reference/share-secret){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

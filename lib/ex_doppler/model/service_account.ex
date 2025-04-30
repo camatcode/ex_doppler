@@ -9,7 +9,7 @@ defmodule ExDoppler.ServiceAccount do
     * `created_at` - Date and Time for this Service Account's creation (e.g `"2023-08-01T00:00:00.000Z"`)
     * `workplace_role` - See `ExDoppler.WorkplaceRole`
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.ServiceAccounts`
     * See: [Doppler API docs](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

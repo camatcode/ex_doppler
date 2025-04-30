@@ -1,6 +1,18 @@
 defmodule ExDoppler.Projects do
   @moduledoc """
   Module for interacting with `ExDoppler.Project`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.Project`
+    * See: [Doppler docs](https://docs.doppler.com/docs/create-project){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/projects-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Project
@@ -35,6 +47,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-list){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_projects(opts \\ []) do
@@ -83,6 +96,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-get){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def get_project(identifier) when is_bitstring(identifier) do
@@ -130,6 +144,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-create){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def create_project(project_name, description \\ "")
@@ -181,6 +196,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-update){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def update_project(%Project{name: current_project_name}, opts \\ []) do
@@ -236,6 +252,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-delete){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def delete_project(%Project{name: project_name}) do
@@ -280,6 +297,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-list_permissions){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_project_permissions do

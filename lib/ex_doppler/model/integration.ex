@@ -12,7 +12,7 @@ defmodule ExDoppler.Integration do
     * `syncs` - List of Syncs. See `ExDoppler.Sync`
 
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Integrations`
     * See: [Doppler API docs](https://docs.doppler.com/reference/integrations-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)
@@ -65,7 +65,7 @@ defmodule ExDoppler.Sync do
     * `config` - Relevant config (e.g `"prd"`)
     * `integration` - Relevant integration slug (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Integrations`
     * See: `ExDoppler.SecretsSync`
     * See: [Doppler API docs](https://docs.doppler.com/reference/syncs-create){:target="_blank"}

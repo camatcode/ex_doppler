@@ -1,6 +1,18 @@
 defmodule ExDoppler.Shares do
   @moduledoc """
   Module for interacting with `ExDoppler.Share`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.Share`
+    * See: [Doppler docs](https://docs.doppler.com/docs/share-security){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/share-secret){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Share
@@ -36,6 +48,7 @@ defmodule ExDoppler.Shares do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/share-secret){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def plain_text(text_to_share, opts \\ []) when is_bitstring(text_to_share) do

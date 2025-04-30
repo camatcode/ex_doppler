@@ -1,6 +1,18 @@
 defmodule ExDoppler.ProjectMembers do
   @moduledoc """
   Module for interacting with `ExDoppler.ProjectMember`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.ProjectMember`
+    * See: [Doppler docs](https://docs.doppler.com/docs/project-permissions#by-project){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/project_members-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Project
@@ -88,6 +100,8 @@ defmodule ExDoppler.ProjectMembers do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_members-get){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def get_project_member(%Project{slug: project_slug}, member_type, member_slug)
       when is_bitstring(member_type) and is_bitstring(member_slug) do

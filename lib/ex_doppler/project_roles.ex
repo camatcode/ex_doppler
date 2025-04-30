@@ -1,6 +1,18 @@
 defmodule ExDoppler.ProjectRoles do
   @moduledoc """
   Module for interacting with `ExDoppler.ProjectRole`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.ProjectRole`
+    * See: [Doppler docs](https://docs.doppler.com/docs/project-permissions){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/project_roles-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.ProjectRole
@@ -29,6 +41,7 @@ defmodule ExDoppler.ProjectRoles do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-list){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_project_roles do
@@ -75,6 +88,7 @@ defmodule ExDoppler.ProjectRoles do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-get){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def get_project_role(identifier) when is_bitstring(identifier) do
@@ -122,6 +136,7 @@ defmodule ExDoppler.ProjectRoles do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-create){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def create_project_role(name, permissions)

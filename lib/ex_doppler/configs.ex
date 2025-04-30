@@ -1,6 +1,18 @@
 defmodule ExDoppler.Configs do
   @moduledoc """
   Module for interacting with `ExDoppler.Config`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.Config`
+    * See: [Doppler docs](https://docs.doppler.com/docs/root-configs){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/configs-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Config
@@ -242,6 +254,7 @@ defmodule ExDoppler.Configs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-clone){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def clone_config(project_name, source_config, new_config_name)
@@ -294,6 +307,7 @@ defmodule ExDoppler.Configs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-lock){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def lock_config(project_name, config_name)
@@ -345,6 +359,7 @@ defmodule ExDoppler.Configs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-unlock){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def unlock_config(project_name, config_name)
@@ -417,6 +432,7 @@ defmodule ExDoppler.Configs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-delete){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def delete_config(project_name, config_name)

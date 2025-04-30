@@ -1,6 +1,18 @@
 defmodule ExDoppler.Invites do
   @moduledoc """
   Module for interacting with `ExDoppler.Invite`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.Invites`
+    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-team#send-invite){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Invite
@@ -35,6 +47,7 @@ defmodule ExDoppler.Invites do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_invites(opts \\ []) do

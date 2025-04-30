@@ -1,6 +1,18 @@
 defmodule ExDoppler.ConfigLogs do
   @moduledoc """
   Module for interacting with `ExDoppler.ConfigLog`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.ConfigLog`
+    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#config-logs){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Config
@@ -138,6 +150,7 @@ defmodule ExDoppler.ConfigLogs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-rollback){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def rollback_config_log(%ConfigLog{project: project_name, config: config_name, id: log_id}) do

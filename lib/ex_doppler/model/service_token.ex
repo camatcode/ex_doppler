@@ -11,7 +11,7 @@ defmodule ExDoppler.ServiceToken do
     * `environment` - Environment associated with the token (e.g `"prd"`)
     * `expires_at` - Date and Time this token will expire (e.g `"2023-08-01T00:00:00.000Z"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.ServiceTokens`
     * See: [Doppler API docs](https://docs.doppler.com/reference/service_tokens-object){:target="_blank"}
     * Contact the maintainer (he's happy to help!)
