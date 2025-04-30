@@ -1,6 +1,18 @@
 defmodule ExDoppler.Webhooks do
   @moduledoc """
   Module for interacting with `ExDoppler.Webhook`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.Webhook`
+    * See: [Doppler docs](https://docs.doppler.com/docs/webhooks){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Project
@@ -34,6 +46,7 @@ defmodule ExDoppler.Webhooks do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_webhooks(%Project{name: name}) do
@@ -83,6 +96,7 @@ defmodule ExDoppler.Webhooks do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-get){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def get_webhook(%Project{name: project_name}, id) when is_bitstring(id) do
@@ -132,7 +146,8 @@ defmodule ExDoppler.Webhooks do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-enable){:target="_blank"}
-   <!-- tabs-close -->
+
+  <!-- tabs-close -->
   """
   def enable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =
@@ -181,6 +196,7 @@ defmodule ExDoppler.Webhooks do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-disable){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def disable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
@@ -237,6 +253,7 @@ defmodule ExDoppler.Webhooks do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-add){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def create_webhook(%Project{name: project_name}, url, opts \\ [])
@@ -295,6 +312,7 @@ defmodule ExDoppler.Webhooks do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-delete){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def delete_webhook(%Project{name: project_name}, %Webhook{id: id}) do

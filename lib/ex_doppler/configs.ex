@@ -4,7 +4,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Config`
     * See: [Doppler docs](https://docs.doppler.com/docs/root-configs){:target="_blank"}
     * See: [Doppler API docs](https://docs.doppler.com/reference/configs-object){:target="_blank"}
@@ -254,6 +254,7 @@ defmodule ExDoppler.Configs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-clone){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def clone_config(project_name, source_config, new_config_name)
@@ -306,6 +307,7 @@ defmodule ExDoppler.Configs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-lock){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def lock_config(project_name, config_name)
@@ -357,6 +359,7 @@ defmodule ExDoppler.Configs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-unlock){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def unlock_config(project_name, config_name)
@@ -429,6 +432,7 @@ defmodule ExDoppler.Configs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-delete){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def delete_config(project_name, config_name)

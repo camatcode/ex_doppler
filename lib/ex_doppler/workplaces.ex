@@ -1,6 +1,18 @@
 defmodule ExDoppler.Workplaces do
   @moduledoc """
   Module for interacting with `ExDoppler.Workplace`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.Workplace`
+    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-structure){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/workplace-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Util.Requester
@@ -30,6 +42,7 @@ defmodule ExDoppler.Workplaces do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace-get){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def get_workplace do
@@ -75,6 +88,8 @@ defmodule ExDoppler.Workplaces do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace-update){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def update_workplace(opts \\ []) do
     {:ok, workplace} = get_workplace()
@@ -123,6 +138,8 @@ defmodule ExDoppler.Workplaces do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list_permissions){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def list_permissions do
     path = Path.join(@workplace_api_path, "/permissions")

@@ -18,7 +18,7 @@ defmodule ExDoppler.Config do
     * `root` - Whether the config is the root of the environment (e.g `true`)
     * `slug` - Unique identifier for this config (e.g `"00000000-0000-0000-0000-000000000000"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Configs`
     * See: [Doppler API docs](https://docs.doppler.com/reference/configs-object){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

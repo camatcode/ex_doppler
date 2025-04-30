@@ -10,7 +10,7 @@ defmodule ExDoppler.ProjectMember do
     * `slug` - Unique identifier for project member (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
     * `type` - member type (e.g `"workplace_user"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.ProjectMembers`
     * See: [Doppler API docs](https://docs.doppler.com/reference/project_members-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)
@@ -58,7 +58,7 @@ defmodule ExDoppler.ProjectMemberRole do
   ### Fields
     * `identifier` - e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.ProjectMembers`
     * See: [Doppler API docs](https://docs.doppler.com/reference/project_members-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

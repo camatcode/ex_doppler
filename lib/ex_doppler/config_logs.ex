@@ -4,7 +4,7 @@ defmodule ExDoppler.ConfigLogs do
 
   <!-- tabs-open -->
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.ConfigLog`
     * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#config-logs){:target="_blank"}
     * See: [Doppler API docs](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
@@ -150,6 +150,7 @@ defmodule ExDoppler.ConfigLogs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-rollback){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def rollback_config_log(%ConfigLog{project: project_name, config: config_name, id: log_id}) do

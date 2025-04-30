@@ -8,7 +8,7 @@ defmodule ExDoppler.WorkplaceUser do
     * `created_at` - DateTime for when this user was created (e.g `"2025-04-28T16:09:17.737Z"`)
     * `id` - Unique Identifier for this user (e.g `"00000000-0000-0000-0000-000000000000"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.WorkplaceUsers`
     * See: [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)
@@ -58,7 +58,7 @@ defmodule ExDoppler.User do
     * `profile_image_url` - URL to a profile image
     * `username` - User's username (e.g `"jsmith"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.WorkplaceUsers`
     * See: [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

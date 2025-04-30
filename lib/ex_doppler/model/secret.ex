@@ -11,7 +11,7 @@ defmodule ExDoppler.Secret do
     * `raw_visibility` - Raw visibility. `:masked`, `:unmasked`, or `:restricted`
     * `computed_visibility` - Computed visibility. `:masked`, `:unmasked`, or `:restricted`
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Secrets`
     * See: [Doppler API docs](https://docs.doppler.com/reference/secrets-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

@@ -4,7 +4,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Project`
     * See: [Doppler docs](https://docs.doppler.com/docs/create-project){:target="_blank"}
     * See: [Doppler API docs](https://docs.doppler.com/reference/projects-object){:target="_blank"}
@@ -47,6 +47,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-list){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_projects(opts \\ []) do
@@ -95,6 +96,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-get){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def get_project(identifier) when is_bitstring(identifier) do
@@ -142,6 +144,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-create){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def create_project(project_name, description \\ "")
@@ -193,6 +196,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-update){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def update_project(%Project{name: current_project_name}, opts \\ []) do
@@ -293,6 +297,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-list_permissions){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_project_permissions do

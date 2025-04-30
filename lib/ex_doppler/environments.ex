@@ -4,7 +4,7 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-open -->
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Environment`
     * See: [Doppler docs](https://docs.doppler.com/docs/create-project#environments){:target="_blank"}
     * See: [Doppler API docs](https://docs.doppler.com/reference/environments-object){:target="_blank"}
@@ -49,6 +49,7 @@ defmodule ExDoppler.Environments do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-list){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_environments(%Project{name: project_name}, opts \\ []) do
@@ -98,6 +99,8 @@ defmodule ExDoppler.Environments do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-get){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def get_environment(%Project{name: project_name}, environment_slug)
       when is_bitstring(environment_slug) do
@@ -149,6 +152,7 @@ defmodule ExDoppler.Environments do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-create){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def create_environment(
@@ -211,6 +215,7 @@ defmodule ExDoppler.Environments do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-rename){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def update_environment(%Environment{project: project_name, slug: env_slug}, opts \\ []) do
@@ -272,6 +277,7 @@ defmodule ExDoppler.Environments do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-delete){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def delete_environment(%Environment{project: project_name, slug: env_slug}) do

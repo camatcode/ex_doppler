@@ -1,6 +1,18 @@
 defmodule ExDoppler.ServiceTokens do
   @moduledoc """
   Module for interacting with `ExDoppler.ServiceToken`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.ServiceToken`
+    * See: [Doppler docs](https://docs.doppler.com/docs/service-tokens){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/service_tokens-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Config
@@ -34,6 +46,7 @@ defmodule ExDoppler.ServiceTokens do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_tokens-list){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_service_tokens(%Config{name: config_name, project: project_name}) do
@@ -87,6 +100,7 @@ defmodule ExDoppler.ServiceTokens do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_tokens-create){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def create_service_token(
@@ -147,6 +161,8 @@ defmodule ExDoppler.ServiceTokens do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_tokens-delete){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def delete_service_token(%ServiceToken{project: project_name, config: config_name, slug: slug}) do
     body = %{project: project_name, config: config_name, slug: slug}

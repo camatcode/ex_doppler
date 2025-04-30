@@ -11,7 +11,7 @@ defmodule ExDoppler.WorkplaceRole do
     * `name` - Human readable name (e.g `"Admin"`)
     * `permissions` - see `all_permissions/0`
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.WorkplaceRoles`
     * See: [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

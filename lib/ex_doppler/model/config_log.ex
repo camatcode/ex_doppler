@@ -15,7 +15,7 @@ defmodule ExDoppler.ConfigLog do
     * `text` - Text describing the event (e.g `"Modified secrets and saved to vault"`)
     * `user` - Relevant User. See `ExDoppler.User`
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.ConfigLogs`
     * See: [Doppler API docs](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

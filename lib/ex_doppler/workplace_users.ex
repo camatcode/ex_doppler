@@ -1,6 +1,18 @@
 defmodule ExDoppler.WorkplaceUsers do
   @moduledoc """
   Module for interacting with `ExDoppler.WorkplaceUser`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.WorkplaceUser`
+    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-team#user-management){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Util.Requester
@@ -35,6 +47,7 @@ defmodule ExDoppler.WorkplaceUsers do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_workplace_users(opts \\ []) do
@@ -83,6 +96,7 @@ defmodule ExDoppler.WorkplaceUsers do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-get){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def get_workplace_user(id) when is_bitstring(id) do
@@ -130,6 +144,7 @@ defmodule ExDoppler.WorkplaceUsers do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-update){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def update_workplace_user(%WorkplaceUser{id: id}, new_access)

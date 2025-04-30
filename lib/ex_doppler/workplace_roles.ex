@@ -1,6 +1,18 @@
 defmodule ExDoppler.WorkplaceRoles do
   @moduledoc """
   Module for interacting with `ExDoppler.WorkplaceRole`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.WorkplaceRole`
+    * See: [Doppler docs](https://docs.doppler.com/docs/custom-roles){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Util.Requester
@@ -30,6 +42,7 @@ defmodule ExDoppler.WorkplaceRoles do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def list_workplace_roles do
@@ -76,6 +89,7 @@ defmodule ExDoppler.WorkplaceRoles do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-get){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def get_workplace_role(identifier) when is_bitstring(identifier) do

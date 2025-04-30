@@ -13,7 +13,7 @@ defmodule ExDoppler.ActivityLog do
     * `text` - Human-readable explanation of the log
     * `user` - Relevant user to this activity log. See `ExDoppler.User`.
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.ActivityLogs`
     * See: [Doppler API docs](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}
     * Contact the maintainer (he's happy to help!)
@@ -73,7 +73,7 @@ defmodule ExDoppler.ActivityDiff do
     * `removed` - Objects removed in this Activity (e.g `["NEW_SEC2"]`)
     * `updated` - Objects updated in this Activity (e.g `["HELLO_WORLD"]`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.ActivityLogs`
     * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#activity-logs){:target="_blank"}
     * See: [Doppler API docs](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}

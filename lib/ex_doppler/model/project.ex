@@ -10,7 +10,7 @@ defmodule ExDoppler.Project do
     * `name` - Name of the project (e.g `"example-project"`)
     * `slug` - Slug of project (e.g `"example-project"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Projects`
     * See: [Doppler API docs](https://docs.doppler.com/reference/projects-object){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

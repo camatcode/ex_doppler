@@ -1,6 +1,18 @@
 defmodule ExDoppler.SecretsSyncs do
   @moduledoc """
   Module for interacting with `ExDoppler.Sync`
+
+  <!-- tabs-open -->
+
+  ### Resources
+    * See: `ExDoppler.Sync`
+    * See: [Doppler docs](https://docs.doppler.com/docs/integrations){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/syncs-create){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Config
@@ -36,6 +48,7 @@ defmodule ExDoppler.SecretsSyncs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-get){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def get_secrets_sync(%Config{name: config_name, project: project_slug}, sync_slug)
@@ -93,6 +106,7 @@ defmodule ExDoppler.SecretsSyncs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-create){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def create_secrets_sync(
@@ -145,6 +159,7 @@ defmodule ExDoppler.SecretsSyncs do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-delete){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def delete_secrets_sync(

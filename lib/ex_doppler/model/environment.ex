@@ -11,7 +11,7 @@ defmodule ExDoppler.Environment do
     * `project` - Unique identifier for the project object (e.g `"example-project"`)
     * `slug` - Unique identifier for the object (e.g `"eot"`)
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Environments`
     * See: [Doppler API docs](https://docs.doppler.com/reference/environments-object){:target="_blank"}
     * Contact the maintainer (he's happy to help!)

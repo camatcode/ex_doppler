@@ -4,7 +4,7 @@ defmodule ExDoppler.Auths do
 
   <!-- tabs-open -->
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.TokenInfo`
     * See: `ExDoppler.ODICToken`
     * See: [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}

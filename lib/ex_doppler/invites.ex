@@ -4,7 +4,7 @@ defmodule ExDoppler.Invites do
 
   <!-- tabs-open -->
 
-  ### Help
+  ### Resources
     * See: `ExDoppler.Invites`
     * See: [Doppler docs](https://docs.doppler.com/docs/workplace-team#send-invite){:target="_blank"}
     * See: [Doppler API docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
