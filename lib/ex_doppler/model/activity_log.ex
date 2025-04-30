@@ -42,6 +42,8 @@ defmodule ExDoppler.ActivityLog do
   ### Params
     * **activity_log**: Map of fields to turn into an `ActivityLog`
 
+  #{ExDoppler.Doc.returns_block(success: "%ExDoppler.ActivityLog{...}", failure: "raise Error")}
+
   <!-- tabs-close -->
   """
   def build(%{} = activity_log) do
@@ -86,6 +88,8 @@ defmodule ExDoppler.ActivityDiff do
   <!-- tabs-open -->
   ### Params
     * **diff**: Map of fields to turn into an `ActivityDiff`
+
+  #{ExDoppler.Doc.returns_block(success: "%ExDoppler.ActivityDiff{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """
