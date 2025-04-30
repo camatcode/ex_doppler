@@ -10,17 +10,23 @@
   Manage and access your Doppler secrets without leaving Elixir
 </p>
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Project Status](#project-status)
+
 ## Installation
 
 Add `:ex_doppler` to your list of deps in `mix.exs`:
 
 ```elixir
-{:oban, "~> 1.0"}
+{:ex_doppler, "~> 1.0"}
 ```
 
 Then run `mix deps.get` to install ExDoppler and its dependencies.
 
-## Implementation Status
+
+## Project Status
 
 ### Implemented 
 
@@ -143,26 +149,4 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
 | [Change Request Policies : Delete](https://docs.doppler.com/reference/change-request-policies-delete) | ⁉️          | Requires a Team tier |
 | [Dynamic Secrets : Issue Lease](https://docs.doppler.com/reference/dynamic_secrets-issue_lease)       | ⁉️          | Requires a Team tier |
 | [Dynamic Secrets : Revoke](https://docs.doppler.com/reference/dynamic_secrets-revoke_lease)           | ⁉️          | Requires a Team tier |
-
-
-
-
-
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ex_doppler` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:ex_doppler, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/ex_doppler>.
 
