@@ -1,4 +1,39 @@
-# ExDoppler
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/camatcode/ex_doppler/master/assets/ex_doppler-logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/camatcode/ex_doppler/master/assets/ex_doppler-logo-light.svg">
+    <img alt="ex_doppler logo" src="https://raw.githubusercontent.com/camatcode/ex_doppler/master/ex_doppler-logo-light.png" width="320">
+  </picture>
+</p>
+
+<p align="center">
+  Manage and access your Doppler secrets without leaving Elixir
+</p>
+
+
+<p align="center">
+  <a href="https://hex.pm/packages/ex_doppler">
+    <img alt="Hex Version" src="https://img.shields.io/hexpm/v/ex_doppler.svg">
+  </a>
+
+  <a href="https://hexdocs.pm/ex_doppler">
+    <img alt="Hex Docs" src="http://img.shields.io/badge/hex.pm-docs-green.svg?style=flat">
+  </a>
+
+  <!--
+  <a href="https://github.com/camatcode/ex_doppler/actions">
+    <img alt="CI Status" src="https://github.com/camatcode/ex_doppler/workflows/ci/badge.svg">
+  </a>
+  -->
+  
+  <a href="https://opensource.org/licenses/Apache-2.0">
+    <img alt="Apache 2 License" src="https://img.shields.io/hexpm/l/oban">
+  </a>
+</p>
+
+## Table of Contents
+
+- [Implementation Status](#implementation-status)
 
 ## Implementation Status
 
