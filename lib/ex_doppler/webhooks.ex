@@ -12,12 +12,29 @@ defmodule ExDoppler.Webhooks do
   @doc """
   Lists `ExDoppler.Webhook`
 
-  *Returns* `{:ok, [%ExDoppler.Webhook{}...]}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
-    * **project**: The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
+  ### Params
+    * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-list)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.Webhook{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
+  <!-- tabs-close -->
   """
   def list_webhooks(%Project{name: name}) do
     opts = [qparams: [project: name]]
@@ -43,13 +60,30 @@ defmodule ExDoppler.Webhooks do
   @doc """
   Retrieves a `ExDoppler.Webhook`, given a project and a webhook id
 
-  *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **id** - ID of the webhook to retrieve
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-get)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Webhook{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-get){:target="_blank"}
+  <!-- tabs-close -->
   """
   def get_webhook(%Project{name: project_name}, id) when is_bitstring(id) do
     path =
@@ -75,13 +109,30 @@ defmodule ExDoppler.Webhooks do
   @doc """
   Enables a `ExDoppler.Webhook`, given a project and a webhook
 
-  *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-enable)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Webhook{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-enable){:target="_blank"}
+   <!-- tabs-close -->
   """
   def enable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =
@@ -107,13 +158,30 @@ defmodule ExDoppler.Webhooks do
   @doc """
   Disables a `ExDoppler.Webhook`, given a project and a webhook
 
-  *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-disable)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Webhook{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-disable){:target="_blank"}
+  <!-- tabs-close -->
   """
   def disable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =
@@ -139,9 +207,9 @@ defmodule ExDoppler.Webhooks do
   @doc """
   Creates a new `ExDoppler.Webhook`, given a project, a webhook URL, and options
 
-  *Returns* `{:ok, %ExDoppler.Webhook{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **url**: The webhook URL. Must be https (e.g `"https://httpbin.org/post"`)
     * **opts**: Optional modifications
@@ -152,7 +220,24 @@ defmodule ExDoppler.Webhooks do
       * **authentication** - Either `%{type: :Bearer, token: "BEARER TOKEN HERE"}` or `%{type: :Basic, username: "example_user", password: "pass"}`
 
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-add)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Webhook{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-add){:target="_blank"}
+  <!-- tabs-close -->
   """
   def create_webhook(%Project{name: project_name}, url, opts \\ [])
       when is_bitstring(url) do
@@ -188,12 +273,29 @@ defmodule ExDoppler.Webhooks do
   @doc """
   Deletes a `ExDoppler.Webhook`
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/webhooks-delete)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/webhooks-delete){:target="_blank"}
+  <!-- tabs-close -->
   """
   def delete_webhook(%Project{name: project_name}, %Webhook{id: id}) do
     path =
@@ -203,7 +305,7 @@ defmodule ExDoppler.Webhooks do
     opts = [qparams: [project: project_name]]
 
     with {:ok, %{body: _}} <- Requester.delete(path, opts) do
-      {:ok, %{success: true}}
+      {:ok, {:success, true}}
     end
   end
 

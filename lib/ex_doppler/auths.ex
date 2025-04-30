@@ -1,6 +1,18 @@
 defmodule ExDoppler.Auths do
   @moduledoc """
   Module for interacting with `ExDoppler.TokenInfo` and `ExDoppler.ODICToken`
+
+  <!-- tabs-open -->
+
+  ### Help
+    * See: `ExDoppler.TokenInfo`
+    * See: `ExDoppler.ODICToken`
+    * See: [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.ODICToken
@@ -10,9 +22,26 @@ defmodule ExDoppler.Auths do
   @doc """
   Get information about the token in use.
 
-  *Returns* `{:ok, %ExDoppler.TokenInfo{...}}` or `{:err, err}`
+  <!-- tabs-open -->
+  ### Returns
 
-  See [Doppler Docs](https://docs.doppler.com/reference/auth-me)
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.TokenInfo{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def me do
     path = "/v3/me"
@@ -32,15 +61,33 @@ defmodule ExDoppler.Auths do
   end
 
   @doc """
-  Authenticate via a Service Account Identity with OIDC. Returns a short lived API token.
+  Authenticate via a Service Account Identity with OIDC. Returns a short-lived API token.
 
-  *Returns* `{:ok, %ExDoppler.ODICToken{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **token**: the OIDC token string from your OIDC provider (likely CI)
     * **identity**: Identity ID from the Doppler Dashboard
 
-  See [Doppler Docs](https://docs.doppler.com/reference/auth-oidc)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.ODICToken{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/auth-oidc){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def odic(token, identity) when is_bitstring(token) and is_bitstring(identity) do
     opts = [json: %{token: token, identity: identity}]
@@ -63,19 +110,37 @@ defmodule ExDoppler.Auths do
   @doc """
   Revoke an auth token
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
-    * **token_to_revoke**: the auth token to revoke
+  ### Params
+    * **token_to_revoke**: the auth token to revoke (e.g `"auth-2342-asdf"`)
 
-    See [Doppler Docs](https://docs.doppler.com/reference/auth-revoke)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/auth-revoke){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def revoke_auth_token(token_to_revoke) when is_bitstring(token_to_revoke) do
     opts = [json: %{token: token_to_revoke}]
     path = "/v3/auth/revoke"
 
     with {:ok, %{body: _}} <- Requester.post(path, opts) do
-      {:ok, %{success: true}}
+      {:ok, {:success, true}}
     end
   end
 

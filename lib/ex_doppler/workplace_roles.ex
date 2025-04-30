@@ -11,9 +11,26 @@ defmodule ExDoppler.WorkplaceRoles do
   @doc """
   Lists `ExDoppler.WorkplaceRole`
 
-  *Returns* `{:ok, [%ExDoppler.WorkplaceRole{}...]}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  See [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.WorkplaceRole{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
+  <!-- tabs-close -->
   """
   def list_workplace_roles do
     with {:ok, %{body: body}} <- Requester.get(@workplace_roles_api_path) do
@@ -37,12 +54,29 @@ defmodule ExDoppler.WorkplaceRoles do
   @doc """
   Retrieves a `ExDoppler.WorkplaceRole`, given a project and a webhook id
 
-  *Returns* `{:ok, %ExDoppler.WorkplaceRole{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **id** - ID of the role to retrieve
 
-  See [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-get)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.WorkplaceRole{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-get){:target="_blank"}
+  <!-- tabs-close -->
   """
   def get_workplace_role(identifier) when is_bitstring(identifier) do
     path =

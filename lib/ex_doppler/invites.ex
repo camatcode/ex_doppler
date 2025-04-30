@@ -11,9 +11,31 @@ defmodule ExDoppler.Invites do
   @doc """
   Lists `ExDoppler.Invite`
 
-  *Returns* `{:ok,  [%ExDoppler.Invite{}...]}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  See [Doppler Docs](https://docs.doppler.com/reference/invites-list)
+  ### Params
+    * **opts**: Optional modifications to the list call
+      * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
+      * **per_page** - the number of `ExDoppler.Invite` to return for this page (e.g `per_page: 50`). Default: `20`
+
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.Invite{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
+  <!-- tabs-close -->
   """
   def list_invites(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)

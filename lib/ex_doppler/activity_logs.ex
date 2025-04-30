@@ -1,6 +1,17 @@
 defmodule ExDoppler.ActivityLogs do
   @moduledoc """
   Module for interacting with `ExDoppler.ActivityLog`
+
+  <!-- tabs-open -->
+  ### Help
+    * See: `ExDoppler.ActivityLog`
+    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#activity-logs){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.ActivityLog
@@ -11,22 +22,39 @@ defmodule ExDoppler.ActivityLogs do
   @doc """
   Lists `ExDoppler.ActivityLog` using pagination.
 
-  *Returns* `{:ok, %{page: num, logs: [%ExDoppler.ActivityLog{}...]}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ActivityLog` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/activity_logs-list)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.ActivityLog{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/activity_logs-list){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def list_activity_logs(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@activity_logs_api_path, qparams: opts) do
-      page = body["page"]
       logs = body["logs"] |> Enum.map(&ActivityLog.build/1)
-      {:ok, %{page: page, logs: logs}}
+      {:ok, logs}
     end
   end
 
@@ -40,14 +68,32 @@ defmodule ExDoppler.ActivityLogs do
   end
 
   @doc """
-  Retrieves an `ExDoppler.ActivityLog` given an identifier.
+  Retrieves an `ExDoppler.ActivityLog`
 
-  *Returns* `{:ok, %ExDoppler.ActivityLog{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
-    * **id**: Unique identifier for the log object. (e.g "emwk7ra70oem3xa")
+  ### Params
+    * **id**: Unique identifier for the log object. (e.g `"dmwk7ra70oem3xa"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/activity_logs-retrieve)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.ActivityLog{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/activity_logs-retrieve){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def get_activity_log(id) when is_bitstring(id) do
     path =

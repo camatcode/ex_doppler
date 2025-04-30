@@ -11,26 +11,41 @@ defmodule ExDoppler.Projects do
   @doc """
   Lists `ExDoppler.Project` using pagination
 
-  *Returns* `{:ok, %{page: num, projects: [%ExDoppler.Project{}...]}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Project` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-list)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.Project{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-list){:target="_blank"}
+  <!-- tabs-close -->
   """
   def list_projects(opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@projects_api_path, qparams: opts) do
-      page = body["page"]
-
       projects =
         body["projects"]
         |> Enum.map(&Project.build/1)
 
-      {:ok, %{page: page, projects: projects}}
+      {:ok, projects}
     end
   end
 
@@ -46,12 +61,29 @@ defmodule ExDoppler.Projects do
   @doc """
   Retrieves a `ExDoppler.Project`, given an identifier
 
-  *Returns* `{:ok, %ExDoppler.Project{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
    * `identifier` - identifier for project (e.g `"example-project"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-get)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Project{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-get){:target="_blank"}
+  <!-- tabs-close -->
   """
   def get_project(identifier) when is_bitstring(identifier) do
     path =
@@ -73,15 +105,32 @@ defmodule ExDoppler.Projects do
   end
 
   @doc """
-  Creates a new `ExDoppler.Project`, given a name and optional description
+  Creates a new `ExDoppler.Project`
 
-  *Returns* `{:ok, %ExDoppler.Project{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: New Project Name (e.g `"example-project"`)
     * **description**: Optional description (e.g `"my awesome project"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-create)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Project{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-create){:target="_blank"}
+  <!-- tabs-close -->
   """
   def create_project(project_name, description \\ "")
       when is_bitstring(project_name) and is_bitstring(description) do
@@ -105,17 +154,34 @@ defmodule ExDoppler.Projects do
   end
 
   @doc """
-  Updates an `ExDoppler.Project`, given a project name and options detailing modifications
+  Updates an `ExDoppler.Project`
 
-  *Returns* `{:ok, %ExDoppler.Project{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
     * **opts**: Optional modifications
       * **name** - New name for this project
       * **description** - New description for this project
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-update)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Project{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-update){:target="_blank"}
+  <!-- tabs-close -->
   """
   def update_project(%Project{name: current_project_name}, opts \\ []) do
     with {:ok, project} <- get_project(current_project_name) do
@@ -148,12 +214,29 @@ defmodule ExDoppler.Projects do
   @doc """
   Deletes a `ExDoppler.Project`
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/projects-delete)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-delete){:target="_blank"}
+  <!-- tabs-close -->
   """
   def delete_project(%Project{name: project_name}) do
     path =
@@ -162,7 +245,7 @@ defmodule ExDoppler.Projects do
 
     with {:ok, %{body: _}} <-
            Requester.delete(path, json: %{project: project_name}) do
-      {:ok, %{success: true}}
+      {:ok, {:success, true}}
     end
   end
 
@@ -178,9 +261,26 @@ defmodule ExDoppler.Projects do
   @doc """
   Lists project permissions across all roles
 
-  *Returns* `{:ok, ["permissions1"...]}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  See [Doppler Docs](https://docs.doppler.com/reference/project_roles-list_permissions)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, ["perm1"...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-list_permissions){:target="_blank"}
+  <!-- tabs-close -->
   """
   def list_project_permissions do
     path =

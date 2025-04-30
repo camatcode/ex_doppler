@@ -1,12 +1,21 @@
 defmodule ExDoppler.WorkplaceUser do
   @moduledoc """
-  Module describing a Doppler [WorkplaceUser](https://docs.doppler.com/reference/users-list)
+  Module describing a Doppler [WorkplaceUser](https://docs.doppler.com/reference/users-list){:target="_blank"}
 
+  <!-- tabs-open -->
   ### Fields
     * `access` - level of access this WorkplaceUser has (e.g `"owner"`, `"collaborator"`, or `"admin"`)
     * `created_at` - DateTime for when this user was created (e.g `"2025-04-28T16:09:17.737Z"`)
     * `id` - Unique Identifier for this user (e.g `"00000000-0000-0000-0000-000000000000"`)
-    * `user` - More details for this user. See `ExDoppler.User`.
+
+  ### Help
+    * See: `ExDoppler.WorkplaceUsers`
+    * See: [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   defstruct [:access, :created_at, :id, :user]
   import ExDoppler.Model
@@ -16,8 +25,11 @@ defmodule ExDoppler.WorkplaceUser do
   @doc """
   Creates an `WorkplaceUser` from a map
 
-  ## Params
+  <!-- tabs-open -->
+  ### Params
     * **wp_user**: Map of fields to turn into an `User`
+
+  <!-- tabs-close -->
   """
   def build(%{} = wp_user) do
     fields =
@@ -39,11 +51,21 @@ defmodule ExDoppler.User do
   @moduledoc """
   Module describing a Doppler User (not to be confused with `ExDoppler.WorkplaceUser`)
 
+  <!-- tabs-open -->
   ### Fields
     * `email` - User's email (e.g `"jane.smith@example.com"`)
     * `name` - User's name (e.g `"Jane Smith"`)
     * `profile_image_url` - URL to a profile image
     * `username` - User's username (e.g `"jsmith"`)
+
+  ### Help
+    * See: `ExDoppler.WorkplaceUsers`
+    * See: [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   import ExDoppler.Model
 
@@ -52,8 +74,11 @@ defmodule ExDoppler.User do
   @doc """
   Creates an `User` from a map
 
-  ## Params
+  <!-- tabs-open -->
+  ### Params
     * **user**: Map of fields to turn into an `User`
+
+  <!-- tabs-close -->
   """
   def build(%{} = user), do: struct(ExDoppler.User, prepare_keys(user))
 end

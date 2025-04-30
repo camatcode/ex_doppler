@@ -12,27 +12,43 @@ defmodule ExDoppler.Configs do
   @doc """
   Lists `ExDoppler.Config` using pagination.
 
-  *Returns* `{:ok, %{page: num, configs: [%ExDoppler.Config{}...]}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project**: The `ExDoppler.Project` for which you want the configs (e.g `%Project{name: "example-project"}`)
     * **opts**: Optional modifications to the list call
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Config` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-list)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, [%ExDoppler.Config{...} ...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-list){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def list_configs(%Project{name: project_name}, opts \\ []) do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@configs_api_path, qparams: opts) do
-      page = body["page"]
-
       configs =
         body["configs"]
         |> Enum.map(&Config.build/1)
 
-      {:ok, %{page: page, configs: configs}}
+      {:ok, configs}
     end
   end
 
@@ -46,15 +62,33 @@ defmodule ExDoppler.Configs do
   end
 
   @doc """
-  Retrieves a `ExDoppler.Config`, given a project name and config name
+  Retrieves a `ExDoppler.Config`
 
-  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config name to get (e.g `"dev_personal"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-get)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Config{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-get){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def get_config(project_name, config_name)
       when is_bitstring(project_name) and is_bitstring(config_name) do
@@ -78,16 +112,34 @@ defmodule ExDoppler.Configs do
   end
 
   @doc """
-  Creates a new `ExDoppler.Config`, given a project name, an environment id and config name
+  Creates a new `ExDoppler.Config`
 
-  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **environment_id**: The relevant environment id (e.g `"prd"`)
     * **config_name**: The config name to make (e.g `"prd_aws"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-create)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Config{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-create){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def create_config(project_name, environment_id, config_name)
       when is_bitstring(project_name) and
@@ -110,16 +162,34 @@ defmodule ExDoppler.Configs do
   end
 
   @doc """
-  Renames a `ExDoppler.Config`, given a project name, the current name and a new name
+  Renames a `ExDoppler.Config`
 
-  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **current_config_name**: The relevant environment id (e.g `"prd_aws"`)
     * **new_config_name**: The new config name (e.g `"prd_gcp"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-update)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Config{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-update){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   def rename_config(project_name, current_config_name, new_config_name)
       when is_bitstring(project_name) and
@@ -146,16 +216,33 @@ defmodule ExDoppler.Configs do
   end
 
   @doc """
-  Clones a `ExDoppler.Config` to a new Config, given a project name, the source config name, and the new config name
+  Clones a `ExDoppler.Config` to a new Config
 
-  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **source_config**: The config to clone (e.g `"prd_aws"`)
     * **new_config_name**: The config name to clone (e.g `"prd_aws2"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-clone)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.ActivityLog{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-clone){:target="_blank"}
+  <!-- tabs-close -->
   """
   def clone_config(project_name, source_config, new_config_name)
       when is_bitstring(project_name) and
@@ -184,13 +271,30 @@ defmodule ExDoppler.Configs do
   @doc """
   Locks a `ExDoppler.Config` (no modifications allowed)
 
-  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to lock (e.g `"prd_aws"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-lock)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Config{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-lock){:target="_blank"}
+  <!-- tabs-close -->
   """
   def lock_config(project_name, config_name)
       when is_bitstring(project_name) and
@@ -218,13 +322,30 @@ defmodule ExDoppler.Configs do
   @doc """
   Unlocks a `ExDoppler.Config` (modifications allowed)
 
-  *Returns* `{:ok, %ExDoppler.Config{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to unlock (e.g `"prd_aws"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-unlock)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Config{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-unlock){:target="_blank"}
+  <!-- tabs-close -->
   """
   def unlock_config(project_name, config_name)
       when is_bitstring(project_name) and
@@ -273,13 +394,30 @@ defmodule ExDoppler.Configs do
   @doc """
   Deletes a `ExDoppler.Config`
 
-  *Returns* `{:ok, %{success: true}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to delete (e.g `"prd_aws"`)
 
-  See [Doppler Docs](https://docs.doppler.com/reference/configs-delete)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, {:success, true}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-delete){:target="_blank"}
+  <!-- tabs-close -->
   """
   def delete_config(project_name, config_name)
       when is_bitstring(project_name) and
@@ -290,8 +428,8 @@ defmodule ExDoppler.Configs do
 
     opts = [qparams: [project: project_name, config: config_name]]
 
-    with {:ok, %{body: body}} <- Requester.delete(path, opts) do
-      {:ok, {:success, body["success"]}}
+    with {:ok, %{body: _}} <- Requester.delete(path, opts) do
+      {:ok, {:success, true}}
     end
   end
 

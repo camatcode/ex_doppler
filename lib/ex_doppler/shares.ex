@@ -11,15 +11,32 @@ defmodule ExDoppler.Shares do
   @doc """
   Creates a plain-text share link `ExDoppler.Share`
 
-  *Returns* `{:ok, %ExDoppler.Share{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+  ### Params
    * **text_to_share** - Plain text to share (e.g `"sharing this string"`)
     * **opts**: Optional modifications
       * **expire_days** - Days until the link is inaccessible. Default: `90`
       * **expire_views** - Number of views until the link is inaccessible. -1 means infinite. Default: `-1`
 
-  See [Doppler Docs](https://docs.doppler.com/reference/share-secret)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Share{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/share-secret){:target="_blank"}
+  <!-- tabs-close -->
   """
   def plain_text(text_to_share, opts \\ []) when is_bitstring(text_to_share) do
     opts = Keyword.merge([expire_days: 90, expire_views: -1], opts)

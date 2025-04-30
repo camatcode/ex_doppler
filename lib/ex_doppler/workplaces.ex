@@ -11,11 +11,28 @@ defmodule ExDoppler.Workplaces do
   @doc """
   Retrieves a `ExDoppler.Workplace`, given options
 
-  *Returns* `{:ok, %ExDoppler.Workplace{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  See [Doppler Docs](https://docs.doppler.com/reference/users-get)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Workplace{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace-get){:target="_blank"}
+  <!-- tabs-close -->
   """
-  def get_workplace() do
+  def get_workplace do
     with {:ok, %{body: body}} <- Requester.get(@workplace_api_path) do
       {:ok, Workplace.build(body["workplace"])}
     end
@@ -24,7 +41,7 @@ defmodule ExDoppler.Workplaces do
   @doc """
   Same as `get_workplace/0` but won't wrap a successful response in `{:ok, response}`
   """
-  def get_workplace!() do
+  def get_workplace! do
     with {:ok, wp} <- get_workplace() do
       wp
     end
@@ -33,14 +50,31 @@ defmodule ExDoppler.Workplaces do
   @doc """
   Updates an `ExDoppler.Workplace`, given options detailing modifications
 
-  *Returns* `{:ok, %ExDoppler.Workplace{...}}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  ## Params
+
+  ### Params
     * **opts**: Optional modifications
       * **billing_email** - New billing email for the workplace
       * **security_email** - New security email for the workplace
 
-  See [Doppler Docs](https://docs.doppler.com/reference/workplace-update)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, %ExDoppler.Workplace{...}}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace-update){:target="_blank"}
   """
   def update_workplace(opts \\ []) do
     {:ok, workplace} = get_workplace()
@@ -70,9 +104,25 @@ defmodule ExDoppler.Workplaces do
   @doc """
   Lists permissions known in `ExDoppler.Workplace`
 
-  *Returns* `{:ok, ["perm1"...]}` or `{:err, err}`
+  <!-- tabs-open -->
 
-  See [Doppler Docs](https://docs.doppler.com/reference/workplace_roles-list_permissions)
+  ### Returns
+
+    **On Success**
+
+    ```elixir
+    {:ok, ["perm1"...]}
+    ```
+
+    **On Failure**
+
+     ```elixir
+    {:err, err}
+    ```
+
+  ### Resources
+
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list_permissions){:target="_blank"}
   """
   def list_permissions do
     path = Path.join(@workplace_api_path, "/permissions")
