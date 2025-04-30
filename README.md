@@ -7,8 +7,7 @@
 </p>
 
 <p align="center">
-  Robust job processing in Elixir, backed by modern PostgreSQL, MySQL, and SQLite3.
-  Reliable, <br /> observable, and loaded with <a href="#features">enterprise grade features</a>.
+  Manage and access your Doppler secrets without leaving Elixir
 </p>
 
 
