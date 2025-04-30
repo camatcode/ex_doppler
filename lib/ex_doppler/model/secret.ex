@@ -12,7 +12,7 @@ defmodule ExDoppler.Secret do
     * `raw_visibility` - Raw visibility. `:masked`, `:unmasked`, or `:restricted`
     * `computed_visibility` - Computed visibility. `:masked`, `:unmasked`, or `:restricted`
 
-  #{ExDoppler.Doc.resources_block("secrets", "secrets-list")}
+  #{ExDoppler.Doc.resources("secrets", "secrets-list")}
 
   <!-- tabs-close -->
   """
@@ -27,6 +27,8 @@ defmodule ExDoppler.Secret do
   <!-- tabs-open -->
   ### Params
     * **{name, map}**: The secret's name and map of fields to turn into a `Secret`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Secret{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

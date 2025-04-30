@@ -10,7 +10,7 @@ defmodule ExDoppler.Invite do
     * `created_at` - Date and Time of Invite (e.g `"2025-04-28T16:09:17.737Z"`)
     * `workplace_role` - See `ExDoppler.WorkplaceRole`
 
-  #{ExDoppler.Doc.resources_block("workplace-team#send-invite", "invites-list")}
+  #{ExDoppler.Doc.resources("workplace-team#send-invite", "invites-list")}
 
   <!-- tabs-close -->
   """
@@ -27,6 +27,8 @@ defmodule ExDoppler.Invite do
   <!-- tabs-open -->
   ### Params
     * **invite**: Map of fields to turn into a `Invite`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Invite{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

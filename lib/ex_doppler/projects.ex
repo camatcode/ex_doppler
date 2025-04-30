@@ -5,7 +5,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.resources_block("create-project", "projects-object")}
+  #{ExDoppler.Doc.resources("create-project", "projects-object")}
 
   <!-- tabs-close -->
   """
@@ -25,7 +25,7 @@ defmodule ExDoppler.Projects do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Project` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.Project{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Project{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -62,7 +62,7 @@ defmodule ExDoppler.Projects do
   ### Params
    * `identifier` - identifier for project (e.g `"example-project"`)
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -98,7 +98,7 @@ defmodule ExDoppler.Projects do
     * **project_name**: New Project Name (e.g `"example-project"`)
     * **description**: Optional description (e.g `"my awesome project"`)
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -138,7 +138,7 @@ defmodule ExDoppler.Projects do
       * **name** - New name for this project
       * **description** - New description for this project
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -182,7 +182,7 @@ defmodule ExDoppler.Projects do
   ### Params
     * **project**: The relevant project (e.g `%Project{name: "example-project" ...}`)
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, {:success, true}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -215,7 +215,7 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, [\"perm1\" ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\" ...]}", failure: "{:err, err}")}
 
   ### Resources
 

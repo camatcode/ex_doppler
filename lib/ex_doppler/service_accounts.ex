@@ -5,7 +5,7 @@ defmodule ExDoppler.ServiceAccounts do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.resources_block("service-accounts", "service_accounts-list")}
+  #{ExDoppler.Doc.resources("service-accounts", "service_accounts-list")}
 
   <!-- tabs-close -->
   """
@@ -25,7 +25,7 @@ defmodule ExDoppler.ServiceAccounts do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ServiceAccount` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.ServiceAccount{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ServiceAccount{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 

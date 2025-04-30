@@ -12,7 +12,7 @@ defmodule ExDoppler.Integration do
     * `enabled` - Whether integration is enabled (e.g `true`)
     * `syncs` - List of Syncs. See `ExDoppler.Sync`
 
-  #{ExDoppler.Doc.resources_block("integrations", "integrations-list")}
+  #{ExDoppler.Doc.resources("integrations", "integrations-list")}
 
   <!-- tabs-close -->
   """
@@ -60,7 +60,7 @@ defmodule ExDoppler.Sync do
     * `config` - Relevant config (e.g `"prd"`)
     * `integration` - Relevant integration slug (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
 
-  #{ExDoppler.Doc.resources_block("integrations", "syncs-create")}
+  #{ExDoppler.Doc.resources("integrations", "syncs-create")}
 
   <!-- tabs-close -->
   """
@@ -75,6 +75,8 @@ defmodule ExDoppler.Sync do
   <!-- tabs-open -->
   ### Params
     * **sync**: Map of fields to turn into a `Sync`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Sync{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

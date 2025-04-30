@@ -5,7 +5,7 @@ defmodule ExDoppler.ActivityLogs do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.resources_block("workplace-logs#activity-logs", "activity_logs-object")}
+  #{ExDoppler.Doc.resources("workplace-logs#activity-logs", "activity_logs-object")}
 
   <!-- tabs-close -->
   """
@@ -25,7 +25,7 @@ defmodule ExDoppler.ActivityLogs do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ActivityLog` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.ActivityLog{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ActivityLog{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -59,7 +59,7 @@ defmodule ExDoppler.ActivityLogs do
   ### Params
     * **id**: Unique identifier for the log object. (e.g `"dmwk7ra70oem3xa"`)
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.ActivityLog{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ActivityLog{...}}", failure: "{:err, err}")}
 
   ### Resources
 

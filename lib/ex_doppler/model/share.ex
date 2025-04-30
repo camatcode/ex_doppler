@@ -9,7 +9,7 @@ defmodule ExDoppler.Share do
     * `authenticated_url` - URL which includes the password (so the user doesn't have to type it in)
     * `password` - Password to open the secret
 
-  #{ExDoppler.Doc.resources_block("share-security", "share-secret")}
+  #{ExDoppler.Doc.resources("share-security", "share-secret")}
 
   <!-- tabs-close -->
   """
@@ -23,6 +23,8 @@ defmodule ExDoppler.Share do
   <!-- tabs-open -->
   ### Params
     * **token**: Map of fields to turn into a `Share`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Share{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

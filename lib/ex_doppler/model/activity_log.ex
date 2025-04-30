@@ -14,7 +14,7 @@ defmodule ExDoppler.ActivityLog do
     * `text` - Human-readable explanation of the log
     * `user` - Relevant user to this activity log. See `ExDoppler.User`.
 
-  #{ExDoppler.Doc.resources_block("workplace-logs#activity-logs", "activity_logs-object")}
+  #{ExDoppler.Doc.resources("workplace-logs#activity-logs", "activity_logs-object")}
 
   <!-- tabs-close -->
   """
@@ -42,7 +42,7 @@ defmodule ExDoppler.ActivityLog do
   ### Params
     * **activity_log**: Map of fields to turn into an `ActivityLog`
 
-  #{ExDoppler.Doc.returns_block(success: "%ExDoppler.ActivityLog{...}", failure: "raise Error")}
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ActivityLog{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """
@@ -73,7 +73,7 @@ defmodule ExDoppler.ActivityDiff do
     * `removed` - Objects removed in this Activity (e.g `["NEW_SEC2"]`)
     * `updated` - Objects updated in this Activity (e.g `["HELLO_WORLD"]`)
 
-  #{ExDoppler.Doc.resources_block("workplace-logs#activity-logs", "activity_logs-object")}
+  #{ExDoppler.Doc.resources("workplace-logs#activity-logs", "activity_logs-object")}
 
   <!-- tabs-close -->
   """
@@ -89,7 +89,7 @@ defmodule ExDoppler.ActivityDiff do
   ### Params
     * **diff**: Map of fields to turn into an `ActivityDiff`
 
-  #{ExDoppler.Doc.returns_block(success: "%ExDoppler.ActivityDiff{...}", failure: "raise Error")}
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ActivityDiff{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

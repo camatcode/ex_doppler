@@ -12,7 +12,7 @@ defmodule ExDoppler.Environment do
     * `project` - Unique identifier for the project object (e.g `"example-project"`)
     * `slug` - Unique identifier for the object (e.g `"eot"`)
 
-  #{ExDoppler.Doc.resources_block("create-project#environments", "environments-object")}
+  #{ExDoppler.Doc.resources("create-project#environments", "environments-object")}
 
   <!-- tabs-close -->
   """
@@ -25,6 +25,8 @@ defmodule ExDoppler.Environment do
   <!-- tabs-open -->
   ### Params
     * **env**: Map of fields to turn into a `Environment`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Environment{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

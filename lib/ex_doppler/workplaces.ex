@@ -5,7 +5,7 @@ defmodule ExDoppler.Workplaces do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.resources_block("workplace-structure", "workplace-object")}
+  #{ExDoppler.Doc.resources("workplace-structure", "workplace-object")}
 
   <!-- tabs-close -->
   """
@@ -20,7 +20,7 @@ defmodule ExDoppler.Workplaces do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -54,7 +54,7 @@ defmodule ExDoppler.Workplaces do
       * **billing_email** - New billing email for the workplace
       * **security_email** - New security email for the workplace
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -92,7 +92,7 @@ defmodule ExDoppler.Workplaces do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, [\"perm1\"...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\"...]}", failure: "{:err, err}")}
 
   ### Resources
 

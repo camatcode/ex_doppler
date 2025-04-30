@@ -11,7 +11,7 @@ defmodule ExDoppler.ProjectRole do
     * `name` - Name of role (e.g `"viewer"`)
     * `permissions` - member type (e.g `["enclave_config_logs", "enclave_project_config_secrets_read"...]`)
 
-  #{ExDoppler.Doc.resources_block("project-permissions", "project_roles-list")}
+  #{ExDoppler.Doc.resources("project-permissions", "project_roles-list")}
 
   <!-- tabs-close -->
   """
@@ -25,6 +25,8 @@ defmodule ExDoppler.ProjectRole do
   <!-- tabs-open -->
   ### Params
     * **role**: Map of fields to turn into a `ProjectRole`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ProjectRole{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

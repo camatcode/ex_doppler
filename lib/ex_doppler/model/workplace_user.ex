@@ -9,7 +9,7 @@ defmodule ExDoppler.WorkplaceUser do
     * `created_at` - DateTime for when this user was created (e.g `"2025-04-28T16:09:17.737Z"`)
     * `id` - Unique Identifier for this user (e.g `"00000000-0000-0000-0000-000000000000"`)
 
-  #{ExDoppler.Doc.resources_block("workplace-team#user-management", "users-list")}
+  #{ExDoppler.Doc.resources("workplace-team#user-management", "users-list")}
 
   <!-- tabs-close -->
   """
@@ -54,7 +54,7 @@ defmodule ExDoppler.User do
     * `profile_image_url` - URL to a profile image
     * `username` - User's username (e.g `"jsmith"`)
 
-  #{ExDoppler.Doc.resources_block("workplace-team#user-management", "users-list")}
+  #{ExDoppler.Doc.resources("workplace-team#user-management", "users-list")}
 
   <!-- tabs-close -->
   """
@@ -68,6 +68,8 @@ defmodule ExDoppler.User do
   <!-- tabs-open -->
   ### Params
     * **user**: Map of fields to turn into an `User`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.User{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

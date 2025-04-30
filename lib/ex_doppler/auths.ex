@@ -5,7 +5,7 @@ defmodule ExDoppler.Auths do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.resources_block("service-account-identities", "auth-me")}
+  #{ExDoppler.Doc.resources("service-account-identities", "auth-me")}
 
   <!-- tabs-close -->
   """
@@ -18,7 +18,7 @@ defmodule ExDoppler.Auths do
   Get information about the token in use.
 
   <!-- tabs-open -->
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.TokenInfo{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.TokenInfo{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -52,7 +52,7 @@ defmodule ExDoppler.Auths do
     * **token**: the OIDC token string from your OIDC provider (likely CI)
     * **identity**: Identity ID from the Doppler Dashboard
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.ODICToken{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ODICToken{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -86,7 +86,7 @@ defmodule ExDoppler.Auths do
   ### Params
     * **token_to_revoke**: the auth token to revoke (e.g `"auth-2342-asdf"`)
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
   ### Resources
 

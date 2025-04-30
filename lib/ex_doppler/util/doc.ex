@@ -11,7 +11,7 @@ defmodule ExDoppler.Doc do
 
   def contact_maintainer, do: "Contact the maintainer (he's happy to help!)"
 
-  def resources_block(doppler_doc, doppler_api_doc) do
+  def resources(doppler_doc, doppler_api_doc) do
     "### Resources
   * #{see_doppler_doc("https://docs.doppler.com/docs/#{doppler_doc}")}
   * #{see_api_docs("https://docs.doppler.com/reference/#{doppler_api_doc}")}
@@ -21,7 +21,7 @@ defmodule ExDoppler.Doc do
     "
   end
 
-  def returns_block(opts) do
+  def returns(opts) do
     "### Returns
 
   **On Success**

@@ -10,7 +10,7 @@ defmodule ExDoppler.ServiceAccount do
     * `created_at` - Date and Time for this Service Account's creation (e.g `"2023-08-01T00:00:00.000Z"`)
     * `workplace_role` - See `ExDoppler.WorkplaceRole`
 
-  #{ExDoppler.Doc.resources_block("service-accounts", "service_accounts-list")}
+  #{ExDoppler.Doc.resources("service-accounts", "service_accounts-list")}
 
   <!-- tabs-close -->
   """
@@ -26,6 +26,8 @@ defmodule ExDoppler.ServiceAccount do
   <!-- tabs-open -->
   ### Params
     * **account**: Map of fields to turn into a `ServiceAccount`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ServiceAccount{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

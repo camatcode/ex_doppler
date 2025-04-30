@@ -11,7 +11,7 @@ defmodule ExDoppler.Project do
     * `name` - Name of the project (e.g `"example-project"`)
     * `slug` - Slug of project (e.g `"example-project"`)
 
-  #{ExDoppler.Doc.resources_block("create-project", "projects-object")}
+  #{ExDoppler.Doc.resources("create-project", "projects-object")}
 
   <!-- tabs-close -->
   """
@@ -25,6 +25,8 @@ defmodule ExDoppler.Project do
   <!-- tabs-open -->
   ### Params
     * **project**: Map of fields to turn into a `Project`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Project{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

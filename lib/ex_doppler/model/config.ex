@@ -19,7 +19,7 @@ defmodule ExDoppler.Config do
     * `root` - Whether the config is the root of the environment (e.g `true`)
     * `slug` - Unique identifier for this config (e.g `"00000000-0000-0000-0000-000000000000"`)
 
-  #{ExDoppler.Doc.resources_block("root-configs", "configs-object")}
+  #{ExDoppler.Doc.resources("root-configs", "configs-object")}
 
   <!-- tabs-close -->
   """
@@ -47,6 +47,8 @@ defmodule ExDoppler.Config do
   <!-- tabs-open -->
   ### Params
     * **config**: Map of fields to turn into a `Config`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Config{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

@@ -10,7 +10,7 @@ defmodule ExDoppler.Workplace do
     * `security_email` - Email to send security notices to.
     * `id` - Unique ID for the Workplace(e.g `"bc391a7dba8924cd9b69"`)
 
-  #{ExDoppler.Doc.resources_block("workplace-structure", "workplace-object")}
+  #{ExDoppler.Doc.resources("workplace-structure", "workplace-object")}
 
   <!-- tabs-close -->
   """
@@ -23,6 +23,8 @@ defmodule ExDoppler.Workplace do
   <!-- tabs-open -->
   ### Params
     * **wp**: Map of fields to turn into a `Workplace`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Workplace{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

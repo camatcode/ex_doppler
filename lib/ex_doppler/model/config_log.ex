@@ -16,7 +16,7 @@ defmodule ExDoppler.ConfigLog do
     * `text` - Text describing the event (e.g `"Modified secrets and saved to vault"`)
     * `user` - Relevant User. See `ExDoppler.User`
 
-  #{ExDoppler.Doc.resources_block("workplace-logs#config-logs", "config_logs-object")}
+  #{ExDoppler.Doc.resources("workplace-logs#config-logs", "config_logs-object")}
 
   <!-- tabs-close -->
   """
@@ -33,6 +33,8 @@ defmodule ExDoppler.ConfigLog do
   <!-- tabs-open -->
   ### Params
     * **log**: Map of fields to turn into a `ConfigLog`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ConfigLog{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

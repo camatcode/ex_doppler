@@ -5,7 +5,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.resources_block("custom-roles", "workplace_roles-list")}
+  #{ExDoppler.Doc.resources("custom-roles", "workplace_roles-list")}
 
   <!-- tabs-close -->
   """
@@ -22,7 +22,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   ### Returns
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.WorkplaceRole{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceRole{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -57,7 +57,7 @@ defmodule ExDoppler.WorkplaceRoles do
   ### Params
     * **id** - ID of the role to retrieve
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.WorkplaceRole{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceRole{...}}", failure: "{:err, err}")}
 
   ### Resources
 

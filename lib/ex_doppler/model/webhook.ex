@@ -14,7 +14,7 @@ defmodule ExDoppler.Webhook do
     * `name` - Human readable name for webhook (e.g `"my-new-webhook"`)
     * `url` - Webhook's URL (e.g `"https://httpbin.org/post"`)
 
-  #{ExDoppler.Doc.resources_block("webhooks", "webhooks-list")}
+  #{ExDoppler.Doc.resources("webhooks", "webhooks-list")}
 
   <!-- tabs-close -->
   """
@@ -40,6 +40,8 @@ defmodule ExDoppler.Webhook do
   <!-- tabs-open -->
   ### Params
     * **webhook**: Map of fields to turn into a `Webhook`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Webhook{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """
@@ -68,7 +70,7 @@ defmodule ExDoppler.WebhookAuth do
     * `username` - If `type = "Basic"`, the username to use. (e.g `"joe"`)
     * `has_password` - If `type = "Basic"`, that there is a password associated. (e.g `false`)
 
-  #{ExDoppler.Doc.resources_block("webhooks", "webhooks-list")}
+  #{ExDoppler.Doc.resources("webhooks", "webhooks-list")}
 
   <!-- tabs-close -->
   """
@@ -88,6 +90,8 @@ defmodule ExDoppler.WebhookAuth do
   <!-- tabs-open -->
   ### Params
     * **auth**: Map of fields to turn into a `WebhookAuth`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.WebhookAuth{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

@@ -12,7 +12,7 @@ defmodule ExDoppler.WorkplaceRole do
     * `name` - Human readable name (e.g `"Admin"`)
     * `permissions` - see `all_permissions/0`
 
-  #{ExDoppler.Doc.resources_block("custom-roles", "workplace_roles-list")}
+  #{ExDoppler.Doc.resources("custom-roles", "workplace_roles-list")}
 
   <!-- tabs-close -->
   """
@@ -59,6 +59,8 @@ defmodule ExDoppler.WorkplaceRole do
   <!-- tabs-open -->
   ### Params
     * **wp_role**: Map of fields to turn into a `WorkplaceRole`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.WorkplaceRole{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

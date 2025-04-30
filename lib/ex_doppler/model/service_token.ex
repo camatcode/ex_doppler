@@ -12,7 +12,7 @@ defmodule ExDoppler.ServiceToken do
     * `environment` - Environment associated with the token (e.g `"prd"`)
     * `expires_at` - Date and Time this token will expire (e.g `"2023-08-01T00:00:00.000Z"`)
 
-  #{ExDoppler.Doc.resources_block("service-tokens", "service_tokens-list")}
+  #{ExDoppler.Doc.resources("service-tokens", "service_tokens-list")}
 
   <!-- tabs-close -->
   """
@@ -26,6 +26,8 @@ defmodule ExDoppler.ServiceToken do
   <!-- tabs-open -->
   ### Params
     * **token**: Map of fields to turn into a `ServiceToken`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ServiceToken{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

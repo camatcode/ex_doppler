@@ -11,7 +11,7 @@ defmodule ExDoppler.ProjectMember do
     * `slug` - Unique identifier for project member (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
     * `type` - member type (e.g `"workplace_user"`)
 
-  #{ExDoppler.Doc.resources_block("project-permissions#by-project", "project_members-list")}
+  #{ExDoppler.Doc.resources("project-permissions#by-project", "project_members-list")}
 
   <!-- tabs-close -->
   """
@@ -27,6 +27,8 @@ defmodule ExDoppler.ProjectMember do
   <!-- tabs-open -->
   ### Params
     * **member**: Map of fields to turn into a `ProjectMember`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ProjectMember{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """
@@ -54,7 +56,7 @@ defmodule ExDoppler.ProjectMemberRole do
   ### Fields
     * `identifier` - e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
 
-  #{ExDoppler.Doc.resources_block("project-permissions#by-project", "project_members-list")}
+  #{ExDoppler.Doc.resources("project-permissions#by-project", "project_members-list")}
 
   <!-- tabs-close -->
   """
@@ -69,6 +71,8 @@ defmodule ExDoppler.ProjectMemberRole do
   <!-- tabs-open -->
   ### Params
     * **role**: Map of fields to turn into a `ProjectMemberRole`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ProjectMemberRole{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

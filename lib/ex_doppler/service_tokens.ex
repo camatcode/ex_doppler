@@ -5,7 +5,7 @@ defmodule ExDoppler.ServiceTokens do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.resources_block("service-tokens", "service_tokens-list")}
+  #{ExDoppler.Doc.resources("service-tokens", "service_tokens-list")}
 
   <!-- tabs-close -->
   """
@@ -24,7 +24,7 @@ defmodule ExDoppler.ServiceTokens do
   ### Params
    * **config** - Config associated with the tokens (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.ServiceToken{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ServiceToken{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -66,7 +66,7 @@ defmodule ExDoppler.ServiceTokens do
       * **expire_at** - Unix timestamp of when token should expire. Default: `nil`
       * **access** - Token's capabilities. `"read"` or `"read/write"`. Default: `"read"`
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.ServiceToken{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ServiceToken{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -115,7 +115,7 @@ defmodule ExDoppler.ServiceTokens do
   ### Params
     * **service_token**: The token to delete (e.g `%ServiceToken{project: "example-project", config: "dev_personal", slug: "56c69f96-3045-11ea-978f-2e728ce8812"}`)
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
   ### Resources
 

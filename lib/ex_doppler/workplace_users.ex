@@ -5,7 +5,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.resources_block("workplace-team#user-management", "users-list")}
+  #{ExDoppler.Doc.resources("workplace-team#user-management", "users-list")}
 
   <!-- tabs-close -->
   """
@@ -25,7 +25,7 @@ defmodule ExDoppler.WorkplaceUsers do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **email** - Filter results to only include the user with the provided email address. Default: `nil`
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, [%ExDoppler.WorkplaceUser{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceUser{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -62,7 +62,7 @@ defmodule ExDoppler.WorkplaceUsers do
   ### Params
     * **id** - ID of the Workplace User to retrieve
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -98,7 +98,7 @@ defmodule ExDoppler.WorkplaceUsers do
     * **workplace_user**: The relevant environment (e.g `%WorkplaceUser{id: "98370f9a-0675-430a-abbc-dbb02b78c5a8" ...}`)
     * **new_access**: E.g., `:owner`, `:collaborator`, etc.
 
-  #{ExDoppler.Doc.returns_block(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
   ### Resources
 
