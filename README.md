@@ -29,6 +29,11 @@
   <a href="https://opensource.org/licenses/Apache-2.0">
     <img alt="Apache 2 License" src="https://img.shields.io/hexpm/l/oban">
   </a>
+
+  <a href="https://mastodon.social/@scrum_log">
+    <img alt="Mastodon Follow" src="https://img.shields.io/mastodon/follow/114399792817783089?style=flat">
+  </a>
+
 </p>
 
 ## Table of Contents
