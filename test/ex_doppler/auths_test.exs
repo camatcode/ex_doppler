@@ -4,7 +4,7 @@ defmodule ExDoppler.AuthsTest do
 
   alias ExDoppler.Auths
 
-  test "Auths" do
+  test "me/0" do
     assert {:ok, token_info} = Auths.me()
     assert token_info.slug
     assert token_info.created_at
@@ -12,5 +12,7 @@ defmodule ExDoppler.AuthsTest do
     assert token_info.type
     assert token_info.token_preview
     assert token_info.workplace
+
+    assert token_info.slug == Auths.me!().slug
   end
 end
