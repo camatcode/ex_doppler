@@ -10,6 +10,15 @@
   Manage and access your Doppler secrets without leaving Elixir
 </p>
 
+## Installation
+
+Add `:ex_doppler` to your list of deps in `mix.exs`:
+
+```elixir
+{:oban, "~> 1.0"}
+```
+
+Then run `mix deps.get` to install ExDoppler and its dependencies.
 
 ## Implementation Status
 
