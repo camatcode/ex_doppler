@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Share do
   @moduledoc """
-  Module describing a [Doppler Share Link](https://docs.doppler.com/reference/share-secret){:target="_blank"}
+  Module describing a Share Link
 
   <!-- tabs-open -->
   ### Fields
@@ -9,12 +9,7 @@ defmodule ExDoppler.Share do
     * `authenticated_url` - URL which includes the password (so the user doesn't have to type it in)
     * `password` - Password to open the secret
 
-  ### Resources
-    * See: `ExDoppler.Shares`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/share-secret){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("share-security", "share-secret")}
 
   <!-- tabs-close -->
   """

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ServiceToken do
   @moduledoc """
-  Module describing a [Doppler Service Token](https://docs.doppler.com/reference/service_tokens-object){:target="_blank"}
+  Module describing a Service Token
 
   <!-- tabs-open -->
   ### Fields
@@ -12,12 +12,7 @@ defmodule ExDoppler.ServiceToken do
     * `environment` - Environment associated with the token (e.g `"prd"`)
     * `expires_at` - Date and Time this token will expire (e.g `"2023-08-01T00:00:00.000Z"`)
 
-  ### Resources
-    * See: `ExDoppler.ServiceTokens`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/service_tokens-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("service-tokens", "service_tokens-list")}
 
   <!-- tabs-close -->
   """

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.WorkplaceRole do
   @moduledoc """
-  Module describing a [Doppler Workplace Role](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
+  Module describing a WorkplaceRole
 
   <!-- tabs-open -->
   ### Fields
@@ -12,12 +12,7 @@ defmodule ExDoppler.WorkplaceRole do
     * `name` - Human readable name (e.g `"Admin"`)
     * `permissions` - see `all_permissions/0`
 
-  ### Resources
-    * See: `ExDoppler.WorkplaceRoles`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("custom-roles", "workplace_roles-list")}
 
   <!-- tabs-close -->
   """

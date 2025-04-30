@@ -4,13 +4,8 @@ defmodule ExDoppler.ActivityLogs do
   Module for interacting with `ExDoppler.ActivityLog`
 
   <!-- tabs-open -->
-  ### Resources
-    * See: `ExDoppler.ActivityLog`
-    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#activity-logs){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  #{ExDoppler.Doc.resources_block("workplace-logs#activity-logs", "activity_logs-object")}
 
   <!-- tabs-close -->
   """

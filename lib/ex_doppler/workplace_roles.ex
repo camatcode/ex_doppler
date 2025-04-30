@@ -5,13 +5,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.WorkplaceRole`
-    * See: [Doppler docs](https://docs.doppler.com/docs/custom-roles){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("custom-roles", "workplace_roles-list")}
 
   <!-- tabs-close -->
   """

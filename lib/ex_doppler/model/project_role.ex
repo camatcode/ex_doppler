@@ -11,12 +11,7 @@ defmodule ExDoppler.ProjectRole do
     * `name` - Name of role (e.g `"viewer"`)
     * `permissions` - member type (e.g `["enclave_config_logs", "enclave_project_config_secrets_read"...]`)
 
-  ### Resources
-    * See: `ExDoppler.ProjectRoles`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/project_roles-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("project-permissions", "project_roles-list")}
 
   <!-- tabs-close -->
   """

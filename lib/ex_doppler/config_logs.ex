@@ -5,13 +5,7 @@ defmodule ExDoppler.ConfigLogs do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.ConfigLog`
-    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#config-logs){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("workplace-logs#config-logs", "config_logs-object")}
 
   <!-- tabs-close -->
   """

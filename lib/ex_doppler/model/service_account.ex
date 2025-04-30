@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ServiceAccount do
   @moduledoc """
-  Module describing a [Doppler Service Account](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}
+  Module describing a Service Account
 
   <!-- tabs-open -->
   ### Fields
@@ -10,12 +10,7 @@ defmodule ExDoppler.ServiceAccount do
     * `created_at` - Date and Time for this Service Account's creation (e.g `"2023-08-01T00:00:00.000Z"`)
     * `workplace_role` - See `ExDoppler.WorkplaceRole`
 
-  ### Resources
-    * See: `ExDoppler.ServiceAccounts`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("service-accounts", "service_accounts-list")}
 
   <!-- tabs-close -->
   """

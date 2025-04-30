@@ -5,13 +5,7 @@ defmodule ExDoppler.ServiceAccounts do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.ServiceAccount`
-    * See: [Doppler docs](https://docs.doppler.com/docs/service-accounts){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("service-accounts", "service_accounts-list")}
 
   <!-- tabs-close -->
   """

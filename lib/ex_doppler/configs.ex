@@ -5,13 +5,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.Config`
-    * See: [Doppler docs](https://docs.doppler.com/docs/root-configs){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/configs-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("root-configs", "configs-object")}
 
   <!-- tabs-close -->
   """

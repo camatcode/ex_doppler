@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Config do
   @moduledoc """
-  Module describing a [Doppler Config](https://docs.doppler.com/reference/configs-object){:target="_blank"}
+  Module describing a Conifg
 
   <!-- tabs-open -->
 
@@ -19,12 +19,7 @@ defmodule ExDoppler.Config do
     * `root` - Whether the config is the root of the environment (e.g `true`)
     * `slug` - Unique identifier for this config (e.g `"00000000-0000-0000-0000-000000000000"`)
 
-  ### Resources
-    * See: `ExDoppler.Configs`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/configs-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("root-configs", "configs-object")}
 
   <!-- tabs-close -->
   """

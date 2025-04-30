@@ -5,13 +5,7 @@ defmodule ExDoppler.ProjectMembers do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.ProjectMember`
-    * See: [Doppler docs](https://docs.doppler.com/docs/project-permissions#by-project){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/project_members-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources_block("project-permissions#by-project", "project_members-list")}
 
   <!-- tabs-close -->
   """

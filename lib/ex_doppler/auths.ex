@@ -10,8 +10,8 @@ defmodule ExDoppler.Auths do
     * See: `ExDoppler.ODICToken`
     * See: [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
     * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+      * #{ExDoppler.Doc.maintainer_github()}
+      * #{ExDoppler.Doc.maintainer_fediverse()}
 
   <!-- tabs-close -->
   """
