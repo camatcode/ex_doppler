@@ -6,7 +6,7 @@ defmodule ExDoppler.ProjectMembersTest do
   alias ExDoppler.Projects
 
   test "Project Members" do
-    {:ok, %{page: 1, projects: [project | _]}} = Projects.list_projects()
+    {:ok, [project | _]} = Projects.list_projects()
     assert {:ok, members} = ProjectMembers.list_project_members(project, page: 1, per_page: 2)
     refute Enum.empty?(members)
 

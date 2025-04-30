@@ -7,8 +7,8 @@ defmodule ExDoppler.ConfigsTest do
   alias ExDoppler.Projects
 
   test "Configs" do
-    assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
-    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project)
+    assert {:ok, [project | _]} = Projects.list_projects()
+    assert {:ok, configs} = Configs.list_configs(project)
     refute Enum.empty?(configs)
 
     configs
@@ -27,7 +27,7 @@ defmodule ExDoppler.ConfigsTest do
       assert {:ok, config} == Configs.get_config(config.project, config.name)
     end)
 
-    assert {:ok, %{page: 1, environments: [environment | _]}} =
+    assert {:ok, [environment | _]} =
              Environments.list_environments(project)
 
     new_config_name = environment.slug <> "_two-three-four"
@@ -62,7 +62,7 @@ defmodule ExDoppler.ConfigsTest do
     assert {:ok, _} = Configs.delete_config(project.name, cloned_config.name)
     assert {:ok, _} = Configs.delete_config(project.name, new_config.name)
 
-    assert {:ok, %{page: 1, configs: [_config]}} =
+    assert {:ok, [_config]} =
              Configs.list_configs(project, per_page: 1)
   end
 end

@@ -7,13 +7,13 @@ defmodule ExDoppler.ConfigLogsTest do
   alias ExDoppler.Projects
 
   test "config logs" do
-    assert {:ok, %{projects: [project | _]}} = Projects.list_projects()
-    assert {:ok, %{page: 1, configs: configs}} = Configs.list_configs(project)
+    assert {:ok, [project | _]} = Projects.list_projects()
+    assert {:ok, configs} = Configs.list_configs(project)
     refute Enum.empty?(configs)
 
     configs
     |> Enum.each(fn config ->
-      {:ok, %{page: 1, logs: logs}} =
+      {:ok, logs} =
         ConfigLogs.list_config_logs(config)
 
       logs
