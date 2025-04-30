@@ -32,9 +32,9 @@ defmodule ExDoppler.Projects do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_projects(opts \\ []) do
@@ -80,9 +80,9 @@ defmodule ExDoppler.Projects do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-get){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_project(identifier) when is_bitstring(identifier) do
@@ -127,9 +127,9 @@ defmodule ExDoppler.Projects do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-create){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-create){:target="_blank"}
   <!-- tabs-close -->
   """
   def create_project(project_name, description \\ "")
@@ -178,9 +178,9 @@ defmodule ExDoppler.Projects do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-update){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-update){:target="_blank"}
   <!-- tabs-close -->
   """
   def update_project(%Project{name: current_project_name}, opts \\ []) do
@@ -233,9 +233,9 @@ defmodule ExDoppler.Projects do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/projects-delete){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-delete){:target="_blank"}
   <!-- tabs-close -->
   """
   def delete_project(%Project{name: project_name}) do
@@ -277,9 +277,9 @@ defmodule ExDoppler.Projects do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-list_permissions){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-list_permissions){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_project_permissions do

@@ -1,7 +1,8 @@
 defmodule ExDoppler.WorkplaceRole do
   @moduledoc """
-  Module describing a [Doppler Workplace Role](https://docs.doppler.com/reference/workplace_roles-list)
+  Module describing a [Doppler Workplace Role](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
 
+  <!-- tabs-open -->
   ### Fields
     * `created_at` - Creation Date and Time (e.g `"2023-08-01T00:00:00.000Z"`)
     * `identifier` - ID of the role (e.g `"admin"`)
@@ -9,6 +10,15 @@ defmodule ExDoppler.WorkplaceRole do
     * `is_inline_role` - Whether role is inline (e.g `false`)
     * `name` - Human readable name (e.g `"Admin"`)
     * `permissions` - see `all_permissions/0`
+
+  ### Help
+    * See: `ExDoppler.WorkplaceRoles`
+    * See: [Doppler API docs](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   import ExDoppler.Model
@@ -50,8 +60,11 @@ defmodule ExDoppler.WorkplaceRole do
   @doc """
   Creates a `WorkplaceRole` from a map
 
+  <!-- tabs-open -->
   ### Params
     * **wp_role**: Map of fields to turn into a `WorkplaceRole`
+
+  <!-- tabs-close -->
   """
   def build(%{} = wp_role), do: struct(ExDoppler.WorkplaceRole, prepare_keys(wp_role))
 end

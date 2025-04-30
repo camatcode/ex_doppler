@@ -32,9 +32,9 @@ defmodule ExDoppler.Invites do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_invites(opts \\ []) do

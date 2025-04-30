@@ -34,9 +34,9 @@ defmodule ExDoppler.Environments do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_environments(%Project{name: project_name}, opts \\ []) do
@@ -83,9 +83,9 @@ defmodule ExDoppler.Environments do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-get){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-get){:target="_blank"}
   """
   def get_environment(%Project{name: project_name}, environment_slug)
       when is_bitstring(environment_slug) do
@@ -134,9 +134,9 @@ defmodule ExDoppler.Environments do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-create){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-create){:target="_blank"}
   <!-- tabs-close -->
   """
   def create_environment(
@@ -196,9 +196,9 @@ defmodule ExDoppler.Environments do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-rename){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-rename){:target="_blank"}
   <!-- tabs-close -->
   """
   def update_environment(%Environment{project: project_name, slug: env_slug}, opts \\ []) do
@@ -257,9 +257,9 @@ defmodule ExDoppler.Environments do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/environments-delete){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/environments-delete){:target="_blank"}
   <!-- tabs-close -->
   """
   def delete_environment(%Environment{project: project_name, slug: env_slug}) do

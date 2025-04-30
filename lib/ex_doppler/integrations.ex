@@ -26,9 +26,9 @@ defmodule ExDoppler.Integrations do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_integrations do
@@ -72,9 +72,9 @@ defmodule ExDoppler.Integrations do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-get){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-get){:target="_blank"}
   """
   def get_integration(integration_slug) when is_bitstring(integration_slug) do
     path =
@@ -124,9 +124,9 @@ defmodule ExDoppler.Integrations do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-create){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-create){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -175,9 +175,9 @@ defmodule ExDoppler.Integrations do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-update){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-update){:target="_blank"}
   <!-- tabs-close -->
   """
   def update_integration(%Integration{slug: slug}, new_name, new_data)
@@ -229,9 +229,9 @@ defmodule ExDoppler.Integrations do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/get-options){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/get-options){:target="_blank"}
   """
   def get_integration_options(integration_slug) when is_bitstring(integration_slug) do
     path =
@@ -274,9 +274,9 @@ defmodule ExDoppler.Integrations do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/integrations-delete){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/integrations-delete){:target="_blank"}
   <!-- tabs-close -->
   """
   def delete_integration(%Integration{slug: slug}) do

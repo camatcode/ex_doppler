@@ -1,6 +1,8 @@
 defmodule ExDoppler.ConfigLog do
   @moduledoc """
-  Module describing a [Doppler Config Log](https://docs.doppler.com/reference/config_logs-object)
+  Module describing a [Doppler Config Log](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
+
+  <!-- tabs-open -->
 
   ### Fields
     * `config` - Name of the config (e.g `"dev_personal"`)
@@ -12,6 +14,15 @@ defmodule ExDoppler.ConfigLog do
     * `rollback` - Whether this config log a rollback of a previous log.
     * `text` - Text describing the event (e.g `"Modified secrets and saved to vault"`)
     * `user` - Relevant User. See `ExDoppler.User`
+
+  ### Help
+    * See: `ExDoppler.ConfigLogs`
+    * See: [Doppler API docs](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   import ExDoppler.Model
@@ -23,8 +34,11 @@ defmodule ExDoppler.ConfigLog do
   @doc """
   Creates an `ConfigLog` from a map
 
+  <!-- tabs-open -->
   ### Params
     * **log**: Map of fields to turn into a `ConfigLog`
+
+  <!-- tabs-close -->
   """
   def build(%{} = log) do
     fields =

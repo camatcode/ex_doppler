@@ -26,9 +26,9 @@ defmodule ExDoppler.ProjectRoles do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_project_roles do
@@ -72,9 +72,9 @@ defmodule ExDoppler.ProjectRoles do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-get){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_project_role(identifier) when is_bitstring(identifier) do
@@ -119,9 +119,9 @@ defmodule ExDoppler.ProjectRoles do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/project_roles-create){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/project_roles-create){:target="_blank"}
   <!-- tabs-close -->
   """
   def create_project_role(name, permissions)

@@ -1,6 +1,18 @@
 defmodule ExDoppler.Auths do
   @moduledoc """
   Module for interacting with `ExDoppler.TokenInfo` and `ExDoppler.ODICToken`
+
+  <!-- tabs-open -->
+
+  ### Help
+    * See: `ExDoppler.TokenInfo`
+    * See: `ExDoppler.ODICToken`
+    * See: [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.ODICToken
@@ -25,9 +37,10 @@ defmodule ExDoppler.Auths do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def me do
@@ -70,9 +83,9 @@ defmodule ExDoppler.Auths do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-oidc){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/auth-oidc){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -116,9 +129,9 @@ defmodule ExDoppler.Auths do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/auth-revoke){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/auth-revoke){:target="_blank"}
 
   <!-- tabs-close -->
   """

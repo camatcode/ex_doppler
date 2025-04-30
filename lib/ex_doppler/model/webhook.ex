@@ -1,7 +1,8 @@
 defmodule ExDoppler.Webhook do
   @moduledoc """
-  Module describing a [Doppler Webhook](https://docs.doppler.com/reference/webhooks-list)
+  Module describing a [Doppler Webhook](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
 
+  <!-- tabs-open -->
   ### Fields
     * `authentication` - See `ExDoppler.WebhookAuth`
     * `can_manage` - Token in use can manage this webhook (e.g `true`)
@@ -11,6 +12,15 @@ defmodule ExDoppler.Webhook do
     * `id` - Unique ID for webhook, (e.g `"00000000-0000-0000-0000-000000000000"`)
     * `name` - Human readable name for webhook (e.g `"my-new-webhook"`)
     * `url` - Webhook's URL (e.g `"https://httpbin.org/post"`)
+
+  ### Help
+    * See: `ExDoppler.Webhooks`
+    * See: [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   import ExDoppler.Model
@@ -31,8 +41,11 @@ defmodule ExDoppler.Webhook do
   @doc """
   Creates a `Webhook` from a map
 
+  <!-- tabs-open -->
   ### Params
     * **webhook**: Map of fields to turn into a `Webhook`
+
+  <!-- tabs-close -->
   """
   def build(%{} = webhook) do
     fields =
@@ -52,11 +65,21 @@ defmodule ExDoppler.WebhookAuth do
   @moduledoc """
   Module describing a WebhookAuth. See `ExDoppler.Webhook`
 
+  <!-- tabs-open -->
   ### Fields
     * `type` - either `"Basic"` or `"Bearer"`
     * `token` - If `type = "Bearer"`, the Bearer token
     * `username` - If `type = "Basic"`, the username to use. (e.g `"joe"`)
     * `has_password` - If `type = "Basic"`, that there is a password associated. (e.g `false`)
+
+  ### Help
+    * See: `ExDoppler.Webhooks`
+    * See: [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   import ExDoppler.Model
@@ -71,8 +94,11 @@ defmodule ExDoppler.WebhookAuth do
   @doc """
   Creates a `WebhookAuth` from a map
 
+  <!-- tabs-open -->
   ### Params
     * **auth**: Map of fields to turn into a `WebhookAuth`
+
+  <!-- tabs-close -->
   """
   def build(%{} = auth), do: struct(ExDoppler.WebhookAuth, prepare_keys(auth))
 end

@@ -1,6 +1,17 @@
 defmodule ExDoppler.ActivityLogs do
   @moduledoc """
   Module for interacting with `ExDoppler.ActivityLog`
+
+  <!-- tabs-open -->
+  ### Help
+    * See: `ExDoppler.ActivityLog`
+    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#activity-logs){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.ActivityLog
@@ -32,9 +43,9 @@ defmodule ExDoppler.ActivityLogs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/activity_logs-list){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -78,9 +89,9 @@ defmodule ExDoppler.ActivityLogs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/activity_logs-retrieve){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/activity_logs-retrieve){:target="_blank"}
 
   <!-- tabs-close -->
   """

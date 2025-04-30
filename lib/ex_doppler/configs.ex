@@ -34,9 +34,9 @@ defmodule ExDoppler.Configs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-list){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -84,9 +84,9 @@ defmodule ExDoppler.Configs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-get){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-get){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -135,9 +135,9 @@ defmodule ExDoppler.Configs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-create){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-create){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -185,9 +185,9 @@ defmodule ExDoppler.Configs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-update){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-update){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -239,9 +239,9 @@ defmodule ExDoppler.Configs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-clone){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-clone){:target="_blank"}
   <!-- tabs-close -->
   """
   def clone_config(project_name, source_config, new_config_name)
@@ -291,9 +291,9 @@ defmodule ExDoppler.Configs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-lock){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-lock){:target="_blank"}
   <!-- tabs-close -->
   """
   def lock_config(project_name, config_name)
@@ -342,9 +342,9 @@ defmodule ExDoppler.Configs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-unlock){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-unlock){:target="_blank"}
   <!-- tabs-close -->
   """
   def unlock_config(project_name, config_name)
@@ -414,9 +414,9 @@ defmodule ExDoppler.Configs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/configs-delete){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/configs-delete){:target="_blank"}
   <!-- tabs-close -->
   """
   def delete_config(project_name, config_name)

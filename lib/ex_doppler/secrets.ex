@@ -36,9 +36,9 @@ defmodule ExDoppler.Secrets do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_secrets(%Config{name: config_name, project: project_name}, opts \\ []) do
@@ -95,9 +95,9 @@ defmodule ExDoppler.Secrets do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-get){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_secret(%Config{name: config_name, project: project_name}, secret_name)
@@ -146,9 +146,9 @@ defmodule ExDoppler.Secrets do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-download){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-download){:target="_blank"}
   <!-- tabs-close -->
   """
   def download(%Config{name: config_name, project: project_name}, opts \\ []) do
@@ -210,9 +210,9 @@ defmodule ExDoppler.Secrets do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-names){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-names){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_secret_names(%Config{name: config_name, project: project_name}, opts \\ []) do
@@ -271,9 +271,9 @@ defmodule ExDoppler.Secrets do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-update){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-update){:target="_blank"}
   <!-- tabs-close -->
   """
   def create_secret(%Config{} = config, new_secret_name, value, opts \\ []) do
@@ -316,9 +316,9 @@ defmodule ExDoppler.Secrets do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-update){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-update){:target="_blank"}
   <!-- tabs-close -->
   """
   def update_secret(
@@ -408,9 +408,9 @@ defmodule ExDoppler.Secrets do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-update_note){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-update_note){:target="_blank"}
   """
   def update_secret_note(project_name, secret_name, note)
       when is_bitstring(project_name) and
@@ -456,9 +456,9 @@ defmodule ExDoppler.Secrets do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/secrets-delete){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/secrets-delete){:target="_blank"}
   """
   def delete_secret(%Config{name: config_name, project: project_name}, secret_name)
       when is_bitstring(secret_name) do

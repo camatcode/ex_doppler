@@ -1,7 +1,8 @@
 defmodule ExDoppler.ServiceToken do
   @moduledoc """
-  Module describing a [Doppler Service Token](https://docs.doppler.com/reference/service_tokens-object)
+  Module describing a [Doppler Service Token](https://docs.doppler.com/reference/service_tokens-object){:target="_blank"}
 
+  <!-- tabs-open -->
   ### Fields
     * `name` - Name of the service token. (e.g `"AWS Lambda"`)
     * `slug` - Unique slug for this token (e.g `"00000000-0000-0000-0000-000000000000"`)
@@ -9,6 +10,15 @@ defmodule ExDoppler.ServiceToken do
     * `config` - Config associated with the token (e.g `"prd_aws"`)
     * `environment` - Environment associated with the token (e.g `"prd"`)
     * `expires_at` - Date and Time this token will expire (e.g `"2023-08-01T00:00:00.000Z"`)
+
+  ### Help
+    * See: `ExDoppler.ServiceTokens`
+    * See: [Doppler API docs](https://docs.doppler.com/reference/service_tokens-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
   import ExDoppler.Model
 
@@ -17,8 +27,11 @@ defmodule ExDoppler.ServiceToken do
   @doc """
   Creates an `ServiceToken` from a map
 
+  <!-- tabs-open -->
   ### Params
     * **token**: Map of fields to turn into a `ServiceToken`
+
+  <!-- tabs-close -->
   """
   def build(%{} = token), do: struct(ExDoppler.ServiceToken, prepare_keys(token))
 end

@@ -32,9 +32,9 @@ defmodule ExDoppler.ServiceAccounts do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_accounts-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_service_accounts(opts \\ []) do

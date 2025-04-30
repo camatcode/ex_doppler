@@ -33,9 +33,9 @@ defmodule ExDoppler.SecretsSyncs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/syncs-get){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_secrets_sync(%Config{name: config_name, project: project_slug}, sync_slug)
@@ -90,9 +90,9 @@ defmodule ExDoppler.SecretsSyncs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/syncs-create){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-create){:target="_blank"}
   <!-- tabs-close -->
   """
   def create_secrets_sync(
@@ -142,9 +142,9 @@ defmodule ExDoppler.SecretsSyncs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/syncs-delete){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/syncs-delete){:target="_blank"}
   <!-- tabs-close -->
   """
   def delete_secrets_sync(

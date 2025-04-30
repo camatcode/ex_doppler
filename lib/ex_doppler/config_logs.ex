@@ -34,9 +34,9 @@ defmodule ExDoppler.ConfigLogs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/config_logs-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-list){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -85,9 +85,9 @@ defmodule ExDoppler.ConfigLogs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/config_logs-get){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-get){:target="_blank"}
 
   <!-- tabs-close -->
   """
@@ -135,9 +135,9 @@ defmodule ExDoppler.ConfigLogs do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/config_logs-rollback){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/config_logs-rollback){:target="_blank"}
   <!-- tabs-close -->
   """
   def rollback_config_log(%ConfigLog{project: project_name, config: config_name, id: log_id}) do

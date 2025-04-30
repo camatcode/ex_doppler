@@ -32,9 +32,9 @@ defmodule ExDoppler.WorkplaceUsers do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_workplace_users(opts \\ []) do
@@ -82,9 +82,9 @@ defmodule ExDoppler.WorkplaceUsers do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-get){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-get){:target="_blank"}
   <!-- tabs-close -->
   """
   def get_workplace_user(id) when is_bitstring(id) do
@@ -129,9 +129,9 @@ defmodule ExDoppler.WorkplaceUsers do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/users-update){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/users-update){:target="_blank"}
   <!-- tabs-close -->
   """
   def update_workplace_user(%WorkplaceUser{id: id}, new_access)

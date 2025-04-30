@@ -31,9 +31,9 @@ defmodule ExDoppler.ServiceTokens do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-list){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_tokens-list){:target="_blank"}
   <!-- tabs-close -->
   """
   def list_service_tokens(%Config{name: config_name, project: project_name}) do
@@ -84,9 +84,9 @@ defmodule ExDoppler.ServiceTokens do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-create){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_tokens-create){:target="_blank"}
   <!-- tabs-close -->
   """
   def create_service_token(
@@ -144,9 +144,9 @@ defmodule ExDoppler.ServiceTokens do
     {:err, err}
     ```
 
-  ### Doppler Docs
+  ### Resources
 
-  See relevant [Doppler Docs](https://docs.doppler.com/reference/service_tokens-delete){:target="_blank"}
+    * See relevant [Doppler API docs](https://docs.doppler.com/reference/service_tokens-delete){:target="_blank"}
   """
   def delete_service_token(%ServiceToken{project: project_name, config: config_name, slug: slug}) do
     body = %{project: project_name, config: config_name, slug: slug}
