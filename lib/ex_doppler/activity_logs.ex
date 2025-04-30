@@ -27,6 +27,11 @@ defmodule ExDoppler.ActivityLogs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ActivityLog{...} ...]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.ActivityLogs
+      iex> {:ok, _logs} = ActivityLogs.list_activity_logs(page: 1, per_page: 20)
+
   #{ExDoppler.Doc.resources("activity_logs-list")}
 
   <!-- tabs-close -->
@@ -58,6 +63,13 @@ defmodule ExDoppler.ActivityLogs do
     * **id**: Unique identifier for the log object. (e.g `"dmwk7ra70oem3xa"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ActivityLog{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.ActivityLogs
+      iex> alias ExDoppler.ActivityLog
+      iex> [%ActivityLog{id: id} | _ ] = ActivityLogs.list_activity_logs!(page: 1, per_page: 20)
+      iex> {:ok, _log = %ActivityLog{}} = ActivityLogs.get_activity_log(id)
 
   #{ExDoppler.Doc.resources("activity_logs-retrieve")}
 
