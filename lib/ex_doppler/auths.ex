@@ -20,6 +20,12 @@ defmodule ExDoppler.Auths do
   <!-- tabs-open -->
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.TokenInfo{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.TokenInfo
+      iex> alias ExDoppler.Auths
+      iex> {:ok, _token_info = %TokenInfo{}} = Auths.me()
+
   #{ExDoppler.Doc.resources("auth-me")}
 
   <!-- tabs-close -->
