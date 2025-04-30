@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ConfigLog do
   @moduledoc """
-  Module describing a [Doppler Config Log](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
+  Module describing a ConfigLog
 
   <!-- tabs-open -->
 
@@ -16,12 +16,7 @@ defmodule ExDoppler.ConfigLog do
     * `text` - Text describing the event (e.g `"Modified secrets and saved to vault"`)
     * `user` - Relevant User. See `ExDoppler.User`
 
-  ### Resources
-    * See: `ExDoppler.ConfigLogs`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-logs#config-logs", "config_logs-object")}
 
   <!-- tabs-close -->
   """
@@ -38,6 +33,8 @@ defmodule ExDoppler.ConfigLog do
   <!-- tabs-open -->
   ### Params
     * **log**: Map of fields to turn into a `ConfigLog`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ConfigLog{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

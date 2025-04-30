@@ -5,13 +5,7 @@ defmodule ExDoppler.ProjectMembers do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.ProjectMember`
-    * See: [Doppler docs](https://docs.doppler.com/docs/project-permissions#by-project){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/project_members-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("project-permissions#by-project", "project_members-list")}
 
   <!-- tabs-close -->
   """
@@ -33,19 +27,7 @@ defmodule ExDoppler.ProjectMembers do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ProjectMember` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.ProjectMember{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ProjectMember{...}]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -84,19 +66,7 @@ defmodule ExDoppler.ProjectMembers do
     * **member_type**: type of member (e.g `"workplace_user"`)
     * **member_slug**: slug of member (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ProjectMember{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectMember{...}}", failure: "{:err, err}")}
 
   ### Resources
 

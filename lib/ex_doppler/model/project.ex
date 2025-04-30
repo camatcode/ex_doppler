@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Project do
   @moduledoc """
-  Module describing a [Doppler Project](https://docs.doppler.com/reference/projects-object){:target="_blank"}
+  Module describing a Project
 
   <!-- tabs-open -->
   ### Fields
@@ -11,12 +11,7 @@ defmodule ExDoppler.Project do
     * `name` - Name of the project (e.g `"example-project"`)
     * `slug` - Slug of project (e.g `"example-project"`)
 
-  ### Resources
-    * See: `ExDoppler.Projects`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/projects-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("create-project", "projects-object")}
 
   <!-- tabs-close -->
   """
@@ -30,6 +25,8 @@ defmodule ExDoppler.Project do
   <!-- tabs-open -->
   ### Params
     * **project**: Map of fields to turn into a `Project`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Project{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

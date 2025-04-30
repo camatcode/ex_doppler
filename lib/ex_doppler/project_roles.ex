@@ -5,13 +5,7 @@ defmodule ExDoppler.ProjectRoles do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.ProjectRole`
-    * See: [Doppler docs](https://docs.doppler.com/docs/project-permissions){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/project_roles-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("project-permissions", "project_roles-list")}
 
   <!-- tabs-close -->
   """
@@ -25,19 +19,7 @@ defmodule ExDoppler.ProjectRoles do
   Lists `ExDoppler.ProjectRole`
 
   <!-- tabs-open -->
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.ProjectRole{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ProjectRole{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -72,19 +54,7 @@ defmodule ExDoppler.ProjectRoles do
   ### Params
    * **identifier** - identifier for role -  e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ProjectRole{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -120,19 +90,7 @@ defmodule ExDoppler.ProjectRoles do
     * **name**: Role name (e.g `"viewer_but_different"`)
     * **permissions**: List of permissions given to the role. See [Doppler Docs](https://docs.doppler.com/reference/project_roles-create){:target="_blank"}
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ProjectRole{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:err, err}")}
 
   ### Resources
 

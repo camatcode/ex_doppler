@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Environment do
   @moduledoc """
-  Module describing a [Doppler Environment](https://docs.doppler.com/reference/environments-object){:target="_blank"}
+  Module describing an Environment
 
   <!-- tabs-open -->
   ### Fields
@@ -12,12 +12,7 @@ defmodule ExDoppler.Environment do
     * `project` - Unique identifier for the project object (e.g `"example-project"`)
     * `slug` - Unique identifier for the object (e.g `"eot"`)
 
-  ### Resources
-    * See: `ExDoppler.Environments`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/environments-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("create-project#environments", "environments-object")}
 
   <!-- tabs-close -->
   """
@@ -30,6 +25,8 @@ defmodule ExDoppler.Environment do
   <!-- tabs-open -->
   ### Params
     * **env**: Map of fields to turn into a `Environment`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Environment{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

@@ -13,12 +13,7 @@ defmodule ExDoppler.TokenInfo do
     * `token_preview` - Used when referring to this token (e.g `dp.pt....ABCdEF`)
     * `workplace` - Relevant `ExDoppler.Workplace`.
 
-  ### Resources
-    * See: `ExDoppler.Auths`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/auth-me){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("service-account-identities", "auth-me")}
 
   <!-- tabs-close -->
   """
@@ -35,6 +30,8 @@ defmodule ExDoppler.TokenInfo do
   <!-- tabs-open -->
   ### Params
     * **token_info**: Map of fields to turn into a `TokenInfo`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.TokenInfo{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """
@@ -63,12 +60,7 @@ defmodule ExDoppler.ODICToken do
     * `token` - ODIC Token
     * `created_at` - DateTime creation for this token (e.g `"2025-04-24T15:53:27.189Z"`)
 
-  ### Resources
-    * See: `ExDoppler.Auths`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/auth-oidc){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("service-account-identities", "auth-me")}
 
   <!-- tabs-close -->
   """
@@ -83,6 +75,8 @@ defmodule ExDoppler.ODICToken do
   <!-- tabs-open -->
   ### Params
     * **odic_token**: Map of fields to turn into a `ODICToken`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ODICToken{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

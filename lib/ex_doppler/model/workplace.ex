@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Workplace do
   @moduledoc """
-  Module describing a [Doppler Workplace](https://docs.doppler.com/reference/workplace-object){:target="_blank"}
+  Module describing a Workplace
 
   <!-- tabs-open -->
   ### Fields
@@ -10,12 +10,7 @@ defmodule ExDoppler.Workplace do
     * `security_email` - Email to send security notices to.
     * `id` - Unique ID for the Workplace(e.g `"bc391a7dba8924cd9b69"`)
 
-  ### Resources
-    * See: `ExDoppler.Workplaces`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/workplace-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-structure", "workplace-object")}
 
   <!-- tabs-close -->
   """
@@ -28,6 +23,8 @@ defmodule ExDoppler.Workplace do
   <!-- tabs-open -->
   ### Params
     * **wp**: Map of fields to turn into a `Workplace`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Workplace{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

@@ -5,13 +5,7 @@ defmodule ExDoppler.ServiceTokens do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.ServiceToken`
-    * See: [Doppler docs](https://docs.doppler.com/docs/service-tokens){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/service_tokens-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("service-tokens", "service_tokens-list")}
 
   <!-- tabs-close -->
   """
@@ -30,19 +24,7 @@ defmodule ExDoppler.ServiceTokens do
   ### Params
    * **config** - Config associated with the tokens (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.ServiceToken{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ServiceToken{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -84,19 +66,7 @@ defmodule ExDoppler.ServiceTokens do
       * **expire_at** - Unix timestamp of when token should expire. Default: `nil`
       * **access** - Token's capabilities. `"read"` or `"read/write"`. Default: `"read"`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ServiceToken{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ServiceToken{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -145,19 +115,7 @@ defmodule ExDoppler.ServiceTokens do
   ### Params
     * **service_token**: The token to delete (e.g `%ServiceToken{project: "example-project", config: "dev_personal", slug: "56c69f96-3045-11ea-978f-2e728ce8812"}`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, {:success, true}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
   ### Resources
 

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ActivityLog do
   @moduledoc """
-  Module describing a [Doppler Activity Log](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}
+  Module describing an ActivityLog
 
   <!-- tabs-open -->
   ### Fields
@@ -14,12 +14,9 @@ defmodule ExDoppler.ActivityLog do
     * `text` - Human-readable explanation of the log
     * `user` - Relevant user to this activity log. See `ExDoppler.User`.
 
-  ### Resources
-    * See: `ExDoppler.ActivityLogs`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-logs#activity-logs", "activity_logs-object")}
+
+  <!-- tabs-close -->
   """
   import ExDoppler.Model
 
@@ -44,6 +41,8 @@ defmodule ExDoppler.ActivityLog do
   <!-- tabs-open -->
   ### Params
     * **activity_log**: Map of fields to turn into an `ActivityLog`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ActivityLog{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """
@@ -74,13 +73,7 @@ defmodule ExDoppler.ActivityDiff do
     * `removed` - Objects removed in this Activity (e.g `["NEW_SEC2"]`)
     * `updated` - Objects updated in this Activity (e.g `["HELLO_WORLD"]`)
 
-  ### Resources
-    * See: `ExDoppler.ActivityLogs`
-    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#activity-logs){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/activity_logs-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-logs#activity-logs", "activity_logs-object")}
 
   <!-- tabs-close -->
   """
@@ -95,6 +88,8 @@ defmodule ExDoppler.ActivityDiff do
   <!-- tabs-open -->
   ### Params
     * **diff**: Map of fields to turn into an `ActivityDiff`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.ActivityDiff{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

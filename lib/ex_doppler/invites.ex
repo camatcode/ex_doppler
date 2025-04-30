@@ -5,13 +5,7 @@ defmodule ExDoppler.Invites do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.Invites`
-    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-team#send-invite){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-team#send-invite", "invites-list")}
 
   <!-- tabs-close -->
   """
@@ -31,19 +25,7 @@ defmodule ExDoppler.Invites do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Invite` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.Invite{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Invite{...}]}", failure: "{:err, err}")}
 
   ### Resources
 

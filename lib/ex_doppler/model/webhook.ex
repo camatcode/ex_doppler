@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Webhook do
   @moduledoc """
-  Module describing a [Doppler Webhook](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
+  Module describing a Webhook
 
   <!-- tabs-open -->
   ### Fields
@@ -14,12 +14,7 @@ defmodule ExDoppler.Webhook do
     * `name` - Human readable name for webhook (e.g `"my-new-webhook"`)
     * `url` - Webhook's URL (e.g `"https://httpbin.org/post"`)
 
-  ### Resources
-    * See: `ExDoppler.Webhooks`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("webhooks", "webhooks-list")}
 
   <!-- tabs-close -->
   """
@@ -45,6 +40,8 @@ defmodule ExDoppler.Webhook do
   <!-- tabs-open -->
   ### Params
     * **webhook**: Map of fields to turn into a `Webhook`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Webhook{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """
@@ -73,12 +70,7 @@ defmodule ExDoppler.WebhookAuth do
     * `username` - If `type = "Basic"`, the username to use. (e.g `"joe"`)
     * `has_password` - If `type = "Basic"`, that there is a password associated. (e.g `false`)
 
-  ### Resources
-    * See: `ExDoppler.Webhooks`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("webhooks", "webhooks-list")}
 
   <!-- tabs-close -->
   """
@@ -98,6 +90,8 @@ defmodule ExDoppler.WebhookAuth do
   <!-- tabs-open -->
   ### Params
     * **auth**: Map of fields to turn into a `WebhookAuth`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.WebhookAuth{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

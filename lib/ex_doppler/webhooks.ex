@@ -5,13 +5,7 @@ defmodule ExDoppler.Webhooks do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.Webhook`
-    * See: [Doppler docs](https://docs.doppler.com/docs/webhooks){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/webhooks-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("webhooks", "webhooks-list")}
 
   <!-- tabs-close -->
   """
@@ -30,19 +24,7 @@ defmodule ExDoppler.Webhooks do
   ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.Webhook{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Webhook{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -80,19 +62,7 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **id** - ID of the webhook to retrieve
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Webhook{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -130,19 +100,7 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Webhook{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -180,19 +138,7 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Webhook{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -236,20 +182,7 @@ defmodule ExDoppler.Webhooks do
       * **enable_configs** - List of Config slugs that the webhook should be enabled for. Default: `[]`
       * **authentication** - Either `%{type: :Bearer, token: "BEARER TOKEN HERE"}` or `%{type: :Basic, username: "example_user", password: "pass"}`
 
-
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Webhook{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -296,19 +229,7 @@ defmodule ExDoppler.Webhooks do
   ### Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, {:success, true}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}
 
   ### Resources
 

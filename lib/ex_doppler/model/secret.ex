@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Secret do
   @moduledoc """
-  Module describing a [Doppler Secret](https://docs.doppler.com/reference/secrets-list){:target="_blank"}
+  Module describing a Secret
 
   <!-- tabs-open -->
   ### Fields
@@ -12,12 +12,7 @@ defmodule ExDoppler.Secret do
     * `raw_visibility` - Raw visibility. `:masked`, `:unmasked`, or `:restricted`
     * `computed_visibility` - Computed visibility. `:masked`, `:unmasked`, or `:restricted`
 
-  ### Resources
-    * See: `ExDoppler.Secrets`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/secrets-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("secrets", "secrets-list")}
 
   <!-- tabs-close -->
   """
@@ -32,6 +27,8 @@ defmodule ExDoppler.Secret do
   <!-- tabs-open -->
   ### Params
     * **{name, map}**: The secret's name and map of fields to turn into a `Secret`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Secret{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

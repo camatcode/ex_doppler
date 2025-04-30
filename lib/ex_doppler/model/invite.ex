@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Invite do
   @moduledoc """
-  Module describing a [Doppler Invite](https://docs.doppler.com/reference/invites-list){:target="_blank"}
+  Module describing an Invite
 
   <!-- tabs-open -->
   ### Fields
@@ -10,12 +10,7 @@ defmodule ExDoppler.Invite do
     * `created_at` - Date and Time of Invite (e.g `"2025-04-28T16:09:17.737Z"`)
     * `workplace_role` - See `ExDoppler.WorkplaceRole`
 
-  ### Resources
-    * See: `ExDoppler.Invites`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/invites-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-team#send-invite", "invites-list")}
 
   <!-- tabs-close -->
   """
@@ -32,6 +27,8 @@ defmodule ExDoppler.Invite do
   <!-- tabs-open -->
   ### Params
     * **invite**: Map of fields to turn into a `Invite`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Invite{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Integration do
   @moduledoc """
-  Module describing a [Doppler Integration](https://docs.doppler.com/reference/integrations-list){:target="_blank"}
+  Module describing an Integration
 
   <!-- tabs-open -->
   ### Fields
@@ -12,13 +12,7 @@ defmodule ExDoppler.Integration do
     * `enabled` - Whether integration is enabled (e.g `true`)
     * `syncs` - List of Syncs. See `ExDoppler.Sync`
 
-
-  ### Resources
-    * See: `ExDoppler.Integrations`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/integrations-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations", "integrations-list")}
 
   <!-- tabs-close -->
   """
@@ -55,7 +49,7 @@ end
 
 defmodule ExDoppler.Sync do
   @moduledoc """
-  Module describing a [Doppler Sync](https://docs.doppler.com/reference/syncs-create){:target="_blank"}
+  Module describing a Sync
 
   <!-- tabs-open -->
   ### Fields
@@ -66,13 +60,7 @@ defmodule ExDoppler.Sync do
     * `config` - Relevant config (e.g `"prd"`)
     * `integration` - Relevant integration slug (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
 
-  ### Resources
-    * See: `ExDoppler.Integrations`
-    * See: `ExDoppler.SecretsSync`
-    * See: [Doppler API docs](https://docs.doppler.com/reference/syncs-create){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("integrations", "syncs-create")}
 
   <!-- tabs-close -->
   """
@@ -87,6 +75,8 @@ defmodule ExDoppler.Sync do
   <!-- tabs-open -->
   ### Params
     * **sync**: Map of fields to turn into a `Sync`
+
+  #{ExDoppler.Doc.returns(success: "%ExDoppler.Sync{...}", failure: "raise Error")}
 
   <!-- tabs-close -->
   """

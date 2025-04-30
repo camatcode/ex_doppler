@@ -5,13 +5,7 @@ defmodule ExDoppler.WorkplaceUsers do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.WorkplaceUser`
-    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-team#user-management){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/users-list){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-team#user-management", "users-list")}
 
   <!-- tabs-close -->
   """
@@ -31,19 +25,7 @@ defmodule ExDoppler.WorkplaceUsers do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **email** - Filter results to only include the user with the provided email address. Default: `nil`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.WorkplaceUser{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceUser{...} ...]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -80,19 +62,7 @@ defmodule ExDoppler.WorkplaceUsers do
   ### Params
     * **id** - ID of the Workplace User to retrieve
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.WorkplaceUser{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -128,19 +98,7 @@ defmodule ExDoppler.WorkplaceUsers do
     * **workplace_user**: The relevant environment (e.g `%WorkplaceUser{id: "98370f9a-0675-430a-abbc-dbb02b78c5a8" ...}`)
     * **new_access**: E.g., `:owner`, `:collaborator`, etc.
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.WorkplaceUser{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
   ### Resources
 

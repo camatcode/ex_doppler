@@ -5,13 +5,7 @@ defmodule ExDoppler.ConfigLogs do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.ConfigLog`
-    * See: [Doppler docs](https://docs.doppler.com/docs/workplace-logs#config-logs){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/config_logs-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("workplace-logs#config-logs", "config_logs-object")}
 
   <!-- tabs-close -->
   """
@@ -33,19 +27,7 @@ defmodule ExDoppler.ConfigLogs do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.ConfigLog` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.ConfigLog{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ConfigLog{...}]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -84,19 +66,7 @@ defmodule ExDoppler.ConfigLogs do
     * **config**: The relevant `ExDoppler.Config` (e.g `%Config{project: "example-project", name: "dev"}`)
     * **log_id**: Unique identifier for the log object.
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ConfigLog{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ConfigLog{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -134,19 +104,7 @@ defmodule ExDoppler.ConfigLogs do
   ### Params
     * **config_log**: The `ExDoppler.ConfigLog` to roll back (e.g `%ConfigLog{project: "example-project", config: "dev", id: "0000.."}`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ConfigLog{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ConfigLog{...}}", failure: "{:err, err}")}
 
   ### Resources
 

@@ -5,13 +5,7 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.Config`
-    * See: [Doppler docs](https://docs.doppler.com/docs/root-configs){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/configs-object){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("root-configs", "configs-object")}
 
   <!-- tabs-close -->
   """
@@ -33,19 +27,7 @@ defmodule ExDoppler.Configs do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Config` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, [%ExDoppler.Config{...} ...]}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Config{...}]}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -83,19 +65,7 @@ defmodule ExDoppler.Configs do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config name to get (e.g `"dev_personal"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Config{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -134,19 +104,7 @@ defmodule ExDoppler.Configs do
     * **environment_id**: The relevant environment id (e.g `"prd"`)
     * **config_name**: The config name to make (e.g `"prd_aws"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Config{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -184,19 +142,7 @@ defmodule ExDoppler.Configs do
     * **current_config_name**: The relevant environment id (e.g `"prd_aws"`)
     * **new_config_name**: The new config name (e.g `"prd_gcp"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Config{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -238,19 +184,7 @@ defmodule ExDoppler.Configs do
     * **source_config**: The config to clone (e.g `"prd_aws"`)
     * **new_config_name**: The config name to clone (e.g `"prd_aws2"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.ActivityLog{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -291,19 +225,7 @@ defmodule ExDoppler.Configs do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to lock (e.g `"prd_aws"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Config{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -343,19 +265,7 @@ defmodule ExDoppler.Configs do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to unlock (e.g `"prd_aws"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Config{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
   ### Resources
 
@@ -416,19 +326,7 @@ defmodule ExDoppler.Configs do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The config to delete (e.g `"prd_aws"`)
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, {:success, true}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
   ### Resources
 

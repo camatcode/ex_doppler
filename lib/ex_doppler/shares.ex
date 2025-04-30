@@ -5,13 +5,7 @@ defmodule ExDoppler.Shares do
 
   <!-- tabs-open -->
 
-  ### Resources
-    * See: `ExDoppler.Share`
-    * See: [Doppler docs](https://docs.doppler.com/docs/share-security){:target="_blank"}
-    * See: [Doppler API docs](https://docs.doppler.com/reference/share-secret){:target="_blank"}
-    * Contact the maintainer (he's happy to help!)
-      * [Github](https://github.com/camatcode/){:target="_blank"}
-      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+  #{ExDoppler.Doc.resources("share-security", "share-secret")}
 
   <!-- tabs-close -->
   """
@@ -32,19 +26,7 @@ defmodule ExDoppler.Shares do
       * **expire_days** - Days until the link is inaccessible. Default: `90`
       * **expire_views** - Number of views until the link is inaccessible. -1 means infinite. Default: `-1`
 
-  ### Returns
-
-    **On Success**
-
-    ```elixir
-    {:ok, %ExDoppler.Share{...}}
-    ```
-
-    **On Failure**
-
-     ```elixir
-    {:err, err}
-    ```
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Share{...}}", failure: "{:err, err}")}
 
   ### Resources
 
