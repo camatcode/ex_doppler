@@ -1,6 +1,18 @@
 defmodule ExDoppler.Projects do
   @moduledoc """
   Module for interacting with `ExDoppler.Project`
+
+  <!-- tabs-open -->
+
+  ### Help
+    * See: `ExDoppler.Project`
+    * See: [Doppler docs](https://docs.doppler.com/docs/create-project){:target="_blank"}
+    * See: [Doppler API docs](https://docs.doppler.com/reference/projects-object){:target="_blank"}
+    * Contact the maintainer (he's happy to help!)
+      * [Github](https://github.com/camatcode/){:target="_blank"}
+      * [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target="_blank"}
+
+  <!-- tabs-close -->
   """
 
   alias ExDoppler.Project
@@ -236,6 +248,7 @@ defmodule ExDoppler.Projects do
   ### Resources
 
     * See relevant [Doppler API docs](https://docs.doppler.com/reference/projects-delete){:target="_blank"}
+
   <!-- tabs-close -->
   """
   def delete_project(%Project{name: project_name}) do
