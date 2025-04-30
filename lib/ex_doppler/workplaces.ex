@@ -42,10 +42,9 @@ defmodule ExDoppler.Workplaces do
   end
 
   @doc """
-  Updates an `ExDoppler.Workplace`, given options detailing modifications
+  Updates an `ExDoppler.Workplace`
 
   <!-- tabs-open -->
-
 
   ### Params
     * **opts**: Optional modifications
