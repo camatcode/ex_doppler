@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ServiceTokens do
   @moduledoc """
   Module for interacting with `ExDoppler.ServiceToken`

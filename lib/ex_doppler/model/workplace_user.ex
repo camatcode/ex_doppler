@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.WorkplaceUser do
   @moduledoc """
   Module describing a Doppler [WorkplaceUser](https://docs.doppler.com/reference/users-list){:target="_blank"}

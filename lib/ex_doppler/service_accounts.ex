@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ServiceAccounts do
   @moduledoc """
   Module for interacting with `ExDoppler.ServiceAccount`

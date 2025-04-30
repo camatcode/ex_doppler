@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Project do
   @moduledoc """
   Module describing a [Doppler Project](https://docs.doppler.com/reference/projects-object){:target="_blank"}

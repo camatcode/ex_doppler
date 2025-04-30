@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Integration do
   @moduledoc """
   Module describing a [Doppler Integration](https://docs.doppler.com/reference/integrations-list){:target="_blank"}

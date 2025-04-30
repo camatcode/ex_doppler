@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.Share do
   @moduledoc """
   Module describing a [Doppler Share Link](https://docs.doppler.com/reference/share-secret){:target="_blank"}

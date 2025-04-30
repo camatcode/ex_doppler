@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.WorkplaceRole do
   @moduledoc """
   Module describing a [Doppler Workplace Role](https://docs.doppler.com/reference/workplace_roles-list){:target="_blank"}
