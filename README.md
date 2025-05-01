@@ -93,7 +93,7 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
 | Webhooks         | List, Retrieve, Enable, Disable, Create, Delete                           | `ExDoppler.Webhooks`               |       |
 | Workplace Roles  | List, Retrieve                                                            | `ExDoppler.WorkplaceRoles`         |       |
 | Workplace Users  | List, Retrieve, Update                                                    | `ExDoppler.WorkplaceUsers`         |       |
-| Workplace        | Retrieve, Update                                                          | `ExDoppler.Workspaces`             |       |
+| Workplace        | Retrieve, Update                                                          | `ExDoppler.Workplaces`             |       |
 
 ## Not Implemented
 
