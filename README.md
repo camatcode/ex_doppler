@@ -41,7 +41,8 @@
 
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-- [Project Status](#project-status)
+- [Mapping](#mapping)
+- [Not Implemented](#not-implemented)
 
 ## Installation
 
@@ -70,81 +71,31 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
 4. You're good to go. I really recommend you have a look at [the docs](https://hex.pm/packages/ex_doppler)
 
 
-## Project Status
+## Mapping
 
-### Implemented 
+| Realm            | Actions Implemented                                                       | ExDoppler Module                   | Notes |
+|------------------|---------------------------------------------------------------------------|------------------------------------|-------|
+| Activity Logs    | List, Retrieve                                                            | `ExDoppler.ActivityLogs`           |       |
+| Auths            | Me, ODIC, Revoke                                                          | `ExDoppler.Auths`                  |       |
+| Config Logs      | List, Retrieve, Rollback                                                  | `ExDoppler.ConfigLogs`             |       |
+| Configs          | List, Retrieve, Create, Rename, Clone, Lock, Unlock, Delete               | `ExDoppler.Configs`                |       |
+| Environments     | List, Retrieve, Create, Update, Delete                                    | `ExDoppler.Environments`           |       |
+| Integrations     | List, Retrieve, Create, Update, Get Options, Delete                       | `ExDoppler.Integrations`           |       |
+| Invites          | List                                                                      | `ExDoppler.Invites`                |       |
+| Project Members  | List, Retrieve                                                            | `ExDoppler.ProjectMembers`         |       |
+| Project Roles    | List, Retrieve, Create                                                    | `ExDoppler.ProjectRoles`           |       |
+| Projects         | List, Retrieve, Create, Update, Delete, List Project Permissions          | `ExDoppler.Projects`               |       |
+| Secret Syncs     | Retrieve, Create, Delete                                                  | `ExDoppler.SecretSyncs`            |       |
+| Secrets          | List, Retrieve, Download, List Names, Create, Update, Update Note, Delete | `ExDoppler` or `ExDoppler.Secrets` |       |
+| Service Accounts | List                                                                      | `ExDoppler.ServiceAccounts`        |       |
+| Service Tokens   | List, Create, Delete                                                      | `ExDoppler.ServiceTokens`          |       |
+| Shares           | Plain Text                                                                | `ExDoppler.Shares`                 |       |
+| Webhooks         | List, Retrieve, Enable, Disable, Create, Delete                           | `ExDoppler.Webhooks`               |       |
+| Workplace Roles  | List, Retrieve                                                            | `ExDoppler.WorkplaceRoles`         |       |
+| Workplace Users  | List, Retrieve, Update                                                    | `ExDoppler.WorkplaceUsers`         |       |
+| Workplace        | Retrieve, Update                                                          | `ExDoppler.Workspaces`             |       |
 
-| Realm : Action                                                                                            | Implemented | Notes                        |
-|-----------------------------------------------------------------------------------------------------------|-------------|------------------------------|
-| [Workplace : Retrieve](https://docs.doppler.com/reference/workplace-get)                                  | ✅           |                              |
-| [Workplace : Update](https://docs.doppler.com/reference/workplace-update)                                 | ✅           |                              |
-| [Workplace Users : List](https://docs.doppler.com/reference/users-list)                                   | ✅           |                              |
-| [Workplace Users : Retrieve](https://docs.doppler.com/reference/users-get)                                | ✅           |                              |
-| [Workplace Users : Update](https://docs.doppler.com/reference/users-update)                               | ✅           |                              |
-| [Workplace Roles : List](https://docs.doppler.com/reference/workplace_roles-list)                         | ✅           |                              |
-| [Workplace Roles : Retrieve](https://docs.doppler.com/reference/workplace_roles-get)                      | ✅           |                              |
-| [Workplace Roles : List Permissions](https://docs.doppler.com/reference/workplace_roles-list_permissions) | ✅           |                              |
-| [Activity Logs : List](https://docs.doppler.com/reference/activity_logs-list)                             | ✅           |                              |
-| [Activity Logs : Retrieve](https://docs.doppler.com/reference/activity_logs-retrieve)                     | ✅           |                              |
-| [Projects : List](https://docs.doppler.com/reference/projects-list)                                       | ✅           |                              |
-| [Projects : Create](https://docs.doppler.com/reference/projects-create)                                   | ✅           |                              |
-| [Projects : Retrieve](https://docs.doppler.com/reference/projects-get)                                    | ✅           |                              |
-| [Projects : Update](https://docs.doppler.com/reference/projects-update)                                   | ✅           |                              |
-| [Projects : Delete](https://docs.doppler.com/reference/projects-update)                                   | ✅           |                              |
-| [Project Roles : List](https://docs.doppler.com/reference/project_roles-list)                             | ✅           |                              |
-| [Project Roles : Retrieve](https://docs.doppler.com/reference/project_roles-get)                          | ✅           |                              |
-| [Project Roles : List Permissions](https://docs.doppler.com/reference/project_roles-list_permissions)     | ✅           |                              |
-| [Project Members : List](https://docs.doppler.com/reference/project_members-list)                         | ✅           |                              |
-| [Project Members : Retrieve](https://docs.doppler.com/reference/project_members-get)                      | ✅           |                              |
-| [Environments : List](https://docs.doppler.com/reference/environments-list)                               | ✅           |                              |
-| [Environments : Create](https://docs.doppler.com/reference/environments-create)                           | ✅           |                              |
-| [Environments : Retrieve](https://docs.doppler.com/reference/environments-get)                            | ✅           |                              |
-| [Environments : Delete](https://docs.doppler.com/reference/environments-delete)                           | ✅           |                              |
-| [Environments : Rename](https://docs.doppler.com/reference/environments-rename)                           | ✅           |                              |
-| [Configs : List](https://docs.doppler.com/reference/configs-list)                                         | ✅           |                              |
-| [Configs : Retrieve](https://docs.doppler.com/reference/configs-get)                                      | ✅           |                              |
-| [Configs : Create](https://docs.doppler.com/reference/configs-create)                                     | ✅           |                              |
-| [Configs : Update](https://docs.doppler.com/reference/configs-update)                                     | ✅           |                              |
-| [Configs : Delete](https://docs.doppler.com/reference/configs-delete)                                     | ✅           |                              |
-| [Configs : Clone](https://docs.doppler.com/reference/configs-clone)                                       | ✅           |                              |
-| [Configs : Lock](https://docs.doppler.com/reference/configs-lock)                                         | ✅           |                              |
-| [Configs : Unlock](https://docs.doppler.com/reference/configs-unlock)                                     | ✅           |                              |
-| [Config Logs : List](https://docs.doppler.com/reference/config_logs-list)                                 | ✅           |                              |
-| [Config Logs : Retrieve](https://docs.doppler.com/reference/config_logs-get)                              | ✅           |                              |
-| [Config Logs : Rollback](https://docs.doppler.com/reference/config_logs-rollback)                         | ✅           |                              |
-| [Secrets : List](https://docs.doppler.com/reference/secrets-list)                                         | ✅           |                              |
-| [Secrets : Retrieve](https://docs.doppler.com/reference/secrets-get)                                      | ✅           |                              |
-| [Secrets : Update](https://docs.doppler.com/reference/secrets-update)                                     | ✅           |                              |
-| [Secrets : Download](https://docs.doppler.com/reference/secrets-download)                                 | ✅           |                              |
-| [Secrets : List Names](https://docs.doppler.com/reference/secrets-names)                                  | ✅           |                              |
-| [Secrets : Delete](https://docs.doppler.com/reference/secrets-delete)                                     | ✅           |                              |
-| [Secrets : Update Note](https://docs.doppler.com/reference/secrets-update_note)                           | ✅           |                              |
-| [Service Tokens : List](https://docs.doppler.com/reference/service_tokens-list)                           | ✅           |                              |
-| [Service Tokens : Create](https://docs.doppler.com/reference/service_tokens-create)                       | ✅           |                              |
-| [Service Tokens : Delete](https://docs.doppler.com/reference/service_tokens-delete)                       | ✅           |                              |
-| [Integrations : List](https://docs.doppler.com/reference/integrations-list)                               | ✅           |                              |
-| [Integrations : Retrieve](https://docs.doppler.com/reference/integrations-get)                            | ✅           |                              |
-| [Integrations : Create](https://docs.doppler.com/reference/integrations-create)                           | ✅           | Route has poor documentation |
-| [Integrations : Update](https://docs.doppler.com/reference/integrations-update)                           | ✅           | Route has poor documentation |
-| [Integrations : Get Options](https://docs.doppler.com/reference/get-options)                              | ✅           |                              |
-| [Integrations : Delete](https://docs.doppler.com/reference/integrations-delete)                           | ✅           |                              |
-| [Secrets Sync : Create](https://docs.doppler.com/reference/syncs-create)                                  | ✅           |                              |
-| [Secrets Sync : Retrieve](https://docs.doppler.com/reference/syncs-get)                                   | ✅           |                              |
-| [Secrets Sync : Delete](https://docs.doppler.com/reference/syncs-delete)                                  | ✅           |                              |
-| [Invites : List](https://docs.doppler.com/reference/invites-list)                                         | ✅           |                              |
-| [Webhooks : List](https://docs.doppler.com/reference/webhooks-list)                                       | ✅           |                              |
-| [Webhooks : Retrieve](https://docs.doppler.com/reference/webhooks-get)                                    | ✅           |                              |
-| [Webhooks : Add](https://docs.doppler.com/reference/webhooks-add)                                         | ✅           |                              |
-| [Webhooks : Delete](https://docs.doppler.com/reference/webhooks-delete)                                   | ✅           |                              |
-| [Webhooks : Enable](https://docs.doppler.com/reference/webhooks-enable)                                   | ✅           |                              |
-| [Webhooks : Disable](https://docs.doppler.com/reference/webhooks-disable)                                 | ✅           |                              |
-| [Auth : Me](https://docs.doppler.com/reference/auth-me)                                                   | ✅           |                              |
-| [Auth : OIDC](https://docs.doppler.com/reference/auth-oidc)                                               | ✅           |                              |
-| [Auth : Revoke](https://docs.doppler.com/reference/auth-revoke)                                           | ✅           |                              |
-| [Share : Plain Text](https://docs.doppler.com/reference/share-secret)                                     | ✅           |                              |
-
-
-### Requires Investigation
+## Not Implemented
 
 | Realm : Action                                                                                        | Implemented | Notes                                                  |
 |-------------------------------------------------------------------------------------------------------|-------------|--------------------------------------------------------|
