@@ -40,6 +40,7 @@
 ## Table of Contents
 
 - [Installation](#installation)
+- [Quick Start](#quick-start)
 - [Project Status](#project-status)
 
 ## Installation
@@ -51,6 +52,22 @@ Add `:ex_doppler` to your list of deps in `mix.exs`:
 ```
 
 Then run `mix deps.get` to install ExDoppler and its dependencies.
+
+## Quick Start
+
+1. [Create a Doppler Token](https://docs.doppler.com/docs/service-tokens#creating-service-tokens)
+2. Put your token in your environment (**NEVER** put the token anywhere in your code)
+  ```bash
+  export HISTIGNORE='export DOPPLER_TOKEN*'
+  
+  export DOPPLER_TOKEN='dp.st.prd.xxxx'
+  ```
+3. Use ExDoppler to access your secrets
+  ```elixir
+      secret_value = ExDoppler.get_secret_raw!("example-project", "dev_personal", "DB_URL")
+  ```
+
+4. You're good to go. I really recommend you have a look at [the docs](https://hex.pm/packages/ex_doppler)
 
 
 ## Project Status
