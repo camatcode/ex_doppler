@@ -58,7 +58,7 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
 
 1. [Create a Doppler Token](https://docs.doppler.com/docs/service-tokens#creating-service-tokens)
 2. Put your token in your environment (**NEVER** put the token anywhere in your code)
-  ```bash
+  ```sh
   export HISTIGNORE='export DOPPLER_TOKEN*'
   
   export DOPPLER_TOKEN='dp.st.prd.xxxx'
@@ -93,7 +93,7 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
 | Webhooks         | List, Retrieve, Enable, Disable, Create, Delete                           | `ExDoppler.Webhooks`               |       |
 | Workplace Roles  | List, Retrieve                                                            | `ExDoppler.WorkplaceRoles`         |       |
 | Workplace Users  | List, Retrieve, Update                                                    | `ExDoppler.WorkplaceUsers`         |       |
-| Workplace        | Retrieve, Update                                                          | `ExDoppler.Workspaces`             |       |
+| Workplace        | Retrieve, Update                                                          | `ExDoppler.Workplaces`             |       |
 
 ## Not Implemented
 
