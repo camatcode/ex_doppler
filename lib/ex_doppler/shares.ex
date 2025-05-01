@@ -28,6 +28,11 @@ defmodule ExDoppler.Shares do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Share{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Shares
+      iex> {:ok, _share} = Shares.plain_text("SHARE_THIS_TEXT", expire_days: 1, expire_views: 1)
+
   #{ExDoppler.Doc.resources("share-secret")}
 
   <!-- tabs-close -->
