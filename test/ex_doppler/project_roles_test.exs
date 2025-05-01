@@ -4,7 +4,7 @@ defmodule ExDoppler.ProjectRolesTest do
 
   alias ExDoppler.ProjectRoles
 
-  test "Project Roles" do
+  test "list_project_roles/0, get_project_role/1" do
     {:ok, roles} = ProjectRoles.list_project_roles()
     refute Enum.empty?(roles)
 
