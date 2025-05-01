@@ -2,7 +2,7 @@ defmodule ExDoppler.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/camatcode/ex_doppler"
-  @version "0.9.0"
+  @version "1.0.0"
 
   def project do
     [
