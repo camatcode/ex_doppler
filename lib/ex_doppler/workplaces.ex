@@ -22,6 +22,11 @@ defmodule ExDoppler.Workplaces do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Workplaces
+      iex> {:ok, _wp} = Workplaces.get_workplace()
+
   #{ExDoppler.Doc.resources("workplace-get")}
 
   <!-- tabs-close -->
@@ -52,6 +57,12 @@ defmodule ExDoppler.Workplaces do
       * **security_email** - New security email for the workplace
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Workplaces
+      iex> {:ok, wp} = Workplaces.get_workplace()
+      iex> {:ok, _wp} = Workplaces.update_workplace(billing_email: wp.billing_email, security_email: wp.security_email)
 
   #{ExDoppler.Doc.resources("workplace-update")}
 
@@ -88,6 +99,11 @@ defmodule ExDoppler.Workplaces do
   <!-- tabs-open -->
 
   #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\"...]}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Workplaces
+      iex> {:ok, _perms} = Workplaces.list_permissions()
 
   #{ExDoppler.Doc.resources("workplace_roles-list_permissions")}
 
