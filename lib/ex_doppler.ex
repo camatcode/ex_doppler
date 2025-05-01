@@ -10,6 +10,7 @@ defmodule ExDoppler do
   <!-- tabs-close -->
   """
   alias ExDoppler.Config
+  alias ExDoppler.Secret
   alias ExDoppler.Secrets
 
   @doc """
@@ -80,6 +81,45 @@ defmodule ExDoppler do
   def get_secret!(project_name, config_name, secret_name) do
     with {:ok, secret} <- get_secret(project_name, config_name, secret_name) do
       secret
+    end
+  end
+
+  @doc """
+  Retrieves the raw value of a  `ExDoppler.Secret`
+
+  <!-- tabs-open -->
+
+  ### 🏷️ Params
+    * **project_name**: Name of the project (e.g `"example-project"`)
+    * **config_name**: Name of the config (e.g `"dev_personal"`)
+    * **secret_name** - Name of the secret to get (e.g `"API_KEY"`)
+
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> {:ok, _raw_value} = ExDoppler.get_secret_raw("example-project", "dev_personal", "DB_URL")
+
+  #{ExDoppler.Doc.resources("secrets-get")}
+
+  <!-- tabs-close -->
+  """
+  def get_secret_raw(project_name, config_name, secret_name)
+      when is_bitstring(project_name) and is_bitstring(config_name) and is_bitstring(secret_name) do
+    with {:ok, secret} <-
+           Secrets.get_secret(%Config{name: config_name, project: project_name}, secret_name) do
+      {:ok, secret.raw}
+    end
+  end
+
+  @doc """
+  Same as `get_secret_raw/3` but won't wrap a successful response in `{:ok, response}`
+  """
+  def get_secret_raw!(project_name, config_name, secret_name)
+      when is_bitstring(project_name) and is_bitstring(config_name) and is_bitstring(secret_name) do
+    with %Secret{raw: raw} <-
+           Secrets.get_secret!(%Config{name: config_name, project: project_name}, secret_name) do
+      raw
     end
   end
 
@@ -173,6 +213,12 @@ defmodule ExDoppler do
       * **visibility** - how the secret should appear - `:masked`, `:unmasked`, or `:restricted`. Default: `:masked`
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> _ = ExDoppler.delete_secret!("example-project", "dev_personal", "DOC_URL")
+      iex> {:ok, _secret} = ExDoppler.create_secret("example-project", "dev_personal", "DOC_URL", "example.com")
+      iex> {:ok, {:success, true}} = ExDoppler.delete_secret("example-project", "dev_personal", "DOC_URL")
 
   #{ExDoppler.Doc.resources("secrets-update")}
 
