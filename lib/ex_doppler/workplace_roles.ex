@@ -20,8 +20,6 @@ defmodule ExDoppler.WorkplaceRoles do
 
   <!-- tabs-open -->
 
-  ### Returns
-
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceRole{...} ...]}", failure: "{:err, err}")}
 
   ### 💻 Examples

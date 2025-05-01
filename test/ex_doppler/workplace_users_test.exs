@@ -5,7 +5,7 @@ defmodule ExDoppler.WorkplaceUsersTest do
   alias ExDoppler.WorkplaceUser
   alias ExDoppler.WorkplaceUsers
 
-  test "list Workplace Users" do
+  test "list_workplace_users/1, get_workplace_user/1, update_workplace_user/2" do
     assert {:ok, wp_users} = WorkplaceUsers.list_workplace_users()
     refute Enum.empty?(wp_users)
 
