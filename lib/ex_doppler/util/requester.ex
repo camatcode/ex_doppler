@@ -8,9 +8,11 @@ defmodule ExDoppler.Requester do
 
   def request(method, path, opts \\ []) do
     qparams = opts[:qparams]
+    is_retry = opts[:is_retry]
 
     opts =
       Keyword.delete(opts, :qparams)
+      |> Keyword.delete(:is_retry)
       |> Keyword.put(:headers, [auth_header()])
 
     path =
@@ -27,12 +29,16 @@ defmodule ExDoppler.Requester do
         resp
 
       {:ok, %Req.Response{status: 429, headers: %{"retry-after" => [seconds_str]}}} ->
-        if opts[:is_retry] do
+        if is_retry do
           {:err, "Rate limit exceeded"}
         else
           seconds = String.to_integer(seconds_str)
           milliseconds = (seconds + 1) * 1000
-          Logger.debug("Hit a rate limit, waiting #{milliseconds} milliseconds and retrying")
+
+          Logger.debug(
+            "Hit a rate limit, waiting #{milliseconds} milliseconds and retrying. See: https://docs.doppler.com/docs/platform-limits#plan-limits"
+          )
+
           :timer.sleep(milliseconds)
           new_opts = Keyword.merge(opts, is_retry: true)
           make_request(method, path, new_opts)

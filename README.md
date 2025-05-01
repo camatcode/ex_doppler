@@ -31,7 +31,7 @@
   </a>
 
   <a href="https://mastodon.social/@scrum_log">
-    <img alt="Mastodon Follow" src="https://img.shields.io/mastodon/follow/114399792817783089?style=flat&color=6364ff">
+    <img alt="Mastodon Follow" src="https://img.shields.io/badge/mastodon-%40scrum_log%40mastodon.social-purple?color=6364ff">
 
   </a>
 

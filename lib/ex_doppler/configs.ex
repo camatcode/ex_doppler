@@ -29,6 +29,13 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Config{...}]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Configs
+      iex> alias ExDoppler.Projects
+      iex> [project | _] = Projects.list_projects!()
+      iex> {:ok, _configs} = Configs.list_configs(project, page: 1, per_page: 20)
+
   #{ExDoppler.Doc.resources("configs-list")}
 
   <!-- tabs-close -->
@@ -64,6 +71,11 @@ defmodule ExDoppler.Configs do
     * **config_name**: The config name to get (e.g `"dev_personal"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Configs
+      iex> {:ok, _config} = Configs.get_config("example-project", "dev")
 
   #{ExDoppler.Doc.resources("configs-get")}
 
@@ -102,6 +114,14 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Configs
+      iex> _ = Configs.delete_config!("example-project", "dev_doc")
+      iex> {:ok, _config} = Configs.create_config("example-project", "dev", "dev_doc")
+      iex> {:ok, _config} = Configs.get_config("example-project", "dev_doc")
+      iex> {:ok, _} = Configs.delete_config("example-project", "dev_doc")
+
   #{ExDoppler.Doc.resources("configs-create")}
 
   <!-- tabs-close -->
@@ -137,6 +157,15 @@ defmodule ExDoppler.Configs do
     * **new_config_name**: The new config name (e.g `"prd_gcp"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Configs
+      iex> _ = Configs.delete_config!("example-project", "dev_doc")
+      iex> _ = Configs.delete_config!("example-project", "dev_doc2")
+      iex> {:ok, _config} = Configs.create_config("example-project", "dev", "dev_doc")
+      iex> {:ok, _config} = Configs.rename_config("example-project", "dev_doc", "dev_doc2")
+      iex> {:ok, _} = Configs.delete_config("example-project", "dev_doc2")
 
   #{ExDoppler.Doc.resources("configs-update")}
 
@@ -178,6 +207,16 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Configs
+      iex> _ = Configs.delete_config!("example-project", "dev_doc")
+      iex> _ = Configs.delete_config!("example-project", "dev_doc2")
+      iex> {:ok, _config} = Configs.create_config("example-project", "dev", "dev_doc")
+      iex> {:ok, _config} = Configs.clone_config("example-project", "dev_doc", "dev_doc2")
+      iex> :ok = Configs.delete_config!("example-project", "dev_doc")
+      iex> :ok = Configs.delete_config!("example-project", "dev_doc2")
+
   #{ExDoppler.Doc.resources("configs-clone")}
 
   <!-- tabs-close -->
@@ -217,6 +256,16 @@ defmodule ExDoppler.Configs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Configs
+      iex> alias ExDoppler.Config
+      iex> _ = Configs.delete_config!("example-project", "dev_doc")
+      iex> {:ok, _config} = Configs.create_config("example-project", "dev", "dev_doc")
+      iex> {:ok, %Config{locked: true}} = Configs.lock_config("example-project", "dev_doc")
+      iex> {:ok, %Config{locked: false}} = Configs.unlock_config("example-project", "dev_doc")
+      iex> :ok = Configs.delete_config!("example-project", "dev_doc")
+
   #{ExDoppler.Doc.resources("configs-lock")}
 
   <!-- tabs-close -->
@@ -254,6 +303,16 @@ defmodule ExDoppler.Configs do
     * **config_name**: The config to unlock (e.g `"prd_aws"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Config{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Configs
+      iex> alias ExDoppler.Config
+      iex> _ = Configs.delete_config!("example-project", "dev_doc")
+      iex> {:ok, _config} = Configs.create_config("example-project", "dev", "dev_doc")
+      iex> {:ok, %Config{locked: true}} = Configs.lock_config("example-project", "dev_doc")
+      iex> {:ok, %Config{locked: false}} = Configs.unlock_config("example-project", "dev_doc")
+      iex> :ok = Configs.delete_config!("example-project", "dev_doc")
 
   #{ExDoppler.Doc.resources("configs-unlock")}
 
@@ -313,6 +372,14 @@ defmodule ExDoppler.Configs do
     * **config_name**: The config to delete (e.g `"prd_aws"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Configs
+      iex> alias ExDoppler.Config
+      iex> _ = Configs.delete_config!("example-project", "dev_doc")
+      iex> {:ok, _config} = Configs.create_config("example-project", "dev", "dev_doc")
+      iex> {:ok, {:success, true}} = Configs.delete_config("example-project", "dev_doc")
 
   #{ExDoppler.Doc.resources("configs-delete")}
 

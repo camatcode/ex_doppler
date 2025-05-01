@@ -6,8 +6,8 @@ defmodule ExDoppler.ConfigsTest do
   alias ExDoppler.Environments
   alias ExDoppler.Projects
 
-  test "Configs" do
-    assert {:ok, [project | _]} = Projects.list_projects()
+  test "list_configs/2 and get_config/2" do
+    assert [project | _] = Projects.list_projects!()
     assert {:ok, configs} = Configs.list_configs(project)
     refute Enum.empty?(configs)
 
@@ -26,19 +26,25 @@ defmodule ExDoppler.ConfigsTest do
 
       assert {:ok, config} == Configs.get_config(config.project, config.name)
     end)
+  end
 
-    assert {:ok, [environment | _]} =
-             Environments.list_environments(project)
+  test "create_config/3, rename_config/3, clone_config/3, lock_config/2, unlock_config/2, delete_config/2" do
+    assert [project | _] = Projects.list_projects!()
+    assert [environment | _] = Environments.list_environments!(project)
 
-    new_config_name = environment.slug <> "_two-three-four"
-    Configs.delete_config(project.name, new_config_name)
+    new_config_name =
+      environment.slug <> "_#{Faker.Internet.domain_word() |> String.replace("_", "-")}"
+
+    _ = Configs.delete_config(project.name, new_config_name)
 
     assert {:ok, new_config} =
              Configs.create_config(project.name, environment.slug, new_config_name)
 
     assert new_config.name == new_config_name
 
-    renamed_config_name = "#{environment.slug}_three-four-five"
+    renamed_config_name =
+      "#{environment.slug}_#{Faker.Internet.domain_word() |> String.replace("_", "-")}"
+
     Configs.delete_config(project.name, renamed_config_name)
 
     assert {:ok, new_config} =
