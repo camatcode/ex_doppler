@@ -7,9 +7,10 @@ defmodule ExDoppler.WebhooksTest do
   alias ExDoppler.Webhook
   alias ExDoppler.Webhooks
 
-  test "Webhooks" do
-    assert {:ok, [project | _]} = Projects.list_projects()
-    assert {:ok, configs} = Configs.list_configs(project)
+  test "list_webhooks/1. delete_webhook/2, create_webhook/3, get_webhook/2, disable_webhook/2, enable_webhook/2" do
+    assert [project | _] = Projects.list_projects!()
+    assert configs = Configs.list_configs!(project)
+    refute Enum.empty?(configs)
 
     configs_to_apply =
       configs
@@ -17,8 +18,9 @@ defmodule ExDoppler.WebhooksTest do
       |> Enum.take(2)
       |> Enum.map(fn config -> config.name end)
 
-    new_wh_slug = "my-new-webhook"
-    Webhooks.delete_webhook(project, %Webhook{id: new_wh_slug})
+    new_wh_slug = Faker.Internet.domain_word() |> String.replace("_", "-")
+
+    _ = Webhooks.delete_webhook(project, %Webhook{id: new_wh_slug})
 
     assert {:ok, webhook} =
              Webhooks.create_webhook(project, "https://httpbin.org/post",
