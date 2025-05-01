@@ -31,6 +31,15 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Secret{...} ...]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Configs
+      iex> alias ExDoppler.Projects
+      iex> alias ExDoppler.Secrets
+      iex> [project | _] = Projects.list_projects!()
+      iex> [config | _] = Configs.list_configs!(project)
+      iex> {:ok, _secrets} = Secrets.list_secrets(config)
+
   #{ExDoppler.Doc.resources("secrets-list")}
 
   <!-- tabs-close -->
@@ -77,6 +86,12 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Secrets
+      iex> {:ok, _secret} = Secrets.get_secret(%Config{name: "dev_personal", project: "example-project"}, "DB_URL")
+
   #{ExDoppler.Doc.resources("secrets-get")}
 
   <!-- tabs-close -->
@@ -114,6 +129,12 @@ defmodule ExDoppler.Secrets do
       * **secrets** - Comma-delimited list of secrets to include in the download. Defaults to all secrets if left unspecified.
 
   #{ExDoppler.Doc.returns(success: "{:ok, requested_body}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Secrets
+      iex> {:ok, _formatted_body} = Secrets.download(%Config{name: "dev_personal", project: "example-project"}, format: :env, name_transformer: "lower-snake")
 
   #{ExDoppler.Doc.resources("secrets-download")}
 
@@ -166,6 +187,12 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, names}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Secrets
+      iex> {:ok, _names} = Secrets.list_secret_names(%Config{name: "dev_personal", project: "example-project"})
+
   #{ExDoppler.Doc.resources("secrets-names")}
 
   <!-- tabs-close -->
@@ -214,6 +241,14 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Secrets
+      iex> _ = Secrets.delete_secret!(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL")
+      iex> {:ok, _secret} = Secrets.create_secret(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL", "example.com")
+      iex> :ok = Secrets.delete_secret!(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL")
+
   #{ExDoppler.Doc.resources("secrets-update")}
 
   <!-- tabs-close -->
@@ -245,6 +280,15 @@ defmodule ExDoppler.Secrets do
       * **should_converge** - Defaults to false. Can only be set to true if the config being updated is a branch config and there is a secret with the same name in the root config. In this case, the branch secret will inherit the value and visibility type from the root secret.
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Secrets
+      iex> _ = Secrets.delete_secret!(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL")
+      iex> {:ok, _secret} = Secrets.create_secret(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL", "example.com")
+      iex> {:ok, _secret} = Secrets.update_secret(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL", "example.com2", visibility: :unmasked)
+      iex> :ok = Secrets.delete_secret!(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL")
 
   #{ExDoppler.Doc.resources("secrets-update")}
 
@@ -325,6 +369,15 @@ defmodule ExDoppler.Secrets do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %{note: note secret: %ExDoppler.Secret{...}}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Secrets
+      iex> _ = Secrets.delete_secret!(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL")
+      iex> {:ok, _secret} = Secrets.create_secret(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL", "example.com")
+      iex> {:ok, _secret} = Secrets.update_secret_note("example-project", "DOC_URL", "a new note")
+      iex> :ok = Secrets.delete_secret!(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL")
+
   #{ExDoppler.Doc.resources("secrets-update_note")}
 
   <!-- tabs-close -->
@@ -360,6 +413,14 @@ defmodule ExDoppler.Secrets do
    * **secret_name** - Name of secret to delete
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Secrets
+      iex> _ = Secrets.delete_secret!(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL")
+      iex> {:ok, _secret} = Secrets.create_secret(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL", "example.com")
+      iex> {:ok, {:success, true}} = Secrets.delete_secret(%Config{name: "dev_personal", project: "example-project"}, "DOC_URL")
 
   #{ExDoppler.Doc.resources("secrets-delete")}
 
