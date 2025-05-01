@@ -27,6 +27,11 @@ defmodule ExDoppler.Invites do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Invite{...}]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Invites
+      iex> {:ok, _invites} = Invites.list_invites()
+
   #{ExDoppler.Doc.resources("invites-list")}
 
   <!-- tabs-close -->

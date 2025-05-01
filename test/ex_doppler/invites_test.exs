@@ -4,7 +4,7 @@ defmodule ExDoppler.InvitesTest do
 
   alias ExDoppler.Invites
 
-  test "Integrations" do
+  test "list_invites/1" do
     assert {:ok, invites} = Invites.list_invites()
 
     invites
