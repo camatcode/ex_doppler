@@ -41,7 +41,7 @@ defmodule ExDoppler.Requester do
 
           :timer.sleep(milliseconds)
           new_opts = Keyword.merge(opts, is_retry: true)
-          make_request(method, path, new_opts)
+          request(method, path, new_opts)
         end
 
       other ->
