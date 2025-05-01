@@ -58,7 +58,7 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
 
 1. [Create a Doppler Token](https://docs.doppler.com/docs/service-tokens#creating-service-tokens)
 2. Put your token in your environment (**NEVER** put the token anywhere in your code)
-  ```bash
+  ```sh
   export HISTIGNORE='export DOPPLER_TOKEN*'
   
   export DOPPLER_TOKEN='dp.st.prd.xxxx'

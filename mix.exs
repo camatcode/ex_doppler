@@ -93,7 +93,16 @@ defmodule ExDoppler.MixProject do
   end
 
   def package do
-    []
+    [
+      maintainers: ["Cam Cook"],
+      licenses: ["Apache-2.0"],
+      files: ~w(lib .formatter.exs mix.exs README* CHANGELOG* LICENSE*),
+      links: %{
+        Website: @source_url,
+        Changelog: "#{@source_url}/blob/main/CHANGELOG.md",
+        GitHub: @source_url
+      }
+    ]
   end
 
   def extras do
