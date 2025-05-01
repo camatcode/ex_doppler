@@ -26,6 +26,13 @@ defmodule ExDoppler.ServiceTokens do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ServiceToken{...} ...]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.ServiceTokens
+      iex> config = %Config{name: "dev", project: "example-project"}
+      iex> {:ok, _tokens} = ServiceTokens.list_service_tokens(config)
+
   #{ExDoppler.Doc.resources("service_tokens-list")}
 
   <!-- tabs-close -->
@@ -65,6 +72,17 @@ defmodule ExDoppler.ServiceTokens do
       * **access** - Token's capabilities. `"read"` or `"read/write"`. Default: `"read"`
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ServiceToken{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.ServiceToken
+      iex> alias ExDoppler.ServiceTokens
+      iex> config = %Config{name: "dev", project: "example-project"}
+      iex> token_slug = "my-service-token"
+      iex> _ = ServiceTokens.delete_service_token!(%ServiceToken{project: config.project, config: config.name, slug: token_slug})
+      iex> {:ok, service_token} = ServiceTokens.create_service_token(config, token_slug)
+      iex> :ok = ServiceTokens.delete_service_token!(service_token)
 
   #{ExDoppler.Doc.resources("service_tokens-create")}
 
@@ -113,6 +131,17 @@ defmodule ExDoppler.ServiceTokens do
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.ServiceToken
+      iex> alias ExDoppler.ServiceTokens
+      iex> config = %Config{name: "dev", project: "example-project"}
+      iex> token_slug = "my-service-token"
+      iex> _ = ServiceTokens.delete_service_token!(%ServiceToken{project: config.project, config: config.name, slug: token_slug})
+      iex> {:ok, service_token} = ServiceTokens.create_service_token(config, token_slug)
+      iex> :ok = ServiceTokens.delete_service_token!(service_token)
+    
   #{ExDoppler.Doc.resources("service_tokens-delete")}
 
   <!-- tabs-close -->

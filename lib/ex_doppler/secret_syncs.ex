@@ -96,7 +96,6 @@ defmodule ExDoppler.SecretSyncs do
       iex> {:ok, _secrets_sync} = SecretSyncs.get_secrets_sync(config, github_sync.slug)
       iex> :ok = SecretSyncs.delete_secrets_sync!(config, github_sync)
 
-
   #{ExDoppler.Doc.resources("syncs-create")}
 
   <!-- tabs-close -->
