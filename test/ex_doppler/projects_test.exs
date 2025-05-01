@@ -5,25 +5,7 @@ defmodule ExDoppler.ProjectsTest do
   alias ExDoppler.Project
   alias ExDoppler.Projects
 
-  test "Projects" do
-    name = "one-two-three"
-    description = "An example project"
-    Projects.delete_project(%Project{name: name})
-    assert {:ok, new_project} = Projects.create_project(name, description)
-
-    assert new_project.created_at
-    assert new_project.description == description
-    assert new_project.id == name
-    assert new_project.name == name
-    assert new_project.slug == name
-
-    new_description = "A new description"
-
-    assert {:ok, new_project} =
-             Projects.update_project(new_project, description: new_description)
-
-    assert new_project.description == new_description
-
+  test "list_projects/1, get_project/1" do
     {:ok, projects} = Projects.list_projects()
     refute Enum.empty?(projects)
 
@@ -40,6 +22,26 @@ defmodule ExDoppler.ProjectsTest do
 
     assert {:ok, [project]} = Projects.list_projects(per_page: 1)
     assert project.id
+  end
+
+  test "delete_project/1, create_project/2, update_project/2, list_project_permissions/0" do
+    name = Faker.Internet.domain_word() |> String.replace("_", "-")
+    description = Faker.Internet.domain_word() |> String.replace("_", "-")
+    Projects.delete_project(%Project{name: name})
+    assert {:ok, new_project} = Projects.create_project(name, description)
+
+    assert new_project.created_at
+    assert new_project.description == description
+    assert new_project.id == name
+    assert new_project.name == name
+    assert new_project.slug == name
+
+    new_description = Faker.Internet.domain_word() |> String.replace("_", "-")
+
+    assert {:ok, new_project} =
+             Projects.update_project(new_project, description: new_description)
+
+    assert new_project.description == new_description
 
     {:ok, permissions} = Projects.list_project_permissions()
     refute Enum.empty?(permissions)
