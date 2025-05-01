@@ -27,6 +27,11 @@ defmodule ExDoppler.WorkplaceUsers do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceUser{...} ...]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.WorkplaceUsers
+      iex> {:ok, _users} = WorkplaceUsers.list_workplace_users()
+
   #{ExDoppler.Doc.resources("users-list")}
 
   <!-- tabs-close -->
@@ -62,6 +67,12 @@ defmodule ExDoppler.WorkplaceUsers do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.WorkplaceUsers
+      iex> {:ok, [user | _]} = WorkplaceUsers.list_workplace_users()
+      iex> {:ok, _user} = WorkplaceUsers.get_workplace_user(user.id)
+
   #{ExDoppler.Doc.resources("users-get")}
 
   <!-- tabs-close -->
@@ -95,6 +106,12 @@ defmodule ExDoppler.WorkplaceUsers do
     * **new_access**: E.g., `:owner`, `:collaborator`, etc.
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceUser{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.WorkplaceUsers
+      iex> {:ok, [user | _]} = WorkplaceUsers.list_workplace_users()
+      iex> {:ok, _user} = WorkplaceUsers.update_workplace_user(user, :owner)
 
   #{ExDoppler.Doc.resources("users-update")}
 
