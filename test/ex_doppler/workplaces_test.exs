@@ -5,7 +5,7 @@ defmodule ExDoppler.WorkplacesTest do
   alias ExDoppler.Workplace
   alias ExDoppler.Workplaces
 
-  test "retrieve Workplace" do
+  test "get_workplace/0, update_workplace/1, list_permissions/0" do
     assert {:ok, wp} = Workplaces.get_workplace()
 
     assert %Workplace{} = wp
