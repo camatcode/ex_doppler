@@ -29,6 +29,13 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Environment{...}]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Environments
+      iex> alias ExDoppler.Projects
+      iex> [project | _] = Projects.list_projects!()
+      iex> {:ok, _envs} = Environments.list_environments(project, page: 1, per_page: 20)
+
   #{ExDoppler.Doc.resources("environments-list")}
 
   <!-- tabs-close -->
@@ -64,6 +71,13 @@ defmodule ExDoppler.Environments do
     * **config_name**: The environment to get (e.g `"dev"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Environments
+      iex> alias ExDoppler.Projects
+      iex> [project | _] = Projects.list_projects!()
+      iex> {:ok, _env} = Environments.get_environment(project, "dev")
 
   #{ExDoppler.Doc.resources("environments-get")}
 
@@ -103,6 +117,16 @@ defmodule ExDoppler.Environments do
     * **enable_personal_config**: Optional setting if this environment has personal configs (default: `false`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Environments
+      iex> alias ExDoppler.Environment
+      iex> alias ExDoppler.Projects
+      iex> [project | _] = Projects.list_projects!()
+      iex> _ = Environments.delete_environment(%Environment{project: project.name, slug: "envdoc"})
+      iex> {:ok, env} = Environments.create_environment(project, "envdoc", "envdoc")
+      iex> :ok = Environments.delete_environment!(env)
 
   #{ExDoppler.Doc.resources("environments-create")}
 
@@ -153,6 +177,18 @@ defmodule ExDoppler.Environments do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Environments
+      iex> alias ExDoppler.Environment
+      iex> alias ExDoppler.Projects
+      iex> [project | _] = Projects.list_projects!()
+      iex> _ = Environments.delete_environment(%Environment{project: project.name, slug: "envdoc"})
+      iex> _ = Environments.delete_environment(%Environment{project: project.name, slug: "envdoc2"})
+      iex> {:ok, env} = Environments.create_environment(project, "envdoc", "envdoc")
+      iex> {:ok, updated} = Environments.update_environment(env, name: "envdoc2", personal_configs: true)
+      iex> :ok = Environments.delete_environment!(updated)
+
   #{ExDoppler.Doc.resources("environments-rename")}
 
   <!-- tabs-close -->
@@ -200,6 +236,15 @@ defmodule ExDoppler.Environments do
     * **environment**: The relevant environment (e.g `%Environment{project: "example-project", slug: "dev" ...}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Environments
+      iex> alias ExDoppler.Environment
+      iex> alias ExDoppler.Projects
+      iex> [project | _] = Projects.list_projects!()
+      iex> _ = Environments.delete_environment(%Environment{project: project.name, slug: "envdoc"})
+      iex> {:ok, env} = Environments.create_environment(project, "envdoc", "envdoc")
+      iex> {:ok, {:success, true}} = Environments.delete_environment(env)
 
   #{ExDoppler.Doc.resources("environments-delete")}
 
