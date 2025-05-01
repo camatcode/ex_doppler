@@ -27,6 +27,11 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Project{...} ...]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Projects
+      iex> {:ok, _projects} = Projects.list_projects(page: 1, per_page: 20)
+
   #{ExDoppler.Doc.resources("projects-list")}
 
   <!-- tabs-close -->
@@ -62,6 +67,11 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Projects
+      iex> {:ok, _project} = Projects.get_project("example-project")
+
   #{ExDoppler.Doc.resources("projects-get")}
 
   <!-- tabs-close -->
@@ -95,6 +105,14 @@ defmodule ExDoppler.Projects do
     * **description**: Optional description (e.g `"my awesome project"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Projects
+      iex> alias ExDoppler.Project
+      iex> _ = Projects.delete_project!(%Project{name: "example-doc-project"})
+      iex> {:ok, project} = Projects.create_project("example-doc-project")
+      iex> :ok = Projects.delete_project!(project)
 
   #{ExDoppler.Doc.resources("projects-create")}
 
@@ -133,6 +151,15 @@ defmodule ExDoppler.Projects do
       * **description** - New description for this project
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Project{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Projects
+      iex> alias ExDoppler.Project
+      iex> _ = Projects.delete_project!(%Project{name: "example-doc-project"})
+      iex> project = Projects.create_project!("example-doc-project")
+      iex> {:ok, project} = Projects.update_project(project, description: "new description")
+      iex> :ok = Projects.delete_project!(project)
 
   #{ExDoppler.Doc.resources("projects-update")}
 
@@ -176,6 +203,14 @@ defmodule ExDoppler.Projects do
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Projects
+      iex> alias ExDoppler.Project
+      iex> _ = Projects.delete_project!(%Project{name: "example-doc-project"})
+      iex> project = Projects.create_project!("example-doc-project")
+      iex> {:ok, {:success, true}} = Projects.delete_project(project)
+
   #{ExDoppler.Doc.resources("projects-delete")}
 
   <!-- tabs-close -->
@@ -195,8 +230,8 @@ defmodule ExDoppler.Projects do
   Same as `delete_project/1` but won't wrap a successful response in `{:ok, response}`
   """
   def delete_project!(%Project{} = project) do
-    with {:ok, project} <- delete_project(project) do
-      project
+    with {:ok, _} <- delete_project(project) do
+      :ok
     end
   end
 

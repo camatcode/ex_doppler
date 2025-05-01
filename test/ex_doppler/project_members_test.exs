@@ -1,6 +1,6 @@
 defmodule ExDoppler.ProjectMembersTest do
   use ExUnit.Case
-  doctest ExDoppler.ProjectMembers
+  doctest ExDoppler.ProjectMembers0
 
   alias ExDoppler.ProjectMembers
   alias ExDoppler.Projects
