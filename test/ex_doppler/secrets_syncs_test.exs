@@ -1,24 +1,24 @@
-defmodule ExDoppler.SecretsSyncsTest do
+defmodule ExDoppler.SecretSyncsTest do
   use ExUnit.Case
-  doctest ExDoppler.SecretsSyncs
+  doctest ExDoppler.SecretSyncs
 
   alias ExDoppler.Config
   alias ExDoppler.Configs
   alias ExDoppler.Integrations
-  alias ExDoppler.SecretsSyncs
+  alias ExDoppler.SecretSyncs
 
-  test "Secrets Syncs" do
-    assert {:ok, [integration | _]} = Integrations.list_integrations()
+  test "create_secrets_sync/3, delete_secrets_sync/2, get_secrets_sync/2" do
+    assert [integration | _] = Integrations.list_integrations!()
 
     config = %Config{name: "github", project: "example-project"}
 
     if !Enum.empty?(integration.syncs) do
       assert {:ok, _} =
-               SecretsSyncs.delete_secrets_sync(config, hd(integration.syncs))
+               SecretSyncs.delete_secrets_sync(config, hd(integration.syncs))
     end
 
     assert {:ok, github_sync} =
-             SecretsSyncs.create_secrets_sync(
+             SecretSyncs.create_secrets_sync(
                config,
                integration,
                %{sync_target: "repo", repo_name: "ex_doppler"}
@@ -32,13 +32,12 @@ defmodule ExDoppler.SecretsSyncsTest do
       |> Enum.each(fn sync ->
         {:ok, config} = Configs.get_config(sync.project, sync.config)
 
-        assert {:ok, secrets_sync} =
-                 SecretsSyncs.get_secrets_sync(config, sync.slug)
+        assert {:ok, secrets_sync} = SecretSyncs.get_secrets_sync(config, sync.slug)
 
         assert secrets_sync.slug == sync.slug
       end)
     end)
 
-    assert {:ok, _} = SecretsSyncs.delete_secrets_sync(config, github_sync)
+    assert {:ok, _} = SecretSyncs.delete_secrets_sync(config, github_sync)
   end
 end

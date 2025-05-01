@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-defmodule ExDoppler.SecretsSyncs do
+defmodule ExDoppler.SecretSyncs do
   @moduledoc """
   Module for interacting with `ExDoppler.Sync`
 
@@ -27,6 +27,18 @@ defmodule ExDoppler.SecretsSyncs do
    * **sync_slug** - Unique ID for the Sync
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Sync{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Integrations
+      iex> alias ExDoppler.SecretSyncs
+      iex> [integration | _] = Integrations.list_integrations!()
+      iex> config = %Config{name: "github", project: "example-project"}
+      iex> if !Enum.empty?(integration.syncs), do: :ok = SecretSyncs.delete_secrets_sync!(config, hd(integration.syncs))
+      iex> {:ok, github_sync} = SecretSyncs.create_secrets_sync(config, integration, %{sync_target: "repo", repo_name: "ex_doppler"})
+      iex> {:ok, _secrets_sync} = SecretSyncs.get_secrets_sync(config, github_sync.slug)
+      iex> :ok = SecretSyncs.delete_secrets_sync!(config, github_sync)
 
   #{ExDoppler.Doc.resources("syncs-get")}
 
@@ -72,6 +84,19 @@ defmodule ExDoppler.SecretsSyncs do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Sync{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Integrations
+      iex> alias ExDoppler.SecretSyncs
+      iex> [integration | _] = Integrations.list_integrations!()
+      iex> config = %Config{name: "github", project: "example-project"}
+      iex> if !Enum.empty?(integration.syncs), do: :ok = SecretSyncs.delete_secrets_sync!(config, hd(integration.syncs))
+      iex> {:ok, github_sync} = SecretSyncs.create_secrets_sync(config, integration, %{sync_target: "repo", repo_name: "ex_doppler"})
+      iex> {:ok, _secrets_sync} = SecretSyncs.get_secrets_sync(config, github_sync.slug)
+      iex> :ok = SecretSyncs.delete_secrets_sync!(config, github_sync)
+
+
   #{ExDoppler.Doc.resources("syncs-create")}
 
   <!-- tabs-close -->
@@ -110,6 +135,19 @@ defmodule ExDoppler.SecretsSyncs do
    * **delete_from_target** - Whether or not to delete the synced data from the target integration. Defaults to `true`
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Config
+      iex> alias ExDoppler.Integrations
+      iex> alias ExDoppler.SecretSyncs
+      iex> [integration | _] = Integrations.list_integrations!()
+      iex> config = %Config{name: "github", project: "example-project"}
+      iex> if !Enum.empty?(integration.syncs), do: :ok = SecretSyncs.delete_secrets_sync!(config, hd(integration.syncs))
+      iex> {:ok, github_sync} = SecretSyncs.create_secrets_sync(config, integration, %{sync_target: "repo", repo_name: "ex_doppler"})
+      iex> {:ok, _secrets_sync} = SecretSyncs.get_secrets_sync(config, github_sync.slug)
+      iex> :ok = SecretSyncs.delete_secrets_sync!(config, github_sync)
+
 
   #{ExDoppler.Doc.resources("syncs-delete")}
 
