@@ -26,6 +26,12 @@ defmodule ExDoppler.Webhooks do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Webhook{...} ...]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Project
+      iex> alias ExDoppler.Webhooks
+      iex> {:ok, _webhooks} = Webhooks.list_webhooks(%Project{name: "example-project"})
+
   #{ExDoppler.Doc.resources("webhooks-list")}
 
   <!-- tabs-close -->
@@ -61,6 +67,16 @@ defmodule ExDoppler.Webhooks do
     * **id** - ID of the webhook to retrieve
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Project
+      iex> alias ExDoppler.Webhook
+      iex> alias ExDoppler.Webhooks
+      iex> _ = Webhooks.delete_webhook!(%Project{name: "example-project"}, %Webhook{id: "doc-webhook"})
+      iex> {:ok, webhook} = Webhooks.create_webhook(%Project{name: "example-project"}, "https://httpbin.org/post", name: "doc-webhook", enable_configs: ["dev"], authentication: %{type: :Basic, username: "joe", password: "dirt"})
+      iex> {:ok, webhook} = Webhooks.get_webhook(%Project{name: "example-project"}, webhook.id)
+      iex> :ok = Webhooks.delete_webhook!(%Project{name: "example-project"}, webhook)
 
   #{ExDoppler.Doc.resources("webhooks-get")}
 
@@ -98,6 +114,16 @@ defmodule ExDoppler.Webhooks do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Project
+      iex> alias ExDoppler.Webhook
+      iex> alias ExDoppler.Webhooks
+      iex> _ = Webhooks.delete_webhook!(%Project{name: "example-project"}, %Webhook{id: "doc-webhook"})
+      iex> {:ok, webhook} = Webhooks.create_webhook(%Project{name: "example-project"}, "https://httpbin.org/post", name: "doc-webhook", enable_configs: ["dev"], authentication: %{type: :Basic, username: "joe", password: "dirt"})
+      iex> {:ok, %Webhook{enabled: true}} = Webhooks.enable_webhook(%Project{name: "example-project"}, webhook)
+      iex> :ok = Webhooks.delete_webhook!(%Project{name: "example-project"}, webhook)
+
   #{ExDoppler.Doc.resources("webhooks-enable")}
 
   <!-- tabs-close -->
@@ -133,6 +159,16 @@ defmodule ExDoppler.Webhooks do
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Project
+      iex> alias ExDoppler.Webhook
+      iex> alias ExDoppler.Webhooks
+      iex> _ = Webhooks.delete_webhook!(%Project{name: "example-project"}, %Webhook{id: "doc-webhook"})
+      iex> {:ok, webhook} = Webhooks.create_webhook(%Project{name: "example-project"}, "https://httpbin.org/post", name: "doc-webhook", enable_configs: ["dev"], authentication: %{type: :Basic, username: "joe", password: "dirt"})
+      iex> {:ok, %Webhook{enabled: false}} = Webhooks.disable_webhook(%Project{name: "example-project"}, webhook)
+      iex> :ok = Webhooks.delete_webhook!(%Project{name: "example-project"}, webhook)
 
   #{ExDoppler.Doc.resources("webhooks-disable")}
 
@@ -176,6 +212,15 @@ defmodule ExDoppler.Webhooks do
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Project
+      iex> alias ExDoppler.Webhook
+      iex> alias ExDoppler.Webhooks
+      iex> _ = Webhooks.delete_webhook!(%Project{name: "example-project"}, %Webhook{id: "doc-webhook"})
+      iex> {:ok, webhook} = Webhooks.create_webhook(%Project{name: "example-project"}, "https://httpbin.org/post", name: "doc-webhook", enable_configs: ["dev"], authentication: %{type: :Basic, username: "joe", password: "dirt"})
+      iex> :ok = Webhooks.delete_webhook!(%Project{name: "example-project"}, webhook)
+
   #{ExDoppler.Doc.resources("webhooks-add")}
 
   <!-- tabs-close -->
@@ -188,7 +233,7 @@ defmodule ExDoppler.Webhooks do
         url: url,
         secret: opts[:secret],
         payload: opts[:payload],
-        enableConfigs: opts[:enable_configs],
+        enableConfigs: opts[:enable_configs] || [],
         name: opts[:name],
         authentication: opts[:authentication]
       }
@@ -220,6 +265,15 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Project
+      iex> alias ExDoppler.Webhook
+      iex> alias ExDoppler.Webhooks
+      iex> _ = Webhooks.delete_webhook!(%Project{name: "example-project"}, %Webhook{id: "doc-webhook"})
+      iex> {:ok, webhook} = Webhooks.create_webhook(%Project{name: "example-project"}, "https://httpbin.org/post", name: "doc-webhook", enable_configs: ["dev"], authentication: %{type: :Basic, username: "joe", password: "dirt"})
+      iex> :ok = Webhooks.delete_webhook!(%Project{name: "example-project"}, webhook)
 
   #{ExDoppler.Doc.resources("webhooks-delete")}
 
