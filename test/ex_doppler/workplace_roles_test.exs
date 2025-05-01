@@ -4,7 +4,7 @@ defmodule ExDoppler.WorkplaceRolesTest do
 
   alias ExDoppler.WorkplaceRoles
 
-  test "Workplace Roles" do
+  test "list_workplace_roles/0, get_workplace_role/1" do
     assert {:ok, roles} = WorkplaceRoles.list_workplace_roles()
     refute Enum.empty?(roles)
 

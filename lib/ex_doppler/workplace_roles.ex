@@ -24,6 +24,11 @@ defmodule ExDoppler.WorkplaceRoles do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceRole{...} ...]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.WorkplaceRoles
+      iex> {:ok, _roles} = WorkplaceRoles.list_workplace_roles()
+
   #{ExDoppler.Doc.resources("workplace_roles-list")}
 
   <!-- tabs-close -->
@@ -56,6 +61,11 @@ defmodule ExDoppler.WorkplaceRoles do
     * **id** - ID of the role to retrieve
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceRole{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.WorkplaceRoles
+      iex> {:ok, _role} = WorkplaceRoles.get_workplace_role("owner")
 
   #{ExDoppler.Doc.resources("workplace_roles-get")}
 
