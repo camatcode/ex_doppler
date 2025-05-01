@@ -4,7 +4,7 @@ defmodule ExDoppler.IntegrationsTest do
 
   alias ExDoppler.Integrations
 
-  test "Integrations" do
+  test "list_integrations/0, get_integration/1, get_integration_options/1" do
     assert {:ok, integrations} = Integrations.list_integrations()
 
     integrations

@@ -21,6 +21,11 @@ defmodule ExDoppler.Integrations do
   <!-- tabs-open -->
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Integration{...}]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Integrations
+      iex> {:ok, _integrations} = Integrations.list_integrations()
+
   #{ExDoppler.Doc.resources("integrations-list")}
 
   <!-- tabs-close -->
@@ -53,6 +58,12 @@ defmodule ExDoppler.Integrations do
     * **integration_slug**: The relevant integration (e.g `"gh-integration"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Integration{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Integrations
+      iex> [integration | _] = Integrations.list_integrations!()
+      iex> _integration = Integrations.get_integration(integration.slug)
 
   #{ExDoppler.Doc.resources("integrations-get")}
 
@@ -171,6 +182,12 @@ defmodule ExDoppler.Integrations do
     * **integration_slug**: Unique identifier for the integration (e.g `"00000000-0000-0000-0000-000000000000"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, options}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.Integrations
+      iex> [integration | _] = Integrations.list_integrations!()
+      iex> _integration = Integrations.get_integration_options(integration.slug)
 
   #{ExDoppler.Doc.resources("get-options")}
 
