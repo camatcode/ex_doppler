@@ -7,20 +7,21 @@ defmodule ExDoppler.ServiceTokensTest do
   alias ExDoppler.ServiceToken
   alias ExDoppler.ServiceTokens
 
-  test "Configs" do
-    assert {:ok, [project | _]} = Projects.list_projects()
-    assert {:ok, configs} = Configs.list_configs(project)
+  test "list_service_tokens/1, delete_service_token/1, create_service_token/2" do
+    assert [project | _] = Projects.list_projects!()
+    assert configs = Configs.list_configs!(project)
     refute Enum.empty?(configs)
 
     configs
     |> Enum.each(fn config ->
-      token_slug = "my-service-token"
+      token_slug = Faker.Internet.domain_word() |> String.replace("_", "-")
 
-      ServiceTokens.delete_service_token(%ServiceToken{
-        project: config.project,
-        config: config.name,
-        slug: token_slug
-      })
+      _ =
+        ServiceTokens.delete_service_token!(%ServiceToken{
+          project: config.project,
+          config: config.name,
+          slug: token_slug
+        })
 
       {:ok, service_token} = ServiceTokens.create_service_token(config, token_slug)
 
