@@ -174,7 +174,7 @@ defmodule ExDoppler.Secrets do
   end
 
   @doc """
-  Lists the names of `ExDoppler.Secret`, given a config and options
+  Lists the names of `ExDoppler.Secret`
 
   <!-- tabs-open -->
 
