@@ -68,7 +68,7 @@ Then run `mix deps.get` to install ExDoppler and its dependencies.
       secret_value = ExDoppler.get_secret_raw!("example-project", "dev_personal", "DB_URL")
   ```
 
-4. You're good to go. I really recommend you have a look at [the docs](https://hex.pm/packages/ex_doppler)
+4. You're good to go. I really recommend you have a look at [the docs](https://hexdocs.pm/ex_doppler/)
 
 
 ## Mapping
