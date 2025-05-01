@@ -29,6 +29,13 @@ defmodule ExDoppler.ProjectMembers do
 
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ProjectMember{...}]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.ProjectMembers
+      iex> alias ExDoppler.Projects
+      iex> [project | _]= Projects.list_projects!()
+      iex> {:ok, _members} = ProjectMembers.list_project_members(project, page: 1, per_page: 20)
+
   #{ExDoppler.Doc.resources("project_members-list")}
 
   <!-- tabs-close -->
@@ -65,6 +72,14 @@ defmodule ExDoppler.ProjectMembers do
     * **member_slug**: slug of member (e.g `"e32d0dcd-c094-4606-aefa-c4127e2a1282"`)
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectMember{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.ProjectMembers
+      iex> alias ExDoppler.Projects
+      iex> [project | _]= Projects.list_projects!()
+      iex> {:ok, [member | _]} = ProjectMembers.list_project_members(project, page: 1, per_page: 20)
+      iex> {:ok, _member} = ProjectMembers.get_project_member(project,  member.type, member.slug)
 
   #{ExDoppler.Doc.resources("project_members-get")}
 
