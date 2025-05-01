@@ -21,6 +21,11 @@ defmodule ExDoppler.ProjectRoles do
   <!-- tabs-open -->
   #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ProjectRole{...} ...]}", failure: "{:err, err}")}
 
+  ### 💻 Examples
+
+      iex> alias ExDoppler.ProjectRoles
+      iex> {:ok, _roles} = ProjectRoles.list_project_roles()
+
   #{ExDoppler.Doc.resources("project_roles-list")}
 
   <!-- tabs-close -->
@@ -53,6 +58,12 @@ defmodule ExDoppler.ProjectRoles do
    * **identifier** - identifier for role -  e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
 
   #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:err, err}")}
+
+  ### 💻 Examples
+
+      iex> alias ExDoppler.ProjectRoles
+      iex> {:ok, [role | _]}= ProjectRoles.list_project_roles()
+      iex> {:ok,  _role} = ProjectRoles.get_project_role(role.identifier)
 
   #{ExDoppler.Doc.resources("project_roles-get")}
 

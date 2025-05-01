@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 defmodule ExDoppler.ProjectRole do
   @moduledoc """
-  Module describing a [Doppler Project Role](https://docs.doppler.com/reference/project_roles-list){:target="_blank"}
+  Module describing a Project Role
 
   <!-- tabs-open -->
   ### Fields
