@@ -4,8 +4,10 @@ defmodule ExDoppler.SharesTest do
 
   alias ExDoppler.Shares
 
-  test "Shares" do
-    {:ok, share} = Shares.plain_text("SHARING_THIS")
+  test "plain_text/2" do
+    share_text = Faker.Internet.domain_word() |> String.replace("_", "-")
+
+    {:ok, share} = Shares.plain_text(share_text)
     assert share.url
     assert share.authenticated_url
     assert share.password
