@@ -99,7 +99,7 @@ defmodule ExDoppler.MixProject do
       files: ~w(lib .formatter.exs mix.exs README* CHANGELOG* LICENSE*),
       links: %{
         Website: @source_url,
-        Changelog: "#{@source_url}/blob/main/CHANGELOG.md",
+        Changelog: "#{@source_url}/blob/master/CHANGELOG.md",
         GitHub: @source_url
       }
     ]
