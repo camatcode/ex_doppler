@@ -20,7 +20,7 @@ defmodule ExDoppler.WorkplaceRoles do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceRole{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.WorkplaceRole{...} ...]}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -58,7 +58,7 @@ defmodule ExDoppler.WorkplaceRoles do
   ### 🏷️ Params
     * **id** - ID of the role to retrieve
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceRole{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.WorkplaceRole{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 

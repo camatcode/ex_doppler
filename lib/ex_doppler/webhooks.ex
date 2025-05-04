@@ -24,7 +24,7 @@ defmodule ExDoppler.Webhooks do
   ### 🏷️ Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
-  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Webhook{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Webhook{...} ...]}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -66,7 +66,7 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **id** - ID of the webhook to retrieve
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -112,7 +112,7 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -158,7 +158,7 @@ defmodule ExDoppler.Webhooks do
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
     * **webhook** - The `ExDoppler.Webhook` to enable (e.g %Webhook{id: "my-new-webhook" ...}
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -210,7 +210,7 @@ defmodule ExDoppler.Webhooks do
       * **enable_configs** - List of Config slugs that the webhook should be enabled for. Default: `[]`
       * **authentication** - Either `%{type: :Bearer, token: "BEARER TOKEN HERE"}` or `%{type: :Basic, username: "example_user", password: "pass"}`
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Webhook{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -264,7 +264,7 @@ defmodule ExDoppler.Webhooks do
   ### 🏷️ Params
     * **project** -  The `ExDoppler.Project` for which you want the webhooks (e.g `%Project{name: "example-project"}`)
 
-  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}", failure: "{:error, err}")}
 
   ### 💻 Examples
 

@@ -29,7 +29,7 @@ defmodule ExDoppler.Secrets do
       * **include_managed_secrets** - whether to include dynamic secrets. Default: `true`
       * **secrets** - A comma-separated list of secrets to include in the response. Default: `nil`
 
-  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Secret{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Secret{...} ...]}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -84,7 +84,7 @@ defmodule ExDoppler.Secrets do
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of the secret to get (e.g `"API_KEY"`)
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -128,7 +128,7 @@ defmodule ExDoppler.Secrets do
       * **name_transformer** - Transform secret names to a different case (e.g `"camel"`, `"upper-camel"`, `"lower-snake"`, `"tf-var"`, `"dotnet"`, `"dotnet-env"`, `"lower-kebab"`). Default: `nil`
       * **secrets** - Comma-delimited list of secrets to include in the download. Defaults to all secrets if left unspecified.
 
-  #{ExDoppler.Doc.returns(success: "{:ok, requested_body}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, requested_body}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -185,7 +185,7 @@ defmodule ExDoppler.Secrets do
       * **include_managed_secrets** - whether to include managed secrets. Default: `true`
 
 
-  #{ExDoppler.Doc.returns(success: "{:ok, names}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, names}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -239,7 +239,7 @@ defmodule ExDoppler.Secrets do
    * **opts**: Optional modifications
       * **visibility** - how the secret should appear - `:masked`, `:unmasked`, or `:restricted`. Default: `:masked`
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -279,7 +279,7 @@ defmodule ExDoppler.Secrets do
       * **should_delete** - Defaults to false. If set to true, will delete the secret matching the name field.
       * **should_converge** - Defaults to false. Can only be set to true if the config being updated is a branch config and there is a secret with the same name in the root config. In this case, the branch secret will inherit the value and visibility type from the root secret.
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Secret{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -367,7 +367,7 @@ defmodule ExDoppler.Secrets do
    * **secret_name** - Name of this secret
    * **note** - Attached Note
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %{note: note secret: %ExDoppler.Secret{...}}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %{note: note secret: %ExDoppler.Secret{...}}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -412,7 +412,7 @@ defmodule ExDoppler.Secrets do
    * **config** - Config to get secrets from (e.g `%Config{name: "dev_personal", project: "example-project" ...}`)
    * **secret_name** - Name of secret to delete
 
-  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 

@@ -32,6 +32,6 @@ defmodule ExDoppler.WorkplaceUsersTest do
 
     assert {:ok, []} = WorkplaceUsers.list_workplace_users(page: 2)
 
-    assert {:err, _} = WorkplaceUsers.get_workplace_user("does-not-exist")
+    assert {:error, _} = WorkplaceUsers.get_workplace_user("does-not-exist")
   end
 end
