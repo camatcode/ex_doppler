@@ -20,7 +20,7 @@ defmodule ExDoppler.Workplaces do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -56,7 +56,7 @@ defmodule ExDoppler.Workplaces do
       * **billing_email** - New billing email for the workplace
       * **security_email** - New security email for the workplace
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Workplace{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -98,7 +98,7 @@ defmodule ExDoppler.Workplaces do
 
   <!-- tabs-open -->
 
-  #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\"...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [\"perm1\"...]}", failure: "{:error, err}")}
 
   ### 💻 Examples
 

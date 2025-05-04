@@ -26,7 +26,7 @@ defmodule ExDoppler.Shares do
       * **expire_days** - Days until the link is inaccessible. Default: `90`
       * **expire_views** - Number of views until the link is inaccessible. -1 means infinite. Default: `-1`
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Share{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Share{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 

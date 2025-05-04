@@ -18,7 +18,7 @@ defmodule ExDoppler.Auths do
   Get information about the token in use.
 
   <!-- tabs-open -->
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.TokenInfo{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.TokenInfo{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -56,7 +56,7 @@ defmodule ExDoppler.Auths do
     * **token**: the OIDC token string from your OIDC provider (likely CI)
     * **identity**: Identity ID from the Doppler Dashboard
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ODICToken{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ODICToken{...}}", failure: "{:error, err}")}
 
   #{ExDoppler.Doc.resources("auth-oidc")}
 
@@ -88,7 +88,7 @@ defmodule ExDoppler.Auths do
   ### 🏷️ Params
     * **token_to_revoke**: the auth token to revoke (e.g `"auth-2342-asdf"`)
 
-  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:error, err}")}
 
   #{ExDoppler.Doc.resources("auth-revoke")}
 

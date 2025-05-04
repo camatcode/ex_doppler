@@ -30,7 +30,7 @@ defmodule ExDoppler.Requester do
 
       {:ok, %Req.Response{status: 429, headers: %{"retry-after" => [seconds_str]}}} ->
         if is_retry do
-          {:err, "Rate limit exceeded"}
+          {:error, "Rate limit exceeded"}
         else
           seconds = String.to_integer(seconds_str)
           milliseconds = (seconds + 1) * 1000
@@ -45,7 +45,7 @@ defmodule ExDoppler.Requester do
         end
 
       other ->
-        {:err, other}
+        {:error, other}
     end
   end
 

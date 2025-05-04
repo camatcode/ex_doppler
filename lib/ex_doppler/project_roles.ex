@@ -19,7 +19,7 @@ defmodule ExDoppler.ProjectRoles do
   Lists `ExDoppler.ProjectRole`
 
   <!-- tabs-open -->
-  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ProjectRole{...} ...]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.ProjectRole{...} ...]}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -57,7 +57,7 @@ defmodule ExDoppler.ProjectRoles do
   ### 🏷️ Params
    * **identifier** - identifier for role -  e.g `"collaborator"` or `"admin"` or `"viewer"` or `"no_access"`
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -97,7 +97,7 @@ defmodule ExDoppler.ProjectRoles do
     * **name**: Role name (e.g `"viewer_but_different"`)
     * **permissions**: List of permissions given to the role. See [Doppler Docs](https://docs.doppler.com/reference/project_roles-create){:target="_blank"}
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.ProjectRole{...}}", failure: "{:error, err}")}
 
   #{ExDoppler.Doc.resources("project_roles-create")}
 

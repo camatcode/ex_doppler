@@ -27,7 +27,7 @@ defmodule ExDoppler.Environments do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Environment` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Environment{...}]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Environment{...}]}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -70,7 +70,7 @@ defmodule ExDoppler.Environments do
     * **project_name**: The relevant project name (e.g `"example-project"`)
     * **config_name**: The environment to get (e.g `"dev"`)
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -116,7 +116,7 @@ defmodule ExDoppler.Environments do
     * **env_slug**: A new environment's slug (e.g `"prd"`)
     * **enable_personal_config**: Optional setting if this environment has personal configs (default: `false`)
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -175,7 +175,7 @@ defmodule ExDoppler.Environments do
       * **slug** - New slug for this environment
       * **personal_configs** - If set true, will enable personal configs
 
-  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, %ExDoppler.Environment{...}}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
@@ -235,7 +235,7 @@ defmodule ExDoppler.Environments do
   ### 🏷️ Params
     * **environment**: The relevant environment (e.g `%Environment{project: "example-project", slug: "dev" ...}`)
 
-  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, {:success, true}}", failure: "{:error, err}")}
   ### 💻 Examples
 
       iex> alias ExDoppler.Environments

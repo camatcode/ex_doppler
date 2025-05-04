@@ -25,7 +25,7 @@ defmodule ExDoppler.Invites do
       * **page** - which page to list (starts at 1) (e.g `page: 2`). Default: `1`
       * **per_page** - the number of `ExDoppler.Invite` to return for this page (e.g `per_page: 50`). Default: `20`
 
-  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Invite{...}]}", failure: "{:err, err}")}
+  #{ExDoppler.Doc.returns(success: "{:ok, [%ExDoppler.Invite{...}]}", failure: "{:error, err}")}
 
   ### 💻 Examples
 
