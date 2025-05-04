@@ -20,7 +20,7 @@ defmodule ExDoppler.WorkplaceRolesTest do
 
       assert {:ok, role} == WorkplaceRoles.get_workplace_role(role.identifier)
 
-      assert {:err, _} = WorkplaceRoles.get_workplace_role("does-not-exist")
+      assert {:error, _} = WorkplaceRoles.get_workplace_role("does-not-exist")
     end)
   end
 end
