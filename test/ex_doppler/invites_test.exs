@@ -1,14 +1,14 @@
 defmodule ExDoppler.InvitesTest do
   use ExUnit.Case
-  doctest ExDoppler.Invites
 
   alias ExDoppler.Invites
+
+  doctest ExDoppler.Invites
 
   test "list_invites/1" do
     assert {:ok, invites} = Invites.list_invites()
 
-    invites
-    |> Enum.each(fn invite ->
+    Enum.each(invites, fn invite ->
       assert invite.slug
       assert invite.email
       assert invite.created_at

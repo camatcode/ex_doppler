@@ -2,12 +2,10 @@
 defmodule ExDoppler.Doc do
   @moduledoc false
 
-  def maintainer_github,
-    do: "👾 [Github: camatcode](https://github.com/camatcode/){:target=\"_blank\"}"
+  def maintainer_github, do: "👾 [Github: camatcode](https://github.com/camatcode/){:target=\"_blank\"}"
 
   def maintainer_fediverse,
-    do:
-      "🐘 [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target=\"_blank\"}"
+    do: "🐘 [Fediverse: @scrum_log@maston.social](https://mastodon.social/@scrum_log){:target=\"_blank\"}"
 
   def contact_maintainer, do: "💬 Contact the maintainer (he's happy to help!)"
 

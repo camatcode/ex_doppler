@@ -42,9 +42,7 @@ defmodule ExDoppler.ServiceTokens do
            Requester.get(@service_tokens_api_path,
              qparams: [project: project_name, config: config_name]
            ) do
-      tokens =
-        body["tokens"]
-        |> Enum.map(&ServiceToken.build/1)
+      tokens = Enum.map(body["tokens"], &ServiceToken.build/1)
 
       {:ok, tokens}
     end
@@ -88,11 +86,7 @@ defmodule ExDoppler.ServiceTokens do
 
   <!-- tabs-close -->
   """
-  def create_service_token(
-        %Config{name: config_name, project: project_name},
-        service_token_name,
-        opts \\ []
-      )
+  def create_service_token(%Config{name: config_name, project: project_name}, service_token_name, opts \\ [])
       when is_bitstring(service_token_name) do
     opts = Keyword.merge([expire_at: nil, access: :read], opts)
 
@@ -105,7 +99,7 @@ defmodule ExDoppler.ServiceTokens do
         access: opts[:access]
       }
       |> Enum.filter(fn {_k, v} -> v end)
-      |> Enum.into(%{})
+      |> Map.new()
 
     with {:ok, %{body: body}} <- Requester.post(@service_tokens_api_path, json: body) do
       {:ok, ServiceToken.build(body["token"])}
@@ -149,9 +143,7 @@ defmodule ExDoppler.ServiceTokens do
   def delete_service_token(%ServiceToken{project: project_name, config: config_name, slug: slug}) do
     body = %{project: project_name, config: config_name, slug: slug}
 
-    path =
-      @service_tokens_api_path
-      |> Path.join("/token")
+    path = Path.join(@service_tokens_api_path, "/token")
 
     with {:ok, %{body: _}} <- Requester.delete(path, json: body) do
       {:ok, {:success, true}}

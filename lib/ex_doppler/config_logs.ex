@@ -47,9 +47,7 @@ defmodule ExDoppler.ConfigLogs do
       Keyword.merge([page: 1, per_page: 20, project: project_name, config: config_name], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@config_logs_api_path, qparams: qparams) do
-      logs =
-        body["logs"]
-        |> Enum.map(&ConfigLog.build/1)
+      logs = Enum.map(body["logs"], &ConfigLog.build/1)
 
       {:ok, logs}
     end
@@ -88,11 +86,8 @@ defmodule ExDoppler.ConfigLogs do
 
   <!-- tabs-close -->
   """
-  def get_config_log(%Config{project: project_name, name: config_name}, log_id)
-      when is_bitstring(log_id) do
-    path =
-      @config_logs_api_path
-      |> Path.join("/log")
+  def get_config_log(%Config{project: project_name, name: config_name}, log_id) when is_bitstring(log_id) do
+    path = Path.join(@config_logs_api_path, "/log")
 
     opts = [qparams: [project: project_name, config: config_name, log: log_id]]
 
@@ -131,9 +126,7 @@ defmodule ExDoppler.ConfigLogs do
   <!-- tabs-close -->
   """
   def rollback_config_log(%ConfigLog{project: project_name, config: config_name, id: log_id}) do
-    path =
-      @config_logs_api_path
-      |> Path.join("/log/rollback")
+    path = Path.join(@config_logs_api_path, "/log/rollback")
 
     opts = [qparams: [project: project_name, config: config_name, log: log_id]]
 

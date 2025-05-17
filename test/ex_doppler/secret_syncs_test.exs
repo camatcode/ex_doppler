@@ -1,11 +1,12 @@
 defmodule ExDoppler.SecretSyncsTest do
   use ExUnit.Case
-  doctest ExDoppler.SecretSyncs
 
   alias ExDoppler.Config
   alias ExDoppler.Configs
   alias ExDoppler.Integrations
   alias ExDoppler.SecretSyncs
+
+  doctest ExDoppler.SecretSyncs
 
   test "create_secrets_sync/3, delete_secrets_sync/2, get_secrets_sync/2" do
     assert [integration | _] = Integrations.list_integrations!()
@@ -26,10 +27,8 @@ defmodule ExDoppler.SecretSyncsTest do
 
     assert {:ok, integrations} = Integrations.list_integrations()
 
-    integrations
-    |> Enum.each(fn integration ->
-      integration.syncs
-      |> Enum.each(fn sync ->
+    Enum.each(integrations, fn integration ->
+      Enum.each(integration.syncs, fn sync ->
         {:ok, config} = Configs.get_config(sync.project, sync.config)
 
         assert {:ok, secrets_sync} = SecretSyncs.get_secrets_sync(config, sync.slug)

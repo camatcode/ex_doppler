@@ -1,24 +1,23 @@
 defmodule ExDoppler.SecretsTest do
   use ExUnit.Case
-  doctest ExDoppler.Secrets
 
   alias ExDoppler.Config
   alias ExDoppler.Configs
   alias ExDoppler.Projects
   alias ExDoppler.Secrets
 
+  doctest ExDoppler.Secrets
+
   test "list_secrets/1, get_secret/2, download/2, list_secret_names/2" do
     assert [project | _] = Projects.list_projects!()
     assert configs = Configs.list_configs!(project)
     refute Enum.empty?(configs)
 
-    configs
-    |> Enum.each(fn config ->
+    Enum.each(configs, fn config ->
       {:ok, secrets} = Secrets.list_secrets(config)
       refute Enum.empty?(secrets)
 
-      secrets
-      |> Enum.each(fn secret ->
+      Enum.each(secrets, fn secret ->
         assert secret.name
         assert secret.raw
         assert secret.computed
@@ -41,13 +40,13 @@ defmodule ExDoppler.SecretsTest do
     project_name = "example-project"
     config = %Config{name: config_name, project: project_name}
     name = Faker.Internet.domain_word() |> String.replace("_", "-") |> String.upcase()
-    value = Faker.Internet.domain_word() |> String.replace("_", "-")
+    value = String.replace(Faker.Internet.domain_word(), "_", "-")
     Secrets.delete_secret(config, name)
     {:ok, _} = Secrets.create_secret(config, name, value)
-    new_value = Faker.Internet.domain_word() |> String.replace("_", "-")
+    new_value = String.replace(Faker.Internet.domain_word(), "_", "-")
     {:ok, updated} = Secrets.update_secret(config, name, new_value, visibility: :unmasked)
     assert updated.raw == new_value
-    new_note = Faker.Internet.domain_word() |> String.replace("_", "-")
+    new_note = String.replace(Faker.Internet.domain_word(), "_", "-")
     {:ok, updated} = Secrets.update_secret_note(project_name, name, new_note)
     assert updated.note == new_note
     :ok = Secrets.delete_secret!(config, name)

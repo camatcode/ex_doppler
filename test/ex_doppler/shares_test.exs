@@ -1,11 +1,12 @@
 defmodule ExDoppler.SharesTest do
   use ExUnit.Case
-  doctest ExDoppler.Shares
 
   alias ExDoppler.Shares
 
+  doctest ExDoppler.Shares
+
   test "plain_text/2" do
-    share_text = Faker.Internet.domain_word() |> String.replace("_", "-")
+    share_text = String.replace(Faker.Internet.domain_word(), "_", "-")
 
     {:ok, share} = Shares.plain_text(share_text)
     assert share.url

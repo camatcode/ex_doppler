@@ -40,9 +40,7 @@ defmodule ExDoppler.Shares do
   def plain_text(text_to_share, opts \\ []) when is_bitstring(text_to_share) do
     opts = Keyword.merge([expire_days: 90, expire_views: -1], opts)
 
-    path =
-      @shares_api_path
-      |> Path.join("/plain")
+    path = Path.join(@shares_api_path, "/plain")
 
     body = %{
       secret: text_to_share,

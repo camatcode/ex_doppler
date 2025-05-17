@@ -3,4 +3,5 @@ ExUnit.configure(formatters: [JUnitFormatter, ExUnit.CLIFormatter])
 ExUnit.start(timeout: 2 * 60 * 1000)
 
 defmodule Helper do
+  @moduledoc false
 end

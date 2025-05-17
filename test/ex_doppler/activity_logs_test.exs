@@ -1,15 +1,15 @@
 defmodule ExDoppler.ActivityLogsTest do
   use ExUnit.Case
-  doctest ExDoppler.ActivityLogs
 
   alias ExDoppler.ActivityLogs
+
+  doctest ExDoppler.ActivityLogs
 
   test "list_activity_logs/1 and get_activity_log/1" do
     assert {:ok, logs} = ActivityLogs.list_activity_logs()
     refute Enum.empty?(logs)
 
-    logs
-    |> Enum.each(fn log ->
+    Enum.each(logs, fn log ->
       assert log.created_at
       assert log.html
       assert log.id

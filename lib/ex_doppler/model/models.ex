@@ -9,8 +9,7 @@ defmodule ExDoppler.Model do
   end
 
   def prepare_values(m) do
-    m
-    |> Enum.map(fn {key, val} ->
+    Enum.map(m, fn {key, val} ->
       if val && String.ends_with?(key, "_at"),
         do: {key, DateTimeParser.parse_datetime!(val)},
         else: {key, val}
@@ -24,15 +23,13 @@ defmodule ExDoppler.Model do
   end
 
   def snake_case_keys(m) do
-    m
-    |> Enum.map(fn {key, val} ->
+    Enum.map(m, fn {key, val} ->
       {ProperCase.snake_case(key), val}
     end)
   end
 
   def atomize_keys(m) do
-    m
-    |> Enum.map(fn {key, val} ->
+    Enum.map(m, fn {key, val} ->
       key = String.to_atom(key)
       {key, val}
     end)

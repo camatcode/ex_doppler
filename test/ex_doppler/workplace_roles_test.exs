@@ -1,15 +1,15 @@
 defmodule ExDoppler.WorkplaceRolesTest do
   use ExUnit.Case
-  doctest ExDoppler.WorkplaceRoles
 
   alias ExDoppler.WorkplaceRoles
+
+  doctest ExDoppler.WorkplaceRoles
 
   test "list_workplace_roles/0, get_workplace_role/1" do
     assert {:ok, roles} = WorkplaceRoles.list_workplace_roles()
     refute Enum.empty?(roles)
 
-    roles
-    |> Enum.each(fn role ->
+    Enum.each(roles, fn role ->
       assert role.created_at
       assert role.identifier
       assert role.is_custom_role != nil

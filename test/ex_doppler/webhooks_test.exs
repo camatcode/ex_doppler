@@ -1,11 +1,12 @@
 defmodule ExDoppler.WebhooksTest do
   use ExUnit.Case
-  doctest ExDoppler.Webhooks
 
   alias ExDoppler.Configs
   alias ExDoppler.Projects
   alias ExDoppler.Webhook
   alias ExDoppler.Webhooks
+
+  doctest ExDoppler.Webhooks
 
   test "list_webhooks/1. delete_webhook/2, create_webhook/3, get_webhook/2, disable_webhook/2, enable_webhook/2" do
     assert [project | _] = Projects.list_projects!()
@@ -18,7 +19,7 @@ defmodule ExDoppler.WebhooksTest do
       |> Enum.take(2)
       |> Enum.map(fn config -> config.name end)
 
-    new_wh_slug = Faker.Internet.domain_word() |> String.replace("_", "-")
+    new_wh_slug = String.replace(Faker.Internet.domain_word(), "_", "-")
 
     _ = Webhooks.delete_webhook(project, %Webhook{id: new_wh_slug})
 

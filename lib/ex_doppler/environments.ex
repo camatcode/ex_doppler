@@ -44,9 +44,7 @@ defmodule ExDoppler.Environments do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@environments_api_path, qparams: opts) do
-      environments =
-        body["environments"]
-        |> Enum.map(&Environment.build/1)
+      environments = Enum.map(body["environments"], &Environment.build/1)
 
       {:ok, environments}
     end
@@ -83,11 +81,8 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-close -->
   """
-  def get_environment(%Project{name: project_name}, environment_slug)
-      when is_bitstring(environment_slug) do
-    path =
-      @environments_api_path
-      |> Path.join("/environment")
+  def get_environment(%Project{name: project_name}, environment_slug) when is_bitstring(environment_slug) do
+    path = Path.join(@environments_api_path, "/environment")
 
     opts = [qparams: [project: project_name, environment: environment_slug]]
 
@@ -132,14 +127,8 @@ defmodule ExDoppler.Environments do
 
   <!-- tabs-close -->
   """
-  def create_environment(
-        %Project{name: project_name},
-        env_name,
-        env_slug,
-        enable_personal_config \\ false
-      )
-      when is_bitstring(env_name) and is_bitstring(env_slug) and
-             is_boolean(enable_personal_config) do
+  def create_environment(%Project{name: project_name}, env_name, env_slug, enable_personal_config \\ false)
+      when is_bitstring(env_name) and is_bitstring(env_slug) and is_boolean(enable_personal_config) do
     body = %{name: env_name, slug: env_slug, personal_configs: enable_personal_config}
     opts = [qparams: [project: project_name], json: body]
 
@@ -151,12 +140,7 @@ defmodule ExDoppler.Environments do
   @doc """
   Same as `create_environment/4` but won't wrap a successful response in `{:ok, response}`
   """
-  def create_environment!(
-        %Project{} = project,
-        env_name,
-        env_slug,
-        enable_personal_config \\ false
-      ) do
+  def create_environment!(%Project{} = project, env_name, env_slug, enable_personal_config \\ false) do
     with {:ok, environment} <-
            create_environment(project, env_name, env_slug, enable_personal_config) do
       environment
@@ -195,9 +179,7 @@ defmodule ExDoppler.Environments do
   """
   def update_environment(%Environment{project: project_name, slug: env_slug}, opts \\ []) do
     with {:ok, environment} <- get_environment(%Project{name: project_name}, env_slug) do
-      path =
-        @environments_api_path
-        |> Path.join("/environment")
+      path = Path.join(@environments_api_path, "/environment")
 
       opts =
         Keyword.merge(
@@ -208,7 +190,7 @@ defmodule ExDoppler.Environments do
       body =
         %{name: opts[:name], slug: opts[:slug], personal_configs: opts[:personal_configs]}
         |> Enum.filter(fn {_k, v} -> v end)
-        |> Enum.into(%{})
+        |> Map.new()
 
       qparams = [project: project_name, environment: env_slug]
 
@@ -253,9 +235,7 @@ defmodule ExDoppler.Environments do
   def delete_environment(%Environment{project: project_name, slug: env_slug}) do
     opts = [qparams: [project: project_name, environment: env_slug]]
 
-    path =
-      @environments_api_path
-      |> Path.join("/environment")
+    path = Path.join(@environments_api_path, "/environment")
 
     with {:ok, %{body: _}} <- Requester.delete(path, opts) do
       {:ok, {:success, true}}

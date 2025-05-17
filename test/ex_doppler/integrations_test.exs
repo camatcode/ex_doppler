@@ -1,14 +1,14 @@
 defmodule ExDoppler.IntegrationsTest do
   use ExUnit.Case
-  doctest ExDoppler.Integrations
 
   alias ExDoppler.Integrations
+
+  doctest ExDoppler.Integrations
 
   test "list_integrations/0, get_integration/1, get_integration_options/1" do
     assert {:ok, integrations} = Integrations.list_integrations()
 
-    integrations
-    |> Enum.each(fn integration ->
+    Enum.each(integrations, fn integration ->
       assert integration.slug
       assert integration.name
       assert integration.type

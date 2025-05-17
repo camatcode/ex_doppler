@@ -58,9 +58,7 @@ defmodule ExDoppler.Secrets do
       )
 
     with {:ok, %{body: body}} <- Requester.get(@list_secrets_api_path, qparams: opts) do
-      secrets =
-        body["secrets"]
-        |> Enum.map(&Secret.build/1)
+      secrets = Enum.map(body["secrets"], &Secret.build/1)
 
       {:ok, secrets}
     end
@@ -96,8 +94,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-close -->
   """
-  def get_secret(%Config{name: config_name, project: project_name}, secret_name)
-      when is_bitstring(secret_name) do
+  def get_secret(%Config{name: config_name, project: project_name}, secret_name) when is_bitstring(secret_name) do
     opts = [project: project_name, config: config_name, name: secret_name]
 
     with {:ok, %{body: body}} <- Requester.get(@get_secrets_api_path, qparams: opts) do
@@ -155,9 +152,7 @@ defmodule ExDoppler.Secrets do
         opts
       )
 
-    path =
-      @list_secrets_api_path
-      |> Path.join("/download")
+    path = Path.join(@list_secrets_api_path, "/download")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: opts, decode_body: false) do
       {:ok, body}
@@ -209,9 +204,7 @@ defmodule ExDoppler.Secrets do
         opts
       )
 
-    path =
-      @list_secrets_api_path
-      |> Path.join("/names")
+    path = Path.join(@list_secrets_api_path, "/names")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: opts) do
       {:ok, body["names"]}
@@ -294,15 +287,11 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-close -->
   """
-  def update_secret(
-        %Config{name: config_name, project: project_name} = config,
-        secret_name,
-        value,
-        opts \\ []
-      )
+  def update_secret(%Config{name: config_name, project: project_name} = config, secret_name, value, opts \\ [])
       when is_bitstring(secret_name) and is_bitstring(value) do
     secret =
-      get_secret(config, secret_name)
+      config
+      |> get_secret(secret_name)
       |> case do
         {:ok, secret} -> secret
         _ -> nil
@@ -310,10 +299,9 @@ defmodule ExDoppler.Secrets do
 
     # Doppler foolishly uses camelCase for this route
     opts =
-      opts
-      |> Enum.map(fn
+      Enum.map(opts, fn
         {k, v} ->
-          {ProperCase.camel_case(k) |> String.to_atom(), v}
+          {k |> ProperCase.camel_case() |> String.to_atom(), v}
       end)
 
     opts =
@@ -330,7 +318,7 @@ defmodule ExDoppler.Secrets do
         opts
       )
 
-    change_request = opts |> Enum.filter(fn {_k, v} -> v end) |> Enum.into(%{})
+    change_request = opts |> Enum.filter(fn {_k, v} -> v end) |> Map.new()
 
     body =
       %{project: project_name, config: config_name, change_requests: [change_request]}
@@ -383,9 +371,7 @@ defmodule ExDoppler.Secrets do
   <!-- tabs-close -->
   """
   def update_secret_note(project_name, secret_name, note)
-      when is_bitstring(project_name) and
-             is_bitstring(secret_name) and
-             is_bitstring(note) do
+      when is_bitstring(project_name) and is_bitstring(secret_name) and is_bitstring(note) do
     opts = [qparams: [project: project_name], json: %{secret: secret_name, note: note}]
     path = "/v3/projects/project/note"
 
@@ -426,8 +412,7 @@ defmodule ExDoppler.Secrets do
 
   <!-- tabs-close -->
   """
-  def delete_secret(%Config{name: config_name, project: project_name}, secret_name)
-      when is_bitstring(secret_name) do
+  def delete_secret(%Config{name: config_name, project: project_name}, secret_name) when is_bitstring(secret_name) do
     opts = [qparams: [project: project_name, config: config_name, name: secret_name]]
 
     with {:ok, %{body: _}} <- Requester.delete(@get_secrets_api_path, opts) do

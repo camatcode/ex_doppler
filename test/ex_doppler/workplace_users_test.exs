@@ -1,16 +1,16 @@
 defmodule ExDoppler.WorkplaceUsersTest do
   use ExUnit.Case
-  doctest ExDoppler.WorkplaceUsers
 
   alias ExDoppler.WorkplaceUser
   alias ExDoppler.WorkplaceUsers
+
+  doctest ExDoppler.WorkplaceUsers
 
   test "list_workplace_users/1, get_workplace_user/1, update_workplace_user/2" do
     assert {:ok, wp_users} = WorkplaceUsers.list_workplace_users()
     refute Enum.empty?(wp_users)
 
-    wp_users
-    |> Enum.each(fn %WorkplaceUser{user: user} = wp_user ->
+    Enum.each(wp_users, fn %WorkplaceUser{user: user} = wp_user ->
       assert wp_user.access
       assert wp_user.created_at
       assert wp_user.id

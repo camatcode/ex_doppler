@@ -32,9 +32,7 @@ defmodule ExDoppler.ProjectRoles do
   """
   def list_project_roles do
     with {:ok, %{body: body}} <- Requester.get(@project_roles_api_path) do
-      roles =
-        body["roles"]
-        |> Enum.map(&ProjectRole.build/1)
+      roles = Enum.map(body["roles"], &ProjectRole.build/1)
 
       {:ok, roles}
     end
@@ -70,9 +68,7 @@ defmodule ExDoppler.ProjectRoles do
   <!-- tabs-close -->
   """
   def get_project_role(identifier) when is_bitstring(identifier) do
-    path =
-      @project_roles_api_path
-      |> Path.join("/role/#{identifier}")
+    path = Path.join(@project_roles_api_path, "/role/#{identifier}")
 
     with {:ok, %{body: body}} <- Requester.get(path) do
       {:ok, ProjectRole.build(body["role"])}
@@ -103,8 +99,7 @@ defmodule ExDoppler.ProjectRoles do
 
   <!-- tabs-close -->
   """
-  def create_project_role(name, permissions)
-      when is_bitstring(name) and is_list(permissions) do
+  def create_project_role(name, permissions) when is_bitstring(name) and is_list(permissions) do
     opts = [json: %{name: name, permissions: permissions}]
 
     with {:ok, %{body: body}} <- Requester.post(@project_roles_api_path, opts) do

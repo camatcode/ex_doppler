@@ -32,9 +32,7 @@ defmodule ExDoppler.Integrations do
   """
   def list_integrations do
     with {:ok, %{body: body}} <- Requester.get(@integrations_api_path) do
-      integrations =
-        body["integrations"]
-        |> Enum.map(&Integration.build/1)
+      integrations = Enum.map(body["integrations"], &Integration.build/1)
 
       {:ok, integrations}
     end
@@ -70,9 +68,7 @@ defmodule ExDoppler.Integrations do
   <!-- tabs-close -->
   """
   def get_integration(integration_slug) when is_bitstring(integration_slug) do
-    path =
-      @integrations_api_path
-      |> Path.join("/integration")
+    path = Path.join(@integrations_api_path, "/integration")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [integration: integration_slug]) do
       {:ok, Integration.build(body["integration"])}
@@ -109,8 +105,7 @@ defmodule ExDoppler.Integrations do
 
   <!-- tabs-close -->
   """
-  def create_integration(type, name, data)
-      when is_bitstring(type) and is_bitstring(name) and is_map(data) do
+  def create_integration(type, name, data) when is_bitstring(type) and is_bitstring(name) and is_map(data) do
     body = %{type: type, name: name, data: data}
 
     with {:ok, %{body: body}} <- Requester.post(@integrations_api_path, json: body) do
@@ -146,11 +141,8 @@ defmodule ExDoppler.Integrations do
 
   <!-- tabs-close -->
   """
-  def update_integration(%Integration{slug: slug}, new_name, new_data)
-      when is_bitstring(new_name) and is_map(new_data) do
-    path =
-      @integrations_api_path
-      |> Path.join("/integration")
+  def update_integration(%Integration{slug: slug}, new_name, new_data) when is_bitstring(new_name) and is_map(new_data) do
+    path = Path.join(@integrations_api_path, "/integration")
 
     body = %{name: new_name, data: new_data}
 
@@ -194,9 +186,7 @@ defmodule ExDoppler.Integrations do
   <!-- tabs-close -->
   """
   def get_integration_options(integration_slug) when is_bitstring(integration_slug) do
-    path =
-      @integrations_api_path
-      |> Path.join("/integration/options")
+    path = Path.join(@integrations_api_path, "/integration/options")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [integration: integration_slug]) do
       {:ok, body["options"]}
@@ -227,9 +217,7 @@ defmodule ExDoppler.Integrations do
   <!-- tabs-close -->
   """
   def delete_integration(%Integration{slug: slug}) do
-    path =
-      @integrations_api_path
-      |> Path.join("/integration")
+    path = Path.join(@integrations_api_path, "/integration")
 
     opts = [qparams: [integration: slug]]
 

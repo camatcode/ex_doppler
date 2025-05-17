@@ -44,9 +44,7 @@ defmodule ExDoppler.Configs do
     opts = Keyword.merge([page: 1, per_page: 20, project: project_name], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@configs_api_path, qparams: opts) do
-      configs =
-        body["configs"]
-        |> Enum.map(&Config.build/1)
+      configs = Enum.map(body["configs"], &Config.build/1)
 
       {:ok, configs}
     end
@@ -81,11 +79,8 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-close -->
   """
-  def get_config(project_name, config_name)
-      when is_bitstring(project_name) and is_bitstring(config_name) do
-    path =
-      @configs_api_path
-      |> Path.join("/config")
+  def get_config(project_name, config_name) when is_bitstring(project_name) and is_bitstring(config_name) do
+    path = Path.join(@configs_api_path, "/config")
 
     with {:ok, %{body: body}} <-
            Requester.get(path, qparams: [project: project_name, config: config_name]) do
@@ -127,9 +122,7 @@ defmodule ExDoppler.Configs do
   <!-- tabs-close -->
   """
   def create_config(project_name, environment_id, config_name)
-      when is_bitstring(project_name) and
-             is_bitstring(environment_id) and
-             is_bitstring(config_name) do
+      when is_bitstring(project_name) and is_bitstring(environment_id) and is_bitstring(config_name) do
     body = %{project: project_name, environment: environment_id, name: config_name}
 
     with {:ok, %{body: body}} <- Requester.post(@configs_api_path, json: body) do
@@ -172,12 +165,8 @@ defmodule ExDoppler.Configs do
   <!-- tabs-close -->
   """
   def rename_config(project_name, current_config_name, new_config_name)
-      when is_bitstring(project_name) and
-             is_bitstring(current_config_name) and
-             is_bitstring(new_config_name) do
-    path =
-      @configs_api_path
-      |> Path.join("/config")
+      when is_bitstring(project_name) and is_bitstring(current_config_name) and is_bitstring(new_config_name) do
+    path = Path.join(@configs_api_path, "/config")
 
     body = %{project: project_name, config: current_config_name, name: new_config_name}
 
@@ -222,12 +211,8 @@ defmodule ExDoppler.Configs do
   <!-- tabs-close -->
   """
   def clone_config(project_name, source_config, new_config_name)
-      when is_bitstring(project_name) and
-             is_bitstring(source_config) and
-             is_bitstring(new_config_name) do
-    path =
-      @configs_api_path
-      |> Path.join("/config/clone")
+      when is_bitstring(project_name) and is_bitstring(source_config) and is_bitstring(new_config_name) do
+    path = Path.join(@configs_api_path, "/config/clone")
 
     body = %{project: project_name, config: source_config, name: new_config_name}
 
@@ -270,12 +255,8 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-close -->
   """
-  def lock_config(project_name, config_name)
-      when is_bitstring(project_name) and
-             is_bitstring(config_name) do
-    path =
-      @configs_api_path
-      |> Path.join("/config/lock")
+  def lock_config(project_name, config_name) when is_bitstring(project_name) and is_bitstring(config_name) do
+    path = Path.join(@configs_api_path, "/config/lock")
 
     body = %{project: project_name, config: config_name}
 
@@ -318,12 +299,8 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-close -->
   """
-  def unlock_config(project_name, config_name)
-      when is_bitstring(project_name) and
-             is_bitstring(config_name) do
-    path =
-      @configs_api_path
-      |> Path.join("/config/unlock")
+  def unlock_config(project_name, config_name) when is_bitstring(project_name) and is_bitstring(config_name) do
+    path = Path.join(@configs_api_path, "/config/unlock")
 
     body = %{project: project_name, config: config_name}
 
@@ -342,9 +319,7 @@ defmodule ExDoppler.Configs do
   end
 
   def set_config_inheritable(project_name, config_name, is_inheritable) do
-    path =
-      @configs_api_path
-      |> Path.join("/config/inheritable")
+    path = Path.join(@configs_api_path, "/config/inheritable")
 
     body = %{project: project_name, config: config_name, inheritable: is_inheritable}
 
@@ -385,12 +360,8 @@ defmodule ExDoppler.Configs do
 
   <!-- tabs-close -->
   """
-  def delete_config(project_name, config_name)
-      when is_bitstring(project_name) and
-             is_bitstring(config_name) do
-    path =
-      @configs_api_path
-      |> Path.join("/config")
+  def delete_config(project_name, config_name) when is_bitstring(project_name) and is_bitstring(config_name) do
+    path = Path.join(@configs_api_path, "/config")
 
     opts = [qparams: [project: project_name, config: config_name]]
 
@@ -408,11 +379,8 @@ defmodule ExDoppler.Configs do
     end
   end
 
-  def list_trusted_ips(project_name, config_name)
-      when is_bitstring(project_name) and is_bitstring(config_name) do
-    path =
-      @configs_api_path
-      |> Path.join("/config/trusted_ips")
+  def list_trusted_ips(project_name, config_name) when is_bitstring(project_name) and is_bitstring(config_name) do
+    path = Path.join(@configs_api_path, "/config/trusted_ips")
 
     with {:ok, %{body: body}} <-
            Requester.get(path, qparams: [project: project_name, config: config_name]) do

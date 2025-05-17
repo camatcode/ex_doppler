@@ -40,9 +40,7 @@ defmodule ExDoppler.Invites do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@invites_api_path, qparams: opts) do
-      invites =
-        body["invites"]
-        |> Enum.map(&Invite.build/1)
+      invites = Enum.map(body["invites"], &Invite.build/1)
 
       {:ok, invites}
     end

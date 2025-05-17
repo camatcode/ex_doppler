@@ -40,9 +40,7 @@ defmodule ExDoppler.Webhooks do
     opts = [qparams: [project: name]]
 
     with {:ok, %{body: body}} <- Requester.get(@webhooks_api_path, opts) do
-      webhooks =
-        body["webhooks"]
-        |> Enum.map(&Webhook.build/1)
+      webhooks = Enum.map(body["webhooks"], &Webhook.build/1)
 
       {:ok, webhooks}
     end
@@ -83,9 +81,7 @@ defmodule ExDoppler.Webhooks do
   <!-- tabs-close -->
   """
   def get_webhook(%Project{name: project_name}, id) when is_bitstring(id) do
-    path =
-      @webhooks_api_path
-      |> Path.join("/webhook/#{id}")
+    path = Path.join(@webhooks_api_path, "/webhook/#{id}")
 
     opts = [qparams: [project: project_name]]
 
@@ -129,9 +125,7 @@ defmodule ExDoppler.Webhooks do
   <!-- tabs-close -->
   """
   def enable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
-    path =
-      @webhooks_api_path
-      |> Path.join("/webhook/#{id}/enable")
+    path = Path.join(@webhooks_api_path, "/webhook/#{id}/enable")
 
     opts = [qparams: [project: project_name]]
 
@@ -175,9 +169,7 @@ defmodule ExDoppler.Webhooks do
   <!-- tabs-close -->
   """
   def disable_webhook(%Project{name: project_name}, %Webhook{id: id}) do
-    path =
-      @webhooks_api_path
-      |> Path.join("/webhook/#{id}/disable")
+    path = Path.join(@webhooks_api_path, "/webhook/#{id}/disable")
 
     opts = [qparams: [project: project_name]]
 
@@ -225,8 +217,7 @@ defmodule ExDoppler.Webhooks do
 
   <!-- tabs-close -->
   """
-  def create_webhook(%Project{name: project_name}, url, opts \\ [])
-      when is_bitstring(url) do
+  def create_webhook(%Project{name: project_name}, url, opts \\ []) when is_bitstring(url) do
     # Doppler uses camelCase for this route
     body =
       %{
@@ -238,7 +229,7 @@ defmodule ExDoppler.Webhooks do
         authentication: opts[:authentication]
       }
       |> Enum.filter(fn {_k, v} -> v != nil end)
-      |> Enum.into(%{})
+      |> Map.new()
 
     opts = [qparams: [project: project_name], json: body]
 
@@ -280,9 +271,7 @@ defmodule ExDoppler.Webhooks do
   <!-- tabs-close -->
   """
   def delete_webhook(%Project{name: project_name}, %Webhook{id: id}) do
-    path =
-      @webhooks_api_path
-      |> Path.join("/webhook/#{id}")
+    path = Path.join(@webhooks_api_path, "/webhook/#{id}")
 
     opts = [qparams: [project: project_name]]
 

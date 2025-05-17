@@ -33,9 +33,7 @@ defmodule ExDoppler.WorkplaceRoles do
   """
   def list_workplace_roles do
     with {:ok, %{body: body}} <- Requester.get(@workplace_roles_api_path) do
-      roles =
-        body["roles"]
-        |> Enum.map(&WorkplaceRole.build/1)
+      roles = Enum.map(body["roles"], &WorkplaceRole.build/1)
 
       {:ok, roles}
     end
@@ -70,9 +68,7 @@ defmodule ExDoppler.WorkplaceRoles do
   <!-- tabs-close -->
   """
   def get_workplace_role(identifier) when is_bitstring(identifier) do
-    path =
-      @workplace_roles_api_path
-      |> Path.join("/role/#{identifier}")
+    path = Path.join(@workplace_roles_api_path, "/role/#{identifier}")
 
     with {:ok, %{body: body}} <- Requester.get(path) do
       {:ok, WorkplaceRole.build(body["role"])}

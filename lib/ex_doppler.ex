@@ -36,8 +36,7 @@ defmodule ExDoppler do
 
   <!-- tabs-close -->
   """
-  def list_secrets(project_name, config_name, opts \\ [])
-      when is_bitstring(project_name) and is_bitstring(config_name) do
+  def list_secrets(project_name, config_name, opts \\ []) when is_bitstring(project_name) and is_bitstring(config_name) do
     Secrets.list_secrets(%Config{name: config_name, project: project_name}, opts)
   end
 
@@ -276,13 +275,7 @@ defmodule ExDoppler do
 
   <!-- tabs-close -->
   """
-  def update_secret(
-        project_name,
-        config_name,
-        secret_name,
-        value,
-        opts \\ []
-      )
+  def update_secret(project_name, config_name, secret_name, value, opts \\ [])
       when is_bitstring(project_name) and is_bitstring(config_name) do
     Secrets.update_secret(
       %Config{project: project_name, name: config_name},
@@ -295,13 +288,7 @@ defmodule ExDoppler do
   @doc """
   Same as `update_secret/5` but won't wrap a successful response in `{:ok, response}`
   """
-  def update_secret!(
-        project_name,
-        config_name,
-        secret_name,
-        value,
-        opts \\ []
-      )
+  def update_secret!(project_name, config_name, secret_name, value, opts \\ [])
       when is_bitstring(project_name) and is_bitstring(config_name) do
     Secrets.update_secret!(
       %Config{project: project_name, name: config_name},

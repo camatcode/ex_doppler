@@ -14,8 +14,9 @@ defmodule ExDoppler.Workplace do
 
   <!-- tabs-close -->
   """
-  defstruct [:billing_email, :name, :security_email, :id]
   import ExDoppler.Model
+
+  defstruct [:billing_email, :name, :security_email, :id]
 
   @doc """
   Creates a `Workplace` from a map

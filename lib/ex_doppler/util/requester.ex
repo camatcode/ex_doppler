@@ -11,7 +11,8 @@ defmodule ExDoppler.Requester do
     is_retry = opts[:is_retry]
 
     opts =
-      Keyword.delete(opts, :qparams)
+      opts
+      |> Keyword.delete(:qparams)
       |> Keyword.delete(:is_retry)
       |> Keyword.put(:headers, [auth_header()])
 
@@ -20,7 +21,8 @@ defmodule ExDoppler.Requester do
       |> Path.join(path)
       |> handle_qparams(qparams)
 
-    make_request(method, path, opts)
+    method
+    |> make_request(path, opts)
     |> case do
       {:ok, %Req.Response{status: 200, body: _body, headers: _headers}} = resp ->
         resp
@@ -40,7 +42,7 @@ defmodule ExDoppler.Requester do
           )
 
           :timer.sleep(milliseconds)
-          new_opts = Keyword.merge(opts, is_retry: true)
+          new_opts = Keyword.put(opts, :is_retry, true)
           request(method, path, new_opts)
         end
 

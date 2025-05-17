@@ -35,9 +35,7 @@ defmodule ExDoppler.ServiceAccounts do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@service_accounts_api_path, qparams: opts) do
-      accounts =
-        body["service_accounts"]
-        |> Enum.map(&ServiceAccount.build/1)
+      accounts = Enum.map(body["service_accounts"], &ServiceAccount.build/1)
 
       {:ok, accounts}
     end
