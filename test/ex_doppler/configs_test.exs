@@ -1,18 +1,18 @@
 defmodule ExDoppler.ConfigsTest do
   use ExUnit.Case
-  doctest ExDoppler.Configs
 
   alias ExDoppler.Configs
   alias ExDoppler.Environments
   alias ExDoppler.Projects
+
+  doctest ExDoppler.Configs
 
   test "list_configs/2 and get_config/2" do
     assert [project | _] = Projects.list_projects!()
     assert {:ok, configs} = Configs.list_configs(project)
     refute Enum.empty?(configs)
 
-    configs
-    |> Enum.each(fn config ->
+    Enum.each(configs, fn config ->
       assert config.created_at
       assert config.environment
       assert config.inheritable != nil
@@ -33,7 +33,7 @@ defmodule ExDoppler.ConfigsTest do
     assert [environment | _] = Environments.list_environments!(project)
 
     new_config_name =
-      environment.slug <> "_#{Faker.Internet.domain_word() |> String.replace("_", "-")}"
+      environment.slug <> "_#{String.replace(Faker.Internet.domain_word(), "_", "-")}"
 
     _ = Configs.delete_config(project.name, new_config_name)
 
@@ -43,7 +43,7 @@ defmodule ExDoppler.ConfigsTest do
     assert new_config.name == new_config_name
 
     renamed_config_name =
-      "#{environment.slug}_#{Faker.Internet.domain_word() |> String.replace("_", "-")}"
+      "#{environment.slug}_#{String.replace(Faker.Internet.domain_word(), "_", "-")}"
 
     Configs.delete_config(project.name, renamed_config_name)
 

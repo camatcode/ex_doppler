@@ -43,7 +43,7 @@ defmodule ExDoppler.Integration do
   end
 
   defp serialize(_, nil), do: nil
-  defp serialize(:syncs, val), do: val |> Enum.map(&Sync.build/1)
+  defp serialize(:syncs, val), do: Enum.map(val, &Sync.build/1)
   defp serialize(_, val), do: val
 end
 

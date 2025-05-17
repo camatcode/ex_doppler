@@ -1,23 +1,22 @@
 defmodule ExDoppler.ConfigLogsTest do
   use ExUnit.Case
-  doctest ExDoppler.ConfigLogs
 
   alias ExDoppler.ConfigLogs
   alias ExDoppler.Configs
   alias ExDoppler.Projects
+
+  doctest ExDoppler.ConfigLogs
 
   test "list_config_logs/2 and get_config_log/2" do
     assert [project | _] = Projects.list_projects!()
     assert configs = Configs.list_configs!(project)
     refute Enum.empty?(configs)
 
-    configs
-    |> Enum.each(fn config ->
+    Enum.each(configs, fn config ->
       {:ok, logs} =
         ConfigLogs.list_config_logs(config)
 
-      logs
-      |> Enum.each(fn log ->
+      Enum.each(logs, fn log ->
         assert log.config
         assert log.created_at
         assert log.environment
@@ -37,12 +36,13 @@ defmodule ExDoppler.ConfigLogsTest do
     assert configs = Configs.list_configs!(project)
     refute Enum.empty?(configs)
 
-    configs
-    |> Enum.each(fn config ->
-      ConfigLogs.list_config_logs!(config)
+    Enum.each(configs, fn config ->
+      config
+      |> ConfigLogs.list_config_logs!()
       |> Enum.take(1)
       |> Enum.each(fn log ->
-        ConfigLogs.rollback_config_log(log)
+        log
+        |> ConfigLogs.rollback_config_log()
         |> case do
           {:ok, log} -> assert log.rollback
           _ -> :ok

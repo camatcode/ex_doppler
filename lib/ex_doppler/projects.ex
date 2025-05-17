@@ -40,9 +40,7 @@ defmodule ExDoppler.Projects do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@projects_api_path, qparams: opts) do
-      projects =
-        body["projects"]
-        |> Enum.map(&Project.build/1)
+      projects = Enum.map(body["projects"], &Project.build/1)
 
       {:ok, projects}
     end
@@ -77,9 +75,7 @@ defmodule ExDoppler.Projects do
   <!-- tabs-close -->
   """
   def get_project(identifier) when is_bitstring(identifier) do
-    path =
-      @projects_api_path
-      |> Path.join("/project")
+    path = Path.join(@projects_api_path, "/project")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [project: identifier]) do
       {:ok, Project.build(body["project"])}
@@ -118,12 +114,11 @@ defmodule ExDoppler.Projects do
 
   <!-- tabs-close -->
   """
-  def create_project(project_name, description \\ "")
-      when is_bitstring(project_name) and is_bitstring(description) do
+  def create_project(project_name, description \\ "") when is_bitstring(project_name) and is_bitstring(description) do
     body =
       %{name: project_name, description: description}
       |> Enum.filter(fn {_k, v} -> v end)
-      |> Enum.into(%{})
+      |> Map.new()
 
     with {:ok, %{body: body}} <- Requester.post(@projects_api_path, json: body) do
       {:ok, Project.build(body["project"])}
@@ -172,11 +167,9 @@ defmodule ExDoppler.Projects do
       body =
         %{project: project.id, name: opts[:name], description: opts[:description]}
         |> Enum.filter(fn {_k, v} -> v end)
-        |> Enum.into(%{})
+        |> Map.new()
 
-      path =
-        @projects_api_path
-        |> Path.join("/project")
+      path = Path.join(@projects_api_path, "/project")
 
       with {:ok, %{body: body}} <- Requester.post(path, json: body) do
         {:ok, Project.build(body["project"])}
@@ -216,9 +209,7 @@ defmodule ExDoppler.Projects do
   <!-- tabs-close -->
   """
   def delete_project(%Project{name: project_name}) do
-    path =
-      @projects_api_path
-      |> Path.join("/project")
+    path = Path.join(@projects_api_path, "/project")
 
     with {:ok, %{body: _}} <-
            Requester.delete(path, json: %{project: project_name}) do
@@ -247,9 +238,7 @@ defmodule ExDoppler.Projects do
   <!-- tabs-close -->
   """
   def list_project_permissions do
-    path =
-      @projects_api_path
-      |> Path.join("/permissions")
+    path = Path.join(@projects_api_path, "/permissions")
 
     with {:ok, %{body: body}} <- Requester.get(path) do
       {:ok, body["permissions"]}

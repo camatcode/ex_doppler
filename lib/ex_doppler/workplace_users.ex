@@ -40,9 +40,7 @@ defmodule ExDoppler.WorkplaceUsers do
     opts = Keyword.merge([page: 1, email: nil], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@workplace_users_api_path, qparams: opts) do
-      workplace_users =
-        body["workplace_users"]
-        |> Enum.map(&WorkplaceUser.build/1)
+      workplace_users = Enum.map(body["workplace_users"], &WorkplaceUser.build/1)
 
       {:ok, workplace_users}
     end
@@ -78,9 +76,7 @@ defmodule ExDoppler.WorkplaceUsers do
   <!-- tabs-close -->
   """
   def get_workplace_user(id) when is_bitstring(id) do
-    path =
-      @workplace_users_api_path
-      |> Path.join("/#{id}")
+    path = Path.join(@workplace_users_api_path, "/#{id}")
 
     with {:ok, %{body: body}} <- Requester.get(path) do
       {:ok, WorkplaceUser.build(body["workplace_user"])}
@@ -117,11 +113,8 @@ defmodule ExDoppler.WorkplaceUsers do
 
   <!-- tabs-close -->
   """
-  def update_workplace_user(%WorkplaceUser{id: id}, new_access)
-      when is_bitstring(new_access) or is_atom(new_access) do
-    path =
-      @workplace_users_api_path
-      |> Path.join("/#{id}")
+  def update_workplace_user(%WorkplaceUser{id: id}, new_access) when is_bitstring(new_access) or is_atom(new_access) do
+    path = Path.join(@workplace_users_api_path, "/#{id}")
 
     opts = [json: %{access: new_access}]
 

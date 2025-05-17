@@ -40,7 +40,7 @@ defmodule ExDoppler.ActivityLogs do
     opts = Keyword.merge([page: 1, per_page: 20], opts)
 
     with {:ok, %{body: body}} <- Requester.get(@activity_logs_api_path, qparams: opts) do
-      logs = body["logs"] |> Enum.map(&ActivityLog.build/1)
+      logs = Enum.map(body["logs"], &ActivityLog.build/1)
       {:ok, logs}
     end
   end
@@ -76,9 +76,7 @@ defmodule ExDoppler.ActivityLogs do
   <!-- tabs-close -->
   """
   def get_activity_log(id) when is_bitstring(id) do
-    path =
-      @activity_logs_api_path
-      |> Path.join("/log")
+    path = Path.join(@activity_logs_api_path, "/log")
 
     with {:ok, %{body: body}} <- Requester.get(path, qparams: [log: id]) do
       {:ok, ActivityLog.build(body["log"])}

@@ -13,10 +13,11 @@ defmodule ExDoppler.WorkplaceUser do
 
   <!-- tabs-close -->
   """
-  defstruct [:access, :created_at, :id, :user]
   import ExDoppler.Model
 
   alias ExDoppler.User
+
+  defstruct [:access, :created_at, :id, :user]
 
   @doc """
   Creates an `WorkplaceUser` from a map

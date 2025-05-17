@@ -1,8 +1,9 @@
 defmodule ExDoppler.AuthsTest do
   use ExUnit.Case
-  doctest ExDoppler.Auths
 
   alias ExDoppler.Auths
+
+  doctest ExDoppler.Auths
 
   test "me/0" do
     assert {:ok, token_info} = Auths.me()

@@ -17,6 +17,7 @@ defmodule ExDoppler.Environment do
   <!-- tabs-close -->
   """
   import ExDoppler.Model
+
   defstruct [:created_at, :id, :initial_fetch_at, :name, :project, :slug]
 
   @doc """
