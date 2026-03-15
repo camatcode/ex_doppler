@@ -3,7 +3,7 @@ defmodule ExDoppler.ActivityLogsTest do
 
   alias ExDoppler.ActivityLogs
 
-  doctest ExDoppler.ActivityLogs
+  doctest ActivityLogs
 
   test "list_activity_logs/1 and get_activity_log/1" do
     assert {:ok, logs} = ActivityLogs.list_activity_logs()

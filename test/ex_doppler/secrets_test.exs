@@ -6,7 +6,7 @@ defmodule ExDoppler.SecretsTest do
   alias ExDoppler.Projects
   alias ExDoppler.Secrets
 
-  doctest ExDoppler.Secrets
+  doctest Secrets
 
   test "list_secrets/1, get_secret/2, download/2, list_secret_names/2" do
     assert [project | _] = Projects.list_projects!()

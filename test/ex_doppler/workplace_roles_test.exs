@@ -3,7 +3,7 @@ defmodule ExDoppler.WorkplaceRolesTest do
 
   alias ExDoppler.WorkplaceRoles
 
-  doctest ExDoppler.WorkplaceRoles
+  doctest WorkplaceRoles
 
   test "list_workplace_roles/0, get_workplace_role/1" do
     assert {:ok, roles} = WorkplaceRoles.list_workplace_roles()
@@ -12,8 +12,8 @@ defmodule ExDoppler.WorkplaceRolesTest do
     Enum.each(roles, fn role ->
       assert role.created_at
       assert role.identifier
-      assert role.is_custom_role != nil
-      assert role.is_inline_role != nil
+      assert role.is_custom_role
+      assert role.is_inline_role
       assert role.name
       assert role.permissions
       refute Enum.empty?(role.permissions)

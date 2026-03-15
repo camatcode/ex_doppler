@@ -4,7 +4,7 @@ defmodule ExDoppler.ProjectMembersTest do
   alias ExDoppler.ProjectMembers
   alias ExDoppler.Projects
 
-  doctest ExDoppler.ProjectMembers
+  doctest ProjectMembers
 
   test "list_project_members/2, get_project_member/3" do
     [project | _] = Projects.list_projects!()
@@ -12,7 +12,7 @@ defmodule ExDoppler.ProjectMembersTest do
     refute Enum.empty?(members)
 
     Enum.each(members, fn member ->
-      assert member.access_all_environments != nil
+      assert member.access_all_environments
       assert member.role.identifier
       assert member.slug
       assert member.type
