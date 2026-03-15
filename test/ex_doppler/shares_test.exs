@@ -3,7 +3,7 @@ defmodule ExDoppler.SharesTest do
 
   alias ExDoppler.Shares
 
-  doctest ExDoppler.Shares
+  doctest Shares
 
   test "plain_text/2" do
     share_text = String.replace(Faker.Internet.domain_word(), "_", "-")

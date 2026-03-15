@@ -6,7 +6,7 @@ defmodule ExDoppler.SecretSyncsTest do
   alias ExDoppler.Integrations
   alias ExDoppler.SecretSyncs
 
-  doctest ExDoppler.SecretSyncs
+  doctest SecretSyncs
 
   test "create_secrets_sync/3, delete_secrets_sync/2, get_secrets_sync/2" do
     assert [integration | _] = Integrations.list_integrations!()
