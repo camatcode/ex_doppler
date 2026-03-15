@@ -6,7 +6,7 @@ defmodule ExDoppler.ServiceTokensTest do
   alias ExDoppler.ServiceToken
   alias ExDoppler.ServiceTokens
 
-  doctest ExDoppler.ServiceTokens
+  doctest ServiceTokens
 
   test "list_service_tokens/1, delete_service_token/1, create_service_token/2" do
     assert [project | _] = Projects.list_projects!()

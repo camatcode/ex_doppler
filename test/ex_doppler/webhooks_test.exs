@@ -6,7 +6,7 @@ defmodule ExDoppler.WebhooksTest do
   alias ExDoppler.Webhook
   alias ExDoppler.Webhooks
 
-  doctest ExDoppler.Webhooks
+  doctest Webhooks
 
   test "list_webhooks/1. delete_webhook/2, create_webhook/3, get_webhook/2, disable_webhook/2, enable_webhook/2" do
     assert [project | _] = Projects.list_projects!()
@@ -33,7 +33,7 @@ defmodule ExDoppler.WebhooksTest do
     assert webhook.name
     assert webhook.authentication.type == "Basic"
     assert webhook.can_manage
-    assert webhook.has_secret != nil
+    assert webhook.has_secret
     assert webhook.id
     assert webhook.url
 

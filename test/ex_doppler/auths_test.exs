@@ -3,7 +3,7 @@ defmodule ExDoppler.AuthsTest do
 
   alias ExDoppler.Auths
 
-  doctest ExDoppler.Auths
+  doctest Auths
 
   test "me/0" do
     assert {:ok, token_info} = Auths.me()

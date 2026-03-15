@@ -5,7 +5,7 @@ defmodule ExDoppler.ConfigsTest do
   alias ExDoppler.Environments
   alias ExDoppler.Projects
 
-  doctest ExDoppler.Configs
+  doctest Configs
 
   test "list_configs/2 and get_config/2" do
     assert [project | _] = Projects.list_projects!()
@@ -15,13 +15,13 @@ defmodule ExDoppler.ConfigsTest do
     Enum.each(configs, fn config ->
       assert config.created_at
       assert config.environment
-      assert config.inheritable != nil
-      assert config.inheriting != nil
+      assert config.inheritable
+      assert config.inheriting
       assert config.inherits
-      assert config.locked != nil
+      assert config.locked
       assert config.name
       assert config.project
-      assert config.root != nil
+      assert config.root
       assert config.slug
 
       assert {:ok, config} == Configs.get_config(config.project, config.name)

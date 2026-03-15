@@ -5,7 +5,7 @@ defmodule ExDoppler.ConfigLogsTest do
   alias ExDoppler.Configs
   alias ExDoppler.Projects
 
-  doctest ExDoppler.ConfigLogs
+  doctest ConfigLogs
 
   test "list_config_logs/2 and get_config_log/2" do
     assert [project | _] = Projects.list_projects!()
@@ -23,7 +23,7 @@ defmodule ExDoppler.ConfigLogsTest do
         assert log.html
         assert log.id
         assert log.project
-        assert log.rollback != nil
+        assert log.rollback
         assert log.text
         assert log.user
         assert log == ConfigLogs.get_config_log!(config, log.id)

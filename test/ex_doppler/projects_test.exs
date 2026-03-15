@@ -4,7 +4,7 @@ defmodule ExDoppler.ProjectsTest do
   alias ExDoppler.Project
   alias ExDoppler.Projects
 
-  doctest ExDoppler.Projects
+  doctest Projects
 
   test "list_projects/1, get_project/1" do
     {:ok, projects} = Projects.list_projects()

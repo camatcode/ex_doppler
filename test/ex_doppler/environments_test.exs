@@ -5,7 +5,7 @@ defmodule ExDoppler.EnvironmentsTest do
   alias ExDoppler.Environments
   alias ExDoppler.Projects
 
-  doctest ExDoppler.Environments
+  doctest Environments
 
   test "list_environments/2, get_environment/2" do
     [project | _] = Projects.list_projects!()
