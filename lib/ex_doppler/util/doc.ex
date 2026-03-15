@@ -15,7 +15,9 @@ defmodule ExDoppler.Doc do
   * #{see_api_docs("https://docs.doppler.com/reference/#{doppler_api_doc}")}
   * #{contact_maintainer()}
     * #{maintainer_github()}
+    * #{see_link("Elixir Form: camatcode", "https://elixirforum.com/u/camatcode/", "⚗️")}
     * #{maintainer_fediverse()}
+    * #{see_link("bsky: @elixir.blog", "https://bsky.app/profile/elixir.blog", "🦋️")}
     "
   end
 
@@ -52,7 +54,8 @@ defmodule ExDoppler.Doc do
     see_link("Doppler docs", url)
   end
 
-  def see_link(title, url) do
-    "📖 [#{title}](#{url}){:target=\"_blank\"}"
+  defp see_link(title, url, emoji \\ "📖") do
+    "#{emoji} [#{title}](#{url}){:target=\"_blank\"}"
   end
+
 end
